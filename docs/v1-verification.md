@@ -48,7 +48,9 @@ Primary references checked during the assessment: [Vite Windows file access](htt
 
 ## Secret and source hygiene
 
-The scanner checks tracked filenames/content and the complete build for credential signatures and exact known local secret values without printing them. Local `.env*`, private Site identity, dependencies, caches, outputs, traces, and ignored work copies are excluded from version control. No new license was invented; existing content ownership still requires the owner's confirmation before granting others reuse rights. Added screenshots are locally captured from this project, with no external art/fonts/models.
+Final secret scans **passed for all 33 tracked files and all 12 build files**, with no detected credential signatures or exact known local secret values. Neither values nor matching lines were printed. The baseline was separately scanned before its preservation commit. Local `.env*`, private Site identity, dependencies, caches, outputs, traces, and ignored work copies are excluded from version control. No new license was invented; existing content ownership still requires the owner's confirmation before granting others reuse rights. Added screenshots are locally captured from this project, with no external art/fonts/models.
+
+The implementation/lockfile/docs are committed as `5ca5167` on `main`, following the `f989f90` preservation commit; this verification note is recorded in a final documentation commit. `git diff --check` passed. No remote is configured. The repository is prepared for the owner's destination choice; no tag, push or deployment was performed.
 
 ## Remaining limits and manual release checklist
 
