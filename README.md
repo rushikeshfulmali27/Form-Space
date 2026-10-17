@@ -36,7 +36,7 @@ npx playwright install chromium
 npm run test:browser      # Chromium desktop, tablet, mobile + failure/fallback cases
 ```
 
-On Linux CI, install the browser with `npx playwright install --with-deps chromium`. A validation-only GitHub Actions workflow is included. It does not deploy. Browser reports/traces are ignored. The built app itself works with zero installed npm packages; `npm ci` is for repeatable development tests.
+On Linux CI, install the browser with `npx playwright install --with-deps chromium`. GitHub Actions validates all changes and deploys verified builds from `main` to GitHub Pages. Pull requests run validation without deploying. Browser reports/traces are ignored. The built app itself works with zero installed npm packages; `npm ci` is for repeatable development tests.
 
 ## Controls and saving
 
@@ -58,9 +58,9 @@ On Linux CI, install the browser with `npx playwright install --with-deps chromi
 
 Publish **only the contents of `dist/`** with a static host. Relative asset paths support a domain root and a GitHub Pages repository subpath; the tests run the build under `/FORM_Studio/`. The build does not copy source directories, history, `.env.local`, private Site identity, or deferred AI code. A CSP in the HTML blocks network API connections; `_headers` adds matching security headers on hosts that support that format. GitHub Pages uses the HTML CSP but does not process `_headers`.
 
-For GitHub Pages, use GitHub Actions as the Pages source, run the checks/build above, and upload **`dist`** as the Pages artifact in a deployment workflow. Follow [GitHub's custom workflow guide](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages). A deployment workflow is intentionally not enabled until the repository/hosting destination is chosen. For other static hosts, select their static/no-framework preset and the build/output settings above. Do not point a host at the repository root or enable a fallback that serves `index.html` for `/api/design`.
+GitHub Pages is the selected public host for [Form-Space](https://github.com/rushikeshfulmali27/Form-Space). Pages uses **GitHub Actions** as its source. The workflow runs the checks above, uploads only **`dist`**, and deploys after validation succeeds. Deployments use the `github-pages` environment and minimal Pages/OIDC permissions. The public address is **https://rushikeshfulmali27.github.io/Form-Space/**. See [GitHub's custom workflow guide](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages). For other static hosts, select their static/no-framework preset and the build/output settings above. Do not point a host at the repository root or enable a fallback that serves `index.html` for `/api/design`.
 
-No GitHub repository or hosting destination has been supplied, so this release is prepared locally and has not been pushed or published. The existing private hosted Site and its audience were not changed; `.openai/` remains local and ignored.
+Pushes to `main` automatically validate and publish the public demonstration. The existing private hosted Site and its audience are separate and unchanged; `.openai/` remains local and ignored.
 
 ## Source and future work
 
