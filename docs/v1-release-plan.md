@@ -8,16 +8,20 @@ Inspection confirmed 72 unique objects, four categories, 17 populated subcategor
 
 ## Implementation checklist
 
-- [ ] Initialize local Git and commit a secret-scanned pre-v1 snapshot, preserving AI work in history.
-- [ ] Replace the server/tooling dependency tree with a deterministic, allowlisted static build and loopback development/preview server. No public generation routes or AI assets.
-- [ ] Update public copy/navigation for Object Studio 1.0; keep the useful local rules-based editing helper, explicitly labeled.
-- [ ] Harden import validation, numeric input, storage recovery/status, gesture history, and object-specific controls.
-- [ ] Reduce repeated thumbnail/mesh work and idle rendering; verify pointer cancellation, keyboard and reduced motion.
-- [ ] Improve responsive layout, visible focus/contrast, fallback feedback, and honest material/size descriptions without redesigning the app.
-- [ ] Add regression/security/build tests and browser coverage of production output on desktop, tablet, and mobile.
-- [ ] Remove unnecessary dependencies/overrides, regenerate lockfile, and record final audit results.
-- [ ] Verify deterministic build, no AI requests/endpoints, secret-free tracked files and output, legacy imports, geometry bounds, and source syntax.
-- [ ] Update README, changelog, deployment and verification docs; prepare commits and suggest tag v1.0.0.
+- [x] Initialize local Git and commit a secret-scanned pre-v1 snapshot, preserving AI work in history (`f989f90`, `archive/pre-v1-ai`).
+- [x] Replace the server/tooling dependency tree with a deterministic, allowlisted static build and loopback development/preview server. No public generation routes or AI assets.
+- [x] Update public copy/navigation for Object Studio 1.0; keep the useful local rules-based editing helper, explicitly labeled.
+- [x] Harden import validation, numeric input, storage recovery/status, gesture history, and object-specific controls.
+- [x] Reduce repeated thumbnail/mesh work and idle rendering; verify pointer cancellation, keyboard and reduced motion.
+- [x] Improve responsive layout, visible focus/contrast, fallback feedback, and honest material/size descriptions without redesigning the app.
+- [x] Add regression/security/build tests and browser coverage of production output on desktop, tablet, and mobile: 24 Node tests and 18 browser tests pass.
+- [x] Remove unnecessary dependencies/overrides, regenerate lockfile, and record final audit results: zero vulnerabilities including development dependencies.
+- [x] Verify deterministic build, no AI requests/endpoints, legacy imports, geometry bounds, and source syntax. Secret scans are part of final staged/build checks.
+- [x] Update README, changelog, deployment and verification docs. Suggested release tag: `v1.0.0`; final local commits are recorded in Git history.
+
+## Completion and handoff
+
+Implemented and locally verified. Browser screenshots are in `docs/images/`. No hosting/push destination was supplied; the existing private Site is unchanged. Public deployment, hosted headers/caching, cross-browser/physical-device coverage, and licensing choices remain outside the completed local verification. See `v1-verification.md` for evidence and limits.
 
 ## Deployment decision
 
