@@ -1,18 +1,29 @@
-# FORM — Object Studio v1.0
+# FORM — Object Studio v1.1
 
 A browser-only studio for exploring and customizing **72 parametric 3D objects**, organized into four categories and 17 subcategories. No account, API key, paid service, or AI connection is required.
 
-![FORM Object Studio desktop screenshot](docs/images/v1-desktop.png)
+![FORM Object Studio Parts Editor](docs/images/parts-desktop.png)
 
 ## What you can do
 
 - Browse Home, Office, Café and Shop collections; search names, categories, rooms and aliases.
 - Orbit, zoom, fit, and inspect front/top/isometric views using WebGL, with an interactive software fallback.
 - Edit dimensions in centimeters, surface/frame colors, and procedural wood, matte and metal finishes. Change shape or shelf count only where the selected object supports it.
-- Undo/redo, reset, save the current design in this browser, and export/import validated version-1 FORM JSON files (under 100 KB).
+- Edit the Orbit café table's tabletop, support column and four-foot base independently using **Individual parts**. Select through the list or click/tap the model; selected geometry is tinted. Other objects keep whole-object editing.
+- Undo/redo, reset, save the current design in this browser, and export version-2 FORM JSON files (under 100 KB). Version-1 files still import.
 - Use the optional **rules-based editor** for supported shortcuts such as `walnut with black legs`, `90 cm wide`, or `20% taller`. It is a local parser and makes no model requests.
 
 Dimensions describe the mesh's outer bounds. Materials are visual approximations; the software fallback uses simplified shading. This is an interactive customization demo, **not CAD, manufacturing output, structural analysis, or physical material simulation**. Some catalog details are stylized and intersect as assembled components.
+
+## Parts Editor pilot
+
+Choose **Orbit café table → Individual parts**. Edit the tabletop's width, depth, round/oval or rectangular shape and thickness; the column's diameter; and the base assembly's width/depth. Every component has an independent visual finish and color. Column height follows the overall height and tabletop underside; the base remains grounded and its footprint stays within the tabletop. Return to **Whole object** to change total height. Input limits may adjust dependent dimensions, shown in edit feedback. Component dimensions use centimeters with decimal input.
+
+Parts without custom settings inherit their defaults: the top uses the main surface finish/color; support and feet use the frame color with a matte finish. Whole-object finish edits preserve explicit part overrides. **Apply current surface finish to all parts** explicitly assigns the main surface finish/color to each component. **Reset selected part** removes its overrides; **Reset object** restores the catalog default. A part can contain several geometric pieces: all four feet are one base assembly.
+
+Drag to orbit, click/tap to select, and press Escape with the canvas or parts inspector focused to clear selection. Selection pauses auto-rotation, is temporary, and creates no undo entry. A slider drag creates one edit. The list also provides keyboard access to components hidden behind others. Software fallback supports the same editing/selection workflow with simplified shading. The rules-based text editor applies to whole-object settings; use the inspector for component dimensions.
+
+The pilot uses final component dimensions instead of globally rescaling the café table. Legacy designs retain their dimensions, colors and construction, with small geometry differences in the grounded feet and support positioning. Other 71 objects retain their original geometry. Free movement, adding/removing components, separate plywood layers, exploded views and other object families are future work. See [implementation plan](docs/parts-editor-implementation-plan.md).
 
 ## Local development
 
@@ -43,18 +54,19 @@ On Linux CI, install the browser with `npx playwright install --with-deps chromi
 - Drag the canvas with a pointer or one finger to orbit; scroll to zoom. Use `+`/`−` buttons, Fit, and camera presets. Pinch zoom is not implemented.
 - Focus the canvas and use arrow keys to orbit and `+`/`−` to zoom. Tab reaches editing controls and buttons. Use Ctrl/Cmd+Z to undo and Ctrl/Cmd+Shift+Z or Ctrl/Cmd+Y to redo outside text inputs.
 - A range drag previews changes and commits one history step on release. Numeric fields apply on Enter/blur; supported limits are shown by the inputs. Auto-rotate starts off, including with reduced-motion preferences. It runs only when explicitly enabled and pauses rendering while the page is hidden.
-- Saving stores one current design at `form-studio.workspace.v1` for this browser origin. Switching objects is undoable. Clearing site data removes that saved design; JSON export is the portable backup. If storage is blocked/full or saved JSON is corrupt, the UI reports it instead of claiming a save. Corrupt data is retained until the next successful edit/save.
+- Saving stores one current design at `form-studio.workspace.v2` for this browser origin. If absent, a valid `form-studio.workspace.v1` save is migrated and its original retained. Corrupt v2 data is reported rather than silently replaced by v1. Switching objects is undoable. Clearing site data removes saved designs; JSON export is the portable backup. If storage is blocked/full or saved JSON is corrupt, the UI reports it instead of claiming a save. Corrupt data is retained until the next successful edit/save.
 - Existing valid version-1 exports, including the original eight objects, still import. Unknown IDs, invalid fields/units and oversized files are rejected without replacing the current design. Missing optional legacy fields take catalog defaults; unknown descriptive metadata is ignored.
+- New exports use version 2, including independent part overrides. Unknown part IDs/fields, invalid dimensions/materials/colors, and parts on unsupported objects are rejected. Older v1 releases cannot read v2 files.
 
 ## Static deployment
 
-| Hosting setting | Value |
-| --- | --- |
-| Build command | `npm run build` |
-| Output directory | `dist` |
-| Runtime/server/API | None |
-| Environment variables/secrets | None |
-| SPA rewrites | None — unknown paths must return 404 |
+| Hosting setting               | Value                                |
+| ----------------------------- | ------------------------------------ |
+| Build command                 | `npm run build`                      |
+| Output directory              | `dist`                               |
+| Runtime/server/API            | None                                 |
+| Environment variables/secrets | None                                 |
+| SPA rewrites                  | None — unknown paths must return 404 |
 
 Publish **only the contents of `dist/`** with a static host. Relative asset paths support a domain root and a GitHub Pages repository subpath; the tests run the build under `/FORM_Studio/`. The build does not copy source directories, history, `.env.local`, private Site identity, or deferred AI code. A CSP in the HTML blocks network API connections; `_headers` adds matching security headers on hosts that support that format. GitHub Pages uses the HTML CSP but does not process `_headers`.
 

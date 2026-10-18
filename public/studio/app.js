@@ -17,6 +17,7 @@ import {
 } from "./design.js";
 import { Viewer, thumbnail } from "./viewer.js";
 import { loadWorkspace, saveWorkspace, storageMessage } from "./storage.js";
+import { PartsControls } from "./parts-controls.js";
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => [...document.querySelectorAll(s)];
 const icon = (name) => {
@@ -46,6 +47,13 @@ const viewer = new Viewer($("#scene"), () => {
     viewer.mode === "WebGL"
       ? "WebGL · procedural finishes"
       : "Software 3D fallback · simplified finishes";
+});
+const partsControls = new PartsControls({
+  getDesign: () => design,
+  preview,
+  commit,
+  viewer,
+  materials: MATERIALS,
 });
 const thumbnails =
   typeof IntersectionObserver === "function"
@@ -116,7 +124,7 @@ function feedback(title, changes = [], warnings = []) {
         });
         tag.append(sw);
       }
-      tag.append(document.createTextNode(`${labels[key]}: ${val}`));
+      tag.append(document.createTextNode(`${labels[key] || key}: ${val}`));
       tags.append(tag);
     }
     body.append(tags);
@@ -409,6 +417,7 @@ function render() {
     viewer.mode === "WebGL"
       ? "WebGL · procedural finishes"
       : "Software 3D fallback · simplified finishes";
+  partsControls.render();
 }
 function preview(next) {
   design = normalize(next);
@@ -418,6 +427,11 @@ function preview(next) {
 function commit(next, title = "Design updated.", warnings = []) {
   const before = history.current;
   design = normalize(next);
+  warnings = [...warnings];
+  for (const [id, values] of Object.entries(next.parts || {}))
+    for (const [key, value] of Object.entries(values))
+      if (typeof value === "number" && value !== design.parts?.[id]?.[key])
+        warnings.push(`${id} ${key} was adjusted to fit the object.`);
   const changes = diff(before, design);
   history.push(design);
   render();

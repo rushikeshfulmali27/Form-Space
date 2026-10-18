@@ -1,9 +1,24 @@
 // Parametric catalog geometry. Coordinates are in meters, controls in centimeters.
+import { supportsParts, resolveParts, PARTS } from "./parts.js";
 export function buildModel(d, low = false) {
+  return buildAssemblyModel(d, low).data;
+}
+export function buildAssemblyModel(d, low = false) {
   const w = d.width / 100,
     h = d.height / 100,
     z = d.depth / 100;
   const vertices = [];
+  const parts = [];
+  function component(id, fn) {
+    const firstVertex = vertices.length / 10;
+    fn();
+    parts.push({
+      id,
+      label: PARTS[id].label,
+      firstVertex,
+      vertexCount: vertices.length / 10 - firstVertex,
+    });
+  }
   const wood = ["oak", "walnut", "birch"].includes(d.material)
     ? 1
     : d.material === "metal"
@@ -248,7 +263,85 @@ export function buildModel(d, low = false) {
     }
   }
   const thick = Math.min(0.045, h * 0.08);
-  if (d.kind === "table") {
+  if (supportsParts(d)) {
+    const p = resolveParts(d),
+      t = p.tabletop.thickness / 100;
+    const material = (id) =>
+      ["oak", "walnut", "birch"].includes(p[id].material)
+        ? 1
+        : p[id].material === "metal"
+          ? 2
+          : 0;
+    component("tabletop", () => {
+      if (d.shape === "round")
+        cylinder(
+          0,
+          h - t / 2,
+          0,
+          w / 2,
+          z / 2,
+          t,
+          rgb(p.tabletop.color),
+          material("tabletop"),
+        );
+      else
+        box(
+          0,
+          h - t / 2,
+          0,
+          w,
+          t,
+          z,
+          rgb(p.tabletop.color),
+          material("tabletop"),
+          0.018,
+        );
+    });
+    component("column", () =>
+      cylinder(
+        0,
+        (h - t + 0.05) / 2,
+        0,
+        p.column.diameter / 200,
+        p.column.diameter / 200,
+        h - t - 0.05,
+        rgb(p.column.color),
+        material("column"),
+        0.75,
+      ),
+    );
+    component("base", () => {
+      const first = vertices.length / 10;
+      for (let i = 0; i < 4; i++) {
+        const a = (i * Math.PI) / 2 + Math.PI / 4;
+        beam(
+          [0, 0.06, 0],
+          [Math.cos(a) * w * 0.44, 0.025, Math.sin(a) * z * 0.44],
+          0.045,
+          rgb(p.base.color),
+          material("base"),
+        );
+      }
+      const data = new Float32Array(vertices.slice(first * 10)),
+        b = bounds(data);
+      for (let i = first * 10; i < vertices.length; i += 10) {
+        const scales = [
+          p.base.width / 100 / b.size[0],
+          1,
+          p.base.depth / 100 / b.size[2],
+        ];
+        vertices[i] *= scales[0];
+        vertices[i + 2] *= scales[2];
+        vertices[i + 1] -= b.min[1];
+        const n = unit([
+          vertices[i + 3] / scales[0],
+          vertices[i + 4],
+          vertices[i + 5] / scales[2],
+        ]);
+        for (let k = 0; k < 3; k++) vertices[i + 3 + k] = n[k];
+      }
+    });
+  } else if (d.kind === "table") {
     if (d.shape === "round") cylinder(0, h - thick / 2, 0, w / 2, z / 2, thick);
     else box(0, h - thick / 2, 0, w, thick, z, primary, wood, 0.018);
     cylinder(
@@ -905,7 +998,7 @@ export function buildModel(d, low = false) {
     bb = bounds(data),
     desired = [w, h, z];
   const scale = desired.map((v, i) => v / (bb.size[i] || 1));
-  for (let i = 0; i < data.length; i += 10) {
+  for (let i = 0; !supportsParts(d) && i < data.length; i += 10) {
     for (let k = 0; k < 3; k++)
       data[i + k] =
         (data[i + k] - bb.min[k]) * scale[k] - (k === 1 ? 0 : desired[k] / 2);
@@ -917,7 +1010,14 @@ export function buildModel(d, low = false) {
       len = Math.hypot(...n) || 1;
     for (let k = 0; k < 3; k++) data[i + 3 + k] = n[k] / len;
   }
-  return data;
+  for (const part of parts)
+    part.bounds = bounds(
+      data.subarray(
+        part.firstVertex * 10,
+        (part.firstVertex + part.vertexCount) * 10,
+      ),
+    );
+  return { data, bounds: bounds(data), parts };
 }
 export function cross(a, b) {
   return [

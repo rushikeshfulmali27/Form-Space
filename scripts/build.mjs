@@ -18,6 +18,9 @@ export const assets = [
   "geometry.js",
   "viewer.js",
   "storage.js",
+  "parts.js",
+  "picking.js",
+  "parts-controls.js",
   "style.css",
 ];
 export const outputFiles = [
@@ -79,7 +82,7 @@ export async function build() {
     "manifest.json",
     Buffer.from(
       JSON.stringify(
-        { name: "FORM Object Studio", version: "1.0.0", files: hashes },
+        { name: "FORM Object Studio", version: "1.1.0", files: hashes },
         null,
         2,
       ) + "\n",
@@ -95,6 +98,6 @@ if (
 ) {
   const hashes = await build();
   console.log(
-    `Built FORM Object Studio v1.0.0: ${Object.keys(hashes).length + 1} static files in dist/.`,
+    `Built FORM Object Studio v1.1.0: ${Object.keys(hashes).length + 1} static files in dist/.`,
   );
 }

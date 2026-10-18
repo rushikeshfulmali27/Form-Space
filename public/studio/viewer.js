@@ -1,4 +1,5 @@
-import { buildModel, cross, unit } from "./geometry.js";
+import { buildModel, buildAssemblyModel, cross, unit } from "./geometry.js";
+import { pickPart } from "./picking.js";
 const dot = (a, b) => a.reduce((s, v, i) => s + v * b[i], 0);
 function multiply(a, b) {
   const r = new Float32Array(16);
@@ -21,6 +22,8 @@ export class Viewer {
     this.auto = false;
     this.drag = null;
     this.design = null;
+    this.selectedPart = null;
+    this.partsEnabled = false;
     this.lastTime = 0;
     try {
       this.gl = canvas.getContext("webgl", {
@@ -106,21 +109,59 @@ export class Viewer {
     const c = this.canvas;
     c.style.touchAction = "none";
     c.addEventListener("pointerdown", (e) => {
-      this.drag = { x: e.clientX, y: e.clientY };
+      if (this.drag) return;
+      if (e.button !== undefined && e.button !== 0) return;
+      this.drag = {
+        x: e.clientX,
+        y: e.clientY,
+        startX: e.clientX,
+        startY: e.clientY,
+        moved: false,
+        pointerId: e.pointerId,
+      };
       c.setPointerCapture(e.pointerId);
     });
     c.addEventListener("pointermove", (e) => {
       if (!this.drag) return;
+      if (e.pointerId !== this.drag.pointerId) return;
+      const moved =
+        this.drag.moved ||
+        Math.hypot(e.clientX - this.drag.startX, e.clientY - this.drag.startY) >
+          6;
+      if (!moved) return;
       this.view = "custom";
       this.yaw -= (e.clientX - this.drag.x) * 0.009;
       this.pitch = Math.max(
         0.08,
         Math.min(1.3, this.pitch + (e.clientY - this.drag.y) * 0.006),
       );
-      this.drag = { x: e.clientX, y: e.clientY };
+      this.drag = { ...this.drag, x: e.clientX, y: e.clientY, moved: true };
       this.render();
     });
-    c.addEventListener("pointerup", () => {
+    c.addEventListener("pointerup", (e) => {
+      if (this.drag && e.pointerId !== this.drag.pointerId) return;
+      if (
+        this.drag &&
+        !this.drag.moved &&
+        Math.hypot(
+          e.clientX - this.drag.startX,
+          e.clientY - this.drag.startY,
+        ) <= 6 &&
+        this.partsEnabled &&
+        this.currentCam
+      ) {
+        const rect = c.getBoundingClientRect();
+        const id = pickPart(
+          this.gl ? this.model : this.lowModel,
+          this.currentCam,
+          e.clientX - rect.left,
+          e.clientY - rect.top,
+          rect.width,
+          rect.height,
+        );
+        this.setSelection(id);
+        this.onPartSelect?.(id);
+      }
       this.drag = null;
     });
     c.addEventListener("pointercancel", () => (this.drag = null));
@@ -138,6 +179,10 @@ export class Viewer {
       { passive: false },
     );
     c.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && this.partsEnabled) {
+        this.setSelection(null);
+        this.onPartSelect?.(null);
+      }
       if (
         [
           "ArrowLeft",
@@ -168,10 +213,42 @@ export class Viewer {
     this.design = d;
     if (key !== this.meshKey) {
       this.meshKey = key;
-      this.data = buildModel(d);
-      this.lowData = buildModel(d, true);
+      this.model = buildAssemblyModel(d);
+      this.lowModel = buildAssemblyModel(d, true);
+      this.data = this.model.data;
+      this.lowData = this.lowModel.data;
+      if (!this.model.parts.some((p) => p.id === this.selectedPart))
+        this.selectedPart = null;
+      this.highlightKey = null;
     }
     this.render();
+  }
+  setSelection(id) {
+    this.selectedPart = id;
+    if (id) this.auto = false;
+    this.render();
+  }
+  highlighted(model) {
+    if (!this.selectedPart) return model.data;
+    if (this.highlightKey !== this.selectedPart) {
+      this.highlightKey = this.selectedPart;
+      this.highlightData = new Map();
+    }
+    if (!this.highlightData.has(model)) {
+      const data = model.data.slice();
+      const part = model.parts.find((p) => p.id === this.selectedPart);
+      if (part)
+        for (
+          let i = part.firstVertex * 10;
+          i < (part.firstVertex + part.vertexCount) * 10;
+          i += 10
+        )
+          for (let k = 0; k < 3; k++)
+            data[i + 6 + k] =
+              data[i + 6 + k] * 0.55 + [0.2, 0.75, 0.6][k] * 0.45;
+      this.highlightData.set(model, data);
+    }
+    return this.highlightData.get(model);
   }
   fit() {
     this.yaw = 0.72;
@@ -288,7 +365,7 @@ export class Viewer {
     else
       drawSoftware(
         this.ctx,
-        this.lowData,
+        this.highlighted(this.lowModel),
         c.width,
         c.height,
         cam,
@@ -390,7 +467,7 @@ export class Viewer {
       }
     }
     draw(new Float32Array(shadow), gl.TRIANGLES, 1);
-    draw(this.data, gl.TRIANGLES);
+    draw(this.highlighted(this.model), gl.TRIANGLES);
     if (this.wire) {
       const lines = [];
       const src = this.lowData;

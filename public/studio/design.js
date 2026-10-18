@@ -5,6 +5,7 @@ import {
   subcategoryLabel,
   filterCatalog,
 } from "./catalog.js";
+import { supportsParts, normalizeParts, PARTS } from "./parts.js";
 export { TAXONOMY, categoryLabel, subcategoryLabel, filterCatalog };
 export const PALETTE = {
   walnut: "#79553c",
@@ -70,6 +71,10 @@ export function normalize(input) {
     out.shape = input.shape;
   if (base.shelves && numeric(input?.shelves))
     out.shelves = Math.max(2, Math.min(6, Math.round(input.shelves)));
+  if (supportsParts(out)) {
+    const parts = normalizeParts(out, input?.parts, MATERIALS);
+    if (Object.keys(parts).length) out.parts = parts;
+  }
   return out;
 }
 const units = {
@@ -104,6 +109,18 @@ const axisWords = {
 };
 export function parsePrompt(source, current) {
   const raw = source.trim();
+  if (
+    /\b(?:column|tabletop|support|base|top)\s+(?:diameter|thickness|width|depth|height)\b|\b(?:diameter|thickness)\b/i.test(
+      raw,
+    )
+  )
+    return {
+      design: current,
+      changes: [],
+      warnings: [
+        "Use Individual parts to edit component dimensions. Text edits apply to the whole object.",
+      ],
+    };
   const text = raw
     .toLowerCase()
     .replace(/café/g, "cafe")
@@ -369,7 +386,7 @@ export function parsePrompt(source, current) {
   return { design, changes, warnings };
 }
 export function diff(a, b) {
-  return [
+  const changes = [
     "id",
     "width",
     "depth",
@@ -382,12 +399,21 @@ export function diff(a, b) {
   ]
     .filter((k) => a[k] !== b[k] && b[k] !== undefined)
     .map((key) => ({ key, before: a[key], after: b[key] }));
+  for (const id of Object.keys(PARTS))
+    for (const field of [...PARTS[id].fields, "color", "material"])
+      if (a.parts?.[id]?.[field] !== b.parts?.[id]?.[field])
+        changes.push({
+          key: `${PARTS[id].label} ${field}`,
+          before: a.parts?.[id]?.[field],
+          after: b.parts?.[id]?.[field] ?? "Inherited",
+        });
+  return changes;
 }
 export function serialize(design) {
   return JSON.stringify(
     {
       format: "form-studio",
-      version: 1,
+      version: 2,
       units: "cm",
       design: normalize(design),
     },
@@ -410,12 +436,14 @@ export function deserialize(json) {
   }
   if (
     v?.format !== "form-studio" ||
-    v.version !== 1 ||
+    ![1, 2].includes(v.version) ||
     !v.design ||
     Array.isArray(v.design) ||
     !CATALOG.some((o) => o.id === v.design.id)
   )
-    throw Error("Choose a version-1 FORM Studio design with a known object.");
+    throw Error(
+      "Choose a version-1 or version-2 FORM Studio design with a known object.",
+    );
   if (v.units !== undefined && v.units !== "cm")
     throw Error("Design dimensions must use centimeters (cm).");
   const d = v.design,
@@ -450,6 +478,11 @@ export function deserialize(json) {
     (!base.shape || !["round", "square"].includes(d.shape))
   )
     throw Error("Unsupported object shape.");
+  if (Object.hasOwn(d, "parts")) {
+    if (v.version !== 2)
+      throw Error("Part settings require a version-2 design.");
+    normalizeParts({ ...base, ...d }, d.parts, MATERIALS, true);
+  }
   return normalize(d);
 }
 export class History {

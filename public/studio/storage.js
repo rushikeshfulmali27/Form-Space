@@ -1,8 +1,20 @@
 import { fresh, serialize, deserialize } from "./design.js";
-export const STORE = "form-studio.workspace.v1";
+export const STORE = "form-studio.workspace.v2";
+export const LEGACY_STORE = "form-studio.workspace.v1";
 export function loadWorkspace(storage) {
   try {
-    const text = storage.getItem(STORE);
+    let text = storage.getItem(STORE);
+    if (text === null) {
+      text = storage.getItem(LEGACY_STORE);
+      if (text !== null) {
+        try {
+          const design = deserialize(text);
+          return { design, status: saveWorkspace(storage, design) };
+        } catch {
+          return { design: fresh(), status: "corrupt" };
+        }
+      }
+    }
     if (text === null) return { design: fresh(), status: "new" };
     try {
       return { design: deserialize(text), status: "saved" };

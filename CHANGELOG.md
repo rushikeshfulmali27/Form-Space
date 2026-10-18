@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.1.0 — 2026-10-18
+
+- Added the café-table Parts Editor pilot: independently edit tabletop thickness/shape/size, column diameter and four-foot base footprint, with separate finishes/colors and automatic connections.
+- Added parts list, mouse/touch picking and depth-aware selection tint in WebGL and software fallback. Orbit gestures remain separate from selection, with keyboard-accessible controls and Escape to deselect.
+- Added part reset, explicit finish application to all parts, semantic change feedback and existing undo/redo integration.
+- Introduced version-2 JSON exports and local workspace storage, preserving version-1 import and safe migration with the old local save retained.
+- Kept the other 71 models' original geometry, verified against pre-change hashes. The pilot uses explicit final component dimensions and grounded feet instead of whole-mesh scaling.
+- Added geometry, migration, validation, picking and desktop/tablet/mobile browser regressions. Runtime dependencies remain zero.
+
 ## 1.0.0 — 2026-10-17
 
 - Focused the public release on Object Studio's 72 editable objects, four categories and 17 subcategories.

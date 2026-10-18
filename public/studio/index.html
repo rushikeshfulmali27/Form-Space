@@ -12,7 +12,7 @@
       http-equiv="Content-Security-Policy"
       content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'"
     />
-    <title>FORM — Object Studio v1.0</title>
+    <title>FORM — Object Studio v1.1</title>
     <link
       rel="icon"
       type="image/svg+xml"
@@ -173,7 +173,7 @@
           </p>
         </div>
         <div class="version-label">
-          <span class="status-dot"></span>FORM Studio <span>v1.0</span>
+          <span class="status-dot"></span>FORM Studio <span>v1.1</span>
         </div>
       </aside>
       <main class="studio" id="main-studio" tabindex="-1">
@@ -339,7 +339,7 @@
             </div>
           </div>
           <p class="engine-note">
-            Rules-based editor · runs on this device · no AI connection
+            Whole-object text edits · runs on this device · no AI connection
           </p>
         </section>
         <div class="studio-footer">
@@ -354,7 +354,46 @@
           <svg><use href="#i-ruler" /></svg>
           <h2>Make it yours</h2>
         </div>
-        <section class="property-section">
+        <section id="parts-editor" class="property-section" hidden>
+          <div class="property-title">
+            <h3>Editing mode</h3>
+            <span class="unit-badge">New</span>
+          </div>
+          <div class="parts-modes" role="group" aria-label="Editing mode">
+            <button id="edit-whole" aria-pressed="true">Whole object</button>
+            <button id="edit-parts" aria-pressed="false">
+              Individual parts
+            </button>
+          </div>
+          <p class="property-hint">Parts Editor preview · Orbit café table</p>
+          <div id="parts-panel" hidden>
+            <div
+              id="parts-list"
+              class="parts-list"
+              role="group"
+              aria-label="Table parts"
+            ></div>
+            <h3 id="selected-part-name" aria-live="polite">Select a part</h3>
+            <p id="part-selection-help" class="property-hint">
+              Choose from the list or tap a visible part in the scene. Drag to
+              orbit.
+            </p>
+            <p id="part-custom" class="property-hint"></p>
+            <div id="part-fields"></div>
+            <p id="column-height" class="property-hint" hidden></p>
+            <button id="reset-part" class="reset-button" hidden>
+              Reset selected part
+            </button>
+            <button id="finish-all-parts" class="reset-button">
+              Apply current surface finish to all parts
+            </button>
+            <p class="property-hint">
+              Parts stay connected. Base footprint stays inside the tabletop.
+              Total height is edited in Whole object.
+            </p>
+          </div>
+        </section>
+        <section id="dimensions-section" class="property-section">
           <div class="property-title">
             <h3>Dimensions</h3>
             <span class="unit-badge">cm</span>
@@ -365,14 +404,14 @@
             Width × Depth × Height · outer bounds in cm
           </div>
         </section>
-        <section class="property-section">
+        <section id="finish-section" class="property-section">
           <div class="property-title"><h3>Material & finish</h3></div>
           <div id="material-options" class="material-options"></div>
           <p class="property-hint">
             Procedural visual finishes; no physical material simulation.
           </p>
         </section>
-        <section class="property-section colors-section">
+        <section id="colors-section" class="property-section colors-section">
           <div class="property-title"><h3>Color palette</h3></div>
           <div class="color-row">
             <label for="primary-color"

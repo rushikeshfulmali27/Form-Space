@@ -1,0 +1,15 @@
+{
+  "format": "form-studio",
+  "version": 1,
+  "units": "cm",
+  "design": {
+    "id": "cafe-table",
+    "width": 90,
+    "height": 80,
+    "depth": 70,
+    "shape": "square",
+    "material": "walnut",
+    "color": "#79553c",
+    "accent": "#282e2c"
+  }
+}

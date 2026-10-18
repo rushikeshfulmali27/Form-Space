@@ -54,3 +54,4 @@ next-env.d.ts
 /playwright-report/
 /npm-audit-report.json
 /FORM_Studio_Prototype.html
+/debug.log

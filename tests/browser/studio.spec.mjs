@@ -142,13 +142,11 @@ test("manual edits change the real canvas, history, export/import and reload", a
   expect(d.shelves).toBe(5);
   await page.locator("#reset").click();
   await expect(page.locator("#width-number")).toHaveValue("90");
-  await page
-    .locator("#import-file")
-    .setInputFiles({
-      name: "saved.json",
-      mimeType: "application/json",
-      buffer: Buffer.from(exported),
-    });
+  await page.locator("#import-file").setInputFiles({
+    name: "saved.json",
+    mimeType: "application/json",
+    buffer: Buffer.from(exported),
+  });
   await expect(page.locator("#width-number")).toHaveValue("120");
   await expect(page.locator("#shelf-output")).toHaveText("5");
   await page.reload();
@@ -202,31 +200,74 @@ test("manual edits change the real canvas, history, export/import and reload", a
   });
 });
 
-test("renderer lifecycle, color, shape, wireframe and touch orbit", async ({page},testInfo)=>{
-  await page.goto('./');
+test("renderer lifecycle, color, shape, wireframe and touch orbit", async ({
+  page,
+}, testInfo) => {
+  await page.goto("./");
   await page.locator('[data-shape="square"]').click();
-  await expect(page.locator('[data-shape="square"]')).toHaveAttribute('aria-pressed','true');
-  await page.locator('#primary-color').fill('#aabbcc');
-  await expect(page.locator('#primary-hex')).toHaveText('#AABBCC');
-  await page.locator('#wireframe').check();await expect(page.locator('#wireframe')).toBeChecked();await page.locator('#wireframe').uncheck();
-  await page.locator('#auto-rotate').check();
-  const initial=await page.locator('#scene').evaluate(canvas=>canvas.toDataURL());
-  await expect.poll(()=>page.locator('#scene').evaluate(canvas=>canvas.toDataURL())).not.toBe(initial);
-  await page.locator('#auto-rotate').uncheck();await page.locator('#fit').click();
-  if(testInfo.project.name!=='desktop'){
-    await page.locator('#scene').scrollIntoViewIfNeeded();
-    const box=await page.locator('#scene').boundingBox(),x=box.x+box.width/2,y=box.y+box.height/2;
-    const session=await page.context().newCDPSession(page);
-    await session.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x,y}]});
-    await session.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:x+30,y:y+10}]});
-    await session.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await session.detach();
-    await expect(page.locator('[data-view="perspective"]')).toHaveAttribute('aria-pressed','false');
+  await expect(page.locator('[data-shape="square"]')).toHaveAttribute(
+    "aria-pressed",
+    "true",
+  );
+  await page.locator("#primary-color").fill("#aabbcc");
+  await expect(page.locator("#primary-hex")).toHaveText("#AABBCC");
+  await page.locator("#wireframe").check();
+  await expect(page.locator("#wireframe")).toBeChecked();
+  await page.locator("#wireframe").uncheck();
+  await page.locator("#auto-rotate").check();
+  const initial = await page
+    .locator("#scene")
+    .evaluate((canvas) => canvas.toDataURL());
+  await expect
+    .poll(() => page.locator("#scene").evaluate((canvas) => canvas.toDataURL()))
+    .not.toBe(initial);
+  await page.locator("#auto-rotate").uncheck();
+  await page.locator("#fit").click();
+  if (testInfo.project.name !== "desktop") {
+    await page.locator("#scene").scrollIntoViewIfNeeded();
+    const box = await page.locator("#scene").boundingBox(),
+      x = box.x + box.width / 2,
+      y = box.y + box.height / 2;
+    const session = await page.context().newCDPSession(page);
+    await session.send("Input.dispatchTouchEvent", {
+      type: "touchStart",
+      touchPoints: [{ x, y }],
+    });
+    await session.send("Input.dispatchTouchEvent", {
+      type: "touchMove",
+      touchPoints: [{ x: x + 30, y: y + 10 }],
+    });
+    await session.send("Input.dispatchTouchEvent", {
+      type: "touchEnd",
+      touchPoints: [],
+    });
+    await session.detach();
+    await expect(page.locator('[data-view="perspective"]')).toHaveAttribute(
+      "aria-pressed",
+      "false",
+    );
   }
-  if((await page.locator('#renderer-status').textContent()).startsWith('WebGL')){
-    await page.locator('#scene').evaluate(canvas=>canvas.getContext('webgl').getExtension('WEBGL_lose_context').loseContext());
-    await expect(page.locator('#renderer-status')).toContainText('Software 3D fallback');
-    await page.locator('#scene').focus();await page.keyboard.press('ArrowLeft');await page.locator('#fit').click();
-    await expect(page.locator('[data-view="perspective"]')).toHaveAttribute('aria-pressed','true');
+  if (
+    (await page.locator("#renderer-status").textContent()).startsWith("WebGL")
+  ) {
+    await page
+      .locator("#scene")
+      .evaluate((canvas) =>
+        canvas
+          .getContext("webgl")
+          .getExtension("WEBGL_lose_context")
+          .loseContext(),
+      );
+    await expect(page.locator("#renderer-status")).toContainText(
+      "Software 3D fallback",
+    );
+    await page.locator("#scene").focus();
+    await page.keyboard.press("ArrowLeft");
+    await page.locator("#fit").click();
+    await expect(page.locator('[data-view="perspective"]')).toHaveAttribute(
+      "aria-pressed",
+      "true",
+    );
   }
 });
 
@@ -242,13 +283,11 @@ test("invalid/oversized imports and invalid numeric input preserve the design", 
     ],
     ["large.json", " ".repeat(100001)],
   ]) {
-    await page
-      .locator("#import-file")
-      .setInputFiles({
-        name,
-        mimeType: "application/json",
-        buffer: Buffer.from(content),
-      });
+    await page.locator("#import-file").setInputFiles({
+      name,
+      mimeType: "application/json",
+      buffer: Buffer.from(content),
+    });
     await expect(page.locator("#toast")).toHaveClass(/visible/);
     await expect(page.locator("#object-name")).toHaveText("Orbit café table");
     await expect(page.locator("#undo")).toBeDisabled();
@@ -323,4 +362,216 @@ test("corrupted saved data is preserved until an edit and a range drag forms one
   await expect(page.locator("#save-status")).toHaveText("Saved on this device");
   await page.locator("#undo").click();
   await expect(page.locator("#width-number")).toHaveValue("80");
+});
+
+test("parts inspector edits independent components, supports history and round-trips v2", async ({
+  page,
+}, testInfo) => {
+  await page.goto("./");
+  await page.locator("#edit-parts").click();
+  await page.locator('[data-part="tabletop"]').click();
+  await page.locator("#part-thickness").fill("7.2");
+  await page.locator("#part-thickness").press("Tab");
+  await expect(page.locator("#part-custom")).toContainText("Custom");
+  await page.locator('[data-part="column"]').click();
+  await expect(page.locator("#column-height")).toContainText("61.8 cm");
+  await page.locator("#part-diameter").fill("8");
+  await page.locator("#part-diameter").press("Tab");
+  await page.locator("#part-material").selectOption("metal");
+  await page.locator('[data-part="base"]').click();
+  await page.locator("#part-width").fill("60");
+  await page.locator("#part-width").press("Tab");
+  await page.locator("#undo").click();
+  await expect(page.locator("#part-width")).toHaveValue("54.4");
+  await page.locator("#redo").click();
+  await expect(page.locator("#part-width")).toHaveValue("60");
+  const downloadPromise = page.waitForEvent("download");
+  await page.locator("#export").click();
+  const exported = await readFile(await (await downloadPromise).path(), "utf8");
+  const saved = JSON.parse(exported);
+  expect(saved.version).toBe(2);
+  expect(saved.design.parts.tabletop.thickness).toBe(7.2);
+  expect(saved.design.parts.column).toEqual({ diameter: 8, material: "metal" });
+  await page.locator("#reset-part").click();
+  await expect(page.locator("#part-width")).toHaveValue("54.4");
+  await page.locator("#import-file").setInputFiles({
+    name: "parts.json",
+    mimeType: "application/json",
+    buffer: Buffer.from(exported),
+  });
+  await expect(page.locator("#part-width")).toHaveValue("60");
+  await page.reload();
+  await page.locator("#edit-parts").click();
+  await page.locator('[data-part="column"]').click();
+  await expect(page.locator("#part-diameter")).toHaveValue("8");
+  await expect(page.locator("#part-material")).toHaveValue("metal");
+  await page.locator("#scene").scrollIntoViewIfNeeded();
+  await page.screenshot({
+    path: `docs/images/parts-${testInfo.project.name}.png`,
+    fullPage: true,
+  });
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  ).toBe(true);
+  await page.locator("#edit-whole").click();
+  await page.locator('[data-material="walnut"]').click();
+  await page.locator("#edit-parts").click();
+  await page.locator('[data-part="column"]').click();
+  await expect(page.locator("#part-material")).toHaveValue("metal");
+  await page.locator("#finish-all-parts").click();
+  await expect(page.locator("#part-material")).toHaveValue("walnut");
+  await expect(page.locator("#part-diameter")).toHaveValue("8");
+  await page.locator("#reset-part").click();
+  await expect(page.locator("#part-material")).toHaveValue("matte");
+  await expect(page.locator("#part-diameter")).toHaveValue("12");
+  await page.locator("#undo").click();
+  await expect(page.locator("#part-diameter")).toHaveValue("8");
+  await page.locator('[data-object="bookshelf"]').click();
+  await expect(page.locator("#parts-editor")).toBeHidden();
+  await expect(page.locator("#height-number")).toBeVisible();
+  await page.locator("#undo").click();
+  await page.locator("#edit-parts").click();
+  await expect(page.locator("#selected-part-name")).toHaveText("Select a part");
+});
+
+async function clickWorld(page, point, touch) {
+  await page.locator("#scene").scrollIntoViewIfNeeded();
+  const position = await page.evaluate(async (point) => {
+    const { Viewer } = await import(new URL("studio/viewer.js", location.href));
+    const { fresh } = await import(new URL("studio/design.js", location.href));
+    const c = document.querySelector("#scene"),
+      r = c.getBoundingClientRect();
+    const v = Object.create(Viewer.prototype);
+    Object.assign(v, { design: fresh(), yaw: 0, pitch: 0.06, zoom: 1 });
+    const cam = v.camera(r.width, r.height),
+      delta = point.map((n, i) => n - cam.target[i]);
+    const dot = (a, b) => a.reduce((s, n, i) => s + n * b[i], 0);
+    return {
+      x: r.left + r.width / 2 + (dot(delta, cam.x) * r.height) / cam.size,
+      y: r.top + r.height / 2 - (dot(delta, cam.y) * r.height) / cam.size,
+    };
+  }, point);
+  if (touch) await page.touchscreen.tap(position.x, position.y);
+  else await page.mouse.click(position.x, position.y);
+}
+
+test("canvas selects visible parts with mouse/touch, separates orbit, and survives WebGL loss", async ({
+  page,
+}, testInfo) => {
+  await page.goto("./");
+  await page.locator("#edit-parts").click();
+  await page.locator('[data-view="front"]').click();
+  const touch = testInfo.project.name !== "desktop";
+  const canvas = page.locator("#scene");
+  await canvas.scrollIntoViewIfNeeded();
+  const unselected = await canvas.screenshot();
+  await clickWorld(page, [0, 0.74, 0], touch);
+  await expect(page.locator('[data-part="tabletop"]')).toHaveAttribute(
+    "aria-pressed",
+    "true",
+  );
+  const selected = await canvas.screenshot();
+  expect(Buffer.compare(unselected, selected)).not.toBe(0);
+  await clickWorld(page, [0, 0.35, 0], touch);
+  await expect(page.locator('[data-part="column"]')).toHaveAttribute(
+    "aria-pressed",
+    "true",
+  );
+  await clickWorld(page, [0.18, 0.035, 0.18], touch);
+  await expect(page.locator('[data-part="base"]')).toHaveAttribute(
+    "aria-pressed",
+    "true",
+  );
+  await canvas.scrollIntoViewIfNeeded();
+  const box = await canvas.boundingBox();
+  await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
+  await page.mouse.down();
+  await page.mouse.move(
+    box.x + box.width / 2 + 45,
+    box.y + box.height / 2 + 10,
+    { steps: 4 },
+  );
+  await page.mouse.up();
+  await expect(page.locator('[data-part="base"]')).toHaveAttribute(
+    "aria-pressed",
+    "true",
+  );
+  await canvas.focus();
+  await page.keyboard.press("Escape");
+  await expect(page.locator("#selected-part-name")).toHaveText("Select a part");
+  const lost = await page.evaluate(() => {
+    const gl = document.querySelector("#scene").getContext("webgl"),
+      ext = gl?.getExtension("WEBGL_lose_context");
+    if (ext) {
+      ext.loseContext();
+      return true;
+    }
+    return false;
+  });
+  if (lost)
+    await expect(page.locator("#renderer-status")).toContainText("Software");
+  await page.locator('[data-view="front"]').click();
+  await clickWorld(page, [0, 0.35, 0], touch);
+  await expect(page.locator('[data-part="column"]')).toHaveAttribute(
+    "aria-pressed",
+    "true",
+  );
+  await expect(page.locator("#undo")).toBeDisabled();
+});
+
+test("parts slider is one undo step and migration/import failures preserve editable state", async ({
+  page,
+}) => {
+  const legacy = await readFile("tests/fixtures/cafe-table-v1.json", "utf8");
+  await page.addInitScript((value) => {
+    if (!localStorage.getItem("form-studio.workspace.v2"))
+      localStorage.setItem("form-studio.workspace.v1", value);
+  }, legacy);
+  await page.goto("./");
+  await expect(page.locator("#width-number")).toHaveValue("90");
+  expect(
+    await page.evaluate(
+      () =>
+        JSON.parse(localStorage.getItem("form-studio.workspace.v2")).version,
+    ),
+  ).toBe(2);
+  await page.locator("#edit-parts").click();
+  await page.locator('[data-part="tabletop"]').click();
+  const range = page.getByRole("slider", {
+    name: "Tabletop Thickness (cm) slider",
+    exact: true,
+  });
+  await range.scrollIntoViewIfNeeded();
+  const box = await range.boundingBox();
+  await page.mouse.move(box.x + box.width * 0.25, box.y + box.height / 2);
+  await page.mouse.down();
+  await page.mouse.move(box.x + box.width * 0.6, box.y + box.height / 2, {
+    steps: 5,
+  });
+  await page.mouse.up();
+  await expect(page.locator("#part-thickness")).not.toHaveValue("4.5");
+  await page.locator("#undo").click();
+  await expect(page.locator("#part-thickness")).toHaveValue("4.5");
+  await expect(page.locator("#undo")).toBeDisabled();
+  const before = await page.evaluate(() =>
+    localStorage.getItem("form-studio.workspace.v2"),
+  );
+  const invalid = {
+    ...JSON.parse(before),
+    design: {
+      ...JSON.parse(before).design,
+      parts: { column: { diameter: 999 } },
+    },
+  };
+  await page.locator("#import-file").setInputFiles({
+    name: "invalid-parts.json",
+    mimeType: "application/json",
+    buffer: Buffer.from(JSON.stringify(invalid)),
+  });
+  await expect(page.locator("#toast")).toContainText("Invalid part");
+  expect(
+    await page.evaluate(() => localStorage.getItem("form-studio.workspace.v2")),
+  ).toBe(before);
 });
