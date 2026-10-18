@@ -1,11 +1,13 @@
 import { fresh, serialize, deserialize } from "./design.js";
-export const STORE = "form-studio.workspace.v2";
+export const STORE = "form-studio.workspace.v3";
+export const V2_STORE = "form-studio.workspace.v2";
 export const LEGACY_STORE = "form-studio.workspace.v1";
 export function loadWorkspace(storage) {
   try {
     let text = storage.getItem(STORE);
-    if (text === null) {
-      text = storage.getItem(LEGACY_STORE);
+    for (const legacyKey of [V2_STORE, LEGACY_STORE]) {
+      if (text !== null) break;
+      text = storage.getItem(legacyKey);
       if (text !== null) {
         try {
           const design = deserialize(text);

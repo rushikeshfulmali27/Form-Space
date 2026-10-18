@@ -190,7 +190,7 @@ test("static production build is deterministic, allowlisted, contains no API cod
   try {
     const home = await fetch(origin + "/FORM_Studio/");
     assert.equal(home.status, 200);
-    assert.match(await home.text(), /Object Studio v1.1/);
+    assert.match(await home.text(), /Object Studio v1.2/);
     assert.match(
       home.headers.get("content-security-policy"),
       /connect-src 'none'/,

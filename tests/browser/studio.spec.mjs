@@ -364,7 +364,7 @@ test("corrupted saved data is preserved until an edit and a range drag forms one
   await expect(page.locator("#width-number")).toHaveValue("80");
 });
 
-test("parts inspector edits independent components, supports history and round-trips v2", async ({
+test("parts inspector edits independent components, supports history and round-trips v3", async ({
   page,
 }, testInfo) => {
   await page.goto("./");
@@ -389,7 +389,7 @@ test("parts inspector edits independent components, supports history and round-t
   await page.locator("#export").click();
   const exported = await readFile(await (await downloadPromise).path(), "utf8");
   const saved = JSON.parse(exported);
-  expect(saved.version).toBe(2);
+  expect(saved.version).toBe(3);
   expect(saved.design.parts.tabletop.thickness).toBe(7.2);
   expect(saved.design.parts.column).toEqual({ diameter: 8, material: "metal" });
   await page.locator("#reset-part").click();
@@ -526,7 +526,7 @@ test("parts slider is one undo step and migration/import failures preserve edita
 }) => {
   const legacy = await readFile("tests/fixtures/cafe-table-v1.json", "utf8");
   await page.addInitScript((value) => {
-    if (!localStorage.getItem("form-studio.workspace.v2"))
+    if (!localStorage.getItem("form-studio.workspace.v3"))
       localStorage.setItem("form-studio.workspace.v1", value);
   }, legacy);
   await page.goto("./");
@@ -534,9 +534,9 @@ test("parts slider is one undo step and migration/import failures preserve edita
   expect(
     await page.evaluate(
       () =>
-        JSON.parse(localStorage.getItem("form-studio.workspace.v2")).version,
+        JSON.parse(localStorage.getItem("form-studio.workspace.v3")).version,
     ),
-  ).toBe(2);
+  ).toBe(3);
   await page.locator("#edit-parts").click();
   await page.locator('[data-part="tabletop"]').click();
   const range = page.getByRole("slider", {
@@ -556,7 +556,7 @@ test("parts slider is one undo step and migration/import failures preserve edita
   await expect(page.locator("#part-thickness")).toHaveValue("4.5");
   await expect(page.locator("#undo")).toBeDisabled();
   const before = await page.evaluate(() =>
-    localStorage.getItem("form-studio.workspace.v2"),
+    localStorage.getItem("form-studio.workspace.v3"),
   );
   const invalid = {
     ...JSON.parse(before),
@@ -572,6 +572,6 @@ test("parts slider is one undo step and migration/import failures preserve edita
   });
   await expect(page.locator("#toast")).toContainText("Invalid part");
   expect(
-    await page.evaluate(() => localStorage.getItem("form-studio.workspace.v2")),
+    await page.evaluate(() => localStorage.getItem("form-studio.workspace.v3")),
   ).toBe(before);
 });

@@ -5,7 +5,12 @@ import {
   subcategoryLabel,
   filterCatalog,
 } from "./catalog.js";
-import { supportsParts, normalizeParts, PARTS } from "./parts.js";
+import {
+  supportsParts,
+  normalizeParts,
+  partDefinitions,
+  getPartsProfile,
+} from "./parts.js";
 export { TAXONOMY, categoryLabel, subcategoryLabel, filterCatalog };
 export const PALETTE = {
   walnut: "#79553c",
@@ -46,7 +51,12 @@ export const LIMITS = {
   shelves: [2, 6],
 };
 export function fresh(id = "cafe-table") {
-  return structuredClone(CATALOG.find((o) => o.id === id) || CATALOG[0]);
+  const design = structuredClone(
+    CATALOG.find((o) => o.id === id) || CATALOG[0],
+  );
+  const profile = getPartsProfile(design);
+  if (profile) design.partsRevision = profile.revision;
+  return design;
 }
 export function normalize(input) {
   const base = fresh(input?.id);
@@ -399,11 +409,12 @@ export function diff(a, b) {
   ]
     .filter((k) => a[k] !== b[k] && b[k] !== undefined)
     .map((key) => ({ key, before: a[key], after: b[key] }));
-  for (const id of Object.keys(PARTS))
-    for (const field of [...PARTS[id].fields, "color", "material"])
+  const definitions = { ...partDefinitions(a), ...partDefinitions(b) };
+  for (const id of Object.keys(definitions))
+    for (const field of [...definitions[id].fields, "color", "material"])
       if (a.parts?.[id]?.[field] !== b.parts?.[id]?.[field])
         changes.push({
-          key: `${PARTS[id].label} ${field}`,
+          key: `${definitions[id].label} ${field}`,
           before: a.parts?.[id]?.[field],
           after: b.parts?.[id]?.[field] ?? "Inherited",
         });
@@ -413,7 +424,7 @@ export function serialize(design) {
   return JSON.stringify(
     {
       format: "form-studio",
-      version: 2,
+      version: 3,
       units: "cm",
       design: normalize(design),
     },
@@ -436,18 +447,25 @@ export function deserialize(json) {
   }
   if (
     v?.format !== "form-studio" ||
-    ![1, 2].includes(v.version) ||
+    ![1, 2, 3].includes(v.version) ||
     !v.design ||
     Array.isArray(v.design) ||
     !CATALOG.some((o) => o.id === v.design.id)
   )
     throw Error(
-      "Choose a version-1 or version-2 FORM Studio design with a known object.",
+      "Choose a version-1, version-2 or version-3 FORM Studio design with a known object.",
     );
   if (v.units !== undefined && v.units !== "cm")
     throw Error("Design dimensions must use centimeters (cm).");
   const d = v.design,
     base = fresh(d.id);
+  const profile = getPartsProfile(base);
+  if (
+    v.version === 3 &&
+    ((profile && d.partsRevision !== profile.revision) ||
+      (!profile && Object.hasOwn(d, "partsRevision")))
+  )
+    throw Error("Unsupported parts revision for this object.");
   for (const key of ["width", "height", "depth", "shelves"])
     if (Object.hasOwn(d, key)) {
       if (key === "shelves" && !base.shelves)
@@ -479,8 +497,8 @@ export function deserialize(json) {
   )
     throw Error("Unsupported object shape.");
   if (Object.hasOwn(d, "parts")) {
-    if (v.version !== 2)
-      throw Error("Part settings require a version-2 design.");
+    if (v.version === 1 || (v.version === 2 && d.id !== "cafe-table"))
+      throw Error("These part settings require a version-3 design.");
     normalizeParts({ ...base, ...d }, d.parts, MATERIALS, true);
   }
   return normalize(d);

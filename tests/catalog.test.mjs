@@ -37,7 +37,11 @@ test("all 17 requested subcategories are populated under their correct main cate
       owner?.subcategories.some((s) => s.id === o.subcategory),
       o.id,
     );
-    assert.deepEqual(normalize(o), o, o.id + " defaults survive normalization");
+    assert.deepEqual(
+      normalize(o),
+      fresh(o.id),
+      o.id + " defaults survive normalization with current revision",
+    );
   }
 });
 test("search combines with category and subcategory filters and ignores accents", () => {

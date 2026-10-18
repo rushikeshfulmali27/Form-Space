@@ -420,6 +420,13 @@ function render() {
   partsControls.render();
 }
 function preview(next) {
+  // Solve envelope drags from the committed overrides, not a clamped preview.
+  if (
+    next.id === history.current.id &&
+    next.parts === design.parts &&
+    ["width", "height", "depth"].some((key) => next[key] !== design[key])
+  )
+    next = { ...next, parts: history.current.parts };
   design = normalize(next);
   render();
   $("#save-status").textContent = storageMessage("editing");

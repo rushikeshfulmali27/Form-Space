@@ -1,39 +1,14 @@
 // Pure component settings. Saved values are centimeters; geometry uses meters.
-export const PARTS = {
-  tabletop: { label: "Tabletop", fields: ["thickness"] },
-  column: { label: "Support column", fields: ["diameter"] },
-  base: { label: "Base assembly", fields: ["width", "depth"] },
-};
-export const supportsParts = (d) => d?.id === "cafe-table";
-const cm = (value) => Math.round(value * 100) / 100;
+import { getPartsProfile, partDefinitions } from "./parts-registry.js";
+export { getPartsProfile, partDefinitions };
+export const supportsParts = (d) => getPartsProfile(d) !== null;
 export function partDefaults(d) {
-  return {
-    tabletop: {
-      thickness: Math.min(4.5, d.height * 0.08),
-      color: d.color,
-      material: d.material,
-    },
-    column: {
-      diameter: cm(Math.min(d.width, d.depth) * 0.15),
-      color: d.accent,
-      material: "matte",
-    },
-    base: {
-      width: cm(d.width * 0.68),
-      depth: cm(d.depth * 0.68),
-      color: d.accent,
-      material: "matte",
-    },
-  };
+  return getPartsProfile(d)?.defaults(d) || {};
 }
 export function partLimits(d, id, key) {
-  if (id === "tabletop" && key === "thickness")
-    return [0.5, Math.min(12, d.height - 10)];
-  if (id === "column" && key === "diameter")
-    return [0.5, Math.min(d.width, d.depth) * 0.4];
-  if (id === "base" && ["width", "depth"].includes(key))
-    return [d[key] * 0.25, d[key]];
-  throw Error("Unsupported part dimension.");
+  const profile = getPartsProfile(d);
+  if (!profile) throw Error("This object has no editable parts.");
+  return profile.limits(d, id, key);
 }
 export function normalizeParts(d, input, materials, strict = false) {
   if (input === undefined) return {};
@@ -48,9 +23,10 @@ export function normalizeParts(d, input, materials, strict = false) {
   )
     return strict ? fail() : {};
   const out = {};
+  const definitions = partDefinitions(d);
   for (const [id, values] of Object.entries(input)) {
     if (
-      !Object.hasOwn(PARTS, id) ||
+      !Object.hasOwn(definitions, id) ||
       !values ||
       typeof values !== "object" ||
       Array.isArray(values)
@@ -60,7 +36,7 @@ export function normalizeParts(d, input, materials, strict = false) {
     }
     const part = {};
     for (const [key, value] of Object.entries(values)) {
-      if (PARTS[id].fields.includes(key)) {
+      if (definitions[id].fields.includes(key)) {
         const [min, max] = partLimits(d, id, key);
         if (
           typeof value !== "number" ||

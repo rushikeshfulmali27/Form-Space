@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.2.0 — 2026-10-18
+
+- Extended Parts Editor to Round side table and Square café table, using their own default dimensions and finishes.
+- Added a trusted shared profile registry for parts, field definitions, limits, defaults, geometry dispatch and inspector readouts. Part lists rebuild on object/profile changes.
+- Added version-3 exports with per-object part revisions and safe v2/v1 local-save migration. Released café-table v2 settings and geometry remain unchanged.
+- Fixed overall-dimension slider previews so intermediate clamping does not permanently shrink explicit component overrides when the drag returns to its starting size.
+- Added legacy fixtures, schema/migration checks and desktop/tablet/mobile regressions for both tables. Other 69 objects retain their original geometry; additional rollout families remain planned.
+
 ## 1.1.0 — 2026-10-18
 
 - Added the café-table Parts Editor pilot: independently edit tabletop thickness/shape/size, column diameter and four-foot base footprint, with separate finishes/colors and automatic connections.

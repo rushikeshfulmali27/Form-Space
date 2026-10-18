@@ -1,5 +1,10 @@
 // Parametric catalog geometry. Coordinates are in meters, controls in centimeters.
-import { supportsParts, resolveParts, PARTS } from "./parts.js";
+import {
+  supportsParts,
+  resolveParts,
+  partDefinitions,
+  getPartsProfile,
+} from "./parts.js";
 export function buildModel(d, low = false) {
   return buildAssemblyModel(d, low).data;
 }
@@ -14,7 +19,7 @@ export function buildAssemblyModel(d, low = false) {
     fn();
     parts.push({
       id,
-      label: PARTS[id].label,
+      label: partDefinitions(d)[id].label,
       firstVertex,
       vertexCount: vertices.length / 10 - firstVertex,
     });
@@ -263,7 +268,7 @@ export function buildAssemblyModel(d, low = false) {
     }
   }
   const thick = Math.min(0.045, h * 0.08);
-  if (supportsParts(d)) {
+  if (getPartsProfile(d)?.builder === "pedestal-table") {
     const p = resolveParts(d),
       t = p.tabletop.thickness / 100;
     const material = (id) =>

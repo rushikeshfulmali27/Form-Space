@@ -1,5 +1,6 @@
 import {
-  PARTS,
+  partDefinitions,
+  getPartsProfile,
   supportsParts,
   resolveParts,
   partLimits,
@@ -23,24 +24,17 @@ export class PartsControls {
     this.q("#parts-editor").addEventListener("keydown", (e) => {
       if (e.key === "Escape") this.select(null);
     });
-    for (const [id, def] of Object.entries(PARTS)) {
-      const button = document.createElement("button");
-      button.textContent = def.label;
-      button.dataset.part = id;
-      button.addEventListener("click", () => this.select(id));
-      this.q("#parts-list").append(button);
-    }
     this.q("#reset-part").addEventListener("click", () => {
       if (this.selected)
         this.commit(
           resetPart(this.getDesign(), this.selected),
-          `${PARTS[this.selected].label} reset to inherited settings.`,
+          `${partDefinitions(this.getDesign())[this.selected].label} reset to inherited settings.`,
         );
     });
     this.q("#finish-all-parts").addEventListener("click", () => {
       const d = this.getDesign(),
         parts = structuredClone(d.parts || {});
-      for (const id of Object.keys(PARTS))
+      for (const id of Object.keys(partDefinitions(d)))
         parts[id] = { ...parts[id], material: d.material, color: d.color };
       this.commit(
         { ...d, parts },
@@ -59,6 +53,7 @@ export class PartsControls {
     this.render();
   }
   select(id) {
+    if (id && !Object.hasOwn(partDefinitions(this.getDesign()), id)) id = null;
     this.selected = id;
     this.viewer.setSelection(id);
     this.q("#auto-rotate").checked = this.viewer.auto;
@@ -71,6 +66,7 @@ export class PartsControls {
     this.inputs = [];
     if (!this.selected) return;
     const id = this.selected;
+    const definition = partDefinitions(this.getDesign())[id];
     const add = (key, labelText, type = "number", global = false) => {
       const label = document.createElement("label");
       label.className = "part-field";
@@ -80,7 +76,7 @@ export class PartsControls {
         type === "select" ? "select" : "input",
       );
       input.id = `part-${key}`;
-      input.setAttribute("aria-label", `${PARTS[id].label} ${labelText}`);
+      input.setAttribute("aria-label", `${definition.label} ${labelText}`);
       if (type === "select") {
         for (const [value, title] of key === "shape"
           ? [
@@ -116,7 +112,7 @@ export class PartsControls {
             Number(input.value) > Number(input.max))
             ? [`${labelText} was limited to ${input.min}–${input.max} cm.`]
             : [];
-        this.commit(next(), `${PARTS[id].label} updated.`, warnings);
+        this.commit(next(), `${definition.label} updated.`, warnings);
       });
       label.append(text, input);
       root.append(label);
@@ -127,14 +123,14 @@ export class PartsControls {
         range.step = global ? "1" : "0.1";
         range.setAttribute(
           "aria-label",
-          `${PARTS[id].label} ${labelText} slider`,
+          `${definition.label} ${labelText} slider`,
         );
         range.addEventListener("input", () => {
           input.value = range.value;
           this.preview(next());
         });
         const finish = () =>
-          this.commit(this.getDesign(), `${PARTS[id].label} updated.`);
+          this.commit(this.getDesign(), `${definition.label} updated.`);
         range.addEventListener("change", finish);
         range.addEventListener("pointercancel", finish);
         root.append(range);
@@ -142,12 +138,16 @@ export class PartsControls {
       }
       this.inputs.push(row);
     };
-    if (id === "tabletop") {
-      add("width", "Width (cm)", "number", true);
-      add("depth", "Depth (cm)", "number", true);
-      add("shape", "Shape", "select", true);
-    }
-    for (const key of PARTS[id].fields)
+    for (const key of definition.globalFields || [])
+      add(
+        key,
+        key === "shape"
+          ? "Shape"
+          : `${key[0].toUpperCase() + key.slice(1)} (cm)`,
+        key === "shape" ? "select" : "number",
+        true,
+      );
+    for (const key of definition.fields)
       add(key, `${key[0].toUpperCase() + key.slice(1)} (cm)`);
     add("material", "Finish", "select");
     add("color", "Color", "color");
@@ -155,11 +155,22 @@ export class PartsControls {
   render() {
     const d = this.getDesign(),
       supported = supportsParts(d);
-    if (this.objectId !== d.id) {
-      this.objectId = d.id;
+    const profile = getPartsProfile(d),
+      definitions = partDefinitions(d);
+    const signature = `${d.id}:${profile?.revision}:${Object.keys(definitions).join(",")}`;
+    if (this.objectId !== signature) {
+      this.objectId = signature;
       this.selected = null;
       this.builtFor = null;
       this.viewer.setSelection(null);
+      this.q("#parts-list").replaceChildren();
+      for (const [id, def] of Object.entries(definitions)) {
+        const button = document.createElement("button");
+        button.textContent = def.label;
+        button.dataset.part = id;
+        button.addEventListener("click", () => this.select(id));
+        this.q("#parts-list").append(button);
+      }
     }
     if (!supported) {
       this.mode = "object";
@@ -185,7 +196,7 @@ export class PartsControls {
         String(button.dataset.part === this.selected),
       );
     this.q("#selected-part-name").textContent = this.selected
-      ? `Editing: ${PARTS[this.selected].label}`
+      ? `Editing: ${definitions[this.selected].label}`
       : "Select a part";
     this.q("#part-selection-help").hidden = !!this.selected;
     this.q("#reset-part").hidden = !this.selected;
@@ -198,11 +209,16 @@ export class PartsControls {
       this.build();
       this.builtFor = this.selected;
     }
-    this.q("#column-height").hidden = this.selected !== "column";
+    this.q("#parts-description").textContent = supported
+      ? `${d.name} · ${profile.description}`
+      : "";
+    const readout = this.selected
+      ? profile?.readout?.(d, resolveParts(d), this.selected) || ""
+      : "";
+    this.q("#column-height").hidden = !readout;
     if (!this.selected) return;
     const p = resolveParts(d)[this.selected];
-    this.q("#column-height").textContent =
-      `Column height: ${(d.height - resolveParts(d).tabletop.thickness - 5).toFixed(1)} cm · follows total height`;
+    this.q("#column-height").textContent = readout;
     for (const { key, input, range, global, type } of this.inputs) {
       input.value = global ? d[key] : p[key];
       if (type === "number") {

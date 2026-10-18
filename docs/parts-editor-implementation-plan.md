@@ -218,4 +218,4 @@ Free transforms, arbitrary part insertion/deletion, real plywood layering, joine
 
 ## 12. Recommended next action
 
-Begin with compatibility fixtures and the pure parts/schema layer, then prove final-dimension geometry before building the inspector. The biggest risk is inconsistent dimension ownership and persistence, so resolve those contracts before adding canvas interactions.
+The café-table pilot and the shared-registry/side/square-table batch are complete. Continue with the [all-object rollout plan](parts-editor-all-objects-plan.md) and [72-object catalog mapping](parts-editor-catalog-map.md). Next, extract reusable primitive writing and add standard desks before proceeding through the remaining family waves.

@@ -1,0 +1,45 @@
+[
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "side-table",
+      "name": "Round side table",
+      "category": "Home",
+      "subcategory": "home-living",
+      "kind": "table",
+      "tag": "Living room",
+      "width": 45,
+      "height": 52,
+      "depth": 45,
+      "color": "#79553c",
+      "accent": "#282e2c",
+      "material": "walnut",
+      "shape": "round"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "square-cafe-table",
+      "name": "Square café table",
+      "category": "Cafe",
+      "subcategory": "cafe-tables",
+      "kind": "table",
+      "tag": "Tables & seating",
+      "width": 75,
+      "height": 74,
+      "depth": 75,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "shape": "square",
+      "aliases": [
+        "square table"
+      ]
+    }
+  }
+]

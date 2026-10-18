@@ -33,9 +33,12 @@ const close = (a, b) => assert.ok(Math.abs(a - b) < 1e-5, `${a} != ${b}`);
 const part = (m, id) => m.parts.find((p) => p.id === id);
 const changed = (d, id, key, value) => normalize(editPart(d, id, key, value));
 
-test("only the pilot has parts; mesh ownership is complete and stable at both detail levels", () => {
+test("only the three released pedestal tables have parts; mesh ownership is complete", () => {
   for (const d of CATALOG)
-    assert.equal(supportsParts(d), d.id === "cafe-table");
+    assert.equal(
+      supportsParts(d),
+      ["cafe-table", "side-table", "square-cafe-table"].includes(d.id),
+    );
   for (const low of [false, true]) {
     const m = buildAssemblyModel(fresh(), low);
     assert.deepEqual(
@@ -154,7 +157,7 @@ test("v1 fixture migrates and v2 round-trips every override with semantic histor
   assert.deepEqual(h.redo(), next);
   assert.ok(diff(old, next).some((c) => c.key === "Tabletop thickness"));
   const text = serialize(next);
-  assert.equal(JSON.parse(text).version, 2);
+  assert.equal(JSON.parse(text).version, 3);
   assert.deepEqual(deserialize(text), next);
   h.undo();
   h.push(changed(old, "base", "depth", 40));
@@ -223,7 +226,7 @@ test("storage migration preserves v1, reports write failure, and never hides cor
     setItem: (k, v) => entries.set(k, v),
   };
   assert.equal(loadWorkspace(storage).design.width, 90);
-  assert.equal(JSON.parse(entries.get(STORE)).version, 2);
+  assert.equal(JSON.parse(entries.get(STORE)).version, 3);
   assert.equal(entries.get(LEGACY_STORE), v1);
   entries.set(STORE, "broken");
   assert.equal(loadWorkspace(storage).status, "corrupt");
