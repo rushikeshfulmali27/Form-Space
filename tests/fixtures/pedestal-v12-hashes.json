@@ -1,0 +1,14 @@
+{
+  "cafe-table": {
+    "high": "8b4e8b9ba38140f3568f55723171ba7c2134551c9182df23041bead80f579bec",
+    "low": "70995e4b1c049aecb60888161ab13f804699b73f8e9840220c63d51c0b312ada"
+  },
+  "side-table": {
+    "high": "62e5e78a2259c6b393c67406d52c613f9d2ee865ab0734b50569ea0c1d41c414",
+    "low": "0b7a44c8c4a42b7d2dddc0825e8a793cc51c7813548b1a27556152c5e9f604ff"
+  },
+  "square-cafe-table": {
+    "high": "7dd14e33c7efe023134dc69939d2b462bfc4a9ecb2c8498bef90a064743bb1f0",
+    "low": "e33cbf10e88b0e910d2832331bd36d65f71bd1c2132f7a16cb0efc1f8fd72022"
+  }
+}

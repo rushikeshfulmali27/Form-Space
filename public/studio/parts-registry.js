@@ -1,4 +1,5 @@
 // Profiles are trusted application definitions, never selected by imported data.
+import { standardDeskProfile } from "./parts-desks.js";
 const cm = (value) => Math.round(value * 100) / 100;
 const pedestal = {
   id: "pedestal-table",
@@ -54,6 +55,11 @@ const objects = Object.freeze({
   "cafe-table": pedestal,
   "side-table": pedestal,
   "square-cafe-table": pedestal,
+  "work-desk": standardDeskProfile,
+  "coffee-table": standardDeskProfile,
+  "dining-table": standardDeskProfile,
+  "conference-table": standardDeskProfile,
+  "communal-table": standardDeskProfile,
 });
 export const getPartsProfile = (d) =>
   d && Object.hasOwn(objects, d.id) ? objects[d.id] : null;

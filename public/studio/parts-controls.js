@@ -6,6 +6,8 @@ import {
   partLimits,
   editPart,
   resetPart,
+  applyGroup,
+  partDescendants,
 } from "./parts.js";
 
 export class PartsControls {
@@ -29,6 +31,13 @@ export class PartsControls {
         this.commit(
           resetPart(this.getDesign(), this.selected),
           `${partDefinitions(this.getDesign())[this.selected].label} reset to inherited settings.`,
+        );
+    });
+    this.q("#apply-group").addEventListener("click", () => {
+      if (this.selected)
+        this.commit(
+          applyGroup(this.getDesign(), this.selected),
+          "Group settings applied to all members.",
         );
     });
     this.q("#finish-all-parts").addEventListener("click", () => {
@@ -55,6 +64,13 @@ export class PartsControls {
   select(id) {
     if (id && !Object.hasOwn(partDefinitions(this.getDesign()), id)) id = null;
     this.selected = id;
+    const parent = partDefinitions(this.getDesign())[id]?.parent;
+    if (parent) {
+      this.q(`#parts-members-${parent}`).hidden = false;
+      this.q(`#parts-expand-${parent}`).setAttribute("aria-expanded", "true");
+      this.q(`#parts-expand-${parent}`).textContent =
+        `Hide individual ${parent}`;
+    }
     this.viewer.setSelection(id);
     this.q("#auto-rotate").checked = this.viewer.auto;
     this.builtFor = null;
@@ -91,7 +107,7 @@ export class PartsControls {
         }
       } else {
         input.type = type;
-        if (type === "number") input.step = "0.1";
+        if (type === "number") input.step = global ? "1" : "0.01";
       }
       const next = () => {
         const d = this.getDesign();
@@ -164,12 +180,39 @@ export class PartsControls {
       this.builtFor = null;
       this.viewer.setSelection(null);
       this.q("#parts-list").replaceChildren();
+      this.q("#parts-list").classList.toggle(
+        "has-groups",
+        Object.values(definitions).some((def) => def.group),
+      );
       for (const [id, def] of Object.entries(definitions)) {
         const button = document.createElement("button");
         button.textContent = def.label;
         button.dataset.part = id;
         button.addEventListener("click", () => this.select(id));
-        this.q("#parts-list").append(button);
+        if (def.parent) {
+          button.className = "part-member";
+          this.q(`#parts-members-${def.parent}`).append(button);
+        } else {
+          this.q("#parts-list").append(button);
+          if (def.group) {
+            const expand = document.createElement("button"),
+              members = document.createElement("div");
+            expand.id = `parts-expand-${id}`;
+            expand.className = "part-expand";
+            expand.textContent = `Show individual ${id}`;
+            expand.setAttribute("aria-expanded", "false");
+            expand.setAttribute("aria-controls", `parts-members-${id}`);
+            members.id = `parts-members-${id}`;
+            members.className = "part-members";
+            members.hidden = true;
+            expand.addEventListener("click", () => {
+              members.hidden = !members.hidden;
+              expand.setAttribute("aria-expanded", String(!members.hidden));
+              expand.textContent = `${members.hidden ? "Show" : "Hide"} individual ${id}`;
+            });
+            this.q("#parts-list").append(expand, members);
+          }
+        }
       }
     }
     if (!supported) {
@@ -200,11 +243,26 @@ export class PartsControls {
       : "Select a part";
     this.q("#part-selection-help").hidden = !!this.selected;
     this.q("#reset-part").hidden = !this.selected;
+    this.q("#reset-part").textContent = definitions[this.selected]?.group
+      ? "Reset group and members"
+      : "Reset selected part";
+    this.q("#apply-group").hidden = !definitions[this.selected]?.group;
+    this.q("#parts-hint").textContent =
+      profile?.hint ||
+      "Parts stay connected. Base footprint stays inside the tabletop. Total height is edited in Whole object.";
     this.q("#part-custom").textContent = !this.selected
       ? ""
       : Object.keys(d.parts?.[this.selected] || {}).length
         ? "Custom settings · reset to inherit"
         : "Inherited settings";
+    if (definitions[this.selected]?.group) {
+      const count = partDescendants(d, this.selected).filter(
+        (id) => Object.keys(d.parts?.[id] || {}).length,
+      ).length;
+      if (count)
+        this.q("#part-custom").textContent +=
+          ` · ${count} custom member${count === 1 ? "" : "s"}`;
+    }
     if (this.builtFor !== this.selected) {
       this.build();
       this.builtFor = this.selected;

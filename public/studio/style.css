@@ -17,6 +17,37 @@
   background: var(--bg);
   font-synthesis: none;
 }
+.part-members {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0 0 8px 16px;
+  border-left: 2px solid var(--line);
+}
+.parts-list .part-expand {
+  flex: none;
+  min-height: 36px;
+  padding: 5px;
+  border: 0;
+  background: transparent;
+  text-decoration: underline;
+  font-size: 12px;
+}
+.part-members .part-member {
+  text-align: left;
+}
+#parts-list.has-groups {
+  flex-direction: column;
+  flex-wrap: nowrap;
+  max-height: 330px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 4px;
+}
+.parts-list.has-groups > button,
+.parts-list.has-groups > .part-members {
+  flex: none;
+}
 .parts-modes,
 .parts-list {
   display: flex;

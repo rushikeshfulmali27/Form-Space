@@ -1,8 +1,8 @@
 # Parts Editor rollout: all 72 catalog objects
 
-Status: rollout in progress. The Orbit café table pilot was released in v1.1; v1.2 adds the side table and square café table. Three objects now support Parts Editor, with 69 remaining.
+Status: rollout in progress. V1.1/v1.2 delivered the three pedestal tables; v1.3 adds five standard desks/tables. Eight objects now support Parts Editor, with 64 remaining.
 
-First batch complete: trusted registry, profile-driven fields/defaults/limits/readouts, v3 format/revision checks, v2/v1 migration, and the three pedestal-table variants. Wave 0 still needs generalized primitive-writer extraction and repeated group/member identity/topology before later families ship. Wave 1 still needs standard, standing, corner and slatted desks plus the laptop stand. This batch does not complete all 72 objects or the whole first wave.
+Completed foundation: trusted registry, profile-driven fields/defaults/limits/readouts, v3 format/revision checks, save migration, shared primitive writing, and fixed repeated groups/members with independent editing, highlighting and reset. Standard desks/tables are now implemented. Variable-count topology (shelves/cushions) remains future work. Wave 1 still needs standing, corner and slatted desks plus the laptop stand; this is not completion of all 72 objects or the whole first wave.
 
 ## 1. Scope and catalog coverage
 
@@ -166,7 +166,7 @@ Totals: 72 objects, 71 newly enabled after the released pilot. Each wave include
 
 Within a wave: one representative family fixture → profile and strict schema → final-dimension geometry → list controls → member selection/persistence → full variant matrix → browser and release checks. Do not enable a whole kind when only its basic variant is tested. Publish verified waves through existing GitHub Actions; keep incomplete profiles unavailable rather than deploying placeholder controls.
 
-The first concrete batch delivered the registry/schema foundation plus `side-table` and `square-cafe-table`. Next, extract reusable primitive writing and implement the standard desk profile with `work-desk`, before adding standing/corner/slatted variants and finishing wave 1. Repeated group/member identity must be completed before profiles that expose individual legs, shelves or other repeated pieces.
+V1.3 completes shared primitive writing and the standard-desk profile for `work-desk`, `coffee-table`, `dining-table`, `conference-table` and `communal-table`, including fixed member identity. Next, add the standing/corner/slatted variants and laptop stand to finish wave 1. Variable-count member identity/removal rules must be completed before editable shelf/cushion counts ship.
 
 ## 9. Verification and completion definition
 

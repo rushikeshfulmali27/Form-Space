@@ -218,4 +218,4 @@ Free transforms, arbitrary part insertion/deletion, real plywood layering, joine
 
 ## 12. Recommended next action
 
-The café-table pilot and the shared-registry/side/square-table batch are complete. Continue with the [all-object rollout plan](parts-editor-all-objects-plan.md) and [72-object catalog mapping](parts-editor-catalog-map.md). Next, extract reusable primitive writing and add standard desks before proceeding through the remaining family waves.
+The café-table pilot, pedestal rollout, shared primitive writer and standard-desk group/member batch are complete. Continue with the [all-object rollout plan](parts-editor-all-objects-plan.md) and [72-object catalog mapping](parts-editor-catalog-map.md). Next, add standing/corner/slatted desk variants and the laptop stand before proceeding through the remaining family waves.

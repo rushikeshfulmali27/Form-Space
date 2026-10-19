@@ -80,5 +80,22 @@ export function editPart(d, id, key, value) {
 export function resetPart(d, id) {
   const parts = { ...d.parts };
   delete parts[id];
+  for (const child of partDescendants(d, id)) delete parts[child];
+  return { ...d, parts };
+}
+export function partDescendants(d, id) {
+  const defs = partDefinitions(d);
+  return Object.keys(defs).filter((key) => {
+    let parent = defs[key].parent;
+    while (parent) {
+      if (parent === id) return true;
+      parent = defs[parent]?.parent;
+    }
+    return false;
+  });
+}
+export function applyGroup(d, id) {
+  const parts = { ...d.parts };
+  for (const child of partDescendants(d, id)) delete parts[child];
   return { ...d, parts };
 }

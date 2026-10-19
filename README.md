@@ -1,29 +1,33 @@
-# FORM — Object Studio v1.2
+# FORM — Object Studio v1.3
 
 A browser-only studio for exploring and customizing **72 parametric 3D objects**, organized into four categories and 17 subcategories. No account, API key, paid service, or AI connection is required.
 
-![FORM Object Studio Parts Editor](docs/images/parts-desktop.png)
+![FORM Object Studio desk Parts Editor](docs/images/desk-parts-desktop.png)
 
 ## What you can do
 
 - Browse Home, Office, Café and Shop collections; search names, categories, rooms and aliases.
 - Orbit, zoom, fit, and inspect front/top/isometric views using WebGL, with an interactive software fallback.
 - Edit dimensions in centimeters, surface/frame colors, and procedural wood, matte and metal finishes. Change shape or shelf count only where the selected object supports it.
-- Edit the Orbit café table, Round side table and Square café table's tabletop, support column and four-foot base independently using **Individual parts**. Select through the list or click/tap the model; selected geometry is tinted. The remaining 69 objects keep whole-object editing.
+- Use **Individual parts** on eight objects: the three pedestal tables plus Line work desk, Low coffee table, Family dining table, Conference table and Communal table. Standard desks expose the top, individual legs/feet and rear brace, with linked group controls. The remaining 64 objects keep whole-object editing.
 - Undo/redo, reset, save the current design in this browser, and export version-3 FORM JSON files (under 100 KB). Version-1 and version-2 files still import.
 - Use the optional **rules-based editor** for supported shortcuts such as `walnut with black legs`, `90 cm wide`, or `20% taller`. It is a local parser and makes no model requests.
 
 Dimensions describe the mesh's outer bounds. Materials are visual approximations; the software fallback uses simplified shading. This is an interactive customization demo, **not CAD, manufacturing output, structural analysis, or physical material simulation**. Some catalog details are stylized and intersect as assembled components.
 
-## Parts Editor: pedestal tables
+## Parts Editor: tables and desks
 
 Choose **Orbit café table**, **Round side table** or **Square café table → Individual parts**. Edit the tabletop's width, depth, round/oval or rectangular shape and thickness; the column's diameter; and the base assembly's width/depth. Every component has an independent visual finish and color. Column height follows the overall height and tabletop underside; the base remains grounded and its footprint stays within the tabletop. Return to **Whole object** to change total height. Input limits may adjust dependent dimensions, shown in edit feedback. Component dimensions use centimeters with decimal input. Each table uses its own catalog sizes and finishes; switching tables does not copy custom settings to the new object.
 
 Parts without custom settings inherit their defaults: the top uses the main surface finish/color; support and feet use the frame color with a matte finish. Whole-object finish edits preserve explicit part overrides. **Apply current surface finish to all parts** explicitly assigns the main surface finish/color to each component. **Reset selected part** removes its overrides; **Reset object** restores the catalog default. A part can contain several geometric pieces: all four feet are one base assembly.
 
+For the five standard desks/tables, choose **All legs** or **Both feet** for linked settings. Expand the group or click a visible member to customize a particular leg or foot. Leg section and shared inset, foot width/depth/thickness, top thickness and brace section have constrained dimensions. A member can have its own size, finish and color. Group edits preserve custom members; **Apply group settings to all members** clears their overrides, while **Reset group and members** clears both the group and its descendants. These operations are undoable. The parts list scrolls independently to keep controls reachable.
+
+Legs attach to their corresponding grounded foot and the underside of the top; the brace follows the rear supports. Round/oval tops pull supports inward to stay attached. Overall dimensions remain authoritative, and changing thickness adjusts support lengths. These are visual assembly rules, not structural analysis or joinery simulation.
+
 Drag to orbit, click/tap to select, and press Escape with the canvas or parts inspector focused to clear selection. Selection pauses auto-rotation, is temporary, and creates no undo entry. A slider drag creates one edit. The list also provides keyboard access to components hidden behind others. Software fallback supports the same editing/selection workflow with simplified shading. The rules-based text editor applies to whole-object settings; use the inspector for component dimensions.
 
-The three tables use final component dimensions instead of globally rescaling the mesh. Legacy designs retain their dimensions, colors and construction, with small geometry differences in the grounded feet and support positioning on the two newly converted tables. The released café-table v1.1 geometry is unchanged, including custom finishes/dimensions. Other 69 objects retain their original geometry. Free movement, adding/removing components, separate plywood layers, exploded views and other object families are future work. See [all-object rollout plan](docs/parts-editor-all-objects-plan.md).
+All eight parts-enabled objects use final component dimensions instead of globally rescaling the mesh. Legacy settings retain dimensions and finishes; converted models can have documented grounding/support-layout differences. All three released pedestal-table meshes remain unchanged, including custom café-table geometry. Other 64 objects retain their original geometry. Free movement, adding/removing components, separate plywood layers, exploded views and other object families are future work. See [all-object rollout plan](docs/parts-editor-all-objects-plan.md).
 
 ## Local development
 
@@ -56,7 +60,8 @@ On Linux CI, install the browser with `npx playwright install --with-deps chromi
 - A range drag previews changes and commits one history step on release. Numeric fields apply on Enter/blur; supported limits are shown by the inputs. Auto-rotate starts off, including with reduced-motion preferences. It runs only when explicitly enabled and pauses rendering while the page is hidden.
 - Saving stores one current design at `form-studio.workspace.v3` for this browser origin. If absent, a valid v2 save is migrated, then v1 is considered only if v2 is absent; original backups are retained. A corrupt newer save is reported rather than silently replaced by older data. Switching objects is undoable. Clearing site data removes saved designs; JSON export is the portable backup. If storage is blocked/full or saved JSON is corrupt, the UI reports it instead of claiming a save. Corrupt data is retained until the next successful edit/save.
 - Existing valid version-1 exports, including the original eight objects, still import. Unknown IDs, invalid fields/units and oversized files are rejected without replacing the current design. Missing optional legacy fields take catalog defaults; unknown descriptive metadata is ignored.
-- New exports use version 3, including independent part overrides and the registered object's `partsRevision`. Unknown/future revisions, part IDs/fields, invalid dimensions/materials/colors, and parts on unsupported objects are rejected. Version-2 café-table settings migrate without changes; the two newly enabled tables require v3 to save part settings. Older releases cannot read v3 files.
+- New exports use version 3, including independent part overrides and the registered object's `partsRevision`. Unknown/future revisions, part IDs/fields, invalid dimensions/materials/colors, and parts on unsupported objects are rejected. Version-2 café-table settings migrate without changes. Releases before v1.2 cannot read v3 files; v1.2 cannot read the new standard-desk member schemas.
+- Earlier v3 whole-object files for the five standard desks, which contain neither `partsRevision` nor `parts`, acquire revision 1 defaults. Member settings require the explicit revision. Older app versions cannot open new desk part schemas.
 
 ## Static deployment
 

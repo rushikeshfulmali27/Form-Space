@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.3.0 — 2026-10-19
+
+- Enabled Parts Editor for the work desk, coffee table, dining table, conference table and communal table. Eight objects now support component editing.
+- Added expandable leg/foot groups, individual member dimensions/finishes, inherited group defaults, apply-to-members and group reset with undo/redo. Canvas picking selects individual leaves; group selection highlights all members.
+- Extracted shared triangle/box/cylinder/beam/ellipsoid writing without changing the three released pedestal meshes or 64 unconverted models.
+- Added final-dimension standard-desk geometry with grounded feet, automatically attached legs/brace, and inward support positioning for round tops.
+- Preserved earlier v1/v2/v3 whole-object desk files, including older v3 files without part revisions. New member data uses strict version-3/revision-1 validation.
+- Added geometry, group inheritance/history, migration, picking and responsive browser coverage. Runtime dependencies remain zero.
+
 ## 1.2.0 — 2026-10-18
 
 - Extended Parts Editor to Round side table and Square café table, using their own default dimensions and finishes.

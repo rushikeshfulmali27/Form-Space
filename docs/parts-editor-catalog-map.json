@@ -49,7 +49,7 @@
       "parts": "tabletop, legs, feet, rear-brace",
       "controls": "Top thickness; leg section/inset; foot depth; brace section",
       "rule": "Overall width/depth describe top envelope. Leg length follows top underside; feet stay on floor; brace spans rear supports.",
-      "status": "planned"
+      "status": "implemented"
     },
     {
       "id": "coffee-table",
@@ -61,7 +61,7 @@
       "parts": "tabletop, legs, feet, rear-brace",
       "controls": "Top thickness; leg section/inset; foot depth; brace section",
       "rule": "Overall width/depth describe top envelope. Leg length follows top underside; feet stay on floor; brace spans rear supports.",
-      "status": "planned"
+      "status": "implemented"
     },
     {
       "id": "dining-table",
@@ -73,7 +73,7 @@
       "parts": "tabletop, legs, feet, rear-brace",
       "controls": "Top thickness; leg section/inset; foot depth; brace section",
       "rule": "Overall width/depth describe top envelope. Leg length follows top underside; feet stay on floor; brace spans rear supports.",
-      "status": "planned"
+      "status": "implemented"
     },
     {
       "id": "conference-table",
@@ -85,7 +85,7 @@
       "parts": "tabletop, legs, feet, rear-brace",
       "controls": "Top thickness; leg section/inset; foot depth; brace section",
       "rule": "Overall width/depth describe top envelope. Leg length follows top underside; feet stay on floor; brace spans rear supports.",
-      "status": "planned"
+      "status": "implemented"
     },
     {
       "id": "communal-table",
@@ -97,7 +97,7 @@
       "parts": "tabletop, legs, feet, rear-brace",
       "controls": "Top thickness; leg section/inset; foot depth; brace section",
       "rule": "Overall width/depth describe top envelope. Leg length follows top underside; feet stay on floor; brace spans rear supports.",
-      "status": "planned"
+      "status": "implemented"
     },
     {
       "id": "standing-desk",

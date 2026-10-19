@@ -217,7 +217,10 @@ export class Viewer {
       this.lowModel = buildAssemblyModel(d, true);
       this.data = this.model.data;
       this.lowData = this.lowModel.data;
-      if (!this.model.parts.some((p) => p.id === this.selectedPart))
+      if (
+        !this.model.parts.some((p) => p.id === this.selectedPart) &&
+        !this.model.groups.some((p) => p.id === this.selectedPart)
+      )
         this.selectedPart = null;
       this.highlightKey = null;
     }
@@ -236,8 +239,10 @@ export class Viewer {
     }
     if (!this.highlightData.has(model)) {
       const data = model.data.slice();
-      const part = model.parts.find((p) => p.id === this.selectedPart);
-      if (part)
+      const group = model.groups.find((p) => p.id === this.selectedPart);
+      for (const part of model.parts.filter(
+        (p) => p.id === this.selectedPart || group?.members.includes(p.id),
+      ))
         for (
           let i = part.firstVertex * 10;
           i < (part.firstVertex + part.vertexCount) * 10;

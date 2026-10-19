@@ -31,25 +31,32 @@ const close = (a, b) => assert.ok(Math.abs(a - b) < 1e-5, `${a} != ${b}`);
 test("registry resolves only explicitly enabled objects and trusted revisions", () => {
   assert.deepEqual(
     [...supportedPartObjects].sort(),
-    ["cafe-table", "side-table", "square-cafe-table"].sort(),
+    [
+      "cafe-table",
+      "side-table",
+      "square-cafe-table",
+      "work-desk",
+      "coffee-table",
+      "dining-table",
+      "conference-table",
+      "communal-table",
+    ].sort(),
   );
-  for (const id of ["constructor", "__proto__", "bookshelf", "work-desk"]) {
+  for (const id of ["constructor", "__proto__", "bookshelf", "corner-desk"]) {
     assert.equal(getPartsProfile({ id }), null);
     assert.deepEqual(partDefinitions({ id }), {});
   }
   for (const id of supportedPartObjects) {
     const d = fresh(id);
     assert.equal(d.partsRevision, 1);
-    assert.deepEqual(Object.keys(partDefinitions(d)), [
-      "tabletop",
-      "column",
-      "base",
-    ]);
+    assert.ok(Object.hasOwn(partDefinitions(d), "tabletop"));
   }
 });
 
-test("all three tables preserve independent dimensions, attachments, history and v3 round trips", () => {
-  for (const id of supportedPartObjects) {
+test("all three pedestal tables preserve independent dimensions, attachments, history and v3 round trips", () => {
+  for (const id of supportedPartObjects.filter(
+    (id) => getPartsProfile({ id }).id === "pedestal-table",
+  )) {
     let d = fresh(id);
     const h = new History(d);
     for (const [part, key, value] of [

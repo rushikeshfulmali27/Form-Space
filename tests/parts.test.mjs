@@ -33,11 +33,20 @@ const close = (a, b) => assert.ok(Math.abs(a - b) < 1e-5, `${a} != ${b}`);
 const part = (m, id) => m.parts.find((p) => p.id === id);
 const changed = (d, id, key, value) => normalize(editPart(d, id, key, value));
 
-test("only the three released pedestal tables have parts; mesh ownership is complete", () => {
+test("only released pedestal and standard desk objects have parts; mesh ownership is complete", () => {
   for (const d of CATALOG)
     assert.equal(
       supportsParts(d),
-      ["cafe-table", "side-table", "square-cafe-table"].includes(d.id),
+      [
+        "cafe-table",
+        "side-table",
+        "square-cafe-table",
+        "work-desk",
+        "coffee-table",
+        "dining-table",
+        "conference-table",
+        "communal-table",
+      ].includes(d.id),
     );
   for (const low of [false, true]) {
     const m = buildAssemblyModel(fresh(), low);

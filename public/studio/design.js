@@ -462,7 +462,13 @@ export function deserialize(json) {
   const profile = getPartsProfile(base);
   if (
     v.version === 3 &&
-    ((profile && d.partsRevision !== profile.revision) ||
+    ((profile &&
+      d.partsRevision !== profile.revision &&
+      !(
+        profile.legacyUnversioned &&
+        !Object.hasOwn(d, "partsRevision") &&
+        !Object.hasOwn(d, "parts")
+      )) ||
       (!profile && Object.hasOwn(d, "partsRevision")))
   )
     throw Error("Unsupported parts revision for this object.");
