@@ -262,10 +262,10 @@
       "variant": "backrest",
       "family": "backrest-bench",
       "wave": 2,
-      "parts": "seat-slats, back-slats, back-supports, legs",
-      "controls": "Linked seat/back slat thickness/gap; seat height; support section",
-      "rule": "Four seat slats and three back slats remain attached; back supports extend from seat to back top.",
-      "status": "planned"
+      "parts": "seat-slats, bearers, legs, back-slats, back-supports",
+      "controls": "Seat height; shared gap; linked/individual board thickness, back-board height/depth, support sections and finishes",
+      "rule": "Four level seat boards connect through two bearers to grounded splayed legs. Garden-only back boards attach to two posts; spacing follows board heights and total height.",
+      "status": "implemented"
     },
     {
       "id": "cafe-bench",
@@ -274,10 +274,10 @@
       "variant": null,
       "family": "backless-bench",
       "wave": 2,
-      "parts": "seat-slats, legs",
-      "controls": "Linked slat thickness/gap; leg section",
-      "rule": "No backrest controls. Four slats retain overall top envelope and derived leg length.",
-      "status": "planned"
+      "parts": "seat-slats, bearers, legs",
+      "controls": "Shared seat gap; linked/individual board thickness, bearer/leg sections and finishes",
+      "rule": "Four level seat boards connect through two bearers to grounded splayed legs. Garden-only back boards attach to two posts; spacing follows board heights and total height.",
+      "status": "implemented"
     },
     {
       "id": "office-chair",

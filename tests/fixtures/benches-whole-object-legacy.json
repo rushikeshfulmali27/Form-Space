@@ -1,0 +1,122 @@
+[
+  {
+    "format": "form-studio",
+    "version": 1,
+    "design": {
+      "id": "garden-bench",
+      "name": "Garden bench",
+      "category": "Home",
+      "subcategory": "home-outdoor",
+      "kind": "bench",
+      "tag": "Outdoor",
+      "width": 150,
+      "height": 85,
+      "depth": 60,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "variant": "backrest"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "design": {
+      "id": "garden-bench",
+      "name": "Garden bench",
+      "category": "Home",
+      "subcategory": "home-outdoor",
+      "kind": "bench",
+      "tag": "Outdoor",
+      "width": 150,
+      "height": 85,
+      "depth": 60,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "variant": "backrest"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "design": {
+      "id": "garden-bench",
+      "name": "Garden bench",
+      "category": "Home",
+      "subcategory": "home-outdoor",
+      "kind": "bench",
+      "tag": "Outdoor",
+      "width": 150,
+      "height": 85,
+      "depth": 60,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "variant": "backrest"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "design": {
+      "id": "cafe-bench",
+      "name": "Café bench",
+      "category": "Cafe",
+      "subcategory": "cafe-tables",
+      "kind": "bench",
+      "tag": "Tables & seating",
+      "width": 140,
+      "height": 46,
+      "depth": 40,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "aliases": [
+        "bench"
+      ]
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "design": {
+      "id": "cafe-bench",
+      "name": "Café bench",
+      "category": "Cafe",
+      "subcategory": "cafe-tables",
+      "kind": "bench",
+      "tag": "Tables & seating",
+      "width": 140,
+      "height": 46,
+      "depth": 40,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "aliases": [
+        "bench"
+      ]
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "design": {
+      "id": "cafe-bench",
+      "name": "Café bench",
+      "category": "Cafe",
+      "subcategory": "cafe-tables",
+      "kind": "bench",
+      "tag": "Tables & seating",
+      "width": 140,
+      "height": 46,
+      "depth": 40,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "aliases": [
+        "bench"
+      ]
+    }
+  }
+]

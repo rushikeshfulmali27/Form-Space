@@ -1,6 +1,6 @@
 # Parts Editor: complete catalog mapping
 
-Status: rollout in progress. The three pedestal tables, five standard desks/tables and four R1 variants and seven R2 chairs/stools are implemented (19 total); the other 53 objects remain planned.
+Status: rollout in progress. The three pedestal tables, five standard desks/tables and four R1 variants and seven R2 chairs/stools and two R3 benches are implemented (21 total); the other 51 objects remain planned.
 
 Generated from the current 72-object catalog after reading every geometry branch. Every object appears exactly once. Family names below are proposed implementation profiles, not new catalog categories. All multi-part entries include part-specific visual finish/color in addition to listed dimension controls. Repeated components begin as linked groups, then gain individual member editing under the instance rules in the rollout plan.
 
@@ -27,8 +27,8 @@ Generated from the current 72-object catalog after reading every geometry branch
 | `breakfast-stool`           | Breakfast stool              | stool               | stools            | 2    | seat, legs, stretchers                                    |
 | `sofa`                      | Studio sofa                  | sofa                | sofas             | 2    | seat-base, back, armrests, cushions, legs                 |
 | `reception-sofa`            | Reception sofa               | sofa                | sofas             | 2    | seat-base, back, armrests, cushions, legs                 |
-| `garden-bench`              | Garden bench                 | bench / backrest    | backrest-bench    | 2    | seat-slats, back-slats, back-supports, legs               |
-| `cafe-bench`                | Café bench                   | bench               | backless-bench    | 2    | seat-slats, legs                                          |
+| `garden-bench`              | Garden bench                 | bench / backrest    | backrest-bench    | 2    | seat-slats, bearers, legs, back-slats, back-supports               |
+| `cafe-bench`                | Café bench                   | bench               | backless-bench    | 2    | seat-slats, bearers, legs                                          |
 | `office-chair`              | Task office chair            | office-chair        | office-chair      | 2    | seat, back, lift-column, armrests, star-base, casters     |
 | `tv-unit`                   | Media TV unit                | cabinet / media     | closed-cabinets   | 3    | carcass, back-panel, plinth, door-fronts, handles         |
 | `wardrobe`                  | Tall wardrobe                | cabinet             | closed-cabinets   | 3    | carcass, back-panel, plinth, door-fronts, handles         |
@@ -195,21 +195,21 @@ Connections and limits: Fit cushions between arms. Existing geometry changes cus
 
 Objects: `garden-bench`.
 
-Selectable parts: seat-slats, back-slats, back-supports, legs.
+Selectable parts: seat-slats, bearers, legs, back-slats, back-supports.
 
-Controls: Linked seat/back slat thickness/gap; seat height; support section.
+Controls: Seat height and gap; linked/individual seat thickness, back-board height/depth, bearer/leg/post sections and finishes.
 
-Connections and limits: Four seat slats and three back slats remain attached; back supports extend from seat to back top.
+Connections and limits: Four seat slats connect through two under-seat bearers to grounded legs; three back slats attach to posts. Back spacing is derived from seat and board heights.
 
 ### backless-bench (wave 2)
 
 Objects: `cafe-bench`.
 
-Selectable parts: seat-slats, legs.
+Selectable parts: seat-slats, bearers, legs.
 
-Controls: Linked slat thickness/gap; leg section.
+Controls: Shared seat gap; linked/individual slat thickness, bearer/leg sections and finishes.
 
-Connections and limits: No backrest controls. Four slats retain overall top envelope and derived leg length.
+Connections and limits: No backrest controls. Four level boards connect through two bearers to the legs; seat top defines overall height.
 
 ### office-chair (wave 2)
 

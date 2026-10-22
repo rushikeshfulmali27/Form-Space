@@ -1,7 +1,7 @@
 {
-  "baseline": "v1.5.0",
-  "implemented": 19,
-  "remaining": 53,
+  "baseline": "v1.6.0",
+  "implemented": 21,
+  "remaining": 51,
   "scope": "rollout-in-progress",
   "sharedGate": {
     "id": "T0",
@@ -79,11 +79,11 @@
     {
       "id": "R3",
       "title": "Benches",
-      "status": "planned",
+      "status": "implemented",
       "dependsOn": ["R2"],
       "objectIds": ["garden-bench", "cafe-bench"],
       "count": 2,
-      "scope": "Linked and individual seat slats; back slats/supports only on the backrest variant.",
+      "scope": "Four seat slats connected by two bearers to four legs; three back slats and two posts only on garden bench.",
       "profiles": ["backrest-bench", "backless-bench"],
       "supportedAfterBatch": 21
     },
@@ -269,7 +269,6 @@
   ],
   "reviewedAt": "2026-10-22",
   "executionOrder": [
-    "R3",
     "T0",
     "R4",
     "R5",

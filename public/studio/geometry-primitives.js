@@ -188,7 +188,29 @@ export function createPrimitiveWriter({
       }
   }
 
-  return { tri, box, cylinder, beam, ellipsoid };
+  function post(a, b, section, c, m) {
+    const r = section / 2,
+      points = [a, b].flatMap(([x, y, z]) => [
+        [x - r, y, z - r],
+        [x + r, y, z - r],
+        [x + r, y, z + r],
+        [x - r, y, z + r],
+      ]);
+    for (const face of [
+      [0, 1, 2, 3],
+      [4, 7, 6, 5],
+      [0, 4, 5, 1],
+      [1, 5, 6, 2],
+      [2, 6, 7, 3],
+      [3, 7, 4, 0],
+    ]) {
+      const [a, b, c1, e] = face.map((i) => points[i]);
+      tri(a, b, c1, null, c, m);
+      tri(a, c1, e, null, c, m);
+    }
+  }
+
+  return { tri, box, cylinder, beam, ellipsoid, post };
 }
 export function cross(a, b) {
   return [
