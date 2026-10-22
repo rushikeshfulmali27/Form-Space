@@ -1,15 +1,15 @@
-# FORM — Object Studio v1.6
+# FORM — Object Studio v1.7
 
 A browser-only studio for exploring and customizing **72 parametric 3D objects**, organized into four categories and 17 subcategories. No account, API key, paid service, or AI connection is required.
 
-![FORM Object Studio bench Parts Editor](docs/images/bench-garden-bench-desktop.png)
+![FORM Object Studio sofa Parts Editor](docs/images/sofa-sofa-desktop.png)
 
 ## What you can do
 
 - Browse Home, Office, Café and Shop collections; search names, categories, rooms and aliases.
 - Orbit, zoom, fit, and inspect front/top/isometric views using WebGL, with an interactive software fallback.
 - Edit dimensions in centimeters, surface/frame colors, and procedural wood, matte and metal finishes. Change shape or shelf count only where the selected object supports it.
-- Use **Individual parts** on twenty-one objects: twelve tables/desks/stands, Cove lounge chair, Meeting chair, Dining chair, Visitor chair, Outdoor chair, Perch bar stool and Breakfast stool, plus Garden bench and Café bench. Edit linked groups or individual members. The remaining 51 objects keep whole-object editing.
+- Use **Individual parts** on twenty-three objects: twelve tables/desks/stands, Cove lounge chair, Meeting chair, Dining chair, Visitor chair, Outdoor chair, Perch bar stool and Breakfast stool, plus Garden bench, Café bench, Studio sofa and Reception sofa. Edit linked groups or individual members. The remaining 49 objects keep whole-object editing.
 - Undo/redo, reset, save the current design in this browser, and export version-3 FORM JSON files (under 100 KB). Version-1 and version-2 files still import.
 - Use the optional **rules-based editor** for supported shortcuts such as `walnut with black legs`, `90 cm wide`, or `20% taller`. It is a local parser and makes no model requests.
 
@@ -29,7 +29,7 @@ The standing desk exposes two columns and two feet with linked/individual contro
 
 Drag to orbit, click/tap to select, and press Escape with the canvas or parts inspector focused to clear selection. Selection pauses auto-rotation, is temporary, and creates no undo entry. A slider drag creates one edit. The list also provides keyboard access to components hidden behind others. Software fallback supports the same editing/selection workflow with simplified shading. The rules-based text editor applies to whole-object settings; use the inspector for component dimensions.
 
-All twenty-one parts-enabled objects use final component dimensions instead of globally rescaling the mesh. Legacy settings retain dimensions and finishes; converted models can have documented grounding/support-layout differences. All nineteen previously released parts-enabled meshes remain unchanged, including custom café-table geometry. Other 51 objects retain their original geometry. Free movement, adding/removing components, separate plywood layers, exploded views and other object families are future work. See [all-object rollout plan](docs/parts-editor-all-objects-plan.md).
+All twenty-three parts-enabled objects use final component dimensions instead of globally rescaling the mesh. Legacy settings retain dimensions and finishes; converted models can have documented grounding/support-layout differences. All twenty-one previously released parts-enabled meshes remain unchanged, including custom café-table geometry. Other 49 objects retain their original geometry. Free movement, adding/removing components, separate plywood layers, exploded views and other object families are future work. See [all-object rollout plan](docs/parts-editor-all-objects-plan.md).
 
 See the [R1 release notes](docs/parts-editor-r1-release.md) for the four construction profiles, constraints and compatibility checks.
 
@@ -44,6 +44,14 @@ Seat top height is measured from the floor. Thickness adjusts the leg endpoints;
 Garden bench and Café bench expose four seat slats, two seat bearers and four splayed legs. Expand groups to change one board's thickness/finish or one support's section/finish. Seat gap is shared; board depth follows the overall depth. Café seat top is the whole-object height; Garden seat top height has its own control. Garden bench additionally exposes three horizontal back slats with individual height/depth/finish and two back supports. Back spacing follows seat and board heights, with the top board ending at total height.
 
 The two under-seat bearers are a documented correction to the earlier model: they connect all separated seat boards to the legs. Individual thicknesses can differ while the board tops stay level. Bearers meet the thinnest board's underside and overlap thicker boards; leg ends follow each bearer's bottom. All counts stay fixed and v1/v2/v3 whole-object saves still import. See the [R3 plan](docs/parts-editor-r3-plan.md) and [release notes](docs/parts-editor-r3-release.md).
+
+## Parts Editor: sofas and changing counts
+
+Studio sofa and Reception sofa expose the base, backrest, two arms, individual cushions and four legs. **Cushion count** in Individual parts chooses 1–4 stable slots. Increasing count adds inherited members; decreasing removes highest slots and their active overrides. Surviving slots retain custom settings. Undo restores removed slots and settings; re-adding after a committed decrease starts with defaults. A surviving selection stays selected; removing the selected slot chooses All cushions. Count-control focus and group expansion remain stable.
+
+Width changes resize the chosen layout without changing count. Historical whole-object sofas migrate the old two-cushion layout at width ≤190 cm or three above it, using the original width before rounding. New sofa exports explicitly save construction and profile revision; unknown construction, invalid counts and inactive cushion IDs are rejected. Existing fixed profiles retain their saved settings.
+
+Base top height/thickness, back depth, arm height/width, cushion thickness/gap and leg sections stay within the whole-object envelope. Group settings and individual overrides use the existing apply/reset workflow. The shared T0 foundation supports profile-defined dynamic members; shelf/tier adapters and ordered placement remain future family work. See the [T0/R4 plan](docs/parts-editor-t0-r4-plan.md) and [release notes](docs/parts-editor-t0-r4-release.md).
 
 ## Local development
 
@@ -103,7 +111,7 @@ Pushes to `main` automatically validate and publish the public demonstration. Th
 - `docs/v1-release-plan.md`, `docs/v1-verification.md`: implementation and release evidence.
 - `docs/dependency-audit-v1.json`: final registry audit snapshot.
 - [All-object Parts Editor roadmap](docs/parts-editor-all-objects-plan.md) and [complete catalog mapping](docs/parts-editor-catalog-map.md): the proposed rollout beyond the released café-table pilot.
-- [Remaining-object execution plan](docs/parts-editor-remaining-plan.md) and [14-batch backlog](docs/parts-editor-remaining-backlog.json): current rollout priorities, dependencies and completion gates after v1.6.
+- [Remaining-object execution plan](docs/parts-editor-remaining-plan.md) and [14-batch backlog](docs/parts-editor-remaining-backlog.json): current rollout priorities, dependencies and completion gates after v1.7.
 
 The pre-v1 source, including Prompt to Design, its server adapter, tests and old deployment integration, is preserved in commit **`f989f90`** and local branch **`archive/pre-v1-ai`**. Use a separate worktree/checkout to revisit it; its old dependencies need a new security review and its old setup documents are historical. It is absent from the v1 working source and public build. Existing ignored local secrets have been left untouched and are unnecessary for v1.
 

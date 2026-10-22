@@ -53,9 +53,11 @@ test("registry resolves only explicitly enabled objects and trusted revisions", 
       "breakfast-stool",
       "garden-bench",
       "cafe-bench",
+      "sofa",
+      "reception-sofa",
     ].sort(),
   );
-  for (const id of ["constructor", "__proto__", "bookshelf", "sofa"]) {
+  for (const id of ["constructor", "__proto__", "bookshelf", "wardrobe"]) {
     assert.equal(getPartsProfile({ id }), null);
     assert.deepEqual(partDefinitions({ id }), {});
   }

@@ -1,6 +1,6 @@
 # Parts Editor: complete catalog mapping
 
-Status: rollout in progress. The three pedestal tables, five standard desks/tables and four R1 variants and seven R2 chairs/stools and two R3 benches are implemented (21 total); the other 51 objects remain planned.
+Status: rollout in progress. The three pedestal tables, five standard desks/tables and four R1 variants and seven R2 chairs/stools and two R3 benches and two R4 sofas are implemented (23 total); the other 49 objects remain planned.
 
 Generated from the current 72-object catalog after reading every geometry branch. Every object appears exactly once. Family names below are proposed implementation profiles, not new catalog categories. All multi-part entries include part-specific visual finish/color in addition to listed dimension controls. Repeated components begin as linked groups, then gain individual member editing under the instance rules in the rollout plan.
 
@@ -25,8 +25,8 @@ Generated from the current 72-object catalog after reading every geometry branch
 | `outdoor-chair`             | Outdoor chair                | chair / slatted     | slatted-chair     | 2    | seat, back-slats, legs, armrests                          |
 | `bar-stool`                 | Perch bar stool              | stool               | stools            | 2    | seat, legs, stretchers                                    |
 | `breakfast-stool`           | Breakfast stool              | stool               | stools            | 2    | seat, legs, stretchers                                    |
-| `sofa`                      | Studio sofa                  | sofa                | sofas             | 2    | seat-base, back, armrests, cushions, legs                 |
-| `reception-sofa`            | Reception sofa               | sofa                | sofas             | 2    | seat-base, back, armrests, cushions, legs                 |
+| `sofa`                      | Studio sofa                  | sofa                | sofas             | 2    | base, back, arms, cushions, legs                 |
+| `reception-sofa`            | Reception sofa               | sofa                | sofas             | 2    | base, back, arms, cushions, legs                 |
 | `garden-bench`              | Garden bench                 | bench / backrest    | backrest-bench    | 2    | seat-slats, bearers, legs, back-slats, back-supports               |
 | `cafe-bench`                | Café bench                   | bench               | backless-bench    | 2    | seat-slats, bearers, legs                                          |
 | `office-chair`              | Task office chair            | office-chair        | office-chair      | 2    | seat, back, lift-column, armrests, star-base, casters     |
@@ -185,11 +185,11 @@ Connections and limits: Four splayed legs attach to seat; four horizontal stretc
 
 Objects: `sofa`, `reception-sofa`.
 
-Selectable parts: seat-base, back, armrests, cushions, legs.
+Selectable parts: base, back, arms, cushions, legs.
 
-Controls: Base/cushion thickness; back thickness; arm width; leg height.
+Controls: Base height/thickness; back depth; arm top height/width; 1–4 cushions with thickness/gap and individual finish; leg section.
 
-Connections and limits: Fit cushions between arms. Existing geometry changes cushion count at width >190 cm; formalize this topology before exposing per-cushion overrides.
+Connections and limits: Cushions fit between arms and follow the base top. Explicit stable slots survive width edits; legacy two/three counts migrate from original width. Highest slots are removed on decrease; Undo restores settings.
 
 ### backrest-bench (wave 2)
 

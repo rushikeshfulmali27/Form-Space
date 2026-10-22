@@ -11,6 +11,7 @@ import {
   partDefinitions,
   getPartsProfile,
 } from "./parts.js";
+import { normalizeConstruction, constructionFields } from "./construction.js";
 export { TAXONOMY, categoryLabel, subcategoryLabel, filterCatalog };
 export const PALETTE = {
   walnut: "#79553c",
@@ -56,6 +57,8 @@ export function fresh(id = "cafe-table") {
   );
   const profile = getPartsProfile(design);
   if (profile) design.partsRevision = profile.revision;
+  const construction = normalizeConstruction(design);
+  if (construction) design.construction = construction;
   return design;
 }
 export function normalize(input) {
@@ -81,6 +84,11 @@ export function normalize(input) {
     out.shape = input.shape;
   if (base.shelves && numeric(input?.shelves))
     out.shelves = Math.max(2, Math.min(6, Math.round(input.shelves)));
+  const construction = normalizeConstruction(
+    { ...out, width: numeric(input?.width) ? Number(input.width) : out.width },
+    input?.construction,
+  );
+  if (construction) out.construction = construction;
   if (supportsParts(out)) {
     const parts = normalizeParts(out, input?.parts, MATERIALS);
     if (Object.keys(parts).length) out.parts = parts;
@@ -120,7 +128,7 @@ const axisWords = {
 export function parsePrompt(source, current) {
   const raw = source.trim();
   if (
-    /\b(?:columns?|tabletop|support|base|top|slats?|legs?|feet|foot|lip|platform|slab|seat|backrest|armrests?|stretchers?)\s+(?:diameter|thickness|width|depth|height|section|gap)\b|\b(?:diameter|thickness|slat gap)\b/i.test(
+    /\b(?:columns?|tabletop|support|base|top|slats?|legs?|feet|foot|lip|platform|slab|seat|backrest|armrests?|stretchers?|cushions?|arms?|back)\s+(?:diameter|thickness|width|depth|height|section|gap|count)\b|\b(?:diameter|thickness|slat gap)\b/i.test(
       raw,
     )
   )
@@ -409,14 +417,24 @@ export function diff(a, b) {
   ]
     .filter((k) => a[k] !== b[k] && b[k] !== undefined)
     .map((key) => ({ key, before: a[key], after: b[key] }));
-  const definitions = { ...partDefinitions(a), ...partDefinitions(b) };
+  const afterDefinitions = partDefinitions(b);
+  const definitions = { ...partDefinitions(a), ...afterDefinitions };
+  for (const [key, field] of Object.entries(constructionFields(b)))
+    if (a.construction?.[key] !== b.construction?.[key])
+      changes.push({
+        key: field.label,
+        before: a.construction?.[key],
+        after: b.construction?.[key],
+      });
   for (const id of Object.keys(definitions))
     for (const field of [...definitions[id].fields, "color", "material"])
       if (a.parts?.[id]?.[field] !== b.parts?.[id]?.[field])
         changes.push({
           key: `${definitions[id].label} ${field}`,
           before: a.parts?.[id]?.[field],
-          after: b.parts?.[id]?.[field] ?? "Inherited",
+          after:
+            b.parts?.[id]?.[field] ??
+            (Object.hasOwn(afterDefinitions, id) ? "Inherited" : "Removed"),
         });
   return changes;
 }
@@ -467,7 +485,8 @@ export function deserialize(json) {
       !(
         profile.legacyUnversioned &&
         !Object.hasOwn(d, "partsRevision") &&
-        !Object.hasOwn(d, "parts")
+        !Object.hasOwn(d, "parts") &&
+        !Object.hasOwn(d, "construction")
       )) ||
       (!profile && Object.hasOwn(d, "partsRevision")))
   )
@@ -502,12 +521,25 @@ export function deserialize(json) {
     (!base.shape || !["round", "square"].includes(d.shape))
   )
     throw Error("Unsupported object shape.");
+  if (Object.hasOwn(d, "construction") && v.version !== 3)
+    throw Error("Construction settings require a version-3 design.");
+  if (
+    profile?.construction &&
+    Object.hasOwn(d, "partsRevision") &&
+    !Object.hasOwn(d, "construction")
+  )
+    throw Error("Missing construction settings.");
+  const construction = normalizeConstruction(
+    { ...base, ...d },
+    d.construction,
+    true,
+  );
   if (Object.hasOwn(d, "parts")) {
     if (v.version === 1 || (v.version === 2 && d.id !== "cafe-table"))
       throw Error("These part settings require a version-3 design.");
     normalizeParts({ ...base, ...d }, d.parts, MATERIALS, true);
   }
-  return normalize(d);
+  return normalize({ ...d, ...(construction ? { construction } : {}) });
 }
 export class History {
   constructor(initial) {

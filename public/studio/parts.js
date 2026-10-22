@@ -101,3 +101,17 @@ export function applyGroup(d, id) {
   for (const child of partDescendants(d, id)) delete parts[child];
   return { ...d, parts };
 }
+export function reconcilePartSelection(
+  selected,
+  previous,
+  next,
+  sameObject = true,
+) {
+  if (!sameObject) return null;
+  let candidate = selected;
+  while (candidate) {
+    if (Object.hasOwn(next, candidate)) return candidate;
+    candidate = previous[candidate]?.parent;
+  }
+  return null;
+}

@@ -1,10 +1,10 @@
 # Parts Editor rollout: all 72 catalog objects
 
-Status: rollout in progress. V1.1/v1.2 delivered the three pedestal tables; v1.3 adds five standard desks/tables. V1.4 completes the four R1 desk variants. V1.5 adds seven R2 chairs/stools. V1.6 completes two R3 benches. Twenty-one objects now support Parts Editor, with 51 remaining.
+Status: rollout in progress. V1.1/v1.2 delivered the three pedestal tables; v1.3 adds five standard desks/tables. V1.4 completes the four R1 desk variants. V1.5 adds seven R2 chairs/stools. V1.6 completes two R3 benches. V1.7 completes T0 and two R4 sofas. Twenty-three objects now support Parts Editor, with 49 remaining.
 
 For the current delivery sequence, exact remaining IDs and dependencies, use the [remaining-object execution plan](parts-editor-remaining-plan.md) and [batch backlog](parts-editor-remaining-backlog.json). This document supplies the shared architecture and acceptance rules.
 
-Completed foundation: trusted registry, profile-driven fields/defaults/limits/readouts, v3 format/revision checks, save migration, shared primitive writing, and fixed repeated groups/members with independent editing, highlighting and reset. Standard desks/tables are now implemented. Variable-count topology (shelves/cushions) remains future work. Wave 1 is complete, including standing, corner and slatted desks and the laptop stand. Sofas, office chair and later waves remain planned; this is not completion of all 72 objects.
+Completed foundation: trusted registry, profile-driven fields/defaults/limits/readouts, v3 format/revision checks, save migration, shared primitive writing, and fixed repeated groups/members with independent editing, highlighting and reset. Standard desks/tables are now implemented. Profile-owned construction, dynamic cushion slots and topology-aware selection now work. Variable shelves/tiers and their placement rules remain future family work. Wave 1 is complete, including standing, corner and slatted desks and the laptop stand. Office chair and later waves remain planned; this is not completion of all 72 objects.
 
 ## 1. Scope and catalog coverage
 
@@ -23,19 +23,19 @@ Three objects are single-body forms in the current model: `display-plinth`, `pro
 
 ## 2. Existing foundation and gaps
 
-V1.3 provides the registry, shared primitive writer, profile-driven inspector, fixed group/member identity, v3 persistence and selection/highlighting in both renderers. The remaining work is family construction and variable membership, rather than recreating those foundations.
+V1.7 provides trusted fixed/dynamic profiles, construction validation and atomic cushion-count commands, shared primitive writing, selection reconciliation, v3 persistence and both renderers. Remaining families adapt those foundations to their own construction, counts and clearances.
 
 | File or behavior                | Required generalization                                                                                                                        |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| `parts.js` / registry           | Extend fixed profile/member definitions to validated construction and changing membership; retain existing inheritance/reset behavior          |
+| `parts.js` / registry           | Reuse dynamic definitions and construction validation; add shelf/tier count adapters while retaining inheritance/reset          |
 | `geometry.js` / family builders | Convert remaining families to final dimensions with the existing writer; extract lathe/foliage helpers when needed                             |
-| `parts-controls.js`             | Add construction/count controls and topology-aware selection reconciliation; current nested-group rendering is limited to root groups          |
-| `design.js`                     | Validate/normalize new construction fields and revision migrations without losing existing overrides                                           |
-| `app.js`                        | Add atomic count/position commands and adjustment feedback; retain original-snapshot previews                                                  |
+| `parts-controls.js`             | Reuse count controls and selection/focus reconciliation; rendering remains limited to root groups          |
+| `design.js`                     | Extend explicit construction schemas/migrations per family; preserve existing overrides                                           |
+| `app.js`                        | Reuse atomic cushion-count command; add ordered-placement/global shelf-count adapters and feedback                                                  |
 | `viewer.js`                     | Preserve existing leaf picking/group highlight/cache/fallback; reconcile selected members after topology changes and measure larger assemblies |
 | `storage.js`                    | Retain existing v3→v2→v1 migration and backup behavior; support any required profile revision migration                                        |
 | Build/check scripts             | Explicitly allow new modules; make syntax discovery recursive if implementation introduces subdirectories                                      |
-| Tests                           | Extend the current twenty-one-object capability checks per completed batch; retain immutable fixtures for unconverted objects                       |
+| Tests                           | Extend the current twenty-three-object capability checks per completed batch; retain immutable fixtures for unconverted objects                       |
 
 Retain browser modules, zero runtime dependencies and GitHub Pages. A new renderer/framework, server or account system is not required.
 
@@ -45,16 +45,17 @@ Extend the existing pure registry keyed by known catalog ID. It resolves the cur
 
 ```text
 id, revision, builder
-parts                         IDs, labels, fields, root groups/member parents
+parts or parts(design)        fixed or active IDs, labels, fields, groups/member parents
+construction                  optional trusted integer-field schema
 defaults(design)              inherited settings
 limits(design, partId, key)   valid dimension range
 readout(design, parts, id)    derived UI explanation
 legacyUnversioned             narrow legacy whole-object migration opt-in
 ```
 
-Variable-count profiles additionally need dynamic member descriptions, construction normalization/validation and atomic edit commands, described in shared gate T0 of the remaining-object plan. Those extensions are planned, not existing APIs. Resolve profiles from trusted catalog lookup; imported data must not choose arbitrary builders or bypass variant/revision checks.
+T0 implements dynamic member descriptions, profile-owned construction validation and atomic count commands in construction.js, verified with sofas. Future shelves/tiers still need adapters for design.shelves and ordered positioning. Resolve profiles from trusted catalog lookup; imported data cannot choose builders or bypass revision checks.
 
-Continue the existing layout: `parts-registry.js` for resolution, `parts.js` as the facade, family definition/solver modules such as `parts-desks.js`, corresponding builders such as `geometry-desks.js`, and `geometry-primitives.js` for shared triangle/box/cylinder/beam/ellipsoid writing. Lathe and foliage are still local helpers and must be extracted where needed. Keep names flat initially to work with existing syntax checks and asset allowlisting. Pure registry/geometry modules must not depend on DOM, viewer or `design.js` imports that form a cycle.
+Continue the existing layout: `parts-registry.js` for resolution, `parts.js` as the facade, family definition/solver modules such as `parts-desks.js`, corresponding builders such as `geometry-desks.js`, and `geometry-primitives.js` for shared triangle/box/cylinder/beam/ellipsoid/post writing. Lathe and foliage are still local helpers and must be extracted where needed. Keep names flat initially to work with existing syntax checks and asset allowlisting. Pure registry/geometry modules must not depend on DOM, viewer or `design.js` imports that form a cycle.
 
 Use the pilot's geometry result shape: vertex data, complete bounds and semantic part ranges. Builders call a writer with a concrete leaf part ID. One leaf can own multiple primitive emissions. If a part's emissions cannot be contiguous, collect them in that part's buffer and concatenate once, or deliberately extend metadata to multiple ranges; never label unrelated intervening triangles as that part. High/low detail share IDs, not triangle indexes.
 
@@ -74,7 +75,7 @@ Count and topology policy:
 
 - Shelves use ordered bottom-to-top slots. Increasing count appends new IDs with defaults and redistributes default positions. Decreasing count removes highest slot IDs; preserve surviving overrides and clamp/reflow positions visibly. Removed settings are part of the undo snapshot, not retained in an invisible unbounded store. Re-adding after a committed decrease creates defaults; Undo restores the exact old assembly.
 - Keep current cabinet front counts fixed for this rollout. A future count control requires explicit division and identity migration rather than reusing shelf semantics automatically.
-- Sofa cushion count currently switches between two and three at width >190 cm. Migrate the legacy count into an explicit normalized construction field before independent cushion settings ship. Width edits then resize the existing cushion layout; any future count change is an explicit command with the same removal/undo policy.
+- Legacy sofa count was two/three at original width ≤190/>190 cm. V1.7 captures that count before rounding and saves an explicit 1–4 cushion count; width edits resize the selected layout. Count changes use the atomic removal/undo policy.
 - Fixed radial sets keep angular slot IDs: five chandelier heads/arms and office-chair caster assemblies, three hanging straps. A world-space coordinate is never the identity.
 - A selected member removed by an edit falls back to its surviving parent group, or clears if that group no longer exists. Undo does not select a nonexistent ID. Selection/expanded rows remain temporary UI state.
 
@@ -163,7 +164,7 @@ Totals: 72 objects, 71 newly enabled after the released pilot. Each wave include
 
 Within a wave: one representative family fixture → profile and strict schema → final-dimension geometry → list controls → member selection/persistence → full variant matrix → browser and release checks. Do not enable a whole kind when only its basic variant is tested. Publish verified waves through existing GitHub Actions; keep incomplete profiles unavailable rather than deploying placeholder controls.
 
-V1.3 completes shared primitive writing and the standard-desk profile for `work-desk`, `coffee-table`, `dining-table`, `conference-table` and `communal-table`, including fixed member identity. V1.4 completes standing/corner/slatted variants and the laptop stand. V1.5 completes R2 chairs/stools; v1.6 completes R3 benches; next implement shared gate T0. Variable-count member identity/removal rules must be completed before editable shelf/cushion counts ship.
+V1.3 completes shared primitive writing and the standard-desk profile for `work-desk`, `coffee-table`, `dining-table`, `conference-table` and `communal-table`, including fixed member identity. V1.4 completes standing/corner/slatted variants and the laptop stand. V1.5 completes R2 chairs/stools; v1.6 completes R3 benches; v1.7 implements T0 and R4 sofas with stable cushion identity/removal. Next implement R5 office chair, then adapt count/placement rules for R6 shelves.
 
 ## 9. Verification and completion definition
 

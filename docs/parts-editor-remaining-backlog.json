@@ -1,13 +1,14 @@
 {
-  "baseline": "v1.6.0",
-  "implemented": 21,
-  "remaining": 51,
+  "baseline": "v1.7.0",
+  "implemented": 23,
+  "remaining": 49,
   "scope": "rollout-in-progress",
   "sharedGate": {
     "id": "T0",
     "title": "Variable-count topology, construction migration and selection reconciliation",
     "dependsOn": ["R1"],
-    "status": "planned"
+    "status": "implemented",
+    "validatedWith": "R4 sofas: construction counts, active member pruning, selection/focus, strict migration and atomic history"
   },
   "batches": [
     {
@@ -90,7 +91,7 @@
     {
       "id": "R4",
       "title": "Sofas",
-      "status": "planned",
+      "status": "implemented",
       "dependsOn": ["R3", "T0"],
       "objectIds": ["sofa", "reception-sofa"],
       "count": 2,
@@ -269,8 +270,6 @@
   ],
   "reviewedAt": "2026-10-22",
   "executionOrder": [
-    "T0",
-    "R4",
     "R5",
     "R6",
     "R7",

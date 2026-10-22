@@ -1,0 +1,110 @@
+[
+  {
+    "format": "form-studio",
+    "version": 1,
+    "design": {
+      "id": "sofa",
+      "name": "Studio sofa",
+      "category": "Home",
+      "subcategory": "home-living",
+      "kind": "sofa",
+      "tag": "Living room",
+      "width": 210,
+      "height": 82,
+      "depth": 90,
+      "color": "#92a18b",
+      "accent": "#79553c",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "design": {
+      "id": "sofa",
+      "name": "Studio sofa",
+      "category": "Home",
+      "subcategory": "home-living",
+      "kind": "sofa",
+      "tag": "Living room",
+      "width": 210,
+      "height": 82,
+      "depth": 90,
+      "color": "#92a18b",
+      "accent": "#79553c",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "design": {
+      "id": "sofa",
+      "name": "Studio sofa",
+      "category": "Home",
+      "subcategory": "home-living",
+      "kind": "sofa",
+      "tag": "Living room",
+      "width": 210,
+      "height": 82,
+      "depth": 90,
+      "color": "#92a18b",
+      "accent": "#79553c",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "design": {
+      "id": "reception-sofa",
+      "name": "Reception sofa",
+      "category": "Office",
+      "subcategory": "office-seating",
+      "kind": "sofa",
+      "tag": "Seating",
+      "width": 180,
+      "height": 78,
+      "depth": 80,
+      "color": "#cfbfa8",
+      "accent": "#282e2c",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "design": {
+      "id": "reception-sofa",
+      "name": "Reception sofa",
+      "category": "Office",
+      "subcategory": "office-seating",
+      "kind": "sofa",
+      "tag": "Seating",
+      "width": 180,
+      "height": 78,
+      "depth": 80,
+      "color": "#cfbfa8",
+      "accent": "#282e2c",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "design": {
+      "id": "reception-sofa",
+      "name": "Reception sofa",
+      "category": "Office",
+      "subcategory": "office-seating",
+      "kind": "sofa",
+      "tag": "Seating",
+      "width": 180,
+      "height": 78,
+      "depth": 80,
+      "color": "#cfbfa8",
+      "accent": "#282e2c",
+      "material": "matte"
+    }
+  }
+]

@@ -238,10 +238,10 @@
       "variant": null,
       "family": "sofas",
       "wave": 2,
-      "parts": "seat-base, back, armrests, cushions, legs",
-      "controls": "Base/cushion thickness; back thickness; arm width; leg height",
-      "rule": "Fit cushions between arms. Existing geometry changes cushion count at width >190 cm; formalize this topology before exposing per-cushion overrides.",
-      "status": "planned"
+      "parts": "base, back, arms, cushions, legs",
+      "controls": "Base height/thickness; back depth; arm top height/width; 1–4 cushions with thickness/gap and individual finish; leg section",
+      "rule": "Explicit cushion count and stable slots survive width edits. Base anchors cushions and legs; arms/back intersect base. Count decrease removes highest slots; Undo restores settings.",
+      "status": "implemented"
     },
     {
       "id": "reception-sofa",
@@ -250,10 +250,10 @@
       "variant": null,
       "family": "sofas",
       "wave": 2,
-      "parts": "seat-base, back, armrests, cushions, legs",
-      "controls": "Base/cushion thickness; back thickness; arm width; leg height",
-      "rule": "Fit cushions between arms. Existing geometry changes cushion count at width >190 cm; formalize this topology before exposing per-cushion overrides.",
-      "status": "planned"
+      "parts": "base, back, arms, cushions, legs",
+      "controls": "Base height/thickness; back depth; arm top height/width; 1–4 cushions with thickness/gap and individual finish; leg section",
+      "rule": "Explicit cushion count and stable slots survive width edits. Base anchors cushions and legs; arms/back intersect base. Count decrease removes highest slots; Undo restores settings.",
+      "status": "implemented"
     },
     {
       "id": "garden-bench",

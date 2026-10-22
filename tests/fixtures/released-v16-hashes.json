@@ -1,0 +1,86 @@
+{
+  "cafe-table": {
+    "high": "8b4e8b9ba38140f3568f55723171ba7c2134551c9182df23041bead80f579bec",
+    "low": "70995e4b1c049aecb60888161ab13f804699b73f8e9840220c63d51c0b312ada"
+  },
+  "side-table": {
+    "high": "62e5e78a2259c6b393c67406d52c613f9d2ee865ab0734b50569ea0c1d41c414",
+    "low": "0b7a44c8c4a42b7d2dddc0825e8a793cc51c7813548b1a27556152c5e9f604ff"
+  },
+  "square-cafe-table": {
+    "high": "7dd14e33c7efe023134dc69939d2b462bfc4a9ecb2c8498bef90a064743bb1f0",
+    "low": "e33cbf10e88b0e910d2832331bd36d65f71bd1c2132f7a16cb0efc1f8fd72022"
+  },
+  "work-desk": {
+    "high": "83fe086cf51cf0bccc7f7f4a0e81a2077673b36a72160826b630b2828d9b20aa",
+    "low": "83fe086cf51cf0bccc7f7f4a0e81a2077673b36a72160826b630b2828d9b20aa"
+  },
+  "coffee-table": {
+    "high": "5137018918da02b747abd8d16d6fb06dc70b52b4b4274b02ea657a8d209d3035",
+    "low": "5137018918da02b747abd8d16d6fb06dc70b52b4b4274b02ea657a8d209d3035"
+  },
+  "dining-table": {
+    "high": "05b27746576b48f8c01c5520c9800c083c767ca331bc1a1a3adf3c72ab38271b",
+    "low": "05b27746576b48f8c01c5520c9800c083c767ca331bc1a1a3adf3c72ab38271b"
+  },
+  "conference-table": {
+    "high": "9a71421976dca4284258a3e4039015298395332a6854c5714a1899d27b9b3de1",
+    "low": "9a71421976dca4284258a3e4039015298395332a6854c5714a1899d27b9b3de1"
+  },
+  "communal-table": {
+    "high": "8a3fa756b52c918049269130622b5f0eaf65364bad90d061ac357e910a787564",
+    "low": "8a3fa756b52c918049269130622b5f0eaf65364bad90d061ac357e910a787564"
+  },
+  "standing-desk": {
+    "high": "44f107007d94836b33ee4917619f6a1509ac18848bb81ff4914e2078eaec5e04",
+    "low": "44f107007d94836b33ee4917619f6a1509ac18848bb81ff4914e2078eaec5e04"
+  },
+  "corner-desk": {
+    "high": "85492b9a5e4d59798034324957ead5026232074da49de057b8fe45875d4bd081",
+    "low": "85492b9a5e4d59798034324957ead5026232074da49de057b8fe45875d4bd081"
+  },
+  "patio-table": {
+    "high": "598a47a106ffd1e5d3767d08dd51d516448640375e044b30143d02c9e60f6e52",
+    "low": "598a47a106ffd1e5d3767d08dd51d516448640375e044b30143d02c9e60f6e52"
+  },
+  "laptop-stand": {
+    "high": "f0eeaf6c11aee05daef41e6b00793d073ec8aacdd67f34b973f53aaceaa0a445",
+    "low": "f0eeaf6c11aee05daef41e6b00793d073ec8aacdd67f34b973f53aaceaa0a445"
+  },
+  "lounge-chair": {
+    "high": "d53b8dc7f1d71d334cbf8d0db59fbf77ee422f7b02fd8adac7ec098ede93942f",
+    "low": "d53b8dc7f1d71d334cbf8d0db59fbf77ee422f7b02fd8adac7ec098ede93942f"
+  },
+  "meeting-chair": {
+    "high": "f529b194888a27f4c35bb9d67c8d5e22c6cd86fe18541f02b0cc27672dbb71ba",
+    "low": "f529b194888a27f4c35bb9d67c8d5e22c6cd86fe18541f02b0cc27672dbb71ba"
+  },
+  "dining-chair": {
+    "high": "75752b146c030bb7381c2e2115be097bb1309fd0eefd88c2e26167f09f95ffc4",
+    "low": "75752b146c030bb7381c2e2115be097bb1309fd0eefd88c2e26167f09f95ffc4"
+  },
+  "visitor-chair": {
+    "high": "aae06a2ebe454edbc84df0582dd6cce944c00f906e39999fac3c6490fff64fe5",
+    "low": "aae06a2ebe454edbc84df0582dd6cce944c00f906e39999fac3c6490fff64fe5"
+  },
+  "outdoor-chair": {
+    "high": "47e2a1c2de3b33771b25c6e399965fe8af5a99918aa9152f381608807738efe5",
+    "low": "47e2a1c2de3b33771b25c6e399965fe8af5a99918aa9152f381608807738efe5"
+  },
+  "bar-stool": {
+    "high": "22905c7f28fb3953b087875654e1af689a58e4386eaa6906cc6624df80c9dbff",
+    "low": "52e14f313c64610a28e957f11a774e9b618bccc03d263644c1c9dd9a5b63247a"
+  },
+  "breakfast-stool": {
+    "high": "f6fd757c55ac3a4a34488636a1af6071e485390e75a7be0bc591c69d2219b585",
+    "low": "f6fd757c55ac3a4a34488636a1af6071e485390e75a7be0bc591c69d2219b585"
+  },
+  "garden-bench": {
+    "high": "13ce90b3b98986c875bf4162ed3dafe5719522d0b7001bc9d869c11a1d803834",
+    "low": "13ce90b3b98986c875bf4162ed3dafe5719522d0b7001bc9d869c11a1d803834"
+  },
+  "cafe-bench": {
+    "high": "1c66e66950d5fbfba796a7d419a4ad6207f2b539818096f924c635a5a7f11d75",
+    "low": "1c66e66950d5fbfba796a7d419a4ad6207f2b539818096f924c635a5a7f11d75"
+  }
+}

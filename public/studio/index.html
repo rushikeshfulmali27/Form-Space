@@ -12,7 +12,7 @@
       http-equiv="Content-Security-Policy"
       content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'"
     />
-    <title>FORM — Object Studio v1.6</title>
+    <title>FORM — Object Studio v1.7</title>
     <link
       rel="icon"
       type="image/svg+xml"
@@ -173,7 +173,7 @@
           </p>
         </div>
         <div class="version-label">
-          <span class="status-dot"></span>FORM Studio <span>v1.6</span>
+          <span class="status-dot"></span>FORM Studio <span>v1.7</span>
         </div>
       </aside>
       <main class="studio" id="main-studio" tabindex="-1">
@@ -367,11 +367,12 @@
           </div>
           <p id="parts-description" class="property-hint">Parts Editor</p>
           <div id="parts-panel" hidden>
+            <div id="construction-controls" hidden></div>
             <div
               id="parts-list"
               class="parts-list"
               role="group"
-              aria-label="Table parts"
+              aria-label="Object parts"
             ></div>
             <h3 id="selected-part-name" aria-live="polite">Select a part</h3>
             <p id="part-selection-help" class="property-hint">

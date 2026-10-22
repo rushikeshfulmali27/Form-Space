@@ -8,7 +8,9 @@ import {
   resetPart,
   applyGroup,
   partDescendants,
+  reconcilePartSelection,
 } from "./parts.js";
+import { constructionFields, setConstruction } from "./construction.js";
 
 export class PartsControls {
   constructor({ getDesign, preview, commit, viewer, materials }) {
@@ -171,17 +173,80 @@ export class PartsControls {
     add("material", "Finish", "select");
     add("color", "Color", "color");
   }
+  renderConstruction(d) {
+    const root = this.q("#construction-controls"),
+      fields = constructionFields(d);
+    root.hidden = !Object.keys(fields).length;
+    if (this.constructionObject !== d.id) {
+      this.constructionObject = d.id;
+      root.replaceChildren();
+      this.constructionInputs = [];
+      for (const [key, field] of Object.entries(fields)) {
+        const label = document.createElement("label"),
+          title = document.createElement("span"),
+          input = document.createElement("select");
+        label.className = "part-field";
+        title.textContent = field.label;
+        input.id = `construction-${key}`;
+        input.setAttribute("aria-label", field.label);
+        for (let n = field.min; n <= field.max; n++) {
+          const option = document.createElement("option");
+          option.value = String(n);
+          option.textContent = String(n);
+          input.append(option);
+        }
+        input.addEventListener("change", () =>
+          this.commit(
+            setConstruction(this.getDesign(), key, Number(input.value)),
+            `${field.label} updated.`,
+            [
+              "Surviving slots keep their settings. Removed settings can be restored with Undo; re-adding uses inherited defaults.",
+            ],
+          ),
+        );
+        label.append(title, input);
+        root.append(label);
+        this.constructionInputs.push({ key, input });
+      }
+    }
+    for (const { key, input } of this.constructionInputs || [])
+      input.value = d.construction[key];
+  }
   render() {
     const d = this.getDesign(),
       supported = supportsParts(d);
     const profile = getPartsProfile(d),
       definitions = partDefinitions(d);
+    this.renderConstruction(d);
+    let restoreFocus;
     const signature = `${d.id}:${profile?.revision}:${Object.keys(definitions).join(",")}`;
     if (this.objectId !== signature) {
+      const sameObject = this.designId === d.id,
+        previous = this.definitions || {};
+      const expanded = new Set(
+        sameObject
+          ? Object.keys(previous).filter(
+              (id) =>
+                previous[id].group &&
+                this.q(`#parts-expand-${id}`)?.getAttribute("aria-expanded") ===
+                  "true",
+            )
+          : [],
+      );
+      const active = document.activeElement;
+      if (sameObject && active)
+        restoreFocus = { id: active.id, part: active.dataset?.part };
       this.objectId = signature;
-      this.selected = null;
+      this.designId = d.id;
+      this.selected = reconcilePartSelection(
+        this.selected,
+        previous,
+        definitions,
+        sameObject,
+      );
+      this.definitions = definitions;
       this.builtFor = null;
-      this.viewer.setSelection(null);
+      this.viewer.setSelection(this.selected);
       this.q("#parts-list").replaceChildren();
       this.q("#parts-list").classList.toggle(
         "has-groups",
@@ -202,12 +267,14 @@ export class PartsControls {
               members = document.createElement("div");
             expand.id = `parts-expand-${id}`;
             expand.className = "part-expand";
-            expand.textContent = `Show individual ${id}`;
-            expand.setAttribute("aria-expanded", "false");
+            const open =
+              expanded.has(id) || definitions[this.selected]?.parent === id;
+            expand.textContent = `${open ? "Hide" : "Show"} individual ${id}`;
+            expand.setAttribute("aria-expanded", String(open));
             expand.setAttribute("aria-controls", `parts-members-${id}`);
             members.id = `parts-members-${id}`;
             members.className = "part-members";
-            members.hidden = true;
+            members.hidden = !open;
             expand.addEventListener("click", () => {
               members.hidden = !members.hidden;
               expand.setAttribute("aria-expanded", String(!members.hidden));
@@ -294,6 +361,16 @@ export class PartsControls {
           range.value = input.value;
         }
       }
+    }
+    if (restoreFocus) {
+      const target = restoreFocus.part
+        ? this.q(
+            `[data-part="${Object.hasOwn(definitions, restoreFocus.part) ? restoreFocus.part : this.selected}"]`,
+          )
+        : restoreFocus.id
+          ? this.q(`#${restoreFocus.id}`)
+          : null;
+      target?.focus?.({ preventScroll: true });
     }
   }
 }
