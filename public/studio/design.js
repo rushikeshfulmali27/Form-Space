@@ -120,7 +120,7 @@ const axisWords = {
 export function parsePrompt(source, current) {
   const raw = source.trim();
   if (
-    /\b(?:column|tabletop|support|base|top)\s+(?:diameter|thickness|width|depth|height)\b|\b(?:diameter|thickness)\b/i.test(
+    /\b(?:columns?|tabletop|support|base|top|slats?|legs?|feet|foot|lip|platform|slab)\s+(?:diameter|thickness|width|depth|height|section|gap)\b|\b(?:diameter|thickness|slat gap)\b/i.test(
       raw,
     )
   )

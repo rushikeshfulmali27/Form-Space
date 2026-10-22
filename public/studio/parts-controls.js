@@ -164,7 +164,10 @@ export class PartsControls {
         true,
       );
     for (const key of definition.fields)
-      add(key, `${key[0].toUpperCase() + key.slice(1)} (cm)`);
+      add(
+        key,
+        `${definition.fieldLabels?.[key] || key[0].toUpperCase() + key.slice(1)} (cm)`,
+      );
     add("material", "Finish", "select");
     add("color", "Color", "color");
   }

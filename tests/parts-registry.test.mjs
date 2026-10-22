@@ -40,16 +40,20 @@ test("registry resolves only explicitly enabled objects and trusted revisions", 
       "dining-table",
       "conference-table",
       "communal-table",
+      "standing-desk",
+      "corner-desk",
+      "patio-table",
+      "laptop-stand",
     ].sort(),
   );
-  for (const id of ["constructor", "__proto__", "bookshelf", "corner-desk"]) {
+  for (const id of ["constructor", "__proto__", "bookshelf", "sofa"]) {
     assert.equal(getPartsProfile({ id }), null);
     assert.deepEqual(partDefinitions({ id }), {});
   }
   for (const id of supportedPartObjects) {
     const d = fresh(id);
     assert.equal(d.partsRevision, 1);
-    assert.ok(Object.hasOwn(partDefinitions(d), "tabletop"));
+    assert.ok(Object.keys(partDefinitions(d)).length > 0);
   }
 });
 

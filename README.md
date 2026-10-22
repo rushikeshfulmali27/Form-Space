@@ -1,4 +1,4 @@
-# FORM — Object Studio v1.3
+# FORM — Object Studio v1.4
 
 A browser-only studio for exploring and customizing **72 parametric 3D objects**, organized into four categories and 17 subcategories. No account, API key, paid service, or AI connection is required.
 
@@ -9,7 +9,7 @@ A browser-only studio for exploring and customizing **72 parametric 3D objects**
 - Browse Home, Office, Café and Shop collections; search names, categories, rooms and aliases.
 - Orbit, zoom, fit, and inspect front/top/isometric views using WebGL, with an interactive software fallback.
 - Edit dimensions in centimeters, surface/frame colors, and procedural wood, matte and metal finishes. Change shape or shelf count only where the selected object supports it.
-- Use **Individual parts** on eight objects: the three pedestal tables plus Line work desk, Low coffee table, Family dining table, Conference table and Communal table. Standard desks expose the top, individual legs/feet and rear brace, with linked group controls. The remaining 64 objects keep whole-object editing.
+- Use **Individual parts** on twelve objects: the three pedestal tables plus Line work desk, Low coffee table, Family dining table, Conference table and Communal table, plus Standing desk, Corner desk, Patio table and Laptop stand. Standard desks expose the top, individual legs/feet and rear brace, with linked group controls. The remaining 60 objects keep whole-object editing.
 - Undo/redo, reset, save the current design in this browser, and export version-3 FORM JSON files (under 100 KB). Version-1 and version-2 files still import.
 - Use the optional **rules-based editor** for supported shortcuts such as `walnut with black legs`, `90 cm wide`, or `20% taller`. It is a local parser and makes no model requests.
 
@@ -25,9 +25,13 @@ For the five standard desks/tables, choose **All legs** or **Both feet** for lin
 
 Legs attach to their corresponding grounded foot and the underside of the top; the brace follows the rear supports. Round/oval tops pull supports inward to stay attached. Overall dimensions remain authoritative, and changing thickness adjusts support lengths. These are visual assembly rules, not structural analysis or joinery simulation.
 
+The standing desk exposes two columns and two feet with linked/individual controls. The corner desk keeps two flush L-shaped slabs and five supports: Joined tops controls shared thickness, main slab width and return slab depth; expand it for separate finishes. The patio table has seven fixed slats with shared thickness/gap and individual finishes; round shape clips those same slats to an oval. Its supports stay under slats when gap changes. The laptop stand exposes the platform, angled support, base and retaining lip; lip height counts toward total height and all connections follow dimension edits. Legacy whole-object v1/v2/v3 exports for these objects migrate to their revisioned profiles. Their geometry now uses explicit final dimensions rather than the old global rescale, so support placement/grounding may differ.
+
 Drag to orbit, click/tap to select, and press Escape with the canvas or parts inspector focused to clear selection. Selection pauses auto-rotation, is temporary, and creates no undo entry. A slider drag creates one edit. The list also provides keyboard access to components hidden behind others. Software fallback supports the same editing/selection workflow with simplified shading. The rules-based text editor applies to whole-object settings; use the inspector for component dimensions.
 
-All eight parts-enabled objects use final component dimensions instead of globally rescaling the mesh. Legacy settings retain dimensions and finishes; converted models can have documented grounding/support-layout differences. All three released pedestal-table meshes remain unchanged, including custom café-table geometry. Other 64 objects retain their original geometry. Free movement, adding/removing components, separate plywood layers, exploded views and other object families are future work. See [all-object rollout plan](docs/parts-editor-all-objects-plan.md).
+All twelve parts-enabled objects use final component dimensions instead of globally rescaling the mesh. Legacy settings retain dimensions and finishes; converted models can have documented grounding/support-layout differences. All eight previously released parts-enabled meshes remain unchanged, including custom café-table geometry. Other 60 objects retain their original geometry. Free movement, adding/removing components, separate plywood layers, exploded views and other object families are future work. See [all-object rollout plan](docs/parts-editor-all-objects-plan.md).
+
+See the [R1 release notes](docs/parts-editor-r1-release.md) for the four construction profiles, constraints and compatibility checks.
 
 ## Local development
 
@@ -87,6 +91,7 @@ Pushes to `main` automatically validate and publish the public demonstration. Th
 - `docs/v1-release-plan.md`, `docs/v1-verification.md`: implementation and release evidence.
 - `docs/dependency-audit-v1.json`: final registry audit snapshot.
 - [All-object Parts Editor roadmap](docs/parts-editor-all-objects-plan.md) and [complete catalog mapping](docs/parts-editor-catalog-map.md): the proposed rollout beyond the released café-table pilot.
+- [Remaining-object execution plan](docs/parts-editor-remaining-plan.md) and [14-batch backlog](docs/parts-editor-remaining-backlog.json): current rollout priorities, dependencies and completion gates after v1.4.
 
 The pre-v1 source, including Prompt to Design, its server adapter, tests and old deployment integration, is preserved in commit **`f989f90`** and local branch **`archive/pre-v1-ai`**. Use a separate worktree/checkout to revisit it; its old dependencies need a new security review and its old setup documents are historical. It is absent from the v1 working source and public build. Existing ignored local secrets have been left untouched and are unnecessary for v1.
 

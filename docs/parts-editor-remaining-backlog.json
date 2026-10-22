@@ -1,0 +1,318 @@
+{
+  "baseline": "v1.4.0",
+  "implemented": 12,
+  "remaining": 60,
+  "scope": "rollout-in-progress",
+  "sharedGate": {
+    "id": "T0",
+    "title": "Variable-count topology, construction migration and selection reconciliation",
+    "dependsOn": [
+      "R1"
+    ]
+  },
+  "batches": [
+    {
+      "id": "R1",
+      "title": "Finish desk and table variants",
+      "status": "implemented",
+      "dependsOn": [],
+      "objectIds": [
+        "standing-desk",
+        "corner-desk",
+        "patio-table",
+        "laptop-stand"
+      ],
+      "count": 4,
+      "scope": "Two-column, L-shaped, fixed slat and platform/support builders; preserve each existing construction.",
+      "profiles": [
+        "standing-desk",
+        "corner-desk",
+        "slatted-table",
+        "laptop-stand"
+      ]
+    },
+    {
+      "id": "R2",
+      "title": "Chairs and stools",
+      "status": "planned",
+      "dependsOn": [
+        "R1"
+      ],
+      "objectIds": [
+        "lounge-chair",
+        "meeting-chair",
+        "dining-chair",
+        "visitor-chair",
+        "outdoor-chair",
+        "bar-stool",
+        "breakfast-stool"
+      ],
+      "count": 7,
+      "scope": "Seat/back/arm/leg anchors; armless/slatted variants; fixed leg and stretcher members.",
+      "profiles": [
+        "armchairs",
+        "armless-chairs",
+        "slatted-chair",
+        "stools"
+      ]
+    },
+    {
+      "id": "R3",
+      "title": "Benches",
+      "status": "planned",
+      "dependsOn": [
+        "R2"
+      ],
+      "objectIds": [
+        "garden-bench",
+        "cafe-bench"
+      ],
+      "count": 2,
+      "scope": "Linked and individual seat slats; back slats/supports only on the backrest variant.",
+      "profiles": [
+        "backrest-bench",
+        "backless-bench"
+      ]
+    },
+    {
+      "id": "R4",
+      "title": "Sofas",
+      "status": "planned",
+      "dependsOn": [
+        "R3",
+        "T0"
+      ],
+      "objectIds": [
+        "sofa",
+        "reception-sofa"
+      ],
+      "count": 2,
+      "scope": "Explicit cushion construction count; base, back, arms, cushion members and legs.",
+      "profiles": [
+        "sofas"
+      ]
+    },
+    {
+      "id": "R5",
+      "title": "Office chair",
+      "status": "planned",
+      "dependsOn": [
+        "R2"
+      ],
+      "objectIds": [
+        "office-chair"
+      ],
+      "count": 1,
+      "scope": "Seat/back/arms, support column and five fixed radial base/caster slots.",
+      "profiles": [
+        "office-chair"
+      ]
+    },
+    {
+      "id": "R6",
+      "title": "Shelving and open storage",
+      "status": "planned",
+      "dependsOn": [
+        "T0",
+        "R2"
+      ],
+      "objectIds": [
+        "bookshelf",
+        "wall-shelving",
+        "display-rack",
+        "shoe-rack",
+        "display-cabinet"
+      ],
+      "count": 5,
+      "scope": "Variable shelf membership, ordered placement, clearances, frame variants and legacy count semantics.",
+      "profiles": [
+        "panel-shelves",
+        "open-racks",
+        "open-cabinet"
+      ]
+    },
+    {
+      "id": "R7",
+      "title": "Closed cabinets, drawers and locker",
+      "status": "planned",
+      "dependsOn": [
+        "R6"
+      ],
+      "objectIds": [
+        "tv-unit",
+        "wardrobe",
+        "bedside-table",
+        "filing-cabinet",
+        "drawer-unit",
+        "storage-locker"
+      ],
+      "count": 6,
+      "scope": "Carcass, back/plinth, individual door or drawer fronts, handles and decorative locker vents; fixed front counts.",
+      "profiles": [
+        "closed-cabinets",
+        "drawer-cabinets",
+        "locker"
+      ]
+    },
+    {
+      "id": "R8",
+      "title": "Wall shelf, bed and vanity",
+      "status": "planned",
+      "dependsOn": [
+        "R2",
+        "R7"
+      ],
+      "objectIds": [
+        "wall-shelf",
+        "bed-frame",
+        "dressing-table"
+      ],
+      "count": 3,
+      "scope": "Bracket endpoints; frame/headboard/mattress/pillows/legs; worktop/mirror and decorative drawer block.",
+      "profiles": [
+        "wall-shelf",
+        "bed",
+        "vanity"
+      ]
+    },
+    {
+      "id": "R9",
+      "title": "Counters",
+      "status": "planned",
+      "dependsOn": [
+        "R7"
+      ],
+      "objectIds": [
+        "kitchen-island",
+        "reception-desk",
+        "service-counter",
+        "bar-counter",
+        "checkout-counter"
+      ],
+      "count": 5,
+      "scope": "Body/top/plinth and three front panels with variant-specific defaults.",
+      "profiles": [
+        "counters"
+      ]
+    },
+    {
+      "id": "R10",
+      "title": "Retail and plant stands",
+      "status": "planned",
+      "dependsOn": [
+        "R6",
+        "R9"
+      ],
+      "objectIds": [
+        "pastry-display-stand",
+        "plant-stand",
+        "garment-rail",
+        "hanging-rack",
+        "accessory-stand",
+        "brochure-holder",
+        "promotional-stand",
+        "freestanding-logo-display"
+      ],
+      "count": 8,
+      "scope": "Tier taper, stepped platforms, rails, shelf variant, crossbars, pockets, promo shelves and fixed logo mark.",
+      "profiles": [
+        "tier-stand",
+        "plant-stand",
+        "garment-rails",
+        "accessory-stand",
+        "brochure-holder",
+        "promotional-stand",
+        "logo-display"
+      ]
+    },
+    {
+      "id": "R11",
+      "title": "Lighting",
+      "status": "planned",
+      "dependsOn": [
+        "R5"
+      ],
+      "objectIds": [
+        "floor-lamp",
+        "table-lamp",
+        "pendant-light",
+        "pendant-lamp",
+        "chandelier",
+        "wall-lamp",
+        "wall-light"
+      ],
+      "count": 7,
+      "scope": "Floor/wall/ceiling anchors; shade/diffuser fit; fixed radial arms and heads.",
+      "profiles": [
+        "floor-table-lamps",
+        "pendants",
+        "chandelier",
+        "wall-lights"
+      ]
+    },
+    {
+      "id": "R12",
+      "title": "Mirrors, partitions and boards",
+      "status": "planned",
+      "dependsOn": [
+        "R1",
+        "R7"
+      ],
+      "objectIds": [
+        "mirror",
+        "mirror-stand",
+        "workstation-partition",
+        "decorative-partition",
+        "fitting-room-partition",
+        "whiteboard-stand",
+        "menu-stand",
+        "signboard"
+      ],
+      "count": 8,
+      "scope": "Frame/surface inset; solid/slatted/return panels; post-foot and A-frame support variants.",
+      "profiles": [
+        "mirrors",
+        "partitions",
+        "boards"
+      ]
+    },
+    {
+      "id": "R13",
+      "title": "Planters and sculpture",
+      "status": "planned",
+      "dependsOn": [
+        "R10",
+        "R11"
+      ],
+      "objectIds": [
+        "planter",
+        "hanging-planter",
+        "decorative-sculpture"
+      ],
+      "count": 3,
+      "scope": "Pot/soil/foliage and suspension; connected stacked forms.",
+      "profiles": [
+        "planters",
+        "sculpture"
+      ]
+    },
+    {
+      "id": "R14",
+      "title": "Single-body forms",
+      "status": "planned",
+      "dependsOn": [
+        "R13"
+      ],
+      "objectIds": [
+        "display-plinth",
+        "product-pedestal",
+        "vase"
+      ],
+      "count": 3,
+      "scope": "Honest selectable body controls; preserve connected lathe shape, with optional surface regions scoped separately.",
+      "profiles": [
+        "single-body-forms"
+      ]
+    }
+  ]
+}

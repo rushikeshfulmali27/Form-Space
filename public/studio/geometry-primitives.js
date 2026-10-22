@@ -30,6 +30,11 @@ export function createPrimitiveWriter({
       p[axis] = sign * halves[axis];
       p[axes[0]] = u * halves[axes[0]];
       p[axes[1]] = v * halves[axes[1]];
+      if (r === 0) {
+        const n = [0, 0, 0];
+        n[axis] = sign;
+        return { p: p.map((x, i) => center[i] + x), n };
+      }
       const inner = p.map((x, i) =>
         Math.max(-halves[i] + r, Math.min(halves[i] - r, x)),
       );

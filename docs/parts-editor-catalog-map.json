@@ -109,7 +109,7 @@
       "parts": "tabletop, columns, feet, rear-brace",
       "controls": "Top thickness; support section; foot depth; brace section",
       "rule": "Two columns follow total height. Preserve standing variant; do not imply animated/telescoping mechanism.",
-      "status": "planned"
+      "status": "implemented"
     },
     {
       "id": "corner-desk",
@@ -121,7 +121,7 @@
       "parts": "main-top, return-top, legs",
       "controls": "Shared top thickness; return width/depth; leg section",
       "rule": "Two existing top slabs share height and meet without gap. Five supports anchor below their respective slabs; keep L-shaped envelope.",
-      "status": "planned"
+      "status": "implemented"
     },
     {
       "id": "patio-table",
@@ -133,7 +133,7 @@
       "parts": "top-slats, legs, feet, rear-brace",
       "controls": "Linked slat thickness/gap; leg section; foot depth",
       "rule": "Seven slats remain evenly spaced within top envelope. Gap changes derive slat width; no independent width/gap conflict.",
-      "status": "planned"
+      "status": "implemented"
     },
     {
       "id": "laptop-stand",
@@ -145,7 +145,7 @@
       "parts": "platform, support, base, retaining-lip",
       "controls": "Platform thickness; support section; base footprint; lip height",
       "rule": "Support endpoints track base and platform; lip remains on platform front edge. Preserve current unhinged geometry.",
-      "status": "planned"
+      "status": "implemented"
     },
     {
       "id": "lounge-chair",

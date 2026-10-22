@@ -6,6 +6,7 @@ import {
 } from "./geometry-primitives.js";
 export { cross, unit, bounds } from "./geometry-primitives.js";
 import { buildStandardDesk } from "./geometry-desks.js";
+import { buildDeskVariant } from "./geometry-desk-variants.js";
 // Parametric catalog geometry. Coordinates are in meters, controls in centimeters.
 import {
   supportsParts,
@@ -109,7 +110,13 @@ export function buildAssemblyModel(d, low = false) {
     }
   }
   const thick = Math.min(0.045, h * 0.08);
-  if (getPartsProfile(d)?.builder === "standard-desk") {
+  if (
+    ["standing-desk", "corner-desk", "slatted-table", "laptop-stand"].includes(
+      getPartsProfile(d)?.builder,
+    )
+  ) {
+    buildDeskVariant(d, resolveParts(d), writer, component);
+  } else if (getPartsProfile(d)?.builder === "standard-desk") {
     buildStandardDesk(d, resolveParts(d), writer, component);
   } else if (getPartsProfile(d)?.builder === "pedestal-table") {
     const p = resolveParts(d),

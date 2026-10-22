@@ -144,6 +144,21 @@ export function solveDesk(d, p) {
       sides[side].x *= factor;
       sides[side].z *= factor;
     }
+    if (d.id === "patio-table") {
+      const gap = p.tabletop.gap / 100;
+      const slat = (d.width / 100 - 6 * gap) / 7;
+      const candidates = Array.from(
+        { length: 7 },
+        (_, i) => -d.width / 200 + slat / 2 + i * (slat + gap),
+      );
+      // Snap inward to a slat so even a thin support cannot end in a gap.
+      const target = Math.abs(sides[side].x);
+      const center = Math.max(
+        0,
+        ...candidates.filter((n) => n >= -1e-8 && n <= target + 1e-8),
+      );
+      sides[side].x = side === "left" ? -center : center;
+    }
   }
   const maxFoot = Math.max(sides.left.footTop, sides.right.footTop),
     brace = p["rear-brace"].section / 100;

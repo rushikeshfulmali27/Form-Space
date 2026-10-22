@@ -1,8 +1,10 @@
 # Parts Editor rollout: all 72 catalog objects
 
-Status: rollout in progress. V1.1/v1.2 delivered the three pedestal tables; v1.3 adds five standard desks/tables. Eight objects now support Parts Editor, with 64 remaining.
+Status: rollout in progress. V1.1/v1.2 delivered the three pedestal tables; v1.3 adds five standard desks/tables. V1.4 completes the four R1 desk variants. Twelve objects now support Parts Editor, with 60 remaining.
 
-Completed foundation: trusted registry, profile-driven fields/defaults/limits/readouts, v3 format/revision checks, save migration, shared primitive writing, and fixed repeated groups/members with independent editing, highlighting and reset. Standard desks/tables are now implemented. Variable-count topology (shelves/cushions) remains future work. Wave 1 still needs standing, corner and slatted desks plus the laptop stand; this is not completion of all 72 objects or the whole first wave.
+For the current delivery sequence, exact remaining IDs and dependencies, use the [remaining-object execution plan](parts-editor-remaining-plan.md) and [batch backlog](parts-editor-remaining-backlog.json). This document supplies the shared architecture and acceptance rules.
+
+Completed foundation: trusted registry, profile-driven fields/defaults/limits/readouts, v3 format/revision checks, save migration, shared primitive writing, and fixed repeated groups/members with independent editing, highlighting and reset. Standard desks/tables are now implemented. Variable-count topology (shelves/cushions) remains future work. Wave 1 is complete, including standing, corner and slatted desks and the laptop stand. Seating and later waves remain planned; this is not completion of all 72 objects.
 
 ## 1. Scope and catalog coverage
 
@@ -21,43 +23,38 @@ Three objects are single-body forms in the current model: `display-plinth`, `pro
 
 ## 2. Existing foundation and gaps
 
-The pilot provides reusable rendering metadata, triangle picking, selection tint, gesture routing, history, v2 part persistence and a parts inspector. Extending only `supportsParts()` would fail: the rest of the implementation still assumes three café-table parts.
+V1.3 provides the registry, shared primitive writer, profile-driven inspector, fixed group/member identity, v3 persistence and selection/highlighting in both renderers. The remaining work is family construction and variable membership, rather than recreating those foundations.
 
-| File or behavior    | Required generalization                                                                                                                                     |
-| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `parts.js`          | Replace global café-table `PARTS`, `partDefaults()` and hard-coded limits with object/variant profiles and generated member definitions                     |
-| `geometry.js`       | Extract reusable primitive writing, part ownership and assembly construction; convert each family from globally scaled output to final component dimensions |
-| `parts-controls.js` | Replace fixed buttons and tabletop special cases with controls driven by the current profile; rebuild on object, topology or profile revision changes       |
-| `design.js`         | Dynamic part validation/diff over current and previous profiles; versioned migration; normalize group/member settings consistently                          |
-| `app.js`            | Centralize component commands and adjustment feedback; keep preview transactions stable and clean selection on topology changes                             |
-| `viewer.js`         | Preserve existing picking/cache/fallback; add group-to-member selection behavior and efficient selection lookup for larger assemblies                       |
-| `storage.js`        | Migrate v1/v2 safely to the expanded format while preserving backup values and corruption reporting                                                         |
-| Build/check scripts | Explicitly allow new modules; make syntax discovery recursive if implementation introduces subdirectories                                                   |
-| Tests               | Replace the assertion that only one ID supports parts with rollout capability checks; retain independent geometry fixtures for unconverted objects          |
+| File or behavior                | Required generalization                                                                                                                        |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `parts.js` / registry           | Extend fixed profile/member definitions to validated construction and changing membership; retain existing inheritance/reset behavior          |
+| `geometry.js` / family builders | Convert remaining families to final dimensions with the existing writer; extract lathe/foliage helpers when needed                             |
+| `parts-controls.js`             | Add construction/count controls and topology-aware selection reconciliation; current nested-group rendering is limited to root groups          |
+| `design.js`                     | Validate/normalize new construction fields and revision migrations without losing existing overrides                                           |
+| `app.js`                        | Add atomic count/position commands and adjustment feedback; retain original-snapshot previews                                                  |
+| `viewer.js`                     | Preserve existing leaf picking/group highlight/cache/fallback; reconcile selected members after topology changes and measure larger assemblies |
+| `storage.js`                    | Retain existing v3→v2→v1 migration and backup behavior; support any required profile revision migration                                        |
+| Build/check scripts             | Explicitly allow new modules; make syntax discovery recursive if implementation introduces subdirectories                                      |
+| Tests                           | Extend the current twelve-object capability checks per completed batch; retain immutable fixtures for unconverted objects                       |
 
 Retain browser modules, zero runtime dependencies and GitHub Pages. A new renderer/framework, server or account system is not required.
 
 ## 3. Shared data and module architecture
 
-Introduce a pure registry keyed by the known catalog ID. It resolves a construction profile and its explicit variant. A profile describes:
+Extend the existing pure registry keyed by known catalog ID. It resolves the current object's construction profile. The implemented profile contract includes:
 
-```js
-{
-  (id,
-    revision,
-    supports(object),
-    describeParts(design), // IDs, labels, parent group, editable fields
-    defaults(design),
-    fieldLimits(design, partId, field),
-    normalizeEdit(previousDesign, command), // next design + adjustments
-    validateImport(design),
-    build(design, writer, lowDetail));
-}
+```text
+id, revision, builder
+parts                         IDs, labels, fields, root groups/member parents
+defaults(design)              inherited settings
+limits(design, partId, key)   valid dimension range
+readout(design, parts, id)    derived UI explanation
+legacyUnversioned             narrow legacy whole-object migration opt-in
 ```
 
-This is a proposed contract; simplify implementation details while retaining a single owner for defaults, constraints and available controls. Resolve the profile from a trusted catalog lookup. Imported data must not choose an arbitrary builder or bypass variant checks.
+Variable-count profiles additionally need dynamic member descriptions, construction normalization/validation and atomic edit commands, described in shared gate T0 of the remaining-object plan. Those extensions are planned, not existing APIs. Resolve profiles from trusted catalog lookup; imported data must not choose arbitrary builders or bypass variant/revision checks.
 
-Suggested layout: `parts-registry.js` for ID/profile resolution; `parts.js` as the shared public facade; grouped family modules such as `parts-tables.js`, `parts-seating.js` and `parts-storage.js`; and `geometry-primitives.js` for the existing triangle/box/cylinder/beam/lathe helpers. Keep names flat initially to work with existing syntax checks and asset allowlisting. Pure registry/geometry modules must not depend on DOM, viewer or `design.js` imports that form a cycle.
+Continue the existing layout: `parts-registry.js` for resolution, `parts.js` as the facade, family definition/solver modules such as `parts-desks.js`, corresponding builders such as `geometry-desks.js`, and `geometry-primitives.js` for shared triangle/box/cylinder/beam/ellipsoid writing. Lathe and foliage are still local helpers and must be extracted where needed. Keep names flat initially to work with existing syntax checks and asset allowlisting. Pure registry/geometry modules must not depend on DOM, viewer or `design.js` imports that form a cycle.
 
 Use the pilot's geometry result shape: vertex data, complete bounds and semantic part ranges. Builders call a writer with a concrete leaf part ID. One leaf can own multiple primitive emissions. If a part's emissions cannot be contiguous, collect them in that part's buffer and concatenate once, or deliberately extend metadata to multiple ranges; never label unrelated intervening triangles as that part. High/low detail share IDs, not triangle indexes.
 
@@ -111,7 +108,7 @@ During a slider preview, solve from the gesture's original snapshot plus the lat
 
 ## 6. Save format and migration
 
-Plan version **3** for expanded profiles. Version 2 remains a valid legacy import for the released café-table format. The old v1.1 app rejects unknown parts, so exporting new families under v2 would falsely suggest interoperability.
+Version **3** and per-object part revisions are already implemented. Continue that envelope for compatible new profiles; preserve version-2 café-table import. An incompatible change to an enabled profile requires explicit revision migration rather than reinterpreting old settings.
 
 Example fragment:
 
@@ -138,7 +135,7 @@ The fragment omits remaining default fields for readability. Only the registry d
 
 Migration sequence: validate legacy schema first → preserve original object parameters → resolve profile defaults from the historical builder/variant → preserve café-table v2 overrides exactly → produce the normalized current design. Preserve a historical reference fixture for every object and a custom café-table v2 fixture. Any visual deviation caused by removing final scaling must be measured and documented; do not silently redefine old measurements.
 
-Use `form-studio.workspace.v3`, reading v3 then v2 then v1 only when the higher key is absent. A corrupt newer save is reported/preserved rather than hidden by an older save. Write a migrated design only after validation; keep original backups and truthful blocked/quota feedback. Older app releases cannot read v3 exports; state this clearly in release notes.
+Retain `form-studio.workspace.v3`, reading v3 then v2 then v1 only when the higher key is absent. A corrupt newer save is reported/preserved rather than hidden by an older save. Write migrated data only after validation; keep original backups and truthful blocked/quota feedback. Earlier apps may reject newly supported profile schemas even within the v3 envelope; document compatibility per release.
 
 ## 7. UI and performance
 
@@ -166,7 +163,7 @@ Totals: 72 objects, 71 newly enabled after the released pilot. Each wave include
 
 Within a wave: one representative family fixture → profile and strict schema → final-dimension geometry → list controls → member selection/persistence → full variant matrix → browser and release checks. Do not enable a whole kind when only its basic variant is tested. Publish verified waves through existing GitHub Actions; keep incomplete profiles unavailable rather than deploying placeholder controls.
 
-V1.3 completes shared primitive writing and the standard-desk profile for `work-desk`, `coffee-table`, `dining-table`, `conference-table` and `communal-table`, including fixed member identity. Next, add the standing/corner/slatted variants and laptop stand to finish wave 1. Variable-count member identity/removal rules must be completed before editable shelf/cushion counts ship.
+V1.3 completes shared primitive writing and the standard-desk profile for `work-desk`, `coffee-table`, `dining-table`, `conference-table` and `communal-table`, including fixed member identity. V1.4 completes standing/corner/slatted variants and the laptop stand. Next, implement R2 seating. Variable-count member identity/removal rules must be completed before editable shelf/cushion counts ship.
 
 ## 9. Verification and completion definition
 

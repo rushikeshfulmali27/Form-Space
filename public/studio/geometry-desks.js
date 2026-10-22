@@ -1,5 +1,5 @@
 import { DESK_LEGS, solveDesk } from "./parts-desks.js";
-export function buildStandardDesk(d, p, writer, component) {
+export function buildStandardDesk(d, p, writer, component, drawTop) {
   const { box, cylinder, beam } = writer,
     { h, t, sides, braceY } = solveDesk(d, p);
   const color = (id) =>
@@ -14,11 +14,13 @@ export function buildStandardDesk(d, p, writer, component) {
         ? 2
         : 0;
   const draw = (id, fn) => component(id, () => fn(color(id), material(id)));
-  draw("tabletop", (c, m) => {
-    if (d.shape === "round")
-      cylinder(0, h - t / 2, 0, d.width / 200, d.depth / 200, t, c, m);
-    else box(0, h - t / 2, 0, d.width / 100, t, d.depth / 100, c, m, 0.018);
-  });
+  if (drawTop) drawTop();
+  else
+    draw("tabletop", (c, m) => {
+      if (d.shape === "round")
+        cylinder(0, h - t / 2, 0, d.width / 200, d.depth / 200, t, c, m);
+      else box(0, h - t / 2, 0, d.width / 100, t, d.depth / 100, c, m, 0.018);
+    });
   for (const id of DESK_LEGS) {
     const key = `legs.${id}`,
       side = id.endsWith("left") ? sides.left : sides.right,

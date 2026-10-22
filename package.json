@@ -1,6 +1,6 @@
 {
   "name": "form-object-studio",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "private": true,
   "description": "Browser-only parametric 3D object customization demo",
   "type": "module",

@@ -8,7 +8,9 @@ export function partDefaults(d) {
 export function partLimits(d, id, key) {
   const profile = getPartsProfile(d);
   if (!profile) throw Error("This object has no editable parts.");
-  return profile.limits(d, id, key);
+  // Saved dimensions have hundredth-centimeter precision. Use that same
+  // precision for limits so an exported boundary value imports unchanged.
+  return profile.limits(d, id, key).map((n) => Math.round(n * 100) / 100);
 }
 export function normalizeParts(d, input, materials, strict = false) {
   if (input === undefined) return {};
