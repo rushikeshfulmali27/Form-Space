@@ -157,7 +157,7 @@
       "parts": "seat, back, legs, armrests",
       "controls": "Seat thickness/height; back thickness; leg section; armrest height",
       "rule": "Legs follow seat underside; arm supports follow armrests. Total height anchors back top; width/depth contain all pieces.",
-      "status": "planned"
+      "status": "implemented"
     },
     {
       "id": "meeting-chair",
@@ -169,7 +169,7 @@
       "parts": "seat, back, legs, armrests",
       "controls": "Seat thickness/height; back thickness; leg section; armrest height",
       "rule": "Legs follow seat underside; arm supports follow armrests. Total height anchors back top; width/depth contain all pieces.",
-      "status": "planned"
+      "status": "implemented"
     },
     {
       "id": "dining-chair",
@@ -181,7 +181,7 @@
       "parts": "seat, back, legs",
       "controls": "Seat thickness/height; back thickness; leg section",
       "rule": "Use chair rules with no armrest parts or controls.",
-      "status": "planned"
+      "status": "implemented"
     },
     {
       "id": "visitor-chair",
@@ -193,7 +193,7 @@
       "parts": "seat, back, legs",
       "controls": "Seat thickness/height; back thickness; leg section",
       "rule": "Use chair rules with no armrest parts or controls.",
-      "status": "planned"
+      "status": "implemented"
     },
     {
       "id": "outdoor-chair",
@@ -205,7 +205,7 @@
       "parts": "seat, back-slats, legs, armrests",
       "controls": "Seat thickness/height; linked back-slat width/gap; leg section; arm height",
       "rule": "Five existing back slats share spacing constraints; preserve outdoor-chair arms and supports.",
-      "status": "planned"
+      "status": "implemented"
     },
     {
       "id": "bar-stool",
@@ -217,7 +217,7 @@
       "parts": "seat, legs, stretchers",
       "controls": "Seat shape/thickness; leg section; stretcher height/section",
       "rule": "Four splayed legs attach to seat; four horizontal stretchers connect the legs at a shared constrained level.",
-      "status": "planned"
+      "status": "implemented"
     },
     {
       "id": "breakfast-stool",
@@ -229,7 +229,7 @@
       "parts": "seat, legs, stretchers",
       "controls": "Seat shape/thickness; leg section; stretcher height/section",
       "rule": "Four splayed legs attach to seat; four horizontal stretchers connect the legs at a shared constrained level.",
-      "status": "planned"
+      "status": "implemented"
     },
     {
       "id": "sofa",

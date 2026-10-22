@@ -1,15 +1,15 @@
-# FORM — Object Studio v1.4
+# FORM — Object Studio v1.5
 
 A browser-only studio for exploring and customizing **72 parametric 3D objects**, organized into four categories and 17 subcategories. No account, API key, paid service, or AI connection is required.
 
-![FORM Object Studio desk Parts Editor](docs/images/desk-parts-desktop.png)
+![FORM Object Studio seating Parts Editor](docs/images/seating-lounge-chair-desktop.png)
 
 ## What you can do
 
 - Browse Home, Office, Café and Shop collections; search names, categories, rooms and aliases.
 - Orbit, zoom, fit, and inspect front/top/isometric views using WebGL, with an interactive software fallback.
 - Edit dimensions in centimeters, surface/frame colors, and procedural wood, matte and metal finishes. Change shape or shelf count only where the selected object supports it.
-- Use **Individual parts** on twelve objects: the three pedestal tables plus Line work desk, Low coffee table, Family dining table, Conference table and Communal table, plus Standing desk, Corner desk, Patio table and Laptop stand. Standard desks expose the top, individual legs/feet and rear brace, with linked group controls. The remaining 60 objects keep whole-object editing.
+- Use **Individual parts** on nineteen objects: twelve tables/desks/stands, Cove lounge chair, Meeting chair, Dining chair, Visitor chair, Outdoor chair, Perch bar stool and Breakfast stool. Edit linked groups or individual members. The remaining 53 objects keep whole-object editing.
 - Undo/redo, reset, save the current design in this browser, and export version-3 FORM JSON files (under 100 KB). Version-1 and version-2 files still import.
 - Use the optional **rules-based editor** for supported shortcuts such as `walnut with black legs`, `90 cm wide`, or `20% taller`. It is a local parser and makes no model requests.
 
@@ -29,9 +29,15 @@ The standing desk exposes two columns and two feet with linked/individual contro
 
 Drag to orbit, click/tap to select, and press Escape with the canvas or parts inspector focused to clear selection. Selection pauses auto-rotation, is temporary, and creates no undo entry. A slider drag creates one edit. The list also provides keyboard access to components hidden behind others. Software fallback supports the same editing/selection workflow with simplified shading. The rules-based text editor applies to whole-object settings; use the inspector for component dimensions.
 
-All twelve parts-enabled objects use final component dimensions instead of globally rescaling the mesh. Legacy settings retain dimensions and finishes; converted models can have documented grounding/support-layout differences. All eight previously released parts-enabled meshes remain unchanged, including custom café-table geometry. Other 60 objects retain their original geometry. Free movement, adding/removing components, separate plywood layers, exploded views and other object families are future work. See [all-object rollout plan](docs/parts-editor-all-objects-plan.md).
+All nineteen parts-enabled objects use final component dimensions instead of globally rescaling the mesh. Legacy settings retain dimensions and finishes; converted models can have documented grounding/support-layout differences. All twelve previously released parts-enabled meshes remain unchanged, including custom café-table geometry. Other 53 objects retain their original geometry. Free movement, adding/removing components, separate plywood layers, exploded views and other object families are future work. See [all-object rollout plan](docs/parts-editor-all-objects-plan.md).
 
 See the [R1 release notes](docs/parts-editor-r1-release.md) for the four construction profiles, constraints and compatibility checks.
+
+## Parts Editor: chairs and stools
+
+Choose one of the seven supported chairs/stools, then **Individual parts**. Chairs expose seat top height and thickness, backrest thickness, and four splayed legs. Armchairs also expose linked/individual armrest height and section; their supports follow the seat and matching armrest and have independent finishes. Dining and Visitor chairs expose no arm controls. Outdoor chair keeps five back slats with shared thickness/gap and individual finishes. Stools expose seat shape/thickness, four legs, shared stretcher height and independent stretcher sections/finishes.
+
+Seat top height is measured from the floor. Thickness adjusts the leg endpoints; backrests stay attached and reach total height. Leg section measures a horizontal cross section, not the bounding width of a slanted leg. Group edits preserve custom members until Apply group settings or Reset group and members. All edits remain inside whole-object dimensions. Whole-object v1/v2/v3 seating saves migrate, but explicit grounded/connected geometry can differ from the old globally scaled model. No swivel, tilt or recline mechanism is implied. See [R2 release notes](docs/parts-editor-r2-release.md) for parameter limits and compatibility.
 
 ## Local development
 
@@ -91,7 +97,7 @@ Pushes to `main` automatically validate and publish the public demonstration. Th
 - `docs/v1-release-plan.md`, `docs/v1-verification.md`: implementation and release evidence.
 - `docs/dependency-audit-v1.json`: final registry audit snapshot.
 - [All-object Parts Editor roadmap](docs/parts-editor-all-objects-plan.md) and [complete catalog mapping](docs/parts-editor-catalog-map.md): the proposed rollout beyond the released café-table pilot.
-- [Remaining-object execution plan](docs/parts-editor-remaining-plan.md) and [14-batch backlog](docs/parts-editor-remaining-backlog.json): current rollout priorities, dependencies and completion gates after v1.4.
+- [Remaining-object execution plan](docs/parts-editor-remaining-plan.md) and [14-batch backlog](docs/parts-editor-remaining-backlog.json): current rollout priorities, dependencies and completion gates after v1.5.
 
 The pre-v1 source, including Prompt to Design, its server adapter, tests and old deployment integration, is preserved in commit **`f989f90`** and local branch **`archive/pre-v1-ai`**. Use a separate worktree/checkout to revisit it; its old dependencies need a new security review and its old setup documents are historical. It is absent from the v1 working source and public build. Existing ignored local secrets have been left untouched and are unnecessary for v1.
 

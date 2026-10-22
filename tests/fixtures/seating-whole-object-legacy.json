@@ -1,0 +1,404 @@
+[
+  {
+    "format": "form-studio",
+    "version": 1,
+    "design": {
+      "id": "lounge-chair",
+      "name": "Cove lounge chair",
+      "category": "Home",
+      "subcategory": "home-living",
+      "kind": "chair",
+      "tag": "Low seat · solid frame",
+      "width": 72,
+      "height": 80,
+      "depth": 76,
+      "color": "#92a18b",
+      "accent": "#79553c",
+      "material": "matte",
+      "aliases": [
+        "armchair"
+      ]
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "design": {
+      "id": "lounge-chair",
+      "name": "Cove lounge chair",
+      "category": "Home",
+      "subcategory": "home-living",
+      "kind": "chair",
+      "tag": "Low seat · solid frame",
+      "width": 72,
+      "height": 80,
+      "depth": 76,
+      "color": "#92a18b",
+      "accent": "#79553c",
+      "material": "matte",
+      "aliases": [
+        "armchair"
+      ]
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "design": {
+      "id": "lounge-chair",
+      "name": "Cove lounge chair",
+      "category": "Home",
+      "subcategory": "home-living",
+      "kind": "chair",
+      "tag": "Low seat · solid frame",
+      "width": 72,
+      "height": 80,
+      "depth": 76,
+      "color": "#92a18b",
+      "accent": "#79553c",
+      "material": "matte",
+      "aliases": [
+        "armchair"
+      ]
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "design": {
+      "id": "meeting-chair",
+      "name": "Meeting chair",
+      "category": "Office",
+      "subcategory": "office-seating",
+      "kind": "chair",
+      "tag": "Seating",
+      "width": 58,
+      "height": 88,
+      "depth": 60,
+      "color": "#344a61",
+      "accent": "#282e2c",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "design": {
+      "id": "meeting-chair",
+      "name": "Meeting chair",
+      "category": "Office",
+      "subcategory": "office-seating",
+      "kind": "chair",
+      "tag": "Seating",
+      "width": 58,
+      "height": 88,
+      "depth": 60,
+      "color": "#344a61",
+      "accent": "#282e2c",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "design": {
+      "id": "meeting-chair",
+      "name": "Meeting chair",
+      "category": "Office",
+      "subcategory": "office-seating",
+      "kind": "chair",
+      "tag": "Seating",
+      "width": 58,
+      "height": 88,
+      "depth": 60,
+      "color": "#344a61",
+      "accent": "#282e2c",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "design": {
+      "id": "dining-chair",
+      "name": "Dining chair",
+      "category": "Home",
+      "subcategory": "home-dining",
+      "kind": "chair",
+      "tag": "Dining & kitchen",
+      "width": 48,
+      "height": 88,
+      "depth": 52,
+      "color": "#ded6c6",
+      "accent": "#b98c60",
+      "material": "matte",
+      "variant": "armless"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "design": {
+      "id": "dining-chair",
+      "name": "Dining chair",
+      "category": "Home",
+      "subcategory": "home-dining",
+      "kind": "chair",
+      "tag": "Dining & kitchen",
+      "width": 48,
+      "height": 88,
+      "depth": 52,
+      "color": "#ded6c6",
+      "accent": "#b98c60",
+      "material": "matte",
+      "variant": "armless"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "design": {
+      "id": "dining-chair",
+      "name": "Dining chair",
+      "category": "Home",
+      "subcategory": "home-dining",
+      "kind": "chair",
+      "tag": "Dining & kitchen",
+      "width": 48,
+      "height": 88,
+      "depth": 52,
+      "color": "#ded6c6",
+      "accent": "#b98c60",
+      "material": "matte",
+      "variant": "armless"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "design": {
+      "id": "visitor-chair",
+      "name": "Visitor chair",
+      "category": "Office",
+      "subcategory": "office-seating",
+      "kind": "chair",
+      "tag": "Seating",
+      "width": 55,
+      "height": 85,
+      "depth": 58,
+      "color": "#597a93",
+      "accent": "#282e2c",
+      "material": "matte",
+      "variant": "armless"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "design": {
+      "id": "visitor-chair",
+      "name": "Visitor chair",
+      "category": "Office",
+      "subcategory": "office-seating",
+      "kind": "chair",
+      "tag": "Seating",
+      "width": 55,
+      "height": 85,
+      "depth": 58,
+      "color": "#597a93",
+      "accent": "#282e2c",
+      "material": "matte",
+      "variant": "armless"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "design": {
+      "id": "visitor-chair",
+      "name": "Visitor chair",
+      "category": "Office",
+      "subcategory": "office-seating",
+      "kind": "chair",
+      "tag": "Seating",
+      "width": 55,
+      "height": 85,
+      "depth": 58,
+      "color": "#597a93",
+      "accent": "#282e2c",
+      "material": "matte",
+      "variant": "armless"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "design": {
+      "id": "outdoor-chair",
+      "name": "Outdoor chair",
+      "category": "Home",
+      "subcategory": "home-outdoor",
+      "kind": "chair",
+      "tag": "Outdoor",
+      "width": 60,
+      "height": 85,
+      "depth": 65,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "variant": "slatted"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "design": {
+      "id": "outdoor-chair",
+      "name": "Outdoor chair",
+      "category": "Home",
+      "subcategory": "home-outdoor",
+      "kind": "chair",
+      "tag": "Outdoor",
+      "width": 60,
+      "height": 85,
+      "depth": 65,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "variant": "slatted"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "design": {
+      "id": "outdoor-chair",
+      "name": "Outdoor chair",
+      "category": "Home",
+      "subcategory": "home-outdoor",
+      "kind": "chair",
+      "tag": "Outdoor",
+      "width": 60,
+      "height": 85,
+      "depth": 65,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "variant": "slatted"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "design": {
+      "id": "bar-stool",
+      "name": "Perch bar stool",
+      "category": "Cafe",
+      "subcategory": "cafe-tables",
+      "kind": "stool",
+      "tag": "Round seat · four legs",
+      "width": 42,
+      "height": 76,
+      "depth": 42,
+      "color": "#79553c",
+      "accent": "#282e2c",
+      "material": "walnut",
+      "shape": "round"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "design": {
+      "id": "bar-stool",
+      "name": "Perch bar stool",
+      "category": "Cafe",
+      "subcategory": "cafe-tables",
+      "kind": "stool",
+      "tag": "Round seat · four legs",
+      "width": 42,
+      "height": 76,
+      "depth": 42,
+      "color": "#79553c",
+      "accent": "#282e2c",
+      "material": "walnut",
+      "shape": "round"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "design": {
+      "id": "bar-stool",
+      "name": "Perch bar stool",
+      "category": "Cafe",
+      "subcategory": "cafe-tables",
+      "kind": "stool",
+      "tag": "Round seat · four legs",
+      "width": 42,
+      "height": 76,
+      "depth": 42,
+      "color": "#79553c",
+      "accent": "#282e2c",
+      "material": "walnut",
+      "shape": "round"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "design": {
+      "id": "breakfast-stool",
+      "name": "Breakfast stool",
+      "category": "Home",
+      "subcategory": "home-dining",
+      "kind": "stool",
+      "tag": "Dining & kitchen",
+      "width": 40,
+      "height": 65,
+      "depth": 40,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "shape": "square"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "design": {
+      "id": "breakfast-stool",
+      "name": "Breakfast stool",
+      "category": "Home",
+      "subcategory": "home-dining",
+      "kind": "stool",
+      "tag": "Dining & kitchen",
+      "width": 40,
+      "height": 65,
+      "depth": 40,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "shape": "square"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "design": {
+      "id": "breakfast-stool",
+      "name": "Breakfast stool",
+      "category": "Home",
+      "subcategory": "home-dining",
+      "kind": "stool",
+      "tag": "Dining & kitchen",
+      "width": 40,
+      "height": 65,
+      "depth": 40,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "shape": "square"
+    }
+  }
+]

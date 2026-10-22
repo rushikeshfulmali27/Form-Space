@@ -1,6 +1,6 @@
 # Parts Editor: complete catalog mapping
 
-Status: rollout in progress. The three pedestal tables, five standard desks/tables and four R1 variants are implemented (12 total); the other 60 objects remain planned.
+Status: rollout in progress. The three pedestal tables, five standard desks/tables and four R1 variants and seven R2 chairs/stools are implemented (19 total); the other 53 objects remain planned.
 
 Generated from the current 72-object catalog after reading every geometry branch. Every object appears exactly once. Family names below are proposed implementation profiles, not new catalog categories. All multi-part entries include part-specific visual finish/color in addition to listed dimension controls. Repeated components begin as linked groups, then gain individual member editing under the instance rules in the rollout plan.
 

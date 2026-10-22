@@ -1,6 +1,12 @@
 // Profiles are trusted application definitions, never selected by imported data.
 import { standardDeskProfile } from "./parts-desks.js";
 import {
+  armchairProfile,
+  armlessChairProfile,
+  slattedChairProfile,
+  stoolProfile,
+} from "./parts-seating.js";
+import {
   standingDeskProfile,
   cornerDeskProfile,
   slattedTableProfile,
@@ -70,6 +76,13 @@ const objects = Object.freeze({
   "corner-desk": cornerDeskProfile,
   "patio-table": slattedTableProfile,
   "laptop-stand": laptopStandProfile,
+  "lounge-chair": armchairProfile,
+  "meeting-chair": armchairProfile,
+  "dining-chair": armlessChairProfile,
+  "visitor-chair": armlessChairProfile,
+  "outdoor-chair": slattedChairProfile,
+  "bar-stool": stoolProfile,
+  "breakfast-stool": stoolProfile,
 });
 export const getPartsProfile = (d) =>
   d && Object.hasOwn(objects, d.id) ? objects[d.id] : null;

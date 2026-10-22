@@ -44,6 +44,13 @@ test("registry resolves only explicitly enabled objects and trusted revisions", 
       "corner-desk",
       "patio-table",
       "laptop-stand",
+      "lounge-chair",
+      "meeting-chair",
+      "dining-chair",
+      "visitor-chair",
+      "outdoor-chair",
+      "bar-stool",
+      "breakfast-stool",
     ].sort(),
   );
   for (const id of ["constructor", "__proto__", "bookshelf", "sofa"]) {
