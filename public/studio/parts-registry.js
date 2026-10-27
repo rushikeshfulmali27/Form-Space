@@ -1,5 +1,6 @@
 // Profiles are trusted application definitions, never selected by imported data.
 import { standardDeskProfile } from "./parts-desks.js";
+import { officeChairProfile } from "./parts-office-chair.js";
 import { sofaProfile } from "./parts-sofas.js";
 import { gardenBenchProfile, cafeBenchProfile } from "./parts-benches.js";
 import {
@@ -89,6 +90,7 @@ const objects = Object.freeze({
   "cafe-bench": cafeBenchProfile,
   sofa: sofaProfile,
   "reception-sofa": sofaProfile,
+  "office-chair": officeChairProfile,
 });
 export const getPartsProfile = (d) =>
   d && Object.hasOwn(objects, d.id) ? objects[d.id] : null;

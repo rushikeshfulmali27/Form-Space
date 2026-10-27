@@ -1,10 +1,10 @@
 # Parts Editor rollout: all 72 catalog objects
 
-Status: rollout in progress. V1.1/v1.2 delivered the three pedestal tables; v1.3 adds five standard desks/tables. V1.4 completes the four R1 desk variants. V1.5 adds seven R2 chairs/stools. V1.6 completes two R3 benches. V1.7 completes T0 and two R4 sofas. Twenty-three objects now support Parts Editor, with 49 remaining.
+Status: rollout in progress. V1.1/v1.2 delivered the three pedestal tables; v1.3 adds five standard desks/tables. V1.4 completes the four R1 desk variants. V1.5 adds seven R2 chairs/stools. V1.6 completes two R3 benches. V1.7 completes T0 and two R4 sofas. V1.8 completes R5 office chair. Twenty-four objects now support Parts Editor, with 48 remaining.
 
 For the current delivery sequence, exact remaining IDs and dependencies, use the [remaining-object execution plan](parts-editor-remaining-plan.md) and [batch backlog](parts-editor-remaining-backlog.json). This document supplies the shared architecture and acceptance rules.
 
-Completed foundation: trusted registry, profile-driven fields/defaults/limits/readouts, v3 format/revision checks, save migration, shared primitive writing, and fixed repeated groups/members with independent editing, highlighting and reset. Standard desks/tables are now implemented. Profile-owned construction, dynamic cushion slots and topology-aware selection now work. Variable shelves/tiers and their placement rules remain future family work. Wave 1 is complete, including standing, corner and slatted desks and the laptop stand. Office chair and later waves remain planned; this is not completion of all 72 objects.
+Completed foundation: trusted registry, profile-driven fields/defaults/limits/readouts, v3 format/revision checks, save migration, shared primitive writing, and fixed repeated groups/members with independent editing, highlighting and reset. Standard desks/tables are now implemented. Profile-owned construction, dynamic cushion slots and topology-aware selection now work. Variable shelves/tiers and their placement rules remain future family work. Wave 1 is complete, including standing, corner and slatted desks and the laptop stand. Shelving and later waves remain planned; this is not completion of all 72 objects.
 
 ## 1. Scope and catalog coverage
 
@@ -35,7 +35,7 @@ V1.7 provides trusted fixed/dynamic profiles, construction validation and atomic
 | `viewer.js`                     | Preserve existing leaf picking/group highlight/cache/fallback; reconcile selected members after topology changes and measure larger assemblies |
 | `storage.js`                    | Retain existing v3→v2→v1 migration and backup behavior; support any required profile revision migration                                        |
 | Build/check scripts             | Explicitly allow new modules; make syntax discovery recursive if implementation introduces subdirectories                                      |
-| Tests                           | Extend the current twenty-three-object capability checks per completed batch; retain immutable fixtures for unconverted objects                       |
+| Tests                           | Extend the current twenty-four-object capability checks per completed batch; retain immutable fixtures for unconverted objects                       |
 
 Retain browser modules, zero runtime dependencies and GitHub Pages. A new renderer/framework, server or account system is not required.
 
@@ -164,7 +164,7 @@ Totals: 72 objects, 71 newly enabled after the released pilot. Each wave include
 
 Within a wave: one representative family fixture → profile and strict schema → final-dimension geometry → list controls → member selection/persistence → full variant matrix → browser and release checks. Do not enable a whole kind when only its basic variant is tested. Publish verified waves through existing GitHub Actions; keep incomplete profiles unavailable rather than deploying placeholder controls.
 
-V1.3 completes shared primitive writing and the standard-desk profile for `work-desk`, `coffee-table`, `dining-table`, `conference-table` and `communal-table`, including fixed member identity. V1.4 completes standing/corner/slatted variants and the laptop stand. V1.5 completes R2 chairs/stools; v1.6 completes R3 benches; v1.7 implements T0 and R4 sofas with stable cushion identity/removal. Next implement R5 office chair, then adapt count/placement rules for R6 shelves.
+V1.3 completes shared primitive writing and the standard-desk profile for `work-desk`, `coffee-table`, `dining-table`, `conference-table` and `communal-table`, including fixed member identity. V1.4 completes standing/corner/slatted variants and the laptop stand. V1.5 completes R2 chairs/stools; v1.6 completes R3 benches; v1.7 implements T0 and R4 sofas with stable cushion identity/removal. V1.8 completes R5 office chair. Next adapt count/placement rules for R6 shelves.
 
 ## 9. Verification and completion definition
 

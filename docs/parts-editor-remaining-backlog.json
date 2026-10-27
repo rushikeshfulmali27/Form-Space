@@ -1,7 +1,7 @@
 {
-  "baseline": "v1.7.0",
-  "implemented": 23,
-  "remaining": 49,
+  "baseline": "v1.8.0",
+  "implemented": 24,
+  "remaining": 48,
   "scope": "rollout-in-progress",
   "sharedGate": {
     "id": "T0",
@@ -102,7 +102,7 @@
     {
       "id": "R5",
       "title": "Office chair",
-      "status": "planned",
+      "status": "implemented",
       "dependsOn": ["R2"],
       "objectIds": ["office-chair"],
       "count": 1,
@@ -268,17 +268,6 @@
       "supportedAfterBatch": 72
     }
   ],
-  "reviewedAt": "2026-10-22",
-  "executionOrder": [
-    "R5",
-    "R6",
-    "R7",
-    "R8",
-    "R9",
-    "R10",
-    "R11",
-    "R12",
-    "R13",
-    "R14"
-  ]
+  "reviewedAt": "2026-10-27",
+  "executionOrder": ["R6", "R7", "R8", "R9", "R10", "R11", "R12", "R13", "R14"]
 }

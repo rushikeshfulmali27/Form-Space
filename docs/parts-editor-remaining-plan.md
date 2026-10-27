@@ -1,6 +1,6 @@
-# Parts Editor: implementation plan for the remaining 49 objects
+# Parts Editor: implementation plan for the remaining 48 objects
 
-Reviewed against v1.7.0 on 2026-10-22. The runtime registry enables **23 of 72 objects**. This plan covers the other **49**. R1–R4 and shared gate T0 are complete. See [T0/R4 notes](parts-editor-t0-r4-release.md) for dynamic cushion construction and save/selection behavior.
+Reviewed against v1.8.0 on 2026-10-27. The runtime registry enables **24 of 72 objects**. This plan covers the other **48**. R1–R5 and shared gate T0 are complete; see [R5 notes](parts-editor-r5-release.md) for office-chair controls and connections.
 
 Use the [JSON backlog](parts-editor-remaining-backlog.json) for exact membership and prerequisites, the [catalog map](parts-editor-catalog-map.md) for construction details, and the [architecture roadmap](parts-editor-all-objects-plan.md) for shared contracts. Keep the existing browser modules, renderer, static build and GitHub Pages hosting.
 
@@ -12,11 +12,10 @@ Preserve each model's real construction. Armless chairs have no arm controls; cl
 
 ## 2. Delivery order and full coverage
 
-Every unsupported catalog ID appears exactly once below. Coverage includes the 23 already released. T0 was validated with R4; future shelf/tier adapters and ordered placement remain family-specific work.
+Every unsupported catalog ID appears exactly once below. Coverage includes the 24 already released. T0 was validated with R4; future shelf/tier adapters and ordered placement remain family-specific work.
 
 | Batch                           | Exact object IDs                                                                                                                                              | Count | Parts and controls                                                                        | Coverage after batch |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----: | ----------------------------------------------------------------------------------------- | -------------------: |
-| R5 — office chair               | `office-chair`                                                                                                                                                |     1 | Seat, back, arms, support column, five base/caster slots                                  |                24/72 |
 | R6 — shelving                   | `bookshelf`, `wall-shelving`, `display-rack`, `shoe-rack`, `display-cabinet`                                                                                  |     5 | Frame/panels, shelf count, individual shelves and constrained placement                   |                29/72 |
 | R7 — closed storage             | `tv-unit`, `wardrobe`, `bedside-table`, `filing-cabinet`, `drawer-unit`, `storage-locker`                                                                     |     6 | Carcass, back/plinth, individual fronts/handles, locker vents                             |                35/72 |
 | R8 — bedroom/wall shelf         | `wall-shelf`, `bed-frame`, `dressing-table`                                                                                                                   |     3 | Shelf/brackets; bed frame/headboard/mattress/pillows/legs; vanity top/mirror/drawer block |                38/72 |
@@ -27,7 +26,7 @@ Every unsupported catalog ID appears exactly once below. Coverage includes the 2
 | R13 — planters/sculpture        | `planter`, `hanging-planter`, `decorative-sculpture`                                                                                                          |     3 | Pot, soil, foliage, suspension and connected sculpture forms                              |                69/72 |
 | R14 — single-body forms         | `display-plinth`, `product-pedestal`, `vase`                                                                                                                  |     3 | Selectable body, valid dimensions/shape and finish                                        |                72/72 |
 
-Remaining counts: **1 + 5 + 6 + 3 + 5 + 8 + 7 + 8 + 3 + 3 = 49**. Recommended sequence: R5 through R14. Backlog prerequisites are distinct from this recommended order. T0 is complete; adapt its commands and definitions to existing shelf/tier count fields before those families ship.
+Remaining counts: **5 + 6 + 3 + 5 + 8 + 7 + 8 + 3 + 3 = 48**. Recommended sequence: R6 through R14. Backlog prerequisites are distinct from this recommended order. T0 is complete; adapt its commands and definitions to existing shelf/tier count fields before those families ship.
 
 ## 3. Completed R2 chairs and stools (v1.5)
 
@@ -98,7 +97,7 @@ Extract lathe/foliage helpers only as needed and preserve objects still using le
 | Design/history/storage       | Explicit construction normalization/validation, profile migrations and atomic edits                                                   |
 | Build/CI                     | Allowlist added modules, capture family fixtures and browser checks; measure suite duration as coverage grows                         |
 
-Retain the v3 export envelope where compatible; use trusted per-profile revisions. Do not bump the format for each family. Incompatible changes to an enabled profile require migration. Protect all **23 released objects**, IDs and saved meanings.
+Retain the v3 export envelope where compatible; use trusted per-profile revisions. Do not bump the format for each family. Incompatible changes to an enabled profile require migration. Protect all **24 released objects**, IDs and saved meanings.
 
 Newly enabled objects must accept legitimate historical v1/v2/v3 whole-object saves. Missing revision is allowed only on a verified legacy path with no part overrides or new construction data. Reject future revisions, malformed construction and invalid members before replacing the design. Preserve the 100 KB import limit, v3→v2→v1 storage lookup, corrupt newer data, backups and blocked/quota feedback. Document visual changes from replacing old whole-mesh rescaling with final component dimensions.
 
@@ -129,6 +128,6 @@ Every newly enabled object needs browser coverage, with focused cases for distin
 
 ## 9. Next action
 
-Implement **R5: office chair** to reach **24/72**, preserving its five fixed base/caster slots and modeled supports. Then implement R6 shelving with adapters for the existing shelf count and ordered placement rules. Completion means **72/72**, including honest body-only editing for single-piece forms.
+Implement **R6: bookshelf, wall shelving, display rack, shoe rack and display cabinet** to reach **29/72**. Adapt the existing shelf count through the T0 facade; preserve each family's count meaning, active slot identity and ordered clearances. R5 is complete, with five fixed base/caster slots. Completion means **72/72**, including honest body-only editing for single-piece forms.
 
 No calendar estimate is committed. Use measured seating/T0 implementation and verification time to size later batches; ship reviewed construction families rather than enabling unfinished entries.

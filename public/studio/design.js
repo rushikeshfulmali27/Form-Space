@@ -128,7 +128,7 @@ const axisWords = {
 export function parsePrompt(source, current) {
   const raw = source.trim();
   if (
-    /\b(?:columns?|tabletop|support|base|top|slats?|legs?|feet|foot|lip|platform|slab|seat|backrest|armrests?|stretchers?|cushions?|arms?|back)\s+(?:diameter|thickness|width|depth|height|section|gap|count)\b|\b(?:diameter|thickness|slat gap)\b/i.test(
+    /\b(?:columns?|tabletop|support|base|top|slats?|legs?|feet|foot|lip|platform|slab|seat|backrest|armrests?|stretchers?|cushions?|arms?|back|casters?|wheels?|spokes?)\s+(?:diameter|thickness|width|depth|height|section|gap|count)\b|\b(?:diameter|thickness|slat gap)\b/i.test(
       raw,
     )
   )

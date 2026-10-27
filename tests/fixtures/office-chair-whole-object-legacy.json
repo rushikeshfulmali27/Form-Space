@@ -1,0 +1,56 @@
+[
+  {
+    "format": "form-studio",
+    "version": 1,
+    "design": {
+      "id": "office-chair",
+      "name": "Task office chair",
+      "category": "Office",
+      "subcategory": "office-seating",
+      "kind": "office-chair",
+      "tag": "Seating",
+      "width": 65,
+      "height": 115,
+      "depth": 65,
+      "color": "#282e2c",
+      "accent": "#aab1b1",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "design": {
+      "id": "office-chair",
+      "name": "Task office chair",
+      "category": "Office",
+      "subcategory": "office-seating",
+      "kind": "office-chair",
+      "tag": "Seating",
+      "width": 65,
+      "height": 115,
+      "depth": 65,
+      "color": "#282e2c",
+      "accent": "#aab1b1",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "design": {
+      "id": "office-chair",
+      "name": "Task office chair",
+      "category": "Office",
+      "subcategory": "office-seating",
+      "kind": "office-chair",
+      "tag": "Seating",
+      "width": 65,
+      "height": 115,
+      "depth": 65,
+      "color": "#282e2c",
+      "accent": "#aab1b1",
+      "material": "matte"
+    }
+  }
+]

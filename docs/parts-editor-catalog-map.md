@@ -1,6 +1,6 @@
 # Parts Editor: complete catalog mapping
 
-Status: rollout in progress. The three pedestal tables, five standard desks/tables and four R1 variants and seven R2 chairs/stools and two R3 benches and two R4 sofas are implemented (23 total); the other 49 objects remain planned.
+Status: rollout in progress. The three pedestal tables, five standard desks/tables and four R1 variants and seven R2 chairs/stools and two R3 benches and two R4 sofas and the R5 office chair are implemented (24 total); the other 48 objects remain planned.
 
 Generated from the current 72-object catalog after reading every geometry branch. Every object appears exactly once. Family names below are proposed implementation profiles, not new catalog categories. All multi-part entries include part-specific visual finish/color in addition to listed dimension controls. Repeated components begin as linked groups, then gain individual member editing under the instance rules in the rollout plan.
 
@@ -29,7 +29,7 @@ Generated from the current 72-object catalog after reading every geometry branch
 | `reception-sofa`            | Reception sofa               | sofa                | sofas             | 2    | base, back, arms, cushions, legs                 |
 | `garden-bench`              | Garden bench                 | bench / backrest    | backrest-bench    | 2    | seat-slats, bearers, legs, back-slats, back-supports               |
 | `cafe-bench`                | Café bench                   | bench               | backless-bench    | 2    | seat-slats, bearers, legs                                          |
-| `office-chair`              | Task office chair            | office-chair        | office-chair      | 2    | seat, back, lift-column, armrests, star-base, casters     |
+| `office-chair`              | Task office chair            | office-chair        | office-chair      | 2    | seat, back, column, armrests, arm-supports, star-base, casters     |
 | `tv-unit`                   | Media TV unit                | cabinet / media     | closed-cabinets   | 3    | carcass, back-panel, plinth, door-fronts, handles         |
 | `wardrobe`                  | Tall wardrobe                | cabinet             | closed-cabinets   | 3    | carcass, back-panel, plinth, door-fronts, handles         |
 | `bedside-table`             | Bedside table                | cabinet / drawers   | drawer-cabinets   | 3    | carcass, back-panel, plinth, drawer-fronts, handles       |
@@ -215,11 +215,11 @@ Connections and limits: No backrest controls. Four level boards connect through 
 
 Objects: `office-chair`.
 
-Selectable parts: seat, back, lift-column, armrests, star-base, casters.
+Selectable parts: seat, back, column, armrests, arm-supports, star-base, casters.
 
-Controls: Seat height/thickness; back thickness; column diameter; arm height; base radius; caster size.
+Controls: Seat top height/thickness; back depth; column diameter; armrest top height/section; base-arm section/shared inset; caster diameter and finishes.
 
-Connections and limits: Five arms/casters stay radial and grounded; seat and back remain attached. No swivel, tilt or mechanical travel simulation.
+Connections and limits: Five fixed angular slots keep casters grounded and attached to their matching base arms, the column and seat. Larger members pull the footprint inward; back and arm supports attach to the seat. No swivel, tilt or mechanical travel simulation.
 
 ### closed-cabinets (wave 3)
 

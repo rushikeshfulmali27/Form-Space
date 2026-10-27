@@ -286,10 +286,10 @@
       "variant": null,
       "family": "office-chair",
       "wave": 2,
-      "parts": "seat, back, lift-column, armrests, star-base, casters",
-      "controls": "Seat height/thickness; back thickness; column diameter; arm height; base radius; caster size",
-      "rule": "Five arms/casters stay radial and grounded; seat and back remain attached. No swivel, tilt or mechanical travel simulation.",
-      "status": "planned"
+      "parts": "seat, back, column, armrests, arm-supports, star-base, casters",
+      "controls": "Seat top height/thickness; back depth; column diameter; armrest top height/section; base-arm section/shared inset; caster diameter and finishes",
+      "rule": "Five stable angular base/caster slots. Grounded casters attach to vertical-section spokes and the shared column; column follows seat underside. Arm supports and back stay attached to seat.",
+      "status": "implemented"
     },
     {
       "id": "tv-unit",
