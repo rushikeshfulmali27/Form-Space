@@ -298,10 +298,10 @@
       "variant": "media",
       "family": "closed-cabinets",
       "wave": 3,
-      "parts": "carcass, back-panel, plinth, door-fronts, handles",
-      "controls": "Panel thickness; plinth height; front thickness/gap; handle size",
-      "rule": "Frame opening drives front sizes. Media variant currently uses closed vertical panels too; do not invent open media bays.",
-      "status": "planned"
+      "parts": "plinth, sides, top, bottom, back, fronts, handles",
+      "controls": "plinth: height; sides: thickness; top: thickness; bottom: thickness; back: thickness; fronts: thickness/gap; handles: section; independent member finish/color",
+      "rule": "Fixed closed fronts overlay the carcass; handles and decorative vents follow each front. Plinth, top and back anchor the envelope.",
+      "status": "implemented"
     },
     {
       "id": "wardrobe",
@@ -310,10 +310,10 @@
       "variant": null,
       "family": "closed-cabinets",
       "wave": 3,
-      "parts": "carcass, back-panel, plinth, door-fronts, handles",
-      "controls": "Panel thickness; plinth height; front thickness/gap; handle size",
-      "rule": "Frame opening drives front sizes. Media variant currently uses closed vertical panels too; do not invent open media bays.",
-      "status": "planned"
+      "parts": "plinth, sides, top, bottom, back, fronts, handles",
+      "controls": "plinth: height; sides: thickness; top: thickness; bottom: thickness; back: thickness; fronts: thickness/gap; handles: section; independent member finish/color",
+      "rule": "Fixed closed fronts overlay the carcass; handles and decorative vents follow each front. Plinth, top and back anchor the envelope.",
+      "status": "implemented"
     },
     {
       "id": "bedside-table",
@@ -322,10 +322,10 @@
       "variant": "drawers",
       "family": "drawer-cabinets",
       "wave": 3,
-      "parts": "carcass, back-panel, plinth, drawer-fronts, handles",
-      "controls": "Panel thickness; plinth height; drawer-front thickness/gap; handle size",
-      "rule": "Only fronts and handles currently exist. Keep fixed per-object panel counts; no drawer boxes or opening animation.",
-      "status": "planned"
+      "parts": "plinth, sides, top, bottom, back, fronts, handles",
+      "controls": "plinth: height; sides: thickness; top: thickness; bottom: thickness; back: thickness; fronts: thickness/gap; handles: section; independent member finish/color",
+      "rule": "Fixed closed fronts overlay the carcass; handles and decorative vents follow each front. Plinth, top and back anchor the envelope.",
+      "status": "implemented"
     },
     {
       "id": "filing-cabinet",
@@ -334,10 +334,10 @@
       "variant": "drawers",
       "family": "drawer-cabinets",
       "wave": 3,
-      "parts": "carcass, back-panel, plinth, drawer-fronts, handles",
-      "controls": "Panel thickness; plinth height; drawer-front thickness/gap; handle size",
-      "rule": "Only fronts and handles currently exist. Keep fixed per-object panel counts; no drawer boxes or opening animation.",
-      "status": "planned"
+      "parts": "plinth, sides, top, bottom, back, fronts, handles",
+      "controls": "plinth: height; sides: thickness; top: thickness; bottom: thickness; back: thickness; fronts: thickness/gap; handles: section; independent member finish/color",
+      "rule": "Fixed closed fronts overlay the carcass; handles and decorative vents follow each front. Plinth, top and back anchor the envelope.",
+      "status": "implemented"
     },
     {
       "id": "drawer-unit",
@@ -346,10 +346,10 @@
       "variant": "drawers",
       "family": "drawer-cabinets",
       "wave": 3,
-      "parts": "carcass, back-panel, plinth, drawer-fronts, handles",
-      "controls": "Panel thickness; plinth height; drawer-front thickness/gap; handle size",
-      "rule": "Only fronts and handles currently exist. Keep fixed per-object panel counts; no drawer boxes or opening animation.",
-      "status": "planned"
+      "parts": "plinth, sides, top, bottom, back, fronts, handles",
+      "controls": "plinth: height; sides: thickness; top: thickness; bottom: thickness; back: thickness; fronts: thickness/gap; handles: section; independent member finish/color",
+      "rule": "Fixed closed fronts overlay the carcass; handles and decorative vents follow each front. Plinth, top and back anchor the envelope.",
+      "status": "implemented"
     },
     {
       "id": "storage-locker",
@@ -358,10 +358,10 @@
       "variant": "locker",
       "family": "locker",
       "wave": 3,
-      "parts": "carcass, back-panel, plinth, doors, handles, vents",
-      "controls": "Panel thickness; door gap; handle size; linked vent size",
-      "rule": "Two doors retain their own handles and three decorative vent bars each. Bars are surface geometry, not cutout holes.",
-      "status": "planned"
+      "parts": "plinth, sides, top, bottom, back, fronts, handles, vents",
+      "controls": "plinth: height; sides: thickness; top: thickness; bottom: thickness; back: thickness; fronts: thickness/gap; handles: section; independent member finish/color",
+      "rule": "Fixed closed fronts overlay the carcass; handles and decorative vents follow each front. Plinth, top and back anchor the envelope.",
+      "status": "implemented"
     },
     {
       "id": "display-cabinet",
@@ -370,10 +370,10 @@
       "variant": "open",
       "family": "open-cabinet",
       "wave": 3,
-      "parts": "carcass, back-panel, plinth, shelves",
-      "controls": "Panel/shelf thickness; shelf count; constrained shelf positions",
-      "rule": "Current shelves count gives count-1 internal boards plus carcass top/bottom. Preserve that v1/v2 appearance and explain count semantics before changing labels.",
-      "status": "planned"
+      "parts": "sides, back, plinth, bottom, top, shelves",
+      "controls": "sides: thickness; back: thickness; plinth: height; bottom: thickness; top: thickness; shelves: thickness; independent member finish/color",
+      "rule": "Count means bays; fixed bottom/top plus count minus one internal slots. Stable bottom-to-top IDs, disjoint center-height bands, count pruning and atomic undo.",
+      "status": "implemented"
     },
     {
       "id": "bookshelf",
@@ -382,10 +382,10 @@
       "variant": null,
       "family": "panel-shelves",
       "wave": 3,
-      "parts": "side-panels, back-panel, shelves",
-      "controls": "Panel/back/shelf thickness; shelf count; internal shelf positions",
-      "rule": "Lowest and highest counted shelves bound the assembly; internal shelves fit between sides with non-overlap constraints.",
-      "status": "planned"
+      "parts": "sides, back, shelves",
+      "controls": "sides: thickness; back: thickness; shelves: thickness; independent member finish/color",
+      "rule": "Count means boards, including floor/top anchors. Stable bottom-to-top IDs, disjoint center-height bands, count pruning and atomic undo.",
+      "status": "implemented"
     },
     {
       "id": "wall-shelving",
@@ -394,10 +394,10 @@
       "variant": null,
       "family": "panel-shelves",
       "wave": 3,
-      "parts": "side-panels, back-panel, shelves",
-      "controls": "Panel/back/shelf thickness; shelf count; internal shelf positions",
-      "rule": "Lowest and highest counted shelves bound the assembly; internal shelves fit between sides with non-overlap constraints.",
-      "status": "planned"
+      "parts": "sides, back, shelves",
+      "controls": "sides: thickness; back: thickness; shelves: thickness; independent member finish/color",
+      "rule": "Count means boards, including floor/top anchors. Stable bottom-to-top IDs, disjoint center-height bands, count pruning and atomic undo.",
+      "status": "implemented"
     },
     {
       "id": "display-rack",
@@ -406,10 +406,10 @@
       "variant": null,
       "family": "open-racks",
       "wave": 3,
-      "parts": "uprights, shelves",
-      "controls": "Upright section; shelf thickness/count; internal shelf positions",
-      "rule": "Four posts retain envelope; shelves fit inside/around the existing frame with explicit attachment rules.",
-      "status": "planned"
+      "parts": "posts, shelves",
+      "controls": "posts: section; shelves: thickness; independent member finish/color",
+      "rule": "Count means boards, including floor/top anchors. Stable bottom-to-top IDs, disjoint center-height bands, count pruning and atomic undo.",
+      "status": "implemented"
     },
     {
       "id": "shoe-rack",
@@ -418,10 +418,10 @@
       "variant": null,
       "family": "open-racks",
       "wave": 3,
-      "parts": "uprights, shelves",
-      "controls": "Upright section; shelf thickness/count; internal shelf positions",
-      "rule": "Four posts retain envelope; shelves fit inside/around the existing frame with explicit attachment rules.",
-      "status": "planned"
+      "parts": "posts, shelves",
+      "controls": "posts: section; shelves: thickness; independent member finish/color",
+      "rule": "Count means boards, including floor/top anchors. Stable bottom-to-top IDs, disjoint center-height bands, count pruning and atomic undo.",
+      "status": "implemented"
     },
     {
       "id": "wall-shelf",
@@ -430,10 +430,10 @@
       "variant": null,
       "family": "wall-shelf",
       "wave": 3,
-      "parts": "shelf, diagonal-brackets, wall-supports",
-      "controls": "Shelf thickness; bracket section; bracket spacing",
-      "rule": "Bracket endpoints follow shelf underside and wall support. Wall mounting has no strength calculation.",
-      "status": "planned"
+      "parts": "board, mounts, brackets",
+      "controls": "board: thickness; mounts: section; brackets: section; independent member finish/color",
+      "rule": "Wall mounts set the rear edge; diagonal bracket endpoints follow the board underside.",
+      "status": "implemented"
     },
     {
       "id": "bed-frame",
@@ -443,9 +443,9 @@
       "family": "bed",
       "wave": 3,
       "parts": "frame, headboard, mattress, pillows, legs",
-      "controls": "Frame thickness; headboard thickness; mattress thickness; leg height",
-      "rule": "Mattress rests on frame; pillows follow mattress top; headboard remains at head end. Soft pieces retain bounded visual geometry.",
-      "status": "planned"
+      "controls": "frame: height/thickness; headboard: thickness; mattress: thickness; pillows: thickness; legs: section; independent member finish/color",
+      "rule": "Frame top drives mattress and pillows; legs meet frame underside; headboard sets total height.",
+      "status": "implemented"
     },
     {
       "id": "dressing-table",
@@ -454,10 +454,10 @@
       "variant": null,
       "family": "vanity",
       "wave": 3,
-      "parts": "worktop, legs, mirror-frame, mirror-surface, drawer-front",
-      "controls": "Top thickness/height; leg section; mirror inset; drawer-front dimensions",
-      "rule": "Mirror frame/surface stay nested behind top; current box is a decorative drawer block, not an opening mechanism.",
-      "status": "planned"
+      "parts": "worktop, mirror-frame, mirror, mirror-support, drawer-block, legs",
+      "controls": "worktop: height/thickness; mirror-frame: section/thickness; mirror-support: section; drawer-block: height; legs: section; independent member finish/color",
+      "rule": "Worktop drives legs/drawer block; support joins worktop to mirror frame; mirror surface remains nested.",
+      "status": "implemented"
     },
     {
       "id": "kitchen-island",
@@ -466,10 +466,10 @@
       "variant": null,
       "family": "counters",
       "wave": 4,
-      "parts": "body, countertop, plinth, front-panels",
-      "controls": "Countertop thickness; plinth height; front-panel thickness/gap",
-      "rule": "Three existing front panels remain aligned to body; increasing top thickness adjusts body height without changing total height.",
-      "status": "planned"
+      "parts": "body, top, plinth, fronts",
+      "controls": "top: thickness; plinth: height; fronts: thickness/gap; independent member finish/color",
+      "rule": "Countertop drives body height; front panels stay attached; plinth remains grounded.",
+      "status": "implemented"
     },
     {
       "id": "reception-desk",

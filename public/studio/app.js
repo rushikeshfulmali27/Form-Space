@@ -400,6 +400,8 @@ function render() {
     b.setAttribute("aria-pressed", String(yes));
   });
   $("#shelf-section").hidden = !design.shelves;
+  $("#shelf-count-label").textContent =
+    design.id === "display-cabinet" ? "Open bay count" : "Shelf count";
   if (design.shelves) {
     $("#shelf-count").value = design.shelves;
     $("#shelf-output").textContent = design.shelves;

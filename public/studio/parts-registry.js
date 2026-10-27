@@ -1,6 +1,7 @@
 // Profiles are trusted application definitions, never selected by imported data.
 import { standardDeskProfile } from "./parts-desks.js";
 import { officeChairProfile } from "./parts-office-chair.js";
+import { storageBedroomProfile } from "./parts-storage-bedroom.js";
 import { sofaProfile } from "./parts-sofas.js";
 import { gardenBenchProfile, cafeBenchProfile } from "./parts-benches.js";
 import {
@@ -91,6 +92,21 @@ const objects = Object.freeze({
   sofa: sofaProfile,
   "reception-sofa": sofaProfile,
   "office-chair": officeChairProfile,
+  bookshelf: storageBedroomProfile,
+  "wall-shelving": storageBedroomProfile,
+  "display-rack": storageBedroomProfile,
+  "shoe-rack": storageBedroomProfile,
+  "display-cabinet": storageBedroomProfile,
+  "tv-unit": storageBedroomProfile,
+  wardrobe: storageBedroomProfile,
+  "bedside-table": storageBedroomProfile,
+  "filing-cabinet": storageBedroomProfile,
+  "drawer-unit": storageBedroomProfile,
+  "storage-locker": storageBedroomProfile,
+  "wall-shelf": storageBedroomProfile,
+  "bed-frame": storageBedroomProfile,
+  "dressing-table": storageBedroomProfile,
+  "kitchen-island": storageBedroomProfile,
 });
 export const getPartsProfile = (d) =>
   d && Object.hasOwn(objects, d.id) ? objects[d.id] : null;

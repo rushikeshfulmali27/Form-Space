@@ -56,9 +56,24 @@ test("registry resolves only explicitly enabled objects and trusted revisions", 
       "sofa",
       "reception-sofa",
       "office-chair",
+      "bookshelf",
+      "wall-shelving",
+      "display-rack",
+      "shoe-rack",
+      "display-cabinet",
+      "tv-unit",
+      "wardrobe",
+      "bedside-table",
+      "filing-cabinet",
+      "drawer-unit",
+      "storage-locker",
+      "wall-shelf",
+      "bed-frame",
+      "dressing-table",
+      "kitchen-island",
     ].sort(),
   );
-  for (const id of ["constructor", "__proto__", "bookshelf", "wardrobe"]) {
+  for (const id of ["constructor", "__proto__", "reception-desk", "vase"]) {
     assert.equal(getPartsProfile({ id }), null);
     assert.deepEqual(partDefinitions({ id }), {});
   }
@@ -167,7 +182,7 @@ test("v3 imports reject absent/future/wrong revisions and older formats cannot c
       deserialize(
         JSON.stringify({
           ...valid,
-          design: { ...fresh("bookshelf"), partsRevision: 1 },
+          design: { ...fresh("vase"), partsRevision: 1 },
         }),
       ),
     /revision/,

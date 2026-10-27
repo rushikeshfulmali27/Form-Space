@@ -1,83 +1,83 @@
 # Parts Editor: complete catalog mapping
 
-Status: rollout in progress. The three pedestal tables, five standard desks/tables and four R1 variants and seven R2 chairs/stools and two R3 benches and two R4 sofas and the R5 office chair are implemented (24 total); the other 48 objects remain planned.
+Status: rollout in progress. **39/72 objects implemented; 33 remain planned.** V1.9 adds five shelving models, six closed-storage models, wall shelf, bed, vanity and kitchen island.
 
 Generated from the current 72-object catalog after reading every geometry branch. Every object appears exactly once. Family names below are proposed implementation profiles, not new catalog categories. All multi-part entries include part-specific visual finish/color in addition to listed dimension controls. Repeated components begin as linked groups, then gain individual member editing under the instance rules in the rollout plan.
 
-| Object ID                   | Object                       | Geometry / variant  | Profile           | Wave | Planned selectable parts                                  |
-| --------------------------- | ---------------------------- | ------------------- | ----------------- | ---- | --------------------------------------------------------- |
-| `cafe-table`                | Orbit café table             | table               | pedestal-tables   | 1    | tabletop, column, base                                    |
-| `side-table`                | Round side table             | table               | pedestal-tables   | 1    | tabletop, column, base                                    |
-| `square-cafe-table`         | Square café table            | table               | pedestal-tables   | 1    | tabletop, column, base                                    |
-| `work-desk`                 | Line work desk               | desk                | standard-desks    | 1    | tabletop, legs, feet, rear-brace                          |
-| `coffee-table`              | Low coffee table             | desk                | standard-desks    | 1    | tabletop, legs, feet, rear-brace                          |
-| `dining-table`              | Family dining table          | desk                | standard-desks    | 1    | tabletop, legs, feet, rear-brace                          |
-| `conference-table`          | Conference table             | desk                | standard-desks    | 1    | tabletop, legs, feet, rear-brace                          |
-| `communal-table`            | Communal table               | desk                | standard-desks    | 1    | tabletop, legs, feet, rear-brace                          |
-| `standing-desk`             | Standing desk                | desk / standing     | standing-desk     | 1    | tabletop, columns, feet, rear-brace                       |
-| `corner-desk`               | L-shaped corner desk         | desk / corner       | corner-desk       | 1    | main-top, return-top, legs                                |
-| `patio-table`               | Patio table                  | desk / slatted      | slatted-table     | 1    | top-slats, legs, feet, rear-brace                         |
-| `laptop-stand`              | Laptop stand                 | laptop-stand        | laptop-stand      | 1    | platform, support, base, retaining-lip                    |
-| `lounge-chair`              | Cove lounge chair            | chair               | armchairs         | 2    | seat, back, legs, armrests                                |
-| `meeting-chair`             | Meeting chair                | chair               | armchairs         | 2    | seat, back, legs, armrests                                |
-| `dining-chair`              | Dining chair                 | chair / armless     | armless-chairs    | 2    | seat, back, legs                                          |
-| `visitor-chair`             | Visitor chair                | chair / armless     | armless-chairs    | 2    | seat, back, legs                                          |
-| `outdoor-chair`             | Outdoor chair                | chair / slatted     | slatted-chair     | 2    | seat, back-slats, legs, armrests                          |
-| `bar-stool`                 | Perch bar stool              | stool               | stools            | 2    | seat, legs, stretchers                                    |
-| `breakfast-stool`           | Breakfast stool              | stool               | stools            | 2    | seat, legs, stretchers                                    |
-| `sofa`                      | Studio sofa                  | sofa                | sofas             | 2    | base, back, arms, cushions, legs                 |
-| `reception-sofa`            | Reception sofa               | sofa                | sofas             | 2    | base, back, arms, cushions, legs                 |
-| `garden-bench`              | Garden bench                 | bench / backrest    | backrest-bench    | 2    | seat-slats, bearers, legs, back-slats, back-supports               |
-| `cafe-bench`                | Café bench                   | bench               | backless-bench    | 2    | seat-slats, bearers, legs                                          |
-| `office-chair`              | Task office chair            | office-chair        | office-chair      | 2    | seat, back, column, armrests, arm-supports, star-base, casters     |
-| `tv-unit`                   | Media TV unit                | cabinet / media     | closed-cabinets   | 3    | carcass, back-panel, plinth, door-fronts, handles         |
-| `wardrobe`                  | Tall wardrobe                | cabinet             | closed-cabinets   | 3    | carcass, back-panel, plinth, door-fronts, handles         |
-| `bedside-table`             | Bedside table                | cabinet / drawers   | drawer-cabinets   | 3    | carcass, back-panel, plinth, drawer-fronts, handles       |
-| `filing-cabinet`            | Filing cabinet               | cabinet / drawers   | drawer-cabinets   | 3    | carcass, back-panel, plinth, drawer-fronts, handles       |
-| `drawer-unit`               | Desk drawer unit             | cabinet / drawers   | drawer-cabinets   | 3    | carcass, back-panel, plinth, drawer-fronts, handles       |
-| `storage-locker`            | Storage locker               | cabinet / locker    | locker            | 3    | carcass, back-panel, plinth, doors, handles, vents        |
-| `display-cabinet`           | Display cabinet              | cabinet / open      | open-cabinet      | 3    | carcass, back-panel, plinth, shelves                      |
-| `bookshelf`                 | Grid bookshelf               | shelf               | panel-shelves     | 3    | side-panels, back-panel, shelves                          |
-| `wall-shelving`             | Retail wall shelving         | shelf               | panel-shelves     | 3    | side-panels, back-panel, shelves                          |
-| `display-rack`              | Frame display rack           | rack                | open-racks        | 3    | uprights, shelves                                         |
-| `shoe-rack`                 | Shoe rack                    | rack                | open-racks        | 3    | uprights, shelves                                         |
-| `wall-shelf`                | Floating wall shelf          | wall-shelf          | wall-shelf        | 3    | shelf, diagonal-brackets, wall-supports                   |
-| `bed-frame`                 | Platform bed frame           | bed                 | bed               | 3    | frame, headboard, mattress, pillows, legs                 |
-| `dressing-table`            | Dressing table               | vanity              | vanity            | 3    | worktop, legs, mirror-frame, mirror-surface, drawer-front |
-| `kitchen-island`            | Kitchen island               | counter             | counters          | 4    | body, countertop, plinth, front-panels                    |
-| `reception-desk`            | Reception desk               | counter             | counters          | 4    | body, countertop, plinth, front-panels                    |
-| `service-counter`           | Service counter              | counter             | counters          | 4    | body, countertop, plinth, front-panels                    |
-| `bar-counter`               | Bar counter                  | counter             | counters          | 4    | body, countertop, plinth, front-panels                    |
-| `checkout-counter`          | Checkout counter             | counter             | counters          | 4    | body, countertop, plinth, front-panels                    |
-| `pastry-display-stand`      | Pastry display stand         | tier-stand          | tier-stand        | 4    | uprights, trays                                           |
-| `plant-stand`               | Tiered plant stand           | plant-stand         | plant-stand       | 4    | platforms, supports                                       |
-| `garment-rail`              | Garment rail                 | rail                | garment-rails     | 4    | uprights, feet, hanging-rail, lower-shelf?                |
-| `hanging-rack`              | Hanging clothes rack         | rail / shelf        | garment-rails     | 4    | uprights, feet, hanging-rail, lower-shelf?                |
-| `accessory-stand`           | Accessory stand              | accessory           | accessory-stand   | 4    | base, upright, crossbars                                  |
-| `brochure-holder`           | Brochure holder              | brochure            | brochure-holder   | 4    | base, upright, pocket-assemblies                          |
-| `promotional-stand`         | Promotional display stand    | promo               | promotional-stand | 4    | base, back-panel, lower-shelf, upper-shelf                |
-| `freestanding-logo-display` | Freestanding logo display    | logo                | logo-display      | 4    | base, support, logo-bars                                  |
-| `floor-lamp`                | Halo floor lamp              | lamp                | floor-table-lamps | 5    | base, stem, shade, diffuser                               |
-| `table-lamp`                | Cone table lamp              | lamp                | floor-table-lamps | 5    | base, stem, shade, diffuser                               |
-| `pendant-light`             | Dome pendant light           | pendant             | pendants          | 5    | ceiling-canopy, suspension, shade, diffuser               |
-| `pendant-lamp`              | Café pendant lamp            | pendant             | pendants          | 5    | ceiling-canopy, suspension, shade, diffuser               |
-| `chandelier`                | Branch chandelier            | chandelier          | chandelier        | 5    | canopy, stem, arms, light-heads                           |
-| `wall-lamp`                 | Wall lamp                    | wall-light          | wall-lights       | 5    | wall-plate, arm, shade                                    |
-| `wall-light`                | Café wall light              | wall-light          | wall-lights       | 5    | wall-plate, arm, shade                                    |
-| `mirror`                    | Wall mirror                  | mirror              | mirrors           | 6    | frame, mirror-surface, stand?                             |
-| `mirror-stand`              | Freestanding mirror stand    | mirror / standing   | mirrors           | 6    | frame, mirror-surface, stand?                             |
-| `workstation-partition`     | Workstation partition        | partition / solid   | partitions        | 6    | panel-or-slats, feet, return-panel?                       |
-| `decorative-partition`      | Slatted decorative partition | partition / slatted | partitions        | 6    | panel-or-slats, feet, return-panel?                       |
-| `fitting-room-partition`    | Fitting-room partition       | partition / corner  | partitions        | 6    | panel-or-slats, feet, return-panel?                       |
-| `whiteboard-stand`          | Whiteboard stand             | board               | boards            | 6    | frame, face, supports, feet?                              |
-| `menu-stand`                | Menu stand                   | board / a-frame     | boards            | 6    | frame, face, supports, feet?                              |
-| `signboard`                 | Shop signboard               | board / a-frame     | boards            | 6    | frame, face, supports, feet?                              |
-| `planter`                   | Indoor planter               | planter             | planters          | 6    | pot, soil, foliage, suspension?                           |
-| `hanging-planter`           | Hanging planter              | hanging-planter     | planters          | 6    | pot, soil, foliage, suspension?                           |
-| `decorative-sculpture`      | Stacked sculpture            | sculpture           | sculpture         | 6    | base, lower-form, upper-form                              |
-| `display-plinth`            | Forma display plinth         | plinth              | single-body-forms | 6    | body; optional connected surface regions later            |
-| `product-pedestal`          | Product pedestal             | plinth              | single-body-forms | 6    | body; optional connected surface regions later            |
-| `vase`                      | Contour vase                 | vase                | single-body-forms | 6    | body; optional connected surface regions later            |
+| Object ID | Object | Geometry / variant | Profile | Wave | Selectable parts | Status |
+| --- | --- | --- | --- | --- | --- | --- |
+| `cafe-table` | Orbit café table | table | pedestal-tables | 1 | tabletop, column, base | implemented |
+| `side-table` | Round side table | table | pedestal-tables | 1 | tabletop, column, base | implemented |
+| `square-cafe-table` | Square café table | table | pedestal-tables | 1 | tabletop, column, base | implemented |
+| `work-desk` | Line work desk | desk | standard-desks | 1 | tabletop, legs, feet, rear-brace | implemented |
+| `coffee-table` | Low coffee table | desk | standard-desks | 1 | tabletop, legs, feet, rear-brace | implemented |
+| `dining-table` | Family dining table | desk | standard-desks | 1 | tabletop, legs, feet, rear-brace | implemented |
+| `conference-table` | Conference table | desk | standard-desks | 1 | tabletop, legs, feet, rear-brace | implemented |
+| `communal-table` | Communal table | desk | standard-desks | 1 | tabletop, legs, feet, rear-brace | implemented |
+| `standing-desk` | Standing desk | desk / standing | standing-desk | 1 | tabletop, columns, feet, rear-brace | implemented |
+| `corner-desk` | L-shaped corner desk | desk / corner | corner-desk | 1 | main-top, return-top, legs | implemented |
+| `patio-table` | Patio table | desk / slatted | slatted-table | 1 | top-slats, legs, feet, rear-brace | implemented |
+| `laptop-stand` | Laptop stand | laptop-stand | laptop-stand | 1 | platform, support, base, retaining-lip | implemented |
+| `lounge-chair` | Cove lounge chair | chair | armchairs | 2 | seat, back, legs, armrests | implemented |
+| `meeting-chair` | Meeting chair | chair | armchairs | 2 | seat, back, legs, armrests | implemented |
+| `dining-chair` | Dining chair | chair / armless | armless-chairs | 2 | seat, back, legs | implemented |
+| `visitor-chair` | Visitor chair | chair / armless | armless-chairs | 2 | seat, back, legs | implemented |
+| `outdoor-chair` | Outdoor chair | chair / slatted | slatted-chair | 2 | seat, back-slats, legs, armrests | implemented |
+| `bar-stool` | Perch bar stool | stool | stools | 2 | seat, legs, stretchers | implemented |
+| `breakfast-stool` | Breakfast stool | stool | stools | 2 | seat, legs, stretchers | implemented |
+| `sofa` | Studio sofa | sofa | sofas | 2 | base, back, arms, cushions, legs | implemented |
+| `reception-sofa` | Reception sofa | sofa | sofas | 2 | base, back, arms, cushions, legs | implemented |
+| `garden-bench` | Garden bench | bench / backrest | backrest-bench | 2 | seat-slats, bearers, legs, back-slats, back-supports | implemented |
+| `cafe-bench` | Café bench | bench | backless-bench | 2 | seat-slats, bearers, legs | implemented |
+| `office-chair` | Task office chair | office-chair | office-chair | 2 | seat, back, column, armrests, arm-supports, star-base, casters | implemented |
+| `tv-unit` | Media TV unit | cabinet / media | closed-cabinets | 3 | plinth, sides, top, bottom, back, fronts, handles | implemented |
+| `wardrobe` | Tall wardrobe | cabinet | closed-cabinets | 3 | plinth, sides, top, bottom, back, fronts, handles | implemented |
+| `bedside-table` | Bedside table | cabinet / drawers | drawer-cabinets | 3 | plinth, sides, top, bottom, back, fronts, handles | implemented |
+| `filing-cabinet` | Filing cabinet | cabinet / drawers | drawer-cabinets | 3 | plinth, sides, top, bottom, back, fronts, handles | implemented |
+| `drawer-unit` | Desk drawer unit | cabinet / drawers | drawer-cabinets | 3 | plinth, sides, top, bottom, back, fronts, handles | implemented |
+| `storage-locker` | Storage locker | cabinet / locker | locker | 3 | plinth, sides, top, bottom, back, fronts, handles, vents | implemented |
+| `display-cabinet` | Display cabinet | cabinet / open | open-cabinet | 3 | sides, back, plinth, bottom, top, shelves | implemented |
+| `bookshelf` | Grid bookshelf | shelf | panel-shelves | 3 | sides, back, shelves | implemented |
+| `wall-shelving` | Retail wall shelving | shelf | panel-shelves | 3 | sides, back, shelves | implemented |
+| `display-rack` | Frame display rack | rack | open-racks | 3 | posts, shelves | implemented |
+| `shoe-rack` | Shoe rack | rack | open-racks | 3 | posts, shelves | implemented |
+| `wall-shelf` | Floating wall shelf | wall-shelf | wall-shelf | 3 | board, mounts, brackets | implemented |
+| `bed-frame` | Platform bed frame | bed | bed | 3 | frame, headboard, mattress, pillows, legs | implemented |
+| `dressing-table` | Dressing table | vanity | vanity | 3 | worktop, mirror-frame, mirror, mirror-support, drawer-block, legs | implemented |
+| `kitchen-island` | Kitchen island | counter | counters | 4 | body, top, plinth, fronts | implemented |
+| `reception-desk` | Reception desk | counter | counters | 4 | body, countertop, plinth, front-panels | planned |
+| `service-counter` | Service counter | counter | counters | 4 | body, countertop, plinth, front-panels | planned |
+| `bar-counter` | Bar counter | counter | counters | 4 | body, countertop, plinth, front-panels | planned |
+| `checkout-counter` | Checkout counter | counter | counters | 4 | body, countertop, plinth, front-panels | planned |
+| `pastry-display-stand` | Pastry display stand | tier-stand | tier-stand | 4 | uprights, trays | planned |
+| `plant-stand` | Tiered plant stand | plant-stand | plant-stand | 4 | platforms, supports | planned |
+| `garment-rail` | Garment rail | rail | garment-rails | 4 | uprights, feet, hanging-rail, lower-shelf? | planned |
+| `hanging-rack` | Hanging clothes rack | rail / shelf | garment-rails | 4 | uprights, feet, hanging-rail, lower-shelf? | planned |
+| `accessory-stand` | Accessory stand | accessory | accessory-stand | 4 | base, upright, crossbars | planned |
+| `brochure-holder` | Brochure holder | brochure | brochure-holder | 4 | base, upright, pocket-assemblies | planned |
+| `promotional-stand` | Promotional display stand | promo | promotional-stand | 4 | base, back-panel, lower-shelf, upper-shelf | planned |
+| `freestanding-logo-display` | Freestanding logo display | logo | logo-display | 4 | base, support, logo-bars | planned |
+| `floor-lamp` | Halo floor lamp | lamp | floor-table-lamps | 5 | base, stem, shade, diffuser | planned |
+| `table-lamp` | Cone table lamp | lamp | floor-table-lamps | 5 | base, stem, shade, diffuser | planned |
+| `pendant-light` | Dome pendant light | pendant | pendants | 5 | ceiling-canopy, suspension, shade, diffuser | planned |
+| `pendant-lamp` | Café pendant lamp | pendant | pendants | 5 | ceiling-canopy, suspension, shade, diffuser | planned |
+| `chandelier` | Branch chandelier | chandelier | chandelier | 5 | canopy, stem, arms, light-heads | planned |
+| `wall-lamp` | Wall lamp | wall-light | wall-lights | 5 | wall-plate, arm, shade | planned |
+| `wall-light` | Café wall light | wall-light | wall-lights | 5 | wall-plate, arm, shade | planned |
+| `mirror` | Wall mirror | mirror | mirrors | 6 | frame, mirror-surface, stand? | planned |
+| `mirror-stand` | Freestanding mirror stand | mirror / standing | mirrors | 6 | frame, mirror-surface, stand? | planned |
+| `workstation-partition` | Workstation partition | partition / solid | partitions | 6 | panel-or-slats, feet, return-panel? | planned |
+| `decorative-partition` | Slatted decorative partition | partition / slatted | partitions | 6 | panel-or-slats, feet, return-panel? | planned |
+| `fitting-room-partition` | Fitting-room partition | partition / corner | partitions | 6 | panel-or-slats, feet, return-panel? | planned |
+| `whiteboard-stand` | Whiteboard stand | board | boards | 6 | frame, face, supports, feet? | planned |
+| `menu-stand` | Menu stand | board / a-frame | boards | 6 | frame, face, supports, feet? | planned |
+| `signboard` | Shop signboard | board / a-frame | boards | 6 | frame, face, supports, feet? | planned |
+| `planter` | Indoor planter | planter | planters | 6 | pot, soil, foliage, suspension? | planned |
+| `hanging-planter` | Hanging planter | hanging-planter | planters | 6 | pot, soil, foliage, suspension? | planned |
+| `decorative-sculpture` | Stacked sculpture | sculpture | sculpture | 6 | base, lower-form, upper-form | planned |
+| `display-plinth` | Forma display plinth | plinth | single-body-forms | 6 | body; optional connected surface regions later | planned |
+| `product-pedestal` | Product pedestal | plinth | single-body-forms | 6 | body; optional connected surface regions later | planned |
+| `vase` | Contour vase | vase | single-body-forms | 6 | body; optional connected surface regions later | planned |
 
 ## Profile controls and connections
 
@@ -225,91 +225,91 @@ Connections and limits: Five fixed angular slots keep casters grounded and attac
 
 Objects: `tv-unit`, `wardrobe`.
 
-Selectable parts: carcass, back-panel, plinth, door-fronts, handles.
+Selectable parts: plinth, sides.left/right, top, bottom, back, fronts.01–N, handles.01–N.
 
-Controls: Panel thickness; plinth height; front thickness/gap; handle size.
+Controls: Plinth height; side/top/bottom/back/front thickness; shared front gap; individual handle section.
 
-Connections and limits: Frame opening drives front sizes. Media variant currently uses closed vertical panels too; do not invent open media bays.
+Connections and limits: Fixed closed door overlays meet top/bottom anchors; each handle follows its front.
 
 ### drawer-cabinets (wave 3)
 
 Objects: `bedside-table`, `filing-cabinet`, `drawer-unit`.
 
-Selectable parts: carcass, back-panel, plinth, drawer-fronts, handles.
+Selectable parts: plinth, sides.left/right, top, bottom, back, fronts.01–N, handles.01–N.
 
-Controls: Panel thickness; plinth height; drawer-front thickness/gap; handle size.
+Controls: Plinth height; side/top/bottom/back/front thickness; shared front gap; individual handle section.
 
-Connections and limits: Only fronts and handles currently exist. Keep fixed per-object panel counts; no drawer boxes or opening animation.
+Connections and limits: Fixed closed drawer overlays meet side anchors; handles follow their front. Counts match the original catalog.
 
 ### locker (wave 3)
 
 Objects: `storage-locker`.
 
-Selectable parts: carcass, back-panel, plinth, doors, handles, vents.
+Selectable parts: plinth, sides, top, bottom, back, fronts, handles, vents.
 
-Controls: Panel thickness; door gap; handle size; linked vent size.
+Controls: Panel thickness, plinth height, front gap, handle section; independent finishes including each fixed vent strip.
 
-Connections and limits: Two doors retain their own handles and three decorative vent bars each. Bars are surface geometry, not cutout holes.
+Connections and limits: Two closed fronts retain three decorative vent strips each; strips follow their front. No functional ventilation or opening mechanism.
 
 ### open-cabinet (wave 3)
 
 Objects: `display-cabinet`.
 
-Selectable parts: carcass, back-panel, plinth, shelves.
+Selectable parts: sides.left/right, back, plinth, bottom, top, shelves.01–N.
 
-Controls: Panel/shelf thickness; shelf count; constrained shelf positions.
+Controls: Open bay count 2–6; panel thickness; plinth height; internal shelf thickness/center height.
 
-Connections and limits: Current shelves count gives count-1 internal boards plus carcass top/bottom. Preserve that v1/v2 appearance and explain count semantics before changing labels.
+Connections and limits: Count preserves legacy bay semantics: count minus one internal shelves, plus fixed bottom/top. Stable slots and disjoint safe bands.
 
 ### panel-shelves (wave 3)
 
 Objects: `bookshelf`, `wall-shelving`.
 
-Selectable parts: side-panels, back-panel, shelves.
+Selectable parts: sides.left/right, back, shelves.01–N.
 
-Controls: Panel/back/shelf thickness; shelf count; internal shelf positions.
+Controls: Board count 2–6; side/back/shelf thickness; internal shelf center heights.
 
-Connections and limits: Lowest and highest counted shelves bound the assembly; internal shelves fit between sides with non-overlap constraints.
+Connections and limits: First/last boards anchor floor/top; inner boards fit between sides and meet the back. Safe bands prevent crossing.
 
 ### open-racks (wave 3)
 
 Objects: `display-rack`, `shoe-rack`.
 
-Selectable parts: uprights, shelves.
+Selectable parts: posts.front-left/front-right/rear-left/rear-right, shelves.01–N.
 
-Controls: Upright section; shelf thickness/count; internal shelf positions.
+Controls: Board count 2–6; linked/individual post section and shelf thickness; internal center heights.
 
-Connections and limits: Four posts retain envelope; shelves fit inside/around the existing frame with explicit attachment rules.
+Connections and limits: Four full-height posts define the envelope. Shelf corners overlap the posts; safe bands prevent crossing.
 
 ### wall-shelf (wave 3)
 
 Objects: `wall-shelf`.
 
-Selectable parts: shelf, diagonal-brackets, wall-supports.
+Selectable parts: board, mounts.left/right, brackets.left/right.
 
-Controls: Shelf thickness; bracket section; bracket spacing.
+Controls: Board thickness; linked/individual mount and bracket section.
 
-Connections and limits: Bracket endpoints follow shelf underside and wall support. Wall mounting has no strength calculation.
+Connections and limits: Mounts follow the wall edge; diagonal bracket endpoints meet mounts and board underside. Spacing is derived, not editable.
 
 ### bed (wave 3)
 
 Objects: `bed-frame`.
 
-Selectable parts: frame, headboard, mattress, pillows, legs.
+Selectable parts: frame, headboard, mattress, pillows.left/right, legs.front-left/front-right/rear-left/rear-right.
 
-Controls: Frame thickness; headboard thickness; mattress thickness; leg height.
+Controls: Platform top height/thickness; headboard/mattress/pillow thickness; leg section.
 
-Connections and limits: Mattress rests on frame; pillows follow mattress top; headboard remains at head end. Soft pieces retain bounded visual geometry.
+Connections and limits: Mattress rests on platform; pillows follow its top; legs follow frame underside. Headboard anchors total height; soft pieces retain rounded edges.
 
 ### vanity (wave 3)
 
 Objects: `dressing-table`.
 
-Selectable parts: worktop, legs, mirror-frame, mirror-surface, drawer-front.
+Selectable parts: worktop, legs, mirror-frame, mirror, mirror-support, drawer-block.
 
-Controls: Top thickness/height; leg section; mirror inset; drawer-front dimensions.
+Controls: Worktop top height/thickness; leg/support section; mirror frame border/depth; drawer-block height.
 
-Connections and limits: Mirror frame/surface stay nested behind top; current box is a decorative drawer block, not an opening mechanism.
+Connections and limits: Support joins worktop to mirror frame. Mirror surface stays within border. Decorative drawer block remains closed.
 
 ### counters (wave 4)
 

@@ -1,10 +1,10 @@
 # Parts Editor rollout: all 72 catalog objects
 
-Status: rollout in progress. V1.1/v1.2 delivered the three pedestal tables; v1.3 adds five standard desks/tables. V1.4 completes the four R1 desk variants. V1.5 adds seven R2 chairs/stools. V1.6 completes two R3 benches. V1.7 completes T0 and two R4 sofas. V1.8 completes R5 office chair. Twenty-four objects now support Parts Editor, with 48 remaining.
+Status: rollout in progress. V1.1/v1.2 delivered the three pedestal tables; v1.3 adds five standard desks/tables. V1.4 completes the four R1 desk variants. V1.5 adds seven R2 chairs/stools. V1.6 completes two R3 benches. V1.7 completes T0 and two R4 sofas. V1.8 completes R5 office chair. V1.9 completes R6/R7/R8 and R9a (15 more objects). Thirty-nine objects now support Parts Editor, with 33 remaining.
 
 For the current delivery sequence, exact remaining IDs and dependencies, use the [remaining-object execution plan](parts-editor-remaining-plan.md) and [batch backlog](parts-editor-remaining-backlog.json). This document supplies the shared architecture and acceptance rules.
 
-Completed foundation: trusted registry, profile-driven fields/defaults/limits/readouts, v3 format/revision checks, save migration, shared primitive writing, and fixed repeated groups/members with independent editing, highlighting and reset. Standard desks/tables are now implemented. Profile-owned construction, dynamic cushion slots and topology-aware selection now work. Variable shelves/tiers and their placement rules remain future family work. Wave 1 is complete, including standing, corner and slatted desks and the laptop stand. Shelving and later waves remain planned; this is not completion of all 72 objects.
+Completed foundation: trusted registry, profile-driven fields/defaults/limits/readouts, v3 format/revision checks, save migration, shared primitive writing, and fixed repeated groups/members with independent editing, highlighting and reset. Standard desks/tables are now implemented. Profile-owned construction, dynamic cushion slots and topology-aware selection now work. Variable shelves and safe ordered placement are implemented; tier adapters remain future family work. Wave 1 is complete, including standing, corner and slatted desks and the laptop stand. Remaining counters and later waves remain planned; this is not completion of all 72 objects.
 
 ## 1. Scope and catalog coverage
 
@@ -27,15 +27,15 @@ V1.7 provides trusted fixed/dynamic profiles, construction validation and atomic
 
 | File or behavior                | Required generalization                                                                                                                        |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| `parts.js` / registry           | Reuse dynamic definitions and construction validation; add shelf/tier count adapters while retaining inheritance/reset          |
+| `parts.js` / registry           | Reuse dynamic definitions and construction validation; reuse the shelf adapter and add retail tier adapters while retaining inheritance/reset          |
 | `geometry.js` / family builders | Convert remaining families to final dimensions with the existing writer; extract lathe/foliage helpers when needed                             |
 | `parts-controls.js`             | Reuse count controls and selection/focus reconciliation; rendering remains limited to root groups          |
 | `design.js`                     | Extend explicit construction schemas/migrations per family; preserve existing overrides                                           |
-| `app.js`                        | Reuse atomic cushion-count command; add ordered-placement/global shelf-count adapters and feedback                                                  |
+| `app.js`                        | Reuse atomic cushion-count command; reuse the ordered shelf-count adapter; add tier-specific commands and feedback                                                  |
 | `viewer.js`                     | Preserve existing leaf picking/group highlight/cache/fallback; reconcile selected members after topology changes and measure larger assemblies |
 | `storage.js`                    | Retain existing v3→v2→v1 migration and backup behavior; support any required profile revision migration                                        |
 | Build/check scripts             | Explicitly allow new modules; make syntax discovery recursive if implementation introduces subdirectories                                      |
-| Tests                           | Extend the current twenty-four-object capability checks per completed batch; retain immutable fixtures for unconverted objects                       |
+| Tests                           | Extend the current thirty-nine-object capability checks per completed batch; retain immutable fixtures for unconverted objects                       |
 
 Retain browser modules, zero runtime dependencies and GitHub Pages. A new renderer/framework, server or account system is not required.
 

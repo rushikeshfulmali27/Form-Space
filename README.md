@@ -1,15 +1,15 @@
-# FORM — Object Studio v1.8
+# FORM — Object Studio v1.9
 
 A browser-only studio for exploring and customizing **72 parametric 3D objects**, organized into four categories and 17 subcategories. No account, API key, paid service, or AI connection is required.
 
-![FORM Object Studio office-chair Parts Editor](docs/images/office-chair-desktop.png)
+![FORM Object Studio shelving Parts Editor](docs/images/next15-bookshelf-desktop.png)
 
 ## What you can do
 
 - Browse Home, Office, Café and Shop collections; search names, categories, rooms and aliases.
 - Orbit, zoom, fit, and inspect front/top/isometric views using WebGL, with an interactive software fallback.
 - Edit dimensions in centimeters, surface/frame colors, and procedural wood, matte and metal finishes. Change shape or shelf count only where the selected object supports it.
-- Use **Individual parts** on twenty-four objects: twelve tables/desks/stands, Cove lounge chair, Meeting chair, Dining chair, Visitor chair, Outdoor chair, Perch bar stool and Breakfast stool, plus Garden bench, Café bench, Studio sofa, Reception sofa and Task office chair. Edit linked groups or individual members. The remaining 48 objects keep whole-object editing.
+- Use **Individual parts** on **39 objects**: the previously released 24, plus five shelving models, six cabinets/drawer units, wall shelf, bed frame, dressing table and kitchen island. Edit linked groups or individual members. The remaining 33 objects keep whole-object editing.
 - Undo/redo, reset, save the current design in this browser, and export version-3 FORM JSON files (under 100 KB). Version-1 and version-2 files still import.
 - Use the optional **rules-based editor** for supported shortcuts such as `walnut with black legs`, `90 cm wide`, or `20% taller`. It is a local parser and makes no model requests.
 
@@ -29,9 +29,13 @@ The standing desk exposes two columns and two feet with linked/individual contro
 
 Drag to orbit, click/tap to select, and press Escape with the canvas or parts inspector focused to clear selection. Selection pauses auto-rotation, is temporary, and creates no undo entry. A slider drag creates one edit. The list also provides keyboard access to components hidden behind others. Software fallback supports the same editing/selection workflow with simplified shading. The rules-based text editor applies to whole-object settings; use the inspector for component dimensions.
 
-All twenty-four parts-enabled objects use final component dimensions instead of globally rescaling the mesh. Legacy settings retain dimensions and finishes; converted models can have documented grounding/support-layout differences. All twenty-three previously released parts-enabled meshes remain unchanged, including custom café-table geometry. Other 48 objects retain their original geometry. Free movement, adding/removing components, separate plywood layers, exploded views and other object families are future work. See [all-object rollout plan](docs/parts-editor-all-objects-plan.md).
+All thirty-nine parts-enabled objects use final component dimensions instead of globally rescaling the mesh. Legacy settings retain dimensions and finishes; converted models can have documented grounding/support-layout differences. All twenty-four previously released parts-enabled meshes remain unchanged, including custom café-table geometry. Other 33 objects retain their original geometry. Free movement, adding/removing components, separate plywood layers, exploded views and other object families are future work. See [all-object rollout plan](docs/parts-editor-all-objects-plan.md).
 
 See the [R1 release notes](docs/parts-editor-r1-release.md) for the four construction profiles, constraints and compatibility checks.
+
+## Parts Editor: storage, bedroom and kitchen
+
+V1.9 adds 15 models. Shelving supports 2–6 boards; the open display cabinet keeps its bay-count meaning. Edit internal shelf center heights in safe bands. Closed storage exposes individual fronts, handles and locker vent finishes. Bed, vanity, wall shelf and kitchen island have connected component controls. Doors/drawers stay closed; these are visual models. See the [next-15 plan](docs/parts-editor-next-15-plan.md) and [release notes](docs/parts-editor-next-15-release.md).
 
 ## Parts Editor: chairs and stools
 
@@ -117,7 +121,7 @@ Pushes to `main` automatically validate and publish the public demonstration. Th
 - `docs/v1-release-plan.md`, `docs/v1-verification.md`: implementation and release evidence.
 - `docs/dependency-audit-v1.json`: final registry audit snapshot.
 - [All-object Parts Editor roadmap](docs/parts-editor-all-objects-plan.md) and [complete catalog mapping](docs/parts-editor-catalog-map.md): the proposed rollout beyond the released café-table pilot.
-- [Remaining-object execution plan](docs/parts-editor-remaining-plan.md) and [14-batch backlog](docs/parts-editor-remaining-backlog.json): current rollout priorities, dependencies and completion gates after v1.8.
+- [Remaining-object execution plan](docs/parts-editor-remaining-plan.md) and [batch backlog](docs/parts-editor-remaining-backlog.json): current rollout priorities, dependencies and completion gates after v1.8.
 
 The pre-v1 source, including Prompt to Design, its server adapter, tests and old deployment integration, is preserved in commit **`f989f90`** and local branch **`archive/pre-v1-ai`**. Use a separate worktree/checkout to revisit it; its old dependencies need a new security review and its old setup documents are historical. It is absent from the v1 working source and public build. Existing ignored local secrets have been left untouched and are unnecessary for v1.
 

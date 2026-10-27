@@ -175,7 +175,17 @@ export class PartsControls {
   }
   renderConstruction(d) {
     const root = this.q("#construction-controls"),
-      fields = constructionFields(d);
+      fields =
+        getPartsProfile(d)?.builder === "storage-bedroom" && d.shelves
+          ? {
+              shelves: {
+                label:
+                  d.variant === "open" ? "Open bay count" : "Shelf board count",
+                min: 2,
+                max: 6,
+              },
+            }
+          : constructionFields(d);
     root.hidden = !Object.keys(fields).length;
     if (this.constructionObject !== d.id) {
       this.constructionObject = d.id;
@@ -197,10 +207,14 @@ export class PartsControls {
         }
         input.addEventListener("change", () =>
           this.commit(
-            setConstruction(this.getDesign(), key, Number(input.value)),
+            key === "shelves"
+              ? { ...this.getDesign(), shelves: Number(input.value) }
+              : setConstruction(this.getDesign(), key, Number(input.value)),
             `${field.label} updated.`,
             [
-              "Surviving slots keep their settings. Removed settings can be restored with Undo; re-adding uses inherited defaults.",
+              key === "shelves"
+                ? "Surviving slots keep overrides within their new safe limits. Removed settings can be restored with Undo; re-adding uses inherited defaults."
+                : "Surviving slots keep their settings. Removed settings can be restored with Undo; re-adding uses inherited defaults.",
             ],
           ),
         );
@@ -210,7 +224,7 @@ export class PartsControls {
       }
     }
     for (const { key, input } of this.constructionInputs || [])
-      input.value = d.construction[key];
+      input.value = key === "shelves" ? d.shelves : d.construction[key];
   }
   render() {
     const d = this.getDesign(),
@@ -298,9 +312,12 @@ export class PartsControls {
       "finish-section",
       "colors-section",
       "shape-section",
+      "shelf-section",
     ])
       this.q(`#${id}`).hidden =
-        partsMode || (id === "shape-section" && !d.shape);
+        partsMode ||
+        (id === "shape-section" && !d.shape) ||
+        (id === "shelf-section" && !d.shelves);
     this.q("#edit-whole").setAttribute("aria-pressed", String(!partsMode));
     this.q("#edit-parts").setAttribute("aria-pressed", String(partsMode));
     for (const button of document.querySelectorAll("[data-part]"))

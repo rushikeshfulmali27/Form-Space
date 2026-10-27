@@ -1,0 +1,908 @@
+[
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "bookshelf",
+      "name": "Grid bookshelf",
+      "category": "Office",
+      "subcategory": "office-storage",
+      "kind": "shelf",
+      "tag": "Adjustable shelving",
+      "width": 90,
+      "height": 180,
+      "depth": 35,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "shelves": 4
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "bookshelf",
+      "name": "Grid bookshelf",
+      "category": "Office",
+      "subcategory": "office-storage",
+      "kind": "shelf",
+      "tag": "Adjustable shelving",
+      "width": 90,
+      "height": 180,
+      "depth": 35,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "shelves": 4
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "bookshelf",
+      "name": "Grid bookshelf",
+      "category": "Office",
+      "subcategory": "office-storage",
+      "kind": "shelf",
+      "tag": "Adjustable shelving",
+      "width": 90,
+      "height": 180,
+      "depth": 35,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "shelves": 4
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "wall-shelving",
+      "name": "Retail wall shelving",
+      "category": "Shop",
+      "subcategory": "shop-products",
+      "kind": "shelf",
+      "tag": "Product displays",
+      "width": 100,
+      "height": 180,
+      "depth": 30,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "shelves": 5
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "wall-shelving",
+      "name": "Retail wall shelving",
+      "category": "Shop",
+      "subcategory": "shop-products",
+      "kind": "shelf",
+      "tag": "Product displays",
+      "width": 100,
+      "height": 180,
+      "depth": 30,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "shelves": 5
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "wall-shelving",
+      "name": "Retail wall shelving",
+      "category": "Shop",
+      "subcategory": "shop-products",
+      "kind": "shelf",
+      "tag": "Product displays",
+      "width": 100,
+      "height": 180,
+      "depth": 30,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "shelves": 5
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "display-rack",
+      "name": "Frame display rack",
+      "category": "Shop",
+      "subcategory": "shop-products",
+      "kind": "rack",
+      "tag": "Open display · three tiers",
+      "width": 100,
+      "height": 150,
+      "depth": 45,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "shelves": 3
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "display-rack",
+      "name": "Frame display rack",
+      "category": "Shop",
+      "subcategory": "shop-products",
+      "kind": "rack",
+      "tag": "Open display · three tiers",
+      "width": 100,
+      "height": 150,
+      "depth": 45,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "shelves": 3
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "display-rack",
+      "name": "Frame display rack",
+      "category": "Shop",
+      "subcategory": "shop-products",
+      "kind": "rack",
+      "tag": "Open display · three tiers",
+      "width": 100,
+      "height": 150,
+      "depth": 45,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "shelves": 3
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "shoe-rack",
+      "name": "Shoe rack",
+      "category": "Shop",
+      "subcategory": "shop-clothing",
+      "kind": "rack",
+      "tag": "Clothing displays",
+      "width": 90,
+      "height": 95,
+      "depth": 35,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "shelves": 4
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "shoe-rack",
+      "name": "Shoe rack",
+      "category": "Shop",
+      "subcategory": "shop-clothing",
+      "kind": "rack",
+      "tag": "Clothing displays",
+      "width": 90,
+      "height": 95,
+      "depth": 35,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "shelves": 4
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "shoe-rack",
+      "name": "Shoe rack",
+      "category": "Shop",
+      "subcategory": "shop-clothing",
+      "kind": "rack",
+      "tag": "Clothing displays",
+      "width": 90,
+      "height": 95,
+      "depth": 35,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "shelves": 4
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "display-cabinet",
+      "name": "Display cabinet",
+      "category": "Shop",
+      "subcategory": "shop-fixtures",
+      "kind": "cabinet",
+      "tag": "Counters & fixtures",
+      "width": 100,
+      "height": 170,
+      "depth": 45,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "variant": "open",
+      "shelves": 4
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "display-cabinet",
+      "name": "Display cabinet",
+      "category": "Shop",
+      "subcategory": "shop-fixtures",
+      "kind": "cabinet",
+      "tag": "Counters & fixtures",
+      "width": 100,
+      "height": 170,
+      "depth": 45,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "variant": "open",
+      "shelves": 4
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "display-cabinet",
+      "name": "Display cabinet",
+      "category": "Shop",
+      "subcategory": "shop-fixtures",
+      "kind": "cabinet",
+      "tag": "Counters & fixtures",
+      "width": 100,
+      "height": 170,
+      "depth": 45,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "variant": "open",
+      "shelves": 4
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "tv-unit",
+      "name": "Media TV unit",
+      "category": "Home",
+      "subcategory": "home-living",
+      "kind": "cabinet",
+      "tag": "Living room",
+      "width": 160,
+      "height": 52,
+      "depth": 42,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "variant": "media",
+      "panels": 3
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "tv-unit",
+      "name": "Media TV unit",
+      "category": "Home",
+      "subcategory": "home-living",
+      "kind": "cabinet",
+      "tag": "Living room",
+      "width": 160,
+      "height": 52,
+      "depth": 42,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "variant": "media",
+      "panels": 3
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "tv-unit",
+      "name": "Media TV unit",
+      "category": "Home",
+      "subcategory": "home-living",
+      "kind": "cabinet",
+      "tag": "Living room",
+      "width": 160,
+      "height": 52,
+      "depth": 42,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "variant": "media",
+      "panels": 3
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "wardrobe",
+      "name": "Tall wardrobe",
+      "category": "Home",
+      "subcategory": "home-bedroom",
+      "kind": "cabinet",
+      "tag": "Bedroom",
+      "width": 120,
+      "height": 210,
+      "depth": 60,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "panels": 3
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "wardrobe",
+      "name": "Tall wardrobe",
+      "category": "Home",
+      "subcategory": "home-bedroom",
+      "kind": "cabinet",
+      "tag": "Bedroom",
+      "width": 120,
+      "height": 210,
+      "depth": 60,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "panels": 3
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "wardrobe",
+      "name": "Tall wardrobe",
+      "category": "Home",
+      "subcategory": "home-bedroom",
+      "kind": "cabinet",
+      "tag": "Bedroom",
+      "width": 120,
+      "height": 210,
+      "depth": 60,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "panels": 3
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "bedside-table",
+      "name": "Bedside table",
+      "category": "Home",
+      "subcategory": "home-bedroom",
+      "kind": "cabinet",
+      "tag": "Bedroom",
+      "width": 45,
+      "height": 55,
+      "depth": 38,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "variant": "drawers",
+      "panels": 2
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "bedside-table",
+      "name": "Bedside table",
+      "category": "Home",
+      "subcategory": "home-bedroom",
+      "kind": "cabinet",
+      "tag": "Bedroom",
+      "width": 45,
+      "height": 55,
+      "depth": 38,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "variant": "drawers",
+      "panels": 2
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "bedside-table",
+      "name": "Bedside table",
+      "category": "Home",
+      "subcategory": "home-bedroom",
+      "kind": "cabinet",
+      "tag": "Bedroom",
+      "width": 45,
+      "height": 55,
+      "depth": 38,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "variant": "drawers",
+      "panels": 2
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "filing-cabinet",
+      "name": "Filing cabinet",
+      "category": "Office",
+      "subcategory": "office-storage",
+      "kind": "cabinet",
+      "tag": "Storage",
+      "width": 46,
+      "height": 115,
+      "depth": 60,
+      "color": "#939591",
+      "accent": "#282e2c",
+      "material": "metal",
+      "variant": "drawers",
+      "panels": 4
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "filing-cabinet",
+      "name": "Filing cabinet",
+      "category": "Office",
+      "subcategory": "office-storage",
+      "kind": "cabinet",
+      "tag": "Storage",
+      "width": 46,
+      "height": 115,
+      "depth": 60,
+      "color": "#939591",
+      "accent": "#282e2c",
+      "material": "metal",
+      "variant": "drawers",
+      "panels": 4
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "filing-cabinet",
+      "name": "Filing cabinet",
+      "category": "Office",
+      "subcategory": "office-storage",
+      "kind": "cabinet",
+      "tag": "Storage",
+      "width": 46,
+      "height": 115,
+      "depth": 60,
+      "color": "#939591",
+      "accent": "#282e2c",
+      "material": "metal",
+      "variant": "drawers",
+      "panels": 4
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "drawer-unit",
+      "name": "Desk drawer unit",
+      "category": "Office",
+      "subcategory": "office-storage",
+      "kind": "cabinet",
+      "tag": "Storage",
+      "width": 45,
+      "height": 62,
+      "depth": 50,
+      "color": "#f0eee7",
+      "accent": "#282e2c",
+      "material": "matte",
+      "variant": "drawers",
+      "panels": 3
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "drawer-unit",
+      "name": "Desk drawer unit",
+      "category": "Office",
+      "subcategory": "office-storage",
+      "kind": "cabinet",
+      "tag": "Storage",
+      "width": 45,
+      "height": 62,
+      "depth": 50,
+      "color": "#f0eee7",
+      "accent": "#282e2c",
+      "material": "matte",
+      "variant": "drawers",
+      "panels": 3
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "drawer-unit",
+      "name": "Desk drawer unit",
+      "category": "Office",
+      "subcategory": "office-storage",
+      "kind": "cabinet",
+      "tag": "Storage",
+      "width": 45,
+      "height": 62,
+      "depth": 50,
+      "color": "#f0eee7",
+      "accent": "#282e2c",
+      "material": "matte",
+      "variant": "drawers",
+      "panels": 3
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "storage-locker",
+      "name": "Storage locker",
+      "category": "Office",
+      "subcategory": "office-storage",
+      "kind": "cabinet",
+      "tag": "Storage",
+      "width": 80,
+      "height": 180,
+      "depth": 45,
+      "color": "#92a18b",
+      "accent": "#282e2c",
+      "material": "metal",
+      "variant": "locker",
+      "panels": 2
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "storage-locker",
+      "name": "Storage locker",
+      "category": "Office",
+      "subcategory": "office-storage",
+      "kind": "cabinet",
+      "tag": "Storage",
+      "width": 80,
+      "height": 180,
+      "depth": 45,
+      "color": "#92a18b",
+      "accent": "#282e2c",
+      "material": "metal",
+      "variant": "locker",
+      "panels": 2
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "storage-locker",
+      "name": "Storage locker",
+      "category": "Office",
+      "subcategory": "office-storage",
+      "kind": "cabinet",
+      "tag": "Storage",
+      "width": 80,
+      "height": 180,
+      "depth": 45,
+      "color": "#92a18b",
+      "accent": "#282e2c",
+      "material": "metal",
+      "variant": "locker",
+      "panels": 2
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "wall-shelf",
+      "name": "Floating wall shelf",
+      "category": "Home",
+      "subcategory": "home-decoration",
+      "kind": "wall-shelf",
+      "tag": "Decoration",
+      "width": 100,
+      "height": 28,
+      "depth": 25,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "wall-shelf",
+      "name": "Floating wall shelf",
+      "category": "Home",
+      "subcategory": "home-decoration",
+      "kind": "wall-shelf",
+      "tag": "Decoration",
+      "width": 100,
+      "height": 28,
+      "depth": 25,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "wall-shelf",
+      "name": "Floating wall shelf",
+      "category": "Home",
+      "subcategory": "home-decoration",
+      "kind": "wall-shelf",
+      "tag": "Decoration",
+      "width": 100,
+      "height": 28,
+      "depth": 25,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "bed-frame",
+      "name": "Platform bed frame",
+      "category": "Home",
+      "subcategory": "home-bedroom",
+      "kind": "bed",
+      "tag": "Bedroom",
+      "width": 160,
+      "height": 95,
+      "depth": 210,
+      "color": "#b98c60",
+      "accent": "#ded6c6",
+      "material": "oak"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "bed-frame",
+      "name": "Platform bed frame",
+      "category": "Home",
+      "subcategory": "home-bedroom",
+      "kind": "bed",
+      "tag": "Bedroom",
+      "width": 160,
+      "height": 95,
+      "depth": 210,
+      "color": "#b98c60",
+      "accent": "#ded6c6",
+      "material": "oak"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "bed-frame",
+      "name": "Platform bed frame",
+      "category": "Home",
+      "subcategory": "home-bedroom",
+      "kind": "bed",
+      "tag": "Bedroom",
+      "width": 160,
+      "height": 95,
+      "depth": 210,
+      "color": "#b98c60",
+      "accent": "#ded6c6",
+      "material": "oak"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "dressing-table",
+      "name": "Dressing table",
+      "category": "Home",
+      "subcategory": "home-bedroom",
+      "kind": "vanity",
+      "tag": "Bedroom",
+      "width": 110,
+      "height": 145,
+      "depth": 45,
+      "color": "#b98c60",
+      "accent": "#79553c",
+      "material": "oak"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "dressing-table",
+      "name": "Dressing table",
+      "category": "Home",
+      "subcategory": "home-bedroom",
+      "kind": "vanity",
+      "tag": "Bedroom",
+      "width": 110,
+      "height": 145,
+      "depth": 45,
+      "color": "#b98c60",
+      "accent": "#79553c",
+      "material": "oak"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "dressing-table",
+      "name": "Dressing table",
+      "category": "Home",
+      "subcategory": "home-bedroom",
+      "kind": "vanity",
+      "tag": "Bedroom",
+      "width": 110,
+      "height": 145,
+      "depth": 45,
+      "color": "#b98c60",
+      "accent": "#79553c",
+      "material": "oak"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "kitchen-island",
+      "name": "Kitchen island",
+      "category": "Home",
+      "subcategory": "home-dining",
+      "kind": "counter",
+      "tag": "Dining & kitchen",
+      "width": 160,
+      "height": 95,
+      "depth": 80,
+      "color": "#ded6c6",
+      "accent": "#79553c",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "kitchen-island",
+      "name": "Kitchen island",
+      "category": "Home",
+      "subcategory": "home-dining",
+      "kind": "counter",
+      "tag": "Dining & kitchen",
+      "width": 160,
+      "height": 95,
+      "depth": 80,
+      "color": "#ded6c6",
+      "accent": "#79553c",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "kitchen-island",
+      "name": "Kitchen island",
+      "category": "Home",
+      "subcategory": "home-dining",
+      "kind": "counter",
+      "tag": "Dining & kitchen",
+      "width": 160,
+      "height": 95,
+      "depth": 80,
+      "color": "#ded6c6",
+      "accent": "#79553c",
+      "material": "matte"
+    }
+  }
+]

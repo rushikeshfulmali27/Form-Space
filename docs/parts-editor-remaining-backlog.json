@@ -1,12 +1,14 @@
 {
-  "baseline": "v1.8.0",
-  "implemented": 24,
-  "remaining": 48,
+  "baseline": "v1.9.0",
+  "implemented": 39,
+  "remaining": 33,
   "scope": "rollout-in-progress",
   "sharedGate": {
     "id": "T0",
     "title": "Variable-count topology, construction migration and selection reconciliation",
-    "dependsOn": ["R1"],
+    "dependsOn": [
+      "R1"
+    ],
     "status": "implemented",
     "validatedWith": "R4 sofas: construction counts, active member pruning, selection/focus, strict migration and atomic history"
   },
@@ -36,7 +38,9 @@
       "id": "R2",
       "title": "Chairs and stools",
       "status": "implemented",
-      "dependsOn": ["R1"],
+      "dependsOn": [
+        "R1"
+      ],
       "objectIds": [
         "lounge-chair",
         "meeting-chair",
@@ -48,30 +52,46 @@
       ],
       "count": 7,
       "scope": "Seat/back/arm/leg anchors; armless/slatted variants; fixed leg and stretcher members.",
-      "profiles": ["armchairs", "armless-chairs", "slatted-chair", "stools"],
+      "profiles": [
+        "armchairs",
+        "armless-chairs",
+        "slatted-chair",
+        "stools"
+      ],
       "implementationSlices": [
         {
           "id": "R2a",
           "title": "Armchairs",
-          "objectIds": ["lounge-chair", "meeting-chair"],
+          "objectIds": [
+            "lounge-chair",
+            "meeting-chair"
+          ],
           "status": "implemented"
         },
         {
           "id": "R2b",
           "title": "Armless chairs",
-          "objectIds": ["dining-chair", "visitor-chair"],
+          "objectIds": [
+            "dining-chair",
+            "visitor-chair"
+          ],
           "status": "implemented"
         },
         {
           "id": "R2c",
           "title": "Slatted outdoor chair",
-          "objectIds": ["outdoor-chair"],
+          "objectIds": [
+            "outdoor-chair"
+          ],
           "status": "implemented"
         },
         {
           "id": "R2d",
           "title": "Stools",
-          "objectIds": ["bar-stool", "breakfast-stool"],
+          "objectIds": [
+            "bar-stool",
+            "breakfast-stool"
+          ],
           "status": "implemented"
         }
       ],
@@ -81,40 +101,65 @@
       "id": "R3",
       "title": "Benches",
       "status": "implemented",
-      "dependsOn": ["R2"],
-      "objectIds": ["garden-bench", "cafe-bench"],
+      "dependsOn": [
+        "R2"
+      ],
+      "objectIds": [
+        "garden-bench",
+        "cafe-bench"
+      ],
       "count": 2,
       "scope": "Four seat slats connected by two bearers to four legs; three back slats and two posts only on garden bench.",
-      "profiles": ["backrest-bench", "backless-bench"],
+      "profiles": [
+        "backrest-bench",
+        "backless-bench"
+      ],
       "supportedAfterBatch": 21
     },
     {
       "id": "R4",
       "title": "Sofas",
       "status": "implemented",
-      "dependsOn": ["R3", "T0"],
-      "objectIds": ["sofa", "reception-sofa"],
+      "dependsOn": [
+        "R3",
+        "T0"
+      ],
+      "objectIds": [
+        "sofa",
+        "reception-sofa"
+      ],
       "count": 2,
       "scope": "Explicit cushion construction count; base, back, arms, cushion members and legs.",
-      "profiles": ["sofas"],
+      "profiles": [
+        "sofas"
+      ],
       "supportedAfterBatch": 23
     },
     {
       "id": "R5",
       "title": "Office chair",
       "status": "implemented",
-      "dependsOn": ["R2"],
-      "objectIds": ["office-chair"],
+      "dependsOn": [
+        "R2"
+      ],
+      "objectIds": [
+        "office-chair"
+      ],
       "count": 1,
       "scope": "Seat/back/arms, support column and five fixed radial base/caster slots.",
-      "profiles": ["office-chair"],
+      "profiles": [
+        "office-chair"
+      ],
       "supportedAfterBatch": 24
     },
     {
       "id": "R6",
       "title": "Shelving and open storage",
-      "status": "planned",
-      "dependsOn": ["T0", "R2"],
+      "status": "implemented",
+      "dependsOn": [
+        "T0",
+        "R2"
+      ],
       "objectIds": [
         "bookshelf",
         "wall-shelving",
@@ -124,14 +169,20 @@
       ],
       "count": 5,
       "scope": "Variable shelf membership, ordered placement, clearances, frame variants and legacy count semantics.",
-      "profiles": ["panel-shelves", "open-racks", "open-cabinet"],
+      "profiles": [
+        "panel-shelves",
+        "open-racks",
+        "open-cabinet"
+      ],
       "supportedAfterBatch": 29
     },
     {
       "id": "R7",
       "title": "Closed cabinets, drawers and locker",
-      "status": "planned",
-      "dependsOn": ["R6"],
+      "status": "implemented",
+      "dependsOn": [
+        "R6"
+      ],
       "objectIds": [
         "tv-unit",
         "wardrobe",
@@ -142,42 +193,81 @@
       ],
       "count": 6,
       "scope": "Carcass, back/plinth, individual door or drawer fronts, handles and decorative locker vents; fixed front counts.",
-      "profiles": ["closed-cabinets", "drawer-cabinets", "locker"],
+      "profiles": [
+        "closed-cabinets",
+        "drawer-cabinets",
+        "locker"
+      ],
       "supportedAfterBatch": 35
     },
     {
       "id": "R8",
       "title": "Wall shelf, bed and vanity",
-      "status": "planned",
-      "dependsOn": ["R2", "R7"],
-      "objectIds": ["wall-shelf", "bed-frame", "dressing-table"],
+      "status": "implemented",
+      "dependsOn": [
+        "R2",
+        "R7"
+      ],
+      "objectIds": [
+        "wall-shelf",
+        "bed-frame",
+        "dressing-table"
+      ],
       "count": 3,
       "scope": "Bracket endpoints; frame/headboard/mattress/pillows/legs; worktop/mirror and decorative drawer block.",
-      "profiles": ["wall-shelf", "bed", "vanity"],
+      "profiles": [
+        "wall-shelf",
+        "bed",
+        "vanity"
+      ],
       "supportedAfterBatch": 38
     },
     {
-      "id": "R9",
-      "title": "Counters",
-      "status": "planned",
-      "dependsOn": ["R7"],
+      "id": "R9a",
+      "title": "Kitchen island",
+      "status": "implemented",
+      "dependsOn": [
+        "R7"
+      ],
       "objectIds": [
-        "kitchen-island",
+        "kitchen-island"
+      ],
+      "count": 1,
+      "scope": "Connected body, countertop, plinth and three fixed front panels.",
+      "profiles": [
+        "counters"
+      ],
+      "supportedAfterBatch": 39
+    },
+    {
+      "id": "R9",
+      "title": "Remaining counters",
+      "status": "planned",
+      "dependsOn": [
+        "R9a"
+      ],
+      "objectIds": [
         "reception-desk",
         "service-counter",
         "bar-counter",
         "checkout-counter"
       ],
-      "count": 5,
+      "count": 4,
       "scope": "Body/top/plinth and three front panels with variant-specific defaults.",
-      "profiles": ["counters"],
+      "profiles": [
+        "counters"
+      ],
       "supportedAfterBatch": 43
     },
     {
       "id": "R10",
       "title": "Retail and plant stands",
       "status": "planned",
-      "dependsOn": ["R6", "R9", "T0"],
+      "dependsOn": [
+        "R6",
+        "R9",
+        "T0"
+      ],
       "objectIds": [
         "pastry-display-stand",
         "plant-stand",
@@ -205,7 +295,9 @@
       "id": "R11",
       "title": "Lighting",
       "status": "planned",
-      "dependsOn": ["R5"],
+      "dependsOn": [
+        "R5"
+      ],
       "objectIds": [
         "floor-lamp",
         "table-lamp",
@@ -229,7 +321,10 @@
       "id": "R12",
       "title": "Mirrors, partitions and boards",
       "status": "planned",
-      "dependsOn": ["R1", "R7"],
+      "dependsOn": [
+        "R1",
+        "R7"
+      ],
       "objectIds": [
         "mirror",
         "mirror-stand",
@@ -242,32 +337,61 @@
       ],
       "count": 8,
       "scope": "Frame/surface inset; solid/slatted/return panels; post-foot and A-frame support variants.",
-      "profiles": ["mirrors", "partitions", "boards"],
+      "profiles": [
+        "mirrors",
+        "partitions",
+        "boards"
+      ],
       "supportedAfterBatch": 66
     },
     {
       "id": "R13",
       "title": "Planters and sculpture",
       "status": "planned",
-      "dependsOn": ["R10", "R11"],
-      "objectIds": ["planter", "hanging-planter", "decorative-sculpture"],
+      "dependsOn": [
+        "R10",
+        "R11"
+      ],
+      "objectIds": [
+        "planter",
+        "hanging-planter",
+        "decorative-sculpture"
+      ],
       "count": 3,
       "scope": "Pot/soil/foliage and suspension; connected stacked forms.",
-      "profiles": ["planters", "sculpture"],
+      "profiles": [
+        "planters",
+        "sculpture"
+      ],
       "supportedAfterBatch": 69
     },
     {
       "id": "R14",
       "title": "Single-body forms",
       "status": "planned",
-      "dependsOn": ["R13"],
-      "objectIds": ["display-plinth", "product-pedestal", "vase"],
+      "dependsOn": [
+        "R13"
+      ],
+      "objectIds": [
+        "display-plinth",
+        "product-pedestal",
+        "vase"
+      ],
       "count": 3,
       "scope": "Honest selectable body controls; preserve connected lathe shape, with optional surface regions scoped separately.",
-      "profiles": ["single-body-forms"],
+      "profiles": [
+        "single-body-forms"
+      ],
       "supportedAfterBatch": 72
     }
   ],
   "reviewedAt": "2026-10-27",
-  "executionOrder": ["R6", "R7", "R8", "R9", "R10", "R11", "R12", "R13", "R14"]
+  "executionOrder": [
+    "R9",
+    "R10",
+    "R11",
+    "R12",
+    "R13",
+    "R14"
+  ]
 }
