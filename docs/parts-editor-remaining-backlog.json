@@ -1,8 +1,8 @@
 {
-  "baseline": "v1.10.0",
-  "implemented": 54,
-  "remaining": 18,
-  "scope": "rollout-in-progress",
+  "baseline": "v1.11.0",
+  "implemented": 72,
+  "remaining": 0,
+  "scope": "complete",
   "sharedGate": {
     "id": "T0",
     "title": "Variable-count topology, construction migration and selection reconciliation",
@@ -314,7 +314,7 @@
     {
       "id": "R11",
       "title": "Remaining lighting",
-      "status": "planned",
+      "status": "implemented",
       "dependsOn": [
         "R11a"
       ],
@@ -337,7 +337,7 @@
     {
       "id": "R12",
       "title": "Mirrors, partitions and boards",
-      "status": "planned",
+      "status": "implemented",
       "dependsOn": [
         "R1",
         "R7"
@@ -364,7 +364,7 @@
     {
       "id": "R13",
       "title": "Planters and sculpture",
-      "status": "planned",
+      "status": "implemented",
       "dependsOn": [
         "R10",
         "R11"
@@ -385,7 +385,7 @@
     {
       "id": "R14",
       "title": "Single-body forms",
-      "status": "planned",
+      "status": "implemented",
       "dependsOn": [
         "R13"
       ],
@@ -403,10 +403,5 @@
     }
   ],
   "reviewedAt": "2026-10-28",
-  "executionOrder": [
-    "R11",
-    "R12",
-    "R13",
-    "R14"
-  ]
+  "executionOrder": []
 }

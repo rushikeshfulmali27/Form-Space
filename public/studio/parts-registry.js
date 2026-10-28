@@ -3,6 +3,7 @@ import { standardDeskProfile } from "./parts-desks.js";
 import { officeChairProfile } from "./parts-office-chair.js";
 import { storageBedroomProfile } from "./parts-storage-bedroom.js";
 import { retailLightingProfile } from "./parts-retail-lighting.js";
+import { decorProfile } from "./parts-decor.js";
 import { sofaProfile } from "./parts-sofas.js";
 import { gardenBenchProfile, cafeBenchProfile } from "./parts-benches.js";
 import {
@@ -123,6 +124,24 @@ const objects = Object.freeze({
   "floor-lamp": retailLightingProfile,
   "table-lamp": retailLightingProfile,
   "pendant-light": retailLightingProfile,
+  "pendant-lamp": retailLightingProfile,
+  chandelier: decorProfile,
+  "wall-lamp": decorProfile,
+  "wall-light": decorProfile,
+  mirror: decorProfile,
+  "mirror-stand": decorProfile,
+  "workstation-partition": decorProfile,
+  "decorative-partition": decorProfile,
+  "fitting-room-partition": decorProfile,
+  "whiteboard-stand": decorProfile,
+  "menu-stand": decorProfile,
+  signboard: decorProfile,
+  planter: decorProfile,
+  "hanging-planter": decorProfile,
+  "decorative-sculpture": decorProfile,
+  "display-plinth": decorProfile,
+  "product-pedestal": decorProfile,
+  vase: decorProfile,
 });
 export const getPartsProfile = (d) =>
   d && Object.hasOwn(objects, d.id) ? objects[d.id] : null;

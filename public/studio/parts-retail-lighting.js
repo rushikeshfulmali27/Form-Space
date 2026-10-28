@@ -11,6 +11,7 @@ const recipes = Object.freeze({
   "floor-lamp": "lamp",
   "table-lamp": "lamp",
   "pendant-light": "pendant",
+  "pendant-lamp": "pendant",
 });
 export const RETAIL_LIGHTING_OBJECTS = Object.freeze(Object.keys(recipes));
 export function retailRecipe(d) {

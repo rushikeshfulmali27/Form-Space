@@ -1,5 +1,5 @@
 {
-  "status": "rollout-in-progress",
+  "status": "complete",
   "catalogSize": 72,
   "familyCount": 41,
   "objects": [
@@ -658,10 +658,10 @@
       "variant": null,
       "family": "pendants",
       "wave": 5,
-      "parts": "ceiling-canopy, suspension, shade, diffuser",
-      "controls": "Canopy size; suspension section; shade height/footprint",
-      "rule": "Overall height is the hanging drop, anchored at ceiling canopy. Shade/diffuser fit together; suspension bridges remaining distance.",
-      "status": "planned"
+      "parts": "mount, cable, shade, diffuser",
+      "controls": "mount: thickness; cable: diameter; shade: height; diffuser: thickness; individual finish/color",
+      "rule": "Reuse the verified ceiling mount, cable, shade and diffuser; total height is the ceiling-to-bottom drop.",
+      "status": "implemented"
     },
     {
       "id": "chandelier",
@@ -670,10 +670,10 @@
       "variant": null,
       "family": "chandelier",
       "wave": 5,
-      "parts": "canopy, stem, arms, light-heads",
-      "controls": "Stem/arm section; radial arm reach; linked head size",
-      "rule": "Five arms and five heads retain radial positions and connections. Heads are modeled ellipsoids, not physical light emitters.",
-      "status": "planned"
+      "parts": "mount, stem, arms, globes",
+      "controls": "mount: thickness; stem: diameter; arms: section; globes: height; individual finish/color",
+      "rule": "Five fixed angular arms meet a central stem and individual globes; derived elliptical placement preserves the envelope.",
+      "status": "implemented"
     },
     {
       "id": "wall-lamp",
@@ -682,10 +682,10 @@
       "variant": null,
       "family": "wall-lights",
       "wave": 5,
-      "parts": "wall-plate, arm, shade",
-      "controls": "Plate size/thickness; arm section/reach; shade height",
-      "rule": "Wall plane anchors plate; arm endpoint follows shade position; preserve depth envelope and attachment overlap.",
-      "status": "planned"
+      "parts": "mount, arm, shade",
+      "controls": "mount: height/thickness; arm: section; shade: height; individual finish/color",
+      "rule": "Mount sets rear/lower datums; horizontal arm follows shade height and meets mount; shade top sets total height.",
+      "status": "implemented"
     },
     {
       "id": "wall-light",
@@ -694,10 +694,10 @@
       "variant": null,
       "family": "wall-lights",
       "wave": 5,
-      "parts": "wall-plate, arm, shade",
-      "controls": "Plate size/thickness; arm section/reach; shade height",
-      "rule": "Wall plane anchors plate; arm endpoint follows shade position; preserve depth envelope and attachment overlap.",
-      "status": "planned"
+      "parts": "mount, arm, shade",
+      "controls": "mount: height/thickness; arm: section; shade: height; individual finish/color",
+      "rule": "Mount sets rear/lower datums; horizontal arm follows shade height and meets mount; shade top sets total height.",
+      "status": "implemented"
     },
     {
       "id": "mirror",
@@ -706,10 +706,10 @@
       "variant": null,
       "family": "mirrors",
       "wave": 6,
-      "parts": "frame, mirror-surface, stand?",
-      "controls": "Frame thickness/inset; surface inset; standing support section/spread",
-      "rule": "Wall mirror has no stand. Standing mirror keeps supports grounded; surface stays inside frame. Reflection is approximate shader appearance.",
-      "status": "planned"
+      "parts": "frame, surface",
+      "controls": "frame: section/whole depth; surface: thickness; individual finish/color",
+      "rule": "Open four-bar rim encloses its inset surface. Wall depth follows overall depth; standing supports and floor brace remain connected.",
+      "status": "implemented"
     },
     {
       "id": "mirror-stand",
@@ -718,10 +718,10 @@
       "variant": "standing",
       "family": "mirrors",
       "wave": 6,
-      "parts": "frame, mirror-surface, stand?",
-      "controls": "Frame thickness/inset; surface inset; standing support section/spread",
-      "rule": "Wall mirror has no stand. Standing mirror keeps supports grounded; surface stays inside frame. Reflection is approximate shader appearance.",
-      "status": "planned"
+      "parts": "frame, surface, supports, brace",
+      "controls": "frame: section/thickness; surface: thickness; supports: section; brace: section; individual finish/color",
+      "rule": "Open four-bar rim encloses its inset surface. Wall depth follows overall depth; standing supports and floor brace remain connected.",
+      "status": "implemented"
     },
     {
       "id": "workstation-partition",
@@ -730,10 +730,10 @@
       "variant": "solid",
       "family": "partitions",
       "wave": 6,
-      "parts": "panel-or-slats, feet, return-panel?",
-      "controls": "Panel thickness; linked slat width/gap; feet depth; return depth",
-      "rule": "Solid has one panel; slatted has nine slats; corner adds existing short return panel. Do not generate a full fitting-room wall absent from geometry.",
-      "status": "planned"
+      "parts": "feet, panel",
+      "controls": "feet: width/height; panel: thickness; individual finish/color",
+      "rule": "Solid/corner panels meet feet; nine slats share a gap and join a base tie. Corner return and main panel meet without overlapping faces.",
+      "status": "implemented"
     },
     {
       "id": "decorative-partition",
@@ -742,10 +742,10 @@
       "variant": "slatted",
       "family": "partitions",
       "wave": 6,
-      "parts": "panel-or-slats, feet, return-panel?",
-      "controls": "Panel thickness; linked slat width/gap; feet depth; return depth",
-      "rule": "Solid has one panel; slatted has nine slats; corner adds existing short return panel. Do not generate a full fitting-room wall absent from geometry.",
-      "status": "planned"
+      "parts": "feet, base-rail, slats",
+      "controls": "feet: width/height; base-rail: height; slats: gap/thickness; individual finish/color",
+      "rule": "Solid/corner panels meet feet; nine slats share a gap and join a base tie. Corner return and main panel meet without overlapping faces.",
+      "status": "implemented"
     },
     {
       "id": "fitting-room-partition",
@@ -754,10 +754,10 @@
       "variant": "corner",
       "family": "partitions",
       "wave": 6,
-      "parts": "panel-or-slats, feet, return-panel?",
-      "controls": "Panel thickness; linked slat width/gap; feet depth; return depth",
-      "rule": "Solid has one panel; slatted has nine slats; corner adds existing short return panel. Do not generate a full fitting-room wall absent from geometry.",
-      "status": "planned"
+      "parts": "feet, panel, return",
+      "controls": "feet: width/height; panel: thickness; return: thickness; individual finish/color",
+      "rule": "Solid/corner panels meet feet; nine slats share a gap and join a base tie. Corner return and main panel meet without overlapping faces.",
+      "status": "implemented"
     },
     {
       "id": "whiteboard-stand",
@@ -766,10 +766,10 @@
       "variant": null,
       "family": "boards",
       "wave": 6,
-      "parts": "frame, face, supports, feet?",
-      "controls": "Frame thickness/inset; face thickness; support section/spread",
-      "rule": "Whiteboard has two posts/feet; A-frame menu/sign boards have four splayed supports and no extra foot blocks. No text editor or drawing surface in this scope.",
-      "status": "planned"
+      "parts": "frame, surface, posts, feet",
+      "controls": "frame: section/thickness; surface: thickness; posts: section; feet: height; individual finish/color",
+      "rule": "Inset surface fits a four-sided rim. Whiteboard posts/feet and four-member A-frames retain separate construction.",
+      "status": "implemented"
     },
     {
       "id": "menu-stand",
@@ -778,10 +778,10 @@
       "variant": "a-frame",
       "family": "boards",
       "wave": 6,
-      "parts": "frame, face, supports, feet?",
-      "controls": "Frame thickness/inset; face thickness; support section/spread",
-      "rule": "Whiteboard has two posts/feet; A-frame menu/sign boards have four splayed supports and no extra foot blocks. No text editor or drawing surface in this scope.",
-      "status": "planned"
+      "parts": "frame, surface, legs",
+      "controls": "frame: section/thickness; surface: thickness; legs: section; individual finish/color",
+      "rule": "Inset surface fits a four-sided rim. Whiteboard posts/feet and four-member A-frames retain separate construction.",
+      "status": "implemented"
     },
     {
       "id": "signboard",
@@ -790,10 +790,10 @@
       "variant": "a-frame",
       "family": "boards",
       "wave": 6,
-      "parts": "frame, face, supports, feet?",
-      "controls": "Frame thickness/inset; face thickness; support section/spread",
-      "rule": "Whiteboard has two posts/feet; A-frame menu/sign boards have four splayed supports and no extra foot blocks. No text editor or drawing surface in this scope.",
-      "status": "planned"
+      "parts": "frame, surface, legs",
+      "controls": "frame: section/thickness; surface: thickness; legs: section; individual finish/color",
+      "rule": "Inset surface fits a four-sided rim. Whiteboard posts/feet and four-member A-frames retain separate construction.",
+      "status": "implemented"
     },
     {
       "id": "planter",
@@ -802,10 +802,10 @@
       "variant": null,
       "family": "planters",
       "wave": 6,
-      "parts": "pot, soil, foliage, suspension?",
-      "controls": "Pot height/footprint; foliage visual scale; suspension section",
-      "rule": "Soil stays at pot rim and foliage originates there. Hanging variant has three straps converging at top anchor. Pot/foliage stay within declared envelope.",
-      "status": "planned"
+      "parts": "pot, soil, stems, leaves",
+      "controls": "pot: width/height/depth; soil: thickness; stems: section; leaves: height; individual finish/color",
+      "rule": "Open tapered shell exposes fitted soil. Five stems root in soil and meet five leaves; canopy anchors the outer width/depth/height.",
+      "status": "implemented"
     },
     {
       "id": "hanging-planter",
@@ -814,10 +814,10 @@
       "variant": null,
       "family": "planters",
       "wave": 6,
-      "parts": "pot, soil, foliage, suspension?",
-      "controls": "Pot height/footprint; foliage visual scale; suspension section",
-      "rule": "Soil stays at pot rim and foliage originates there. Hanging variant has three straps converging at top anchor. Pot/foliage stay within declared envelope.",
-      "status": "planned"
+      "parts": "pot, soil, stems, leaves, suspension",
+      "controls": "pot: width/height/depth; soil: thickness; stems: section; leaves: height; suspension: section; individual finish/color",
+      "rule": "Open pot and fitted soil support five stems/leaves; three fixed straps meet the rim and top anchor.",
+      "status": "implemented"
     },
     {
       "id": "decorative-sculpture",
@@ -826,10 +826,10 @@
       "variant": null,
       "family": "sculpture",
       "wave": 6,
-      "parts": "base, lower-form, upper-form",
-      "controls": "Base height/footprint; constrained lower/upper proportions",
-      "rule": "Keep two ellipsoids visually connected with limited overlap; part edits cannot separate the stack.",
-      "status": "planned"
+      "parts": "base, lower, upper",
+      "controls": "base: height; lower: height; upper: height; individual finish/color",
+      "rule": "Grounded base and two ellipsoids have bounded heights and guaranteed physical overlap; upper top follows total height.",
+      "status": "implemented"
     },
     {
       "id": "display-plinth",
@@ -838,10 +838,10 @@
       "variant": null,
       "family": "single-body-forms",
       "wave": 6,
-      "parts": "body; optional connected surface regions later",
-      "controls": "Whole-body dimensions/shape and finish",
-      "rule": "Plinths are one primitive each; vase is one connected lathe surface. Do not invent removable tops, feet or seams. Later vase neck/body/foot finish regions require triangle ownership with no duplicate surfaces.",
-      "status": "planned"
+      "parts": "body",
+      "controls": "body: whole width/whole height/whole depth/whole shape; individual finish/color",
+      "rule": "One continuous body; existing overall dimensions, shape and finish are the controls.",
+      "status": "implemented"
     },
     {
       "id": "product-pedestal",
@@ -850,10 +850,10 @@
       "variant": null,
       "family": "single-body-forms",
       "wave": 6,
-      "parts": "body; optional connected surface regions later",
-      "controls": "Whole-body dimensions/shape and finish",
-      "rule": "Plinths are one primitive each; vase is one connected lathe surface. Do not invent removable tops, feet or seams. Later vase neck/body/foot finish regions require triangle ownership with no duplicate surfaces.",
-      "status": "planned"
+      "parts": "body",
+      "controls": "body: whole width/whole height/whole depth/whole shape; individual finish/color",
+      "rule": "One continuous body; existing overall dimensions, shape and finish are the controls.",
+      "status": "implemented"
     },
     {
       "id": "vase",
@@ -862,10 +862,12 @@
       "variant": null,
       "family": "single-body-forms",
       "wave": 6,
-      "parts": "body; optional connected surface regions later",
-      "controls": "Whole-body dimensions/shape and finish",
-      "rule": "Plinths are one primitive each; vase is one connected lathe surface. Do not invent removable tops, feet or seams. Later vase neck/body/foot finish regions require triangle ownership with no duplicate surfaces.",
-      "status": "planned"
+      "parts": "body",
+      "controls": "body: whole width/whole height/whole depth; individual finish/color",
+      "rule": "One connected hollow rotational body; overall dimensions and finish only, with no invented detachable regions.",
+      "status": "implemented"
     }
-  ]
+  ],
+  "implemented": 72,
+  "remaining": 0
 }

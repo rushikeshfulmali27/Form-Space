@@ -1,10 +1,10 @@
 # Parts Editor rollout: all 72 catalog objects
 
-Status: rollout in progress. V1.1/v1.2 delivered the three pedestal tables; v1.3 adds five standard desks/tables. V1.4 completes the four R1 desk variants. V1.5 adds seven R2 chairs/stools. V1.6 completes two R3 benches. V1.7 completes T0 and two R4 sofas. V1.8 completes R5 office chair. V1.9 completes R6/R7/R8 and R9a (15 more objects). V1.10 completes R9/R10/R11a. Fifty-four objects now support Parts Editor, with 18 remaining.
+Status: **complete in v1.11 — 72/72 catalog objects support Parts Editor, with zero pending conversions.** Releases v1.1–v1.10 delivered 54 objects; v1.11 completes R11–R14 and the final 18.
 
-For the current delivery sequence, exact remaining IDs and dependencies, use the [remaining-object execution plan](parts-editor-remaining-plan.md) and [batch backlog](parts-editor-remaining-backlog.json). This document supplies the shared architecture and acceptance rules.
+For the completed delivery sequence and dependencies, use the [rollout completion record](parts-editor-remaining-plan.md) and [batch backlog](parts-editor-remaining-backlog.json). This document supplies the shared architecture and acceptance rules.
 
-Completed foundation: trusted registry, profile-driven fields/defaults/limits/readouts, v3 format/revision checks, save migration, shared primitive writing, and fixed repeated groups/members with independent editing, highlighting and reset. Standard desks/tables are now implemented. Profile-owned construction, dynamic cushion slots and topology-aware selection now work. Variable shelves and safe ordered placement are implemented; safe variable-count trays are implemented. Wave 1 is complete, including standing, corner and slatted desks and the laptop stand. Remaining lights and later waves remain planned; this is not completion of all 72 objects.
+Completed foundation: trusted fixed/dynamic profiles, revisioned migration, direct component measurements, root groups and member overrides, cushion/shelf/tray counts, topology-aware selection/history, both renderers, framed surfaces, open planters and connected single-body forms. All catalog construction families are enabled.
 
 ## 1. Scope and catalog coverage
 
@@ -21,21 +21,21 @@ Common functionality for all supported components:
 
 Three objects are single-body forms in the current model: `display-plinth`, `product-pedestal` and `vase`. They receive a selectable body with existing dimension/shape/finish controls. Splitting the vase into connected finish regions is a separate optional enhancement. Do not promise removable components, real plywood layers, transparent glass, mechanisms or structural accuracy that the model does not contain.
 
-## 2. Existing foundation and gaps
+## 2. Existing foundation and extension contracts
 
-V1.7 provides trusted fixed/dynamic profiles, construction validation and atomic cushion-count commands, shared primitive writing, selection reconciliation, v3 persistence and both renderers. Remaining families adapt those foundations to their own construction, counts and clearances.
+V1.7 provides trusted fixed/dynamic profiles, construction validation and atomic cushion-count commands, shared primitive writing, selection reconciliation, v3 persistence and both renderers. All catalog families now use these foundations; future extensions must preserve their contracts.
 
-| File or behavior                | Required generalization                                                                                                                        |
+| File or behavior                | Maintenance contract                                                                                                                        |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | `parts.js` / registry           | Reuse dynamic definitions and construction validation; reuse the shelf/tray adapters while retaining inheritance/reset          |
-| `geometry.js` / family builders | Convert remaining families to final dimensions with the existing writer; extract lathe/foliage helpers when needed                             |
+| `geometry.js` / family builders | Keep final dimensions with the shared writer; decor builders contain connected lathe and foliage recipes                             |
 | `parts-controls.js`             | Reuse count controls and selection/focus reconciliation; rendering remains limited to root groups          |
 | `design.js`                     | Extend explicit construction schemas/migrations per family; preserve existing overrides                                           |
 | `app.js`                        | Reuse atomic cushion-count command; reuse the ordered shelf-count adapter; retain tray-specific commands and feedback                                                  |
 | `viewer.js`                     | Preserve existing leaf picking/group highlight/cache/fallback; reconcile selected members after topology changes and measure larger assemblies |
 | `storage.js`                    | Retain existing v3→v2→v1 migration and backup behavior; support any required profile revision migration                                        |
 | Build/check scripts             | Explicitly allow new modules; make syntax discovery recursive if implementation introduces subdirectories                                      |
-| Tests                           | Extend the current fifty-four-object capability checks per completed batch; retain immutable fixtures for unconverted objects                       |
+| Tests                           | Extend the current seventy-two-object capability checks per completed batch; retain immutable fixtures for unconverted objects                       |
 
 Retain browser modules, zero runtime dependencies and GitHub Pages. A new renderer/framework, server or account system is not required.
 
@@ -182,7 +182,7 @@ Automated checks must cover:
 8. **Browser coverage:** for every one of the 72 objects, choose it, inspect its parts, edit at least one applicable setting, save/reload and export/import; exercise this data-driven smoke workflow across desktop/tablet/mobile. Add deeper family-specific workflows for every topology/anchor variant, with readable case names and isolated saves.
 9. **Release:** syntax, Node tests, deterministic build, secret checks, dependency audit and browser tests at the real `/Form-Space/` prefix. Preserve no-network/CSP/source-exclusion behavior. Verify published assets against the approved build.
 
-Use smaller named browser cases or family batches with suitable per-case timeouts. Avoid turning catalog loops into one long, fragile test. The existing workflow timeout is 15 minutes; measure the expanded suite and then split independent CI jobs or adjust the justified timeout if needed. This does not require adding runtime packages.
+Use smaller named browser cases or family batches with suitable per-case timeouts. Avoid turning catalog loops into one long, fragile test. The complete-catalog verification timeout is 20 minutes, covering the expanded 405-scenario suite and browser installation. Measure future growth before splitting independent jobs or adjusting it. This does not require adding runtime packages.
 
 For each completed object, record profile revision, selectable parts and fields, connection rules, numeric limits, legacy fixture comparison, unit/browser case names and responsive screenshot review. “All objects complete” means every catalog ID meets these gates, including the documented body-only exceptions.
 

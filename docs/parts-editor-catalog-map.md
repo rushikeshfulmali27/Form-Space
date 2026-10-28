@@ -1,8 +1,8 @@
 # Parts Editor: complete catalog mapping
 
-Status: rollout in progress. **54/72 objects implemented; 18 remain planned.** V1.10 adds four counters, eight retail/plant stands and three lights.
+Status: **complete — all 72/72 catalog objects support Parts Editor in v1.11; zero pending objects.**
 
-Generated from the current 72-object catalog after reading every geometry branch. Every object appears exactly once. Family names below are proposed implementation profiles, not new catalog categories. All multi-part entries include part-specific visual finish/color in addition to listed dimension controls. Repeated components begin as linked groups, then gain individual member editing under the instance rules in the rollout plan.
+Generated from the current 72-object catalog after reading every geometry branch. Every object appears exactly once. Family names describe construction recipes, not new catalog categories. All multi-part entries include part-specific visual finish/color in addition to listed dimension controls. Repeated components support linked groups and individual members under the shared instance contracts.
 
 | Object ID | Object | Geometry / variant | Profile | Wave | Selectable parts | Status |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -60,24 +60,24 @@ Generated from the current 72-object catalog after reading every geometry branch
 | `floor-lamp` | Halo floor lamp | lamp | floor-table-lamps | 5 | base, stem, shade, diffuser | implemented |
 | `table-lamp` | Cone table lamp | lamp | floor-table-lamps | 5 | base, stem, shade, diffuser | implemented |
 | `pendant-light` | Dome pendant light | pendant | pendants | 5 | mount, cable, shade, diffuser | implemented |
-| `pendant-lamp` | Café pendant lamp | pendant | pendants | 5 | ceiling-canopy, suspension, shade, diffuser | planned |
-| `chandelier` | Branch chandelier | chandelier | chandelier | 5 | canopy, stem, arms, light-heads | planned |
-| `wall-lamp` | Wall lamp | wall-light | wall-lights | 5 | wall-plate, arm, shade | planned |
-| `wall-light` | Café wall light | wall-light | wall-lights | 5 | wall-plate, arm, shade | planned |
-| `mirror` | Wall mirror | mirror | mirrors | 6 | frame, mirror-surface, stand? | planned |
-| `mirror-stand` | Freestanding mirror stand | mirror / standing | mirrors | 6 | frame, mirror-surface, stand? | planned |
-| `workstation-partition` | Workstation partition | partition / solid | partitions | 6 | panel-or-slats, feet, return-panel? | planned |
-| `decorative-partition` | Slatted decorative partition | partition / slatted | partitions | 6 | panel-or-slats, feet, return-panel? | planned |
-| `fitting-room-partition` | Fitting-room partition | partition / corner | partitions | 6 | panel-or-slats, feet, return-panel? | planned |
-| `whiteboard-stand` | Whiteboard stand | board | boards | 6 | frame, face, supports, feet? | planned |
-| `menu-stand` | Menu stand | board / a-frame | boards | 6 | frame, face, supports, feet? | planned |
-| `signboard` | Shop signboard | board / a-frame | boards | 6 | frame, face, supports, feet? | planned |
-| `planter` | Indoor planter | planter | planters | 6 | pot, soil, foliage, suspension? | planned |
-| `hanging-planter` | Hanging planter | hanging-planter | planters | 6 | pot, soil, foliage, suspension? | planned |
-| `decorative-sculpture` | Stacked sculpture | sculpture | sculpture | 6 | base, lower-form, upper-form | planned |
-| `display-plinth` | Forma display plinth | plinth | single-body-forms | 6 | body; optional connected surface regions later | planned |
-| `product-pedestal` | Product pedestal | plinth | single-body-forms | 6 | body; optional connected surface regions later | planned |
-| `vase` | Contour vase | vase | single-body-forms | 6 | body; optional connected surface regions later | planned |
+| `pendant-lamp` | Café pendant lamp | pendant | pendants | 5 | mount, cable, shade, diffuser | implemented |
+| `chandelier` | Branch chandelier | chandelier | chandelier | 5 | mount, stem, arms, globes | implemented |
+| `wall-lamp` | Wall lamp | wall-light | wall-lights | 5 | mount, arm, shade | implemented |
+| `wall-light` | Café wall light | wall-light | wall-lights | 5 | mount, arm, shade | implemented |
+| `mirror` | Wall mirror | mirror | mirrors | 6 | frame, surface | implemented |
+| `mirror-stand` | Freestanding mirror stand | mirror / standing | mirrors | 6 | frame, surface, supports, brace | implemented |
+| `workstation-partition` | Workstation partition | partition / solid | partitions | 6 | feet, panel | implemented |
+| `decorative-partition` | Slatted decorative partition | partition / slatted | partitions | 6 | feet, base-rail, slats | implemented |
+| `fitting-room-partition` | Fitting-room partition | partition / corner | partitions | 6 | feet, panel, return | implemented |
+| `whiteboard-stand` | Whiteboard stand | board | boards | 6 | frame, surface, posts, feet | implemented |
+| `menu-stand` | Menu stand | board / a-frame | boards | 6 | frame, surface, legs | implemented |
+| `signboard` | Shop signboard | board / a-frame | boards | 6 | frame, surface, legs | implemented |
+| `planter` | Indoor planter | planter | planters | 6 | pot, soil, stems, leaves | implemented |
+| `hanging-planter` | Hanging planter | hanging-planter | planters | 6 | pot, soil, stems, leaves, suspension | implemented |
+| `decorative-sculpture` | Stacked sculpture | sculpture | sculpture | 6 | base, lower, upper | implemented |
+| `display-plinth` | Forma display plinth | plinth | single-body-forms | 6 | body | implemented |
+| `product-pedestal` | Product pedestal | plinth | single-body-forms | 6 | body | implemented |
+| `vase` | Contour vase | vase | single-body-forms | 6 | body | implemented |
 
 ## Profile controls and connections
 
@@ -403,95 +403,95 @@ Connections and limits: Grounded base, stem, tapered shade and diffuser remain a
 
 ### pendants (wave 5)
 
-V1.10 implements `pendant-light`: mount, cable, shade and diffuser with mount/diffuser thickness, cable diameter and shade height. `pendant-lamp` remains planned.
+Both pendant models use the verified mount/cable/shade/diffuser construction.
 
 Objects: `pendant-light`, `pendant-lamp`.
 
-Selectable parts: ceiling-canopy, suspension, shade, diffuser.
+Selectable parts: mount, cable, shade, diffuser.
 
-Controls: Canopy size; suspension section; shade height/footprint.
+Controls: Mount/diffuser thickness, cable diameter and shade height.
 
-Connections and limits: Overall height is the hanging drop, anchored at ceiling canopy. Shade/diffuser fit together; suspension bridges remaining distance.
+Connections and limits: Reuse the verified ceiling mount, cable, shade and diffuser; total height is the ceiling-to-bottom drop.
 
 ### chandelier (wave 5)
 
 Objects: `chandelier`.
 
-Selectable parts: canopy, stem, arms, light-heads.
+Selectable parts: mount, stem, arms.01–05, globes.01–05.
 
-Controls: Stem/arm section; radial arm reach; linked head size.
+Controls: Mount thickness, stem diameter, linked/individual arm section and globe height.
 
-Connections and limits: Five arms and five heads retain radial positions and connections. Heads are modeled ellipsoids, not physical light emitters.
+Connections and limits: Five fixed angular arms meet a central stem and individual globes; derived elliptical placement preserves the envelope.
 
 ### wall-lights (wave 5)
 
 Objects: `wall-lamp`, `wall-light`.
 
-Selectable parts: wall-plate, arm, shade.
+Selectable parts: mount, arm, shade.
 
-Controls: Plate size/thickness; arm section/reach; shade height.
+Controls: Mount height/thickness, arm section and shade height.
 
-Connections and limits: Wall plane anchors plate; arm endpoint follows shade position; preserve depth envelope and attachment overlap.
+Connections and limits: Mount sets rear/lower datums; horizontal arm follows shade height and meets mount; shade top sets total height.
 
 ### mirrors (wave 6)
 
 Objects: `mirror`, `mirror-stand`.
 
-Selectable parts: frame, mirror-surface, stand?.
+Selectable parts: frame, surface; supports.left/right and brace only on mirror-stand.
 
-Controls: Frame thickness/inset; surface inset; standing support section/spread.
+Controls: Border section, surface thickness, standing frame thickness/support sections; wall frame depth uses overall depth.
 
-Connections and limits: Wall mirror has no stand. Standing mirror keeps supports grounded; surface stays inside frame. Reflection is approximate shader appearance.
+Connections and limits: Open four-bar rim encloses its inset surface. Wall depth follows overall depth; standing supports and floor brace remain connected.
 
 ### partitions (wave 6)
 
 Objects: `workstation-partition`, `decorative-partition`, `fitting-room-partition`.
 
-Selectable parts: panel-or-slats, feet, return-panel?.
+Selectable parts: feet, panel; return only on fitting-room; slats.01–09 and base-rail on decorative partition.
 
-Controls: Panel thickness; linked slat width/gap; feet depth; return depth.
+Controls: Foot width/height; panel/return/slat thickness; shared slat gap and base-tie height.
 
-Connections and limits: Solid has one panel; slatted has nine slats; corner adds existing short return panel. Do not generate a full fitting-room wall absent from geometry.
+Connections and limits: Solid/corner panels meet feet; nine slats share a gap and join a base tie. Corner return and main panel meet without overlapping faces.
 
 ### boards (wave 6)
 
 Objects: `whiteboard-stand`, `menu-stand`, `signboard`.
 
-Selectable parts: frame, face, supports, feet?.
+Selectable parts: frame, surface; posts/feet for whiteboard; legs.front-left/front-right/rear-left/rear-right for menu/sign boards.
 
-Controls: Frame thickness/inset; face thickness; support section/spread.
+Controls: Border section, frame/surface thickness, support section and whiteboard foot heights.
 
-Connections and limits: Whiteboard has two posts/feet; A-frame menu/sign boards have four splayed supports and no extra foot blocks. No text editor or drawing surface in this scope.
+Connections and limits: Inset surface fits a four-sided rim. Whiteboard posts/feet and four-member A-frames retain separate construction.
 
 ### planters (wave 6)
 
 Objects: `planter`, `hanging-planter`.
 
-Selectable parts: pot, soil, foliage, suspension?.
+Selectable parts: pot, soil, stems.01–05, leaves.01–05; suspension.01–03 only on hanging planter.
 
-Controls: Pot height/footprint; foliage visual scale; suspension section.
+Controls: Pot width/height/depth, soil thickness, stem/strap sections, leaf heights.
 
-Connections and limits: Soil stays at pot rim and foliage originates there. Hanging variant has three straps converging at top anchor. Pot/foliage stay within declared envelope.
+Connections and limits: Open tapered shell exposes fitted soil. Five stems root in soil and meet five leaves; canopy anchors the outer width/depth/height. Hanging straps meet rim and top datum.
 
 ### sculpture (wave 6)
 
 Objects: `decorative-sculpture`.
 
-Selectable parts: base, lower-form, upper-form.
+Selectable parts: base, lower, upper.
 
-Controls: Base height/footprint; constrained lower/upper proportions.
+Controls: Individual form/base heights and finishes.
 
-Connections and limits: Keep two ellipsoids visually connected with limited overlap; part edits cannot separate the stack.
+Connections and limits: Grounded base and two ellipsoids have bounded heights and guaranteed physical overlap; upper top follows total height.
 
 ### single-body-forms (wave 6)
 
 Objects: `display-plinth`, `product-pedestal`, `vase`.
 
-Selectable parts: body; optional connected surface regions later.
+Selectable parts: body.
 
-Controls: Whole-body dimensions/shape and finish.
+Controls: Whole-body dimensions, supported plinth shape and independent finish.
 
-Connections and limits: Plinths are one primitive each; vase is one connected lathe surface. Do not invent removable tops, feet or seams. Later vase neck/body/foot finish regions require triangle ownership with no duplicate surfaces.
+Connections and limits: One continuous body; existing overall dimensions, shape and finish are the controls. Vase retains a connected hollow lathe profile.
 
 ## Coverage
 

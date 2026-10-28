@@ -13,6 +13,7 @@ import { buildSofa } from "./geometry-sofas.js";
 import { buildOfficeChair } from "./geometry-office-chair.js";
 import { buildStorageBedroom } from "./geometry-storage-bedroom.js";
 import { buildRetailLighting } from "./geometry-retail-lighting.js";
+import { buildDecor } from "./geometry-decor.js";
 // Parametric catalog geometry. Coordinates are in meters, controls in centimeters.
 import {
   supportsParts,
@@ -130,6 +131,8 @@ export function buildAssemblyModel(d, low = false) {
     )
   ) {
     buildDeskVariant(d, resolveParts(d), writer, component);
+  } else if (getPartsProfile(d)?.builder === "decor") {
+    buildDecor(d, resolveParts(d), writer, component, low);
   } else if (getPartsProfile(d)?.builder === "retail-lighting") {
     buildRetailLighting(d, resolveParts(d), writer, component);
   } else if (getPartsProfile(d)?.builder === "storage-bedroom") {

@@ -1,128 +1,46 @@
-# Parts Editor: implementation plan for the remaining 18 objects
+# Parts Editor: completed 72-object rollout
 
-Reviewed against v1.10.0 on 2026-10-28. The runtime registry enables **54 of 72 objects**. This plan covers the other **18**. R1–R10, R11a and shared gate T0 are complete; see [retail/lighting release notes](parts-editor-retail-lighting-release.md).
+Reviewed against v1.11.0 on 2026-10-28. **All 72 catalog objects support Parts Editor; zero objects remain pending.** The trusted registry, catalog map and machine-readable backlog contain the same exact IDs.
 
-Use the [JSON backlog](parts-editor-remaining-backlog.json) for exact membership and prerequisites, the [catalog map](parts-editor-catalog-map.md) for construction details, and the [architecture roadmap](parts-editor-all-objects-plan.md) for shared contracts. Keep the existing browser modules, renderer, static build and GitHub Pages hosting.
+The [final-18 plan](parts-editor-final-18-plan.md) and [release notes](parts-editor-final-18-release.md) document the completed final slices. See the [architecture contracts](parts-editor-all-objects-plan.md), [catalog mapping](parts-editor-catalog-map.md) and [JSON backlog](parts-editor-remaining-backlog.json) for construction details and history.
 
-## 1. Feature scope
+## Completed delivery sequence
 
-Users can select an actual component on the canvas or in the parts list, edit valid dimensions and finishes, and see attached parts follow. Repeated components have linked group settings plus individual overrides. Reset, apply-to-members, undo/redo, local saving and JSON import/export work consistently.
+The initial pedestal/standard-table releases cover eight objects. Subsequent completed batches are:
 
-Preserve each model's real construction. Armless chairs have no arm controls; closed cabinets do not acquire invented open bays. Plinths and vase receive meaningful body selection. Free transforms, adding arbitrary components, animation, exploded views, CAD export and fabrication simulation remain separate features.
+| Batch | Construction | Added | Cumulative coverage |
+| --- | --- | ---: | ---: |
+| R1 | Finish desk and table variants | 4 | 12/72 |
+| R2 | Chairs and stools | 7 | 19/72 |
+| R3 | Benches | 2 | 21/72 |
+| R4 | Sofas | 2 | 23/72 |
+| R5 | Office chair | 1 | 24/72 |
+| R6 | Shelving and open storage | 5 | 29/72 |
+| R7 | Closed cabinets, drawers and locker | 6 | 35/72 |
+| R8 | Wall shelf, bed and vanity | 3 | 38/72 |
+| R9a | Kitchen island | 1 | 39/72 |
+| R9 | Remaining counters | 4 | 43/72 |
+| R10 | Retail and plant stands | 8 | 51/72 |
+| R11a | Floor, table and dome pendant lights | 3 | 54/72 |
+| R11 | Remaining lighting | 4 | 58/72 |
+| R12 | Mirrors, partitions and boards | 8 | 66/72 |
+| R13 | Planters and sculpture | 3 | 69/72 |
+| R14 | Single-body forms | 3 | 72/72 |
 
-## 2. Delivery order and full coverage
+T0 is complete and validated with sofa cushions, shelves and pastry trays. It adds count validation, active member pruning, safe placement, selection/focus reconciliation and atomic history; it does not add catalog IDs itself.
 
-Every unsupported catalog ID appears exactly once below. Coverage includes the 54 already released. T0 was validated with R4 and the shelf adapter with R6; R10 validates the tray-count adapter and placement bands.
+## Supported feature contract
 
-| Batch                           | Exact object IDs                                                                                                                                              | Count | Parts and controls                                                                        | Coverage after batch |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----: | ----------------------------------------------------------------------------------------- | -------------------: |
-| R11 — lighting                  | `pendant-lamp`, `chandelier`, `wall-lamp`, `wall-light`                                                          |     4 | Bases/mounts, stems, shades/diffusers and fixed light-head members                        |                58/72 |
-| R12 — mirrors/partitions/boards | `mirror`, `mirror-stand`, `workstation-partition`, `decorative-partition`, `fitting-room-partition`, `whiteboard-stand`, `menu-stand`, `signboard`            |     8 | Frames/surfaces, solid/slatted/return panels, posts/feet and A-frame supports             |                66/72 |
-| R13 — planters/sculpture        | `planter`, `hanging-planter`, `decorative-sculpture`                                                                                                          |     3 | Pot, soil, foliage, suspension and connected sculpture forms                              |                69/72 |
-| R14 — single-body forms         | `display-plinth`, `product-pedestal`, `vase`                                                                                                                  |     3 | Selectable body, valid dimensions/shape and finish                                        |                72/72 |
+Every object has list/canvas selection, visual highlighting, contextual controls, independent finish/color, reset, undo/redo, local saving and v3 JSON export/import. Repeated parts support linked groups and individual overrides. Shelf/tray/cushion counts are editable where modeled; other counts remain fixed. WebGL and software fallback share picking and editing.
 
-Remaining counts: **4 + 8 + 3 + 3 = 18**. Recommended sequence: R11 through R14. Backlog prerequisites are distinct from this recommended order. T0, shelf and tray adapters are complete.
+Dimensions are final component measurements with automatic anchors and bounded clearances. Mirrors/boards have actual rims and surfaces; planters have open shells and visible soil; vase/plinths expose an honest continuous body. Single-body size/shape controls are whole-object settings, while Reset selected part restores its inherited finish.
 
-## 3. Completed R2 chairs and stools (v1.5)
+Historical v1/v2/v3 whole-object files migrate through explicit profile revisions. Unknown/future schemas, unsupported construction and invalid members fail before replacing current data/history. Storage retains backups and reports failures honestly.
 
-The seven-object release contains four construction slices:
+## Verification for future maintenance
 
-1. **R2a: lounge and meeting chairs.** Seat, solid back, four named legs, left/right armrests and their modeled supports. Seat height is separate from total height. Seat thickness moves leg endpoints; back and arm supports follow their anchors.
-2. **R2b: dining and visitor chairs.** Reuse the seat/back/leg solver with armless definitions. Reject arm overrides and expose no unused arm controls or geometry.
-3. **R2c: outdoor chair.** Preserve its five back slats and the arms present in current geometry. Use linked slat thickness/gap with independent finishes and stable IDs. Derive slat width from available width and gap; keep count fixed.
-4. **R2d: bar and breakfast stools.** Seat, four legs and current stretchers. Bound section and stretcher height so joints stay connected. Preserve each catalog object's proportions and finishes.
+Preserve released mesh hashes, IDs and saved meanings. Changes require measured fields, positive triangles, unit normals, exact outer bounds, valid attachments and full leaf ownership at mixed limits. Keep group/history/count tests and real desktop/tablet/mobile file/picking/fallback checks. Review captures, run syntax/Node/browser/build/secret/audit gates, publish through GitHub Pages and verify public asset hashes. CI validation has a 20-minute limit for the full catalog suite plus browser setup.
 
-Proposed names include `seat`, `back`, `legs.front-left`, `legs.rear-left`, `legs.front-right`, `legs.rear-right`, `armrests.left/right` and `back-slats.01`–`.05`. Final IDs must follow actual leaf ownership and be documented before exporting new part data. Keep armrests and their supports in separate root groups if necessary; the current inspector does not support arbitrary nesting.
+## Separate future enhancements
 
-Initial controls: seat height/thickness, solid-back thickness or shared back-slat thickness/gap, leg section, armrest height/section where modeled, stretcher section/height on stools, and finish/color per component. Overall width/depth/height remain the outer-envelope controls. Do not add unsupported recline or swivel settings.
-
-Define every field's units, default, min/max and attachment endpoints before building its control. Seat height must leave room for thickness, arms and back. Constraints must remain feasible across current overall ranges: width 20–240, depth 4–240, height 20–240 cm. Explain dependent adjustments; never generate negative dimensions.
-
-R2 delivered all seven objects and raised coverage to **19/72**, preserving the 12 earlier released meshes. R3 is complete: four seat slats, connecting bearers and legs, plus three garden back slats and supports, reaching **21/72**.
-
-## 4. Completed T0 foundation (v1.7)
-
-T0 now supports profile-owned construction and dynamic definitions, active-slot pruning, atomic count edits and selection/focus reconciliation. The sofa integration proves the rules below; R6 now adapts design.shelves with ordered safe placement. R10 now supports safe variable-count trays.
-
-- **Trusted topology:** derive active definitions from profile-owned normalized construction through the shared facade. Keep fixed profiles working. Imported data cannot select builders.
-- **Count ownership:** keep shelf/tier count in `design.shelves`. V1.7 has an explicitly validated 1–4 sofa cushion count and revisioned schema. Migration captures two cushions at original width ≤190 cm and three above it, before width rounding. After migration, width changes resize the chosen layout without changing count.
-- **Stable slots:** number shelves bottom-to-top and cushions consistently. Increasing count appends defaults. Decreasing removes highest slots and active overrides. Surviving slots retain edits; re-adding after a committed decrease creates defaults. Undo restores the exact previous snapshot.
-- **Selection/focus:** preserve a surviving selected ID; select its surviving parent or clear when removed. Object switching still clears selection. Reconcile inspector, WebGL and software state during edits, history, reload and import.
-- **Atomic commands:** one count change plus clearance/position adjustments creates one history entry. Solve slider previews from the gesture's starting snapshot and explain clamped values.
-- **Strict persistence:** validate counts, construction fields and active IDs before replacing state. Do not silently ignore supplied unknown/future construction data. Preserve import limits and honest storage-failure feedback.
-
-T0 verification: unit/browser cases cover increase/decrease/re-add, surviving/deleted overrides, selected-member removal, undo/redo branching, invalid/inactive members, legacy migration, reload and real export/import. T0 alone does not increase object coverage.
-
-## 5. Construction rules for later families
-
-### R4–R5: sofas and office chair
-
-Fit sofa cushions between modeled arms and preserve rounded forms and migrated counts. Office chair members keep five fixed angular base/caster slots and separate seat/back/arm/support ownership. These controls do not imply tilt, swivel or lift animation.
-
-### R6–R8: storage and bedroom
-
-Implemented in v1.9: carcass clearances, ordered internal shelf center heights in disjoint safe bands, and attached fronts/handles. The open display cabinet has `shelves - 1` internal boards plus fixed bottom/top, while shelf/rack builders count shelf boards directly. First/last counted boards retain floor/top anchors.
-
-Keep door/drawer-front counts fixed. Handles follow their own front. Current drawer models contain fronts/handles, not drawer boxes; the media cabinet has closed vertical panels. Locker vents remain decorative members. Pillows follow mattress placement, vanity mirror surface fits its frame, and wall-shelf brackets stay attached to the board.
-
-### R9–R10: counters and stands
-
-Top thickness adjusts counter body height within the envelope; panels and plinth follow. Pastry tiers taper with level and attach to posts; their count requires T0. Plant platforms retain corresponding supports. Only `hanging-rack` has the modeled lower shelf.
-
-Brochure pockets may remain semantic back/floor/lip assemblies with independent size/finish inside their layout. The logo display retains its fixed three-bar mark. Text editing, uploaded logos and new hooks are separate work.
-
-### R11: lighting
-
-Use the correct floor, wall or ceiling anchor. Hanging height is the full ceiling-to-bottom drop. Shades/diffusers fit together and stems remain positive at limits. Chandelier members keep fixed angular IDs. Finishes do not imply emitted light, optical simulation or transparency.
-
-### R12–R14: décor and body forms
-
-Mirror surfaces fit their frames; only standing variants get supports. Keep solid, nine-slat and corner-return partitions distinct. Whiteboard posts/feet differ from A-frame menu/sign supports.
-
-Extract lathe/foliage helpers only as needed and preserve objects still using legacy geometry. Pot rims anchor soil/foliage; straps converge at the upper anchor; sculpture forms retain bounded overlap. Plinths and vase get body controls. Optional vase finish regions must share connected surface rings and belong to a later enhancement.
-
-## 6. Technical work and save compatibility
-
-| Area                         | Planned work                                                                                                                          |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| Registry and family profiles | Explicit ID registrations, fields/defaults/limits, stable groups/members; enable only verified objects                                |
-| Parts facade                 | Dynamic definitions, construction-aware defaults/limits and commands; preserve current precision/inheritance                          |
-| Family geometry builders     | Shared primitive writer, final dimensions and explicit anchors; one owner per triangle, groups reference members                      |
-| Inspector                    | Validated count/position controls, surviving selection/focus; retain root groups until recursive behavior is deliberately implemented |
-| Design/history/storage       | Explicit construction normalization/validation, profile migrations and atomic edits                                                   |
-| Build/CI                     | Allowlist added modules, capture family fixtures and browser checks; measure suite duration as coverage grows                         |
-
-Retain the v3 export envelope where compatible; use trusted per-profile revisions. Do not bump the format for each family. Incompatible changes to an enabled profile require migration. Protect all **54 released objects**, IDs and saved meanings.
-
-Newly enabled objects must accept legitimate historical v1/v2/v3 whole-object saves. Missing revision is allowed only on a verified legacy path with no part overrides or new construction data. Reject future revisions, malformed construction and invalid members before replacing the design. Preserve the 100 KB import limit, v3→v2→v1 storage lookup, corrupt newer data, backups and blocked/quota feedback. Document visual changes from replacing old whole-mesh rescaling with final component dimensions.
-
-## 7. Repeatable workflow per batch
-
-1. Audit each legacy builder; capture high/low mesh hashes and old whole-object save fixtures before changing geometry.
-2. Specify each numeric field, default, precision, limits, anchor, dependent adjustment and import behavior; identify parts defining the outer bounds.
-3. Implement pure profiles/solvers and family geometry, preserving distinct constructions and leaf ownership.
-4. Connect inspector, picking, group inheritance/apply/reset and atomic history.
-5. Add legacy migration and strict validation; preserve unrelated overrides.
-6. Complete unit/browser/visual verification, then register the verified IDs and update coverage records.
-7. Publish a complete tested batch through GitHub Pages and compare public manifest/assets with the approved build.
-
-## 8. Completion checks
-
-A batch is complete only when:
-
-- Exact IDs appear once in the catalog/backlog and runtime coverage matches declared status.
-- Component/envelope measurements match the inspector; vertices/normals stay valid at combined limits; high/low detail use matching IDs and complete leaf ownership.
-- Connections remain valid and unrelated overrides survive. Group/member inheritance, apply and reset work correctly.
-- Mouse/native-touch picking, occlusion, empty gaps, highlighting, keyboard access, orbit separation and software fallback pass.
-- Undo/redo, single-step gestures, local reload and actual exported-file import pass. Count-dependent families also meet T0.
-- Legacy fixtures migrate; invalid/future/inactive-member settings preserve current state. Released meshes and unchanged legacy objects remain protected.
-- Syntax, Node tests, deterministic build/source exclusions, secret checks, npm audit and browser scenarios pass; review desktop/tablet/mobile captures for each distinct construction.
-- GitHub validation/deployment succeeds and public files match the build; release notes state actual supported and remaining counts.
-
-Every newly enabled object needs browser coverage, with focused cases for distinct connection/count behavior. Keep cases small enough to diagnose. The v1.4 regression baseline had **56 Node tests and 81 Chromium scenarios**, not a fixed final test target. Measure the 15-minute CI budget before splitting jobs or changing timeouts.
-
-## 9. Next action
-
-Implement **R11: pendant lamp, chandelier, wall lamp and wall light** to reach **58/72**. R9/R10/R11a are complete at **54/72**. Completion means **72/72**, including honest body-only editing for single-piece forms.
-
-No calendar estimate is committed. Use measured seating/T0 implementation and verification time to size later batches; ship reviewed construction families rather than enabling unfinished entries.
+No catalog conversion work remains. Free transforms, arbitrary component addition, fabrication layers, CAD export, exploded views, animation, mechanisms, physical light/reflection/structural simulation, uploaded logos and optional vase finish regions are separate features. They are not implied by complete Parts Editor catalog coverage.

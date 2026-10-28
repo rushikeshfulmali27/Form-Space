@@ -1,0 +1,1052 @@
+[
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "display-plinth",
+      "name": "Forma display plinth",
+      "category": "Shop",
+      "subcategory": "shop-products",
+      "kind": "plinth",
+      "tag": "Sculptural product display",
+      "width": 55,
+      "height": 90,
+      "depth": 55,
+      "color": "#ded6c6",
+      "accent": "#282e2c",
+      "material": "matte",
+      "shape": "square"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "display-plinth",
+      "name": "Forma display plinth",
+      "category": "Shop",
+      "subcategory": "shop-products",
+      "kind": "plinth",
+      "tag": "Sculptural product display",
+      "width": 55,
+      "height": 90,
+      "depth": 55,
+      "color": "#ded6c6",
+      "accent": "#282e2c",
+      "material": "matte",
+      "shape": "square"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "display-plinth",
+      "name": "Forma display plinth",
+      "category": "Shop",
+      "subcategory": "shop-products",
+      "kind": "plinth",
+      "tag": "Sculptural product display",
+      "width": 55,
+      "height": 90,
+      "depth": 55,
+      "color": "#ded6c6",
+      "accent": "#282e2c",
+      "material": "matte",
+      "shape": "square"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "chandelier",
+      "name": "Branch chandelier",
+      "category": "Home",
+      "subcategory": "home-lighting",
+      "kind": "chandelier",
+      "tag": "Lighting",
+      "width": 90,
+      "height": 80,
+      "depth": 90,
+      "color": "#ded6c6",
+      "accent": "#b79a61",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "chandelier",
+      "name": "Branch chandelier",
+      "category": "Home",
+      "subcategory": "home-lighting",
+      "kind": "chandelier",
+      "tag": "Lighting",
+      "width": 90,
+      "height": 80,
+      "depth": 90,
+      "color": "#ded6c6",
+      "accent": "#b79a61",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "chandelier",
+      "name": "Branch chandelier",
+      "category": "Home",
+      "subcategory": "home-lighting",
+      "kind": "chandelier",
+      "tag": "Lighting",
+      "width": 90,
+      "height": 80,
+      "depth": 90,
+      "color": "#ded6c6",
+      "accent": "#b79a61",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "wall-lamp",
+      "name": "Wall lamp",
+      "category": "Home",
+      "subcategory": "home-lighting",
+      "kind": "wall-light",
+      "tag": "Lighting",
+      "width": 25,
+      "height": 45,
+      "depth": 25,
+      "color": "#ded6c6",
+      "accent": "#b79a61",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "wall-lamp",
+      "name": "Wall lamp",
+      "category": "Home",
+      "subcategory": "home-lighting",
+      "kind": "wall-light",
+      "tag": "Lighting",
+      "width": 25,
+      "height": 45,
+      "depth": 25,
+      "color": "#ded6c6",
+      "accent": "#b79a61",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "wall-lamp",
+      "name": "Wall lamp",
+      "category": "Home",
+      "subcategory": "home-lighting",
+      "kind": "wall-light",
+      "tag": "Lighting",
+      "width": 25,
+      "height": 45,
+      "depth": 25,
+      "color": "#ded6c6",
+      "accent": "#b79a61",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "vase",
+      "name": "Contour vase",
+      "category": "Home",
+      "subcategory": "home-decoration",
+      "kind": "vase",
+      "tag": "Decoration",
+      "width": 24,
+      "height": 40,
+      "depth": 24,
+      "color": "#b76d53",
+      "accent": "#282e2c",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "vase",
+      "name": "Contour vase",
+      "category": "Home",
+      "subcategory": "home-decoration",
+      "kind": "vase",
+      "tag": "Decoration",
+      "width": 24,
+      "height": 40,
+      "depth": 24,
+      "color": "#b76d53",
+      "accent": "#282e2c",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "vase",
+      "name": "Contour vase",
+      "category": "Home",
+      "subcategory": "home-decoration",
+      "kind": "vase",
+      "tag": "Decoration",
+      "width": 24,
+      "height": 40,
+      "depth": 24,
+      "color": "#b76d53",
+      "accent": "#282e2c",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "planter",
+      "name": "Indoor planter",
+      "category": "Home",
+      "subcategory": "home-decoration",
+      "kind": "planter",
+      "tag": "Decoration",
+      "width": 38,
+      "height": 70,
+      "depth": 38,
+      "color": "#ded6c6",
+      "accent": "#92a18b",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "planter",
+      "name": "Indoor planter",
+      "category": "Home",
+      "subcategory": "home-decoration",
+      "kind": "planter",
+      "tag": "Decoration",
+      "width": 38,
+      "height": 70,
+      "depth": 38,
+      "color": "#ded6c6",
+      "accent": "#92a18b",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "planter",
+      "name": "Indoor planter",
+      "category": "Home",
+      "subcategory": "home-decoration",
+      "kind": "planter",
+      "tag": "Decoration",
+      "width": 38,
+      "height": 70,
+      "depth": 38,
+      "color": "#ded6c6",
+      "accent": "#92a18b",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "mirror",
+      "name": "Wall mirror",
+      "category": "Home",
+      "subcategory": "home-decoration",
+      "kind": "mirror",
+      "tag": "Decoration",
+      "width": 65,
+      "height": 95,
+      "depth": 5,
+      "color": "#aab1b1",
+      "accent": "#b79a61",
+      "material": "metal"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "mirror",
+      "name": "Wall mirror",
+      "category": "Home",
+      "subcategory": "home-decoration",
+      "kind": "mirror",
+      "tag": "Decoration",
+      "width": 65,
+      "height": 95,
+      "depth": 5,
+      "color": "#aab1b1",
+      "accent": "#b79a61",
+      "material": "metal"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "mirror",
+      "name": "Wall mirror",
+      "category": "Home",
+      "subcategory": "home-decoration",
+      "kind": "mirror",
+      "tag": "Decoration",
+      "width": 65,
+      "height": 95,
+      "depth": 5,
+      "color": "#aab1b1",
+      "accent": "#b79a61",
+      "material": "metal"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "decorative-sculpture",
+      "name": "Stacked sculpture",
+      "category": "Home",
+      "subcategory": "home-decoration",
+      "kind": "sculpture",
+      "tag": "Decoration",
+      "width": 30,
+      "height": 55,
+      "depth": 30,
+      "color": "#ded6c6",
+      "accent": "#b76d53",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "decorative-sculpture",
+      "name": "Stacked sculpture",
+      "category": "Home",
+      "subcategory": "home-decoration",
+      "kind": "sculpture",
+      "tag": "Decoration",
+      "width": 30,
+      "height": 55,
+      "depth": 30,
+      "color": "#ded6c6",
+      "accent": "#b76d53",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "decorative-sculpture",
+      "name": "Stacked sculpture",
+      "category": "Home",
+      "subcategory": "home-decoration",
+      "kind": "sculpture",
+      "tag": "Decoration",
+      "width": 30,
+      "height": 55,
+      "depth": 30,
+      "color": "#ded6c6",
+      "accent": "#b76d53",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "workstation-partition",
+      "name": "Workstation partition",
+      "category": "Office",
+      "subcategory": "office-workstations",
+      "kind": "partition",
+      "tag": "Workstations",
+      "width": 140,
+      "height": 120,
+      "depth": 10,
+      "color": "#92a18b",
+      "accent": "#282e2c",
+      "material": "matte",
+      "variant": "solid"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "workstation-partition",
+      "name": "Workstation partition",
+      "category": "Office",
+      "subcategory": "office-workstations",
+      "kind": "partition",
+      "tag": "Workstations",
+      "width": 140,
+      "height": 120,
+      "depth": 10,
+      "color": "#92a18b",
+      "accent": "#282e2c",
+      "material": "matte",
+      "variant": "solid"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "workstation-partition",
+      "name": "Workstation partition",
+      "category": "Office",
+      "subcategory": "office-workstations",
+      "kind": "partition",
+      "tag": "Workstations",
+      "width": 140,
+      "height": 120,
+      "depth": 10,
+      "color": "#92a18b",
+      "accent": "#282e2c",
+      "material": "matte",
+      "variant": "solid"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "whiteboard-stand",
+      "name": "Whiteboard stand",
+      "category": "Office",
+      "subcategory": "office-shared",
+      "kind": "board",
+      "tag": "Shared spaces",
+      "width": 150,
+      "height": 180,
+      "depth": 55,
+      "color": "#f0eee7",
+      "accent": "#aab1b1",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "whiteboard-stand",
+      "name": "Whiteboard stand",
+      "category": "Office",
+      "subcategory": "office-shared",
+      "kind": "board",
+      "tag": "Shared spaces",
+      "width": 150,
+      "height": 180,
+      "depth": 55,
+      "color": "#f0eee7",
+      "accent": "#aab1b1",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "whiteboard-stand",
+      "name": "Whiteboard stand",
+      "category": "Office",
+      "subcategory": "office-shared",
+      "kind": "board",
+      "tag": "Shared spaces",
+      "width": 150,
+      "height": 180,
+      "depth": 55,
+      "color": "#f0eee7",
+      "accent": "#aab1b1",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "menu-stand",
+      "name": "Menu stand",
+      "category": "Cafe",
+      "subcategory": "cafe-counters",
+      "kind": "board",
+      "tag": "Counters & displays",
+      "width": 50,
+      "height": 110,
+      "depth": 50,
+      "color": "#282e2c",
+      "accent": "#b98c60",
+      "material": "matte",
+      "variant": "a-frame"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "menu-stand",
+      "name": "Menu stand",
+      "category": "Cafe",
+      "subcategory": "cafe-counters",
+      "kind": "board",
+      "tag": "Counters & displays",
+      "width": 50,
+      "height": 110,
+      "depth": 50,
+      "color": "#282e2c",
+      "accent": "#b98c60",
+      "material": "matte",
+      "variant": "a-frame"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "menu-stand",
+      "name": "Menu stand",
+      "category": "Cafe",
+      "subcategory": "cafe-counters",
+      "kind": "board",
+      "tag": "Counters & displays",
+      "width": 50,
+      "height": 110,
+      "depth": 50,
+      "color": "#282e2c",
+      "accent": "#b98c60",
+      "material": "matte",
+      "variant": "a-frame"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "pendant-lamp",
+      "name": "Café pendant lamp",
+      "category": "Cafe",
+      "subcategory": "cafe-decor",
+      "kind": "pendant",
+      "tag": "Lighting & decoration",
+      "width": 40,
+      "height": 100,
+      "depth": 40,
+      "color": "#92a18b",
+      "accent": "#282e2c",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "pendant-lamp",
+      "name": "Café pendant lamp",
+      "category": "Cafe",
+      "subcategory": "cafe-decor",
+      "kind": "pendant",
+      "tag": "Lighting & decoration",
+      "width": 40,
+      "height": 100,
+      "depth": 40,
+      "color": "#92a18b",
+      "accent": "#282e2c",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "pendant-lamp",
+      "name": "Café pendant lamp",
+      "category": "Cafe",
+      "subcategory": "cafe-decor",
+      "kind": "pendant",
+      "tag": "Lighting & decoration",
+      "width": 40,
+      "height": 100,
+      "depth": 40,
+      "color": "#92a18b",
+      "accent": "#282e2c",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "hanging-planter",
+      "name": "Hanging planter",
+      "category": "Cafe",
+      "subcategory": "cafe-decor",
+      "kind": "hanging-planter",
+      "tag": "Lighting & decoration",
+      "width": 35,
+      "height": 95,
+      "depth": 35,
+      "color": "#b76d53",
+      "accent": "#92a18b",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "hanging-planter",
+      "name": "Hanging planter",
+      "category": "Cafe",
+      "subcategory": "cafe-decor",
+      "kind": "hanging-planter",
+      "tag": "Lighting & decoration",
+      "width": 35,
+      "height": 95,
+      "depth": 35,
+      "color": "#b76d53",
+      "accent": "#92a18b",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "hanging-planter",
+      "name": "Hanging planter",
+      "category": "Cafe",
+      "subcategory": "cafe-decor",
+      "kind": "hanging-planter",
+      "tag": "Lighting & decoration",
+      "width": 35,
+      "height": 95,
+      "depth": 35,
+      "color": "#b76d53",
+      "accent": "#92a18b",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "wall-light",
+      "name": "Café wall light",
+      "category": "Cafe",
+      "subcategory": "cafe-decor",
+      "kind": "wall-light",
+      "tag": "Lighting & decoration",
+      "width": 28,
+      "height": 45,
+      "depth": 28,
+      "color": "#ded6c6",
+      "accent": "#282e2c",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "wall-light",
+      "name": "Café wall light",
+      "category": "Cafe",
+      "subcategory": "cafe-decor",
+      "kind": "wall-light",
+      "tag": "Lighting & decoration",
+      "width": 28,
+      "height": 45,
+      "depth": 28,
+      "color": "#ded6c6",
+      "accent": "#282e2c",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "wall-light",
+      "name": "Café wall light",
+      "category": "Cafe",
+      "subcategory": "cafe-decor",
+      "kind": "wall-light",
+      "tag": "Lighting & decoration",
+      "width": 28,
+      "height": 45,
+      "depth": 28,
+      "color": "#ded6c6",
+      "accent": "#282e2c",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "decorative-partition",
+      "name": "Slatted decorative partition",
+      "category": "Cafe",
+      "subcategory": "cafe-decor",
+      "kind": "partition",
+      "tag": "Lighting & decoration",
+      "width": 120,
+      "height": 180,
+      "depth": 18,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "variant": "slatted"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "decorative-partition",
+      "name": "Slatted decorative partition",
+      "category": "Cafe",
+      "subcategory": "cafe-decor",
+      "kind": "partition",
+      "tag": "Lighting & decoration",
+      "width": 120,
+      "height": 180,
+      "depth": 18,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "variant": "slatted"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "decorative-partition",
+      "name": "Slatted decorative partition",
+      "category": "Cafe",
+      "subcategory": "cafe-decor",
+      "kind": "partition",
+      "tag": "Lighting & decoration",
+      "width": 120,
+      "height": 180,
+      "depth": 18,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "variant": "slatted"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "product-pedestal",
+      "name": "Product pedestal",
+      "category": "Shop",
+      "subcategory": "shop-products",
+      "kind": "plinth",
+      "tag": "Product displays",
+      "width": 40,
+      "height": 100,
+      "depth": 40,
+      "color": "#b76d53",
+      "accent": "#282e2c",
+      "material": "matte",
+      "shape": "round"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "product-pedestal",
+      "name": "Product pedestal",
+      "category": "Shop",
+      "subcategory": "shop-products",
+      "kind": "plinth",
+      "tag": "Product displays",
+      "width": 40,
+      "height": 100,
+      "depth": 40,
+      "color": "#b76d53",
+      "accent": "#282e2c",
+      "material": "matte",
+      "shape": "round"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "product-pedestal",
+      "name": "Product pedestal",
+      "category": "Shop",
+      "subcategory": "shop-products",
+      "kind": "plinth",
+      "tag": "Product displays",
+      "width": 40,
+      "height": 100,
+      "depth": 40,
+      "color": "#b76d53",
+      "accent": "#282e2c",
+      "material": "matte",
+      "shape": "round"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "fitting-room-partition",
+      "name": "Fitting-room partition",
+      "category": "Shop",
+      "subcategory": "shop-fixtures",
+      "kind": "partition",
+      "tag": "Counters & fixtures",
+      "width": 140,
+      "height": 200,
+      "depth": 30,
+      "color": "#ded6c6",
+      "accent": "#282e2c",
+      "material": "matte",
+      "variant": "corner"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "fitting-room-partition",
+      "name": "Fitting-room partition",
+      "category": "Shop",
+      "subcategory": "shop-fixtures",
+      "kind": "partition",
+      "tag": "Counters & fixtures",
+      "width": 140,
+      "height": 200,
+      "depth": 30,
+      "color": "#ded6c6",
+      "accent": "#282e2c",
+      "material": "matte",
+      "variant": "corner"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "fitting-room-partition",
+      "name": "Fitting-room partition",
+      "category": "Shop",
+      "subcategory": "shop-fixtures",
+      "kind": "partition",
+      "tag": "Counters & fixtures",
+      "width": 140,
+      "height": 200,
+      "depth": 30,
+      "color": "#ded6c6",
+      "accent": "#282e2c",
+      "material": "matte",
+      "variant": "corner"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "mirror-stand",
+      "name": "Freestanding mirror stand",
+      "category": "Shop",
+      "subcategory": "shop-fixtures",
+      "kind": "mirror",
+      "tag": "Counters & fixtures",
+      "width": 60,
+      "height": 165,
+      "depth": 45,
+      "color": "#aab1b1",
+      "accent": "#b98c60",
+      "material": "metal",
+      "variant": "standing"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "mirror-stand",
+      "name": "Freestanding mirror stand",
+      "category": "Shop",
+      "subcategory": "shop-fixtures",
+      "kind": "mirror",
+      "tag": "Counters & fixtures",
+      "width": 60,
+      "height": 165,
+      "depth": 45,
+      "color": "#aab1b1",
+      "accent": "#b98c60",
+      "material": "metal",
+      "variant": "standing"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "mirror-stand",
+      "name": "Freestanding mirror stand",
+      "category": "Shop",
+      "subcategory": "shop-fixtures",
+      "kind": "mirror",
+      "tag": "Counters & fixtures",
+      "width": 60,
+      "height": 165,
+      "depth": 45,
+      "color": "#aab1b1",
+      "accent": "#b98c60",
+      "material": "metal",
+      "variant": "standing"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "signboard",
+      "name": "Shop signboard",
+      "category": "Shop",
+      "subcategory": "shop-signs",
+      "kind": "board",
+      "tag": "Signs & promotion",
+      "width": 80,
+      "height": 150,
+      "depth": 55,
+      "color": "#92a18b",
+      "accent": "#b98c60",
+      "material": "matte",
+      "variant": "a-frame"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "signboard",
+      "name": "Shop signboard",
+      "category": "Shop",
+      "subcategory": "shop-signs",
+      "kind": "board",
+      "tag": "Signs & promotion",
+      "width": 80,
+      "height": 150,
+      "depth": 55,
+      "color": "#92a18b",
+      "accent": "#b98c60",
+      "material": "matte",
+      "variant": "a-frame"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "signboard",
+      "name": "Shop signboard",
+      "category": "Shop",
+      "subcategory": "shop-signs",
+      "kind": "board",
+      "tag": "Signs & promotion",
+      "width": 80,
+      "height": 150,
+      "depth": 55,
+      "color": "#92a18b",
+      "accent": "#b98c60",
+      "material": "matte",
+      "variant": "a-frame"
+    }
+  }
+]

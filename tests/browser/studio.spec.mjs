@@ -429,7 +429,9 @@ test("parts inspector edits independent components, supports history and round-t
   await page.locator("#undo").click();
   await expect(page.locator("#part-diameter")).toHaveValue("8");
   await page.locator('[data-object="vase"]').click();
-  await expect(page.locator("#parts-editor")).toBeHidden();
+  await expect(page.locator("#parts-editor")).toBeVisible();
+  await expect(page.locator("#selected-part-name")).toHaveText("Select a part");
+  await page.locator("#edit-whole").click();
   await expect(page.locator("#height-number")).toBeVisible();
   await page.locator("#undo").click();
   await page.locator("#edit-parts").click();
