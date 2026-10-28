@@ -176,11 +176,16 @@ export class PartsControls {
   renderConstruction(d) {
     const root = this.q("#construction-controls"),
       fields =
-        getPartsProfile(d)?.builder === "storage-bedroom" && d.shelves
+        (getPartsProfile(d)?.builder === "storage-bedroom" ||
+          getPartsProfile(d)?.shelfCountLabel) &&
+        d.shelves
           ? {
               shelves: {
                 label:
-                  d.variant === "open" ? "Open bay count" : "Shelf board count",
+                  getPartsProfile(d)?.shelfCountLabel ||
+                  (d.variant === "open"
+                    ? "Open bay count"
+                    : "Shelf board count"),
                 min: 2,
                 max: 6,
               },

@@ -1,6 +1,6 @@
 # Parts Editor: complete catalog mapping
 
-Status: rollout in progress. **39/72 objects implemented; 33 remain planned.** V1.9 adds five shelving models, six closed-storage models, wall shelf, bed, vanity and kitchen island.
+Status: rollout in progress. **54/72 objects implemented; 18 remain planned.** V1.10 adds four counters, eight retail/plant stands and three lights.
 
 Generated from the current 72-object catalog after reading every geometry branch. Every object appears exactly once. Family names below are proposed implementation profiles, not new catalog categories. All multi-part entries include part-specific visual finish/color in addition to listed dimension controls. Repeated components begin as linked groups, then gain individual member editing under the instance rules in the rollout plan.
 
@@ -45,21 +45,21 @@ Generated from the current 72-object catalog after reading every geometry branch
 | `bed-frame` | Platform bed frame | bed | bed | 3 | frame, headboard, mattress, pillows, legs | implemented |
 | `dressing-table` | Dressing table | vanity | vanity | 3 | worktop, mirror-frame, mirror, mirror-support, drawer-block, legs | implemented |
 | `kitchen-island` | Kitchen island | counter | counters | 4 | body, top, plinth, fronts | implemented |
-| `reception-desk` | Reception desk | counter | counters | 4 | body, countertop, plinth, front-panels | planned |
-| `service-counter` | Service counter | counter | counters | 4 | body, countertop, plinth, front-panels | planned |
-| `bar-counter` | Bar counter | counter | counters | 4 | body, countertop, plinth, front-panels | planned |
-| `checkout-counter` | Checkout counter | counter | counters | 4 | body, countertop, plinth, front-panels | planned |
-| `pastry-display-stand` | Pastry display stand | tier-stand | tier-stand | 4 | uprights, trays | planned |
-| `plant-stand` | Tiered plant stand | plant-stand | plant-stand | 4 | platforms, supports | planned |
-| `garment-rail` | Garment rail | rail | garment-rails | 4 | uprights, feet, hanging-rail, lower-shelf? | planned |
-| `hanging-rack` | Hanging clothes rack | rail / shelf | garment-rails | 4 | uprights, feet, hanging-rail, lower-shelf? | planned |
-| `accessory-stand` | Accessory stand | accessory | accessory-stand | 4 | base, upright, crossbars | planned |
-| `brochure-holder` | Brochure holder | brochure | brochure-holder | 4 | base, upright, pocket-assemblies | planned |
-| `promotional-stand` | Promotional display stand | promo | promotional-stand | 4 | base, back-panel, lower-shelf, upper-shelf | planned |
-| `freestanding-logo-display` | Freestanding logo display | logo | logo-display | 4 | base, support, logo-bars | planned |
-| `floor-lamp` | Halo floor lamp | lamp | floor-table-lamps | 5 | base, stem, shade, diffuser | planned |
-| `table-lamp` | Cone table lamp | lamp | floor-table-lamps | 5 | base, stem, shade, diffuser | planned |
-| `pendant-light` | Dome pendant light | pendant | pendants | 5 | ceiling-canopy, suspension, shade, diffuser | planned |
+| `reception-desk` | Reception desk | counter | counters | 4 | body, top, plinth, fronts | implemented |
+| `service-counter` | Service counter | counter | counters | 4 | body, top, plinth, fronts | implemented |
+| `bar-counter` | Bar counter | counter | counters | 4 | body, top, plinth, fronts | implemented |
+| `checkout-counter` | Checkout counter | counter | counters | 4 | body, top, plinth, fronts | implemented |
+| `pastry-display-stand` | Pastry display stand | tier-stand | tier-stand | 4 | posts, trays | implemented |
+| `plant-stand` | Tiered plant stand | plant-stand | plant-stand | 4 | platforms, supports | implemented |
+| `garment-rail` | Garment rail | rail | garment-rails | 4 | feet, uprights, rail | implemented |
+| `hanging-rack` | Hanging clothes rack | rail / shelf | garment-rails | 4 | feet, uprights, rail, shelf | implemented |
+| `accessory-stand` | Accessory stand | accessory | accessory-stand | 4 | base, mast, crossbars | implemented |
+| `brochure-holder` | Brochure holder | brochure | brochure-holder | 4 | base, mast, backs, floors, lips | implemented |
+| `promotional-stand` | Promotional display stand | promo | promotional-stand | 4 | base, back, shelves | implemented |
+| `freestanding-logo-display` | Freestanding logo display | logo | logo-display | 4 | base, support, mark | implemented |
+| `floor-lamp` | Halo floor lamp | lamp | floor-table-lamps | 5 | base, stem, shade, diffuser | implemented |
+| `table-lamp` | Cone table lamp | lamp | floor-table-lamps | 5 | base, stem, shade, diffuser | implemented |
+| `pendant-light` | Dome pendant light | pendant | pendants | 5 | mount, cable, shade, diffuser | implemented |
 | `pendant-lamp` | Café pendant lamp | pendant | pendants | 5 | ceiling-canopy, suspension, shade, diffuser | planned |
 | `chandelier` | Branch chandelier | chandelier | chandelier | 5 | canopy, stem, arms, light-heads | planned |
 | `wall-lamp` | Wall lamp | wall-light | wall-lights | 5 | wall-plate, arm, shade | planned |
@@ -325,71 +325,71 @@ Connections and limits: Three existing front panels remain aligned to body; incr
 
 Objects: `pastry-display-stand`.
 
-Selectable parts: uprights, trays.
+Selectable parts: posts.left/right, trays.01–N.
 
-Controls: Tray count/thickness; per-tier size; upright section.
+Controls: Tray count 2–6; post section; tray thickness; upper-tray width/depth; internal center heights.
 
-Connections and limits: Trays taper with level; enforce decreasing footprint and attachment to rear posts. Lowest/highest tiers keep envelope anchors.
+Connections and limits: 2–6 counted trays include floor/top anchors. Stable numbered slots, reserved safe height bands, upper footprint limits and posts inside minimum tray size.
 
 ### plant-stand (wave 4)
 
 Objects: `plant-stand`.
 
-Selectable parts: platforms, supports.
+Selectable parts: platforms.01–03, supports.01-front/rear–03-front/rear.
 
-Controls: Three platform thicknesses/heights; support section.
+Controls: Platform thickness/width; lower platform top heights; support section.
 
-Connections and limits: Three stepped platforms retain width layout; each support pair derives its height from the corresponding platform.
+Connections and limits: Three fixed stepped platforms; outer widths anchor total width and six posts follow platform undersides.
 
 ### garment-rails (wave 4)
 
 Objects: `garment-rail`, `hanging-rack`.
 
-Selectable parts: uprights, feet, hanging-rail, lower-shelf?.
+Selectable parts: feet.left/right, uprights.left/right, rail; shelf only on hanging-rack.
 
-Controls: Rail/upright section; foot depth; optional shelf thickness/height.
+Controls: Foot width/height, upright/rail section; hanging shelf thickness/center height.
 
-Connections and limits: Only hanging-rack has the existing lower shelf. Rail spans supports; feet stay grounded.
+Connections and limits: Feet anchor width/depth; uprights follow feet and top rail. Only hanging-rack has a lower shelf.
 
 ### accessory-stand (wave 4)
 
 Objects: `accessory-stand`.
 
-Selectable parts: base, upright, crossbars.
+Selectable parts: base, mast, crossbars.lower/upper.
 
-Controls: Base thickness/footprint; upright section; linked bar length/section.
+Controls: Base thickness, mast section, crossbar section/width, lower bar center height.
 
-Connections and limits: Two crossbars stay centered on upright at constrained levels; no added hooks.
+Connections and limits: Grounded base, central mast and two fixed bars; upper bar anchors total height.
 
 ### brochure-holder (wave 4)
 
 Objects: `brochure-holder`.
 
-Selectable parts: base, upright, pocket-assemblies.
+Selectable parts: base, mast, backs.01–03, floors.01–03, lips.01–03.
 
-Controls: Base footprint/thickness; upright section; linked pocket depth/lip height.
+Controls: Base/panel thickness, mast section, pocket back widths and lip heights.
 
-Connections and limits: Three existing pockets each group back, floor and lip; keep fronts open and anchored to upright.
+Connections and limits: Three fixed pocket backs/floors/lips share attachment anchors; support mast connects all pockets to the base.
 
 ### promotional-stand (wave 4)
 
 Objects: `promotional-stand`.
 
-Selectable parts: base, back-panel, lower-shelf, upper-shelf.
+Selectable parts: base, back, shelves.01/02.
 
-Controls: Base height; panel thickness; shelf thickness/heights.
+Controls: Base/back thickness, shelf thickness/center height.
 
-Connections and limits: Shelf edges and back panel stay connected; heights are ordered inside overall envelope.
+Connections and limits: Base and full-height back anchor two fixed shelves with separate center-height bands.
 
 ### logo-display (wave 4)
 
 Objects: `freestanding-logo-display`.
 
-Selectable parts: base, support, logo-bars.
+Selectable parts: base, support, mark.stem/top/middle.
 
-Controls: Base footprint/height; support section; linked logo depth.
+Controls: Base thickness, support section, linked/individual mark stroke section and depth.
 
-Connections and limits: Existing three bars form a fixed stylized mark, not editable text or uploaded logo. Keep their connecting silhouette.
+Connections and limits: Three fixed F-mark bars; connecting support follows vertical stroke. No text or uploads.
 
 ### floor-table-lamps (wave 5)
 
@@ -397,11 +397,13 @@ Objects: `floor-lamp`, `table-lamp`.
 
 Selectable parts: base, stem, shade, diffuser.
 
-Controls: Base footprint/thickness; stem diameter; shade size/height; diffuser inset.
+Controls: Base/diffuser thickness, stem diameter and shade height.
 
-Connections and limits: Shade follows stem endpoint; stem length derives from total height and shade. Diffuser remains at shade opening.
+Connections and limits: Grounded base, stem, tapered shade and diffuser remain attached; shade top anchors total height.
 
 ### pendants (wave 5)
+
+V1.10 implements `pendant-light`: mount, cable, shade and diffuser with mount/diffuser thickness, cable diameter and shade height. `pendant-lamp` remains planned.
 
 Objects: `pendant-light`, `pendant-lamp`.
 

@@ -1,7 +1,7 @@
 {
-  "baseline": "v1.9.0",
-  "implemented": 39,
-  "remaining": 33,
+  "baseline": "v1.10.0",
+  "implemented": 54,
+  "remaining": 18,
   "scope": "rollout-in-progress",
   "sharedGate": {
     "id": "T0",
@@ -10,7 +10,7 @@
       "R1"
     ],
     "status": "implemented",
-    "validatedWith": "R4 sofas: construction counts, active member pruning, selection/focus, strict migration and atomic history"
+    "validatedWith": "R4 sofas, R6 shelving and R10 trays: validated counts, active member pruning, safe placement, selection/focus, strict migration and atomic history"
   },
   "batches": [
     {
@@ -242,7 +242,7 @@
     {
       "id": "R9",
       "title": "Remaining counters",
-      "status": "planned",
+      "status": "implemented",
       "dependsOn": [
         "R9a"
       ],
@@ -262,7 +262,7 @@
     {
       "id": "R10",
       "title": "Retail and plant stands",
-      "status": "planned",
+      "status": "implemented",
       "dependsOn": [
         "R6",
         "R9",
@@ -292,22 +292,39 @@
       "supportedAfterBatch": 51
     },
     {
-      "id": "R11",
-      "title": "Lighting",
-      "status": "planned",
+      "id": "R11a",
+      "title": "Floor, table and dome pendant lights",
+      "status": "implemented",
       "dependsOn": [
         "R5"
       ],
       "objectIds": [
         "floor-lamp",
         "table-lamp",
-        "pendant-light",
+        "pendant-light"
+      ],
+      "count": 3,
+      "scope": "Ground/ceiling anchors, attached base/mount, stem/cable, tapered shade and diffuser.",
+      "profiles": [
+        "floor-table-lamps",
+        "pendants"
+      ],
+      "supportedAfterBatch": 54
+    },
+    {
+      "id": "R11",
+      "title": "Remaining lighting",
+      "status": "planned",
+      "dependsOn": [
+        "R11a"
+      ],
+      "objectIds": [
         "pendant-lamp",
         "chandelier",
         "wall-lamp",
         "wall-light"
       ],
-      "count": 7,
+      "count": 4,
       "scope": "Floor/wall/ceiling anchors; shade/diffuser fit; fixed radial arms and heads.",
       "profiles": [
         "floor-table-lamps",
@@ -385,10 +402,8 @@
       "supportedAfterBatch": 72
     }
   ],
-  "reviewedAt": "2026-10-27",
+  "reviewedAt": "2026-10-28",
   "executionOrder": [
-    "R9",
-    "R10",
     "R11",
     "R12",
     "R13",

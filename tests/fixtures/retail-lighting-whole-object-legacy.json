@@ -1,0 +1,863 @@
+[
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "reception-desk",
+      "name": "Reception desk",
+      "category": "Office",
+      "subcategory": "office-shared",
+      "kind": "counter",
+      "tag": "Shared spaces",
+      "width": 180,
+      "height": 110,
+      "depth": 70,
+      "color": "#ded6c6",
+      "accent": "#b98c60",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "reception-desk",
+      "name": "Reception desk",
+      "category": "Office",
+      "subcategory": "office-shared",
+      "kind": "counter",
+      "tag": "Shared spaces",
+      "width": 180,
+      "height": 110,
+      "depth": 70,
+      "color": "#ded6c6",
+      "accent": "#b98c60",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "reception-desk",
+      "name": "Reception desk",
+      "category": "Office",
+      "subcategory": "office-shared",
+      "kind": "counter",
+      "tag": "Shared spaces",
+      "width": 180,
+      "height": 110,
+      "depth": 70,
+      "color": "#ded6c6",
+      "accent": "#b98c60",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "service-counter",
+      "name": "Service counter",
+      "category": "Cafe",
+      "subcategory": "cafe-counters",
+      "kind": "counter",
+      "tag": "Counters & displays",
+      "width": 180,
+      "height": 105,
+      "depth": 65,
+      "color": "#79553c",
+      "accent": "#282e2c",
+      "material": "walnut"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "service-counter",
+      "name": "Service counter",
+      "category": "Cafe",
+      "subcategory": "cafe-counters",
+      "kind": "counter",
+      "tag": "Counters & displays",
+      "width": 180,
+      "height": 105,
+      "depth": 65,
+      "color": "#79553c",
+      "accent": "#282e2c",
+      "material": "walnut"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "service-counter",
+      "name": "Service counter",
+      "category": "Cafe",
+      "subcategory": "cafe-counters",
+      "kind": "counter",
+      "tag": "Counters & displays",
+      "width": 180,
+      "height": 105,
+      "depth": 65,
+      "color": "#79553c",
+      "accent": "#282e2c",
+      "material": "walnut"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "bar-counter",
+      "name": "Bar counter",
+      "category": "Cafe",
+      "subcategory": "cafe-counters",
+      "kind": "counter",
+      "tag": "Counters & displays",
+      "width": 200,
+      "height": 110,
+      "depth": 55,
+      "color": "#282e2c",
+      "accent": "#79553c",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "bar-counter",
+      "name": "Bar counter",
+      "category": "Cafe",
+      "subcategory": "cafe-counters",
+      "kind": "counter",
+      "tag": "Counters & displays",
+      "width": 200,
+      "height": 110,
+      "depth": 55,
+      "color": "#282e2c",
+      "accent": "#79553c",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "bar-counter",
+      "name": "Bar counter",
+      "category": "Cafe",
+      "subcategory": "cafe-counters",
+      "kind": "counter",
+      "tag": "Counters & displays",
+      "width": 200,
+      "height": 110,
+      "depth": 55,
+      "color": "#282e2c",
+      "accent": "#79553c",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "checkout-counter",
+      "name": "Checkout counter",
+      "category": "Shop",
+      "subcategory": "shop-fixtures",
+      "kind": "counter",
+      "tag": "Counters & fixtures",
+      "width": 140,
+      "height": 100,
+      "depth": 65,
+      "color": "#f0eee7",
+      "accent": "#79553c",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "checkout-counter",
+      "name": "Checkout counter",
+      "category": "Shop",
+      "subcategory": "shop-fixtures",
+      "kind": "counter",
+      "tag": "Counters & fixtures",
+      "width": 140,
+      "height": 100,
+      "depth": 65,
+      "color": "#f0eee7",
+      "accent": "#79553c",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "checkout-counter",
+      "name": "Checkout counter",
+      "category": "Shop",
+      "subcategory": "shop-fixtures",
+      "kind": "counter",
+      "tag": "Counters & fixtures",
+      "width": 140,
+      "height": 100,
+      "depth": 65,
+      "color": "#f0eee7",
+      "accent": "#79553c",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "pastry-display-stand",
+      "name": "Pastry display stand",
+      "category": "Cafe",
+      "subcategory": "cafe-counters",
+      "kind": "tier-stand",
+      "tag": "Counters & displays",
+      "width": 75,
+      "height": 70,
+      "depth": 40,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "shelves": 3
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "pastry-display-stand",
+      "name": "Pastry display stand",
+      "category": "Cafe",
+      "subcategory": "cafe-counters",
+      "kind": "tier-stand",
+      "tag": "Counters & displays",
+      "width": 75,
+      "height": 70,
+      "depth": 40,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "shelves": 3
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "pastry-display-stand",
+      "name": "Pastry display stand",
+      "category": "Cafe",
+      "subcategory": "cafe-counters",
+      "kind": "tier-stand",
+      "tag": "Counters & displays",
+      "width": 75,
+      "height": 70,
+      "depth": 40,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "shelves": 3
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "plant-stand",
+      "name": "Tiered plant stand",
+      "category": "Home",
+      "subcategory": "home-outdoor",
+      "kind": "plant-stand",
+      "tag": "Outdoor",
+      "width": 60,
+      "height": 85,
+      "depth": 40,
+      "color": "#79553c",
+      "accent": "#282e2c",
+      "material": "walnut"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "plant-stand",
+      "name": "Tiered plant stand",
+      "category": "Home",
+      "subcategory": "home-outdoor",
+      "kind": "plant-stand",
+      "tag": "Outdoor",
+      "width": 60,
+      "height": 85,
+      "depth": 40,
+      "color": "#79553c",
+      "accent": "#282e2c",
+      "material": "walnut"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "plant-stand",
+      "name": "Tiered plant stand",
+      "category": "Home",
+      "subcategory": "home-outdoor",
+      "kind": "plant-stand",
+      "tag": "Outdoor",
+      "width": 60,
+      "height": 85,
+      "depth": 40,
+      "color": "#79553c",
+      "accent": "#282e2c",
+      "material": "walnut"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "garment-rail",
+      "name": "Garment rail",
+      "category": "Shop",
+      "subcategory": "shop-clothing",
+      "kind": "rail",
+      "tag": "Clothing displays",
+      "width": 120,
+      "height": 165,
+      "depth": 50,
+      "color": "#aab1b1",
+      "accent": "#282e2c",
+      "material": "metal"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "garment-rail",
+      "name": "Garment rail",
+      "category": "Shop",
+      "subcategory": "shop-clothing",
+      "kind": "rail",
+      "tag": "Clothing displays",
+      "width": 120,
+      "height": 165,
+      "depth": 50,
+      "color": "#aab1b1",
+      "accent": "#282e2c",
+      "material": "metal"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "garment-rail",
+      "name": "Garment rail",
+      "category": "Shop",
+      "subcategory": "shop-clothing",
+      "kind": "rail",
+      "tag": "Clothing displays",
+      "width": 120,
+      "height": 165,
+      "depth": 50,
+      "color": "#aab1b1",
+      "accent": "#282e2c",
+      "material": "metal"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "hanging-rack",
+      "name": "Hanging clothes rack",
+      "category": "Shop",
+      "subcategory": "shop-clothing",
+      "kind": "rail",
+      "tag": "Clothing displays",
+      "width": 100,
+      "height": 170,
+      "depth": 45,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "variant": "shelf"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "hanging-rack",
+      "name": "Hanging clothes rack",
+      "category": "Shop",
+      "subcategory": "shop-clothing",
+      "kind": "rail",
+      "tag": "Clothing displays",
+      "width": 100,
+      "height": 170,
+      "depth": 45,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "variant": "shelf"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "hanging-rack",
+      "name": "Hanging clothes rack",
+      "category": "Shop",
+      "subcategory": "shop-clothing",
+      "kind": "rail",
+      "tag": "Clothing displays",
+      "width": 100,
+      "height": 170,
+      "depth": 45,
+      "color": "#b98c60",
+      "accent": "#282e2c",
+      "material": "oak",
+      "variant": "shelf"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "accessory-stand",
+      "name": "Accessory stand",
+      "category": "Shop",
+      "subcategory": "shop-clothing",
+      "kind": "accessory",
+      "tag": "Clothing displays",
+      "width": 45,
+      "height": 65,
+      "depth": 30,
+      "color": "#b79a61",
+      "accent": "#282e2c",
+      "material": "metal"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "accessory-stand",
+      "name": "Accessory stand",
+      "category": "Shop",
+      "subcategory": "shop-clothing",
+      "kind": "accessory",
+      "tag": "Clothing displays",
+      "width": 45,
+      "height": 65,
+      "depth": 30,
+      "color": "#b79a61",
+      "accent": "#282e2c",
+      "material": "metal"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "accessory-stand",
+      "name": "Accessory stand",
+      "category": "Shop",
+      "subcategory": "shop-clothing",
+      "kind": "accessory",
+      "tag": "Clothing displays",
+      "width": 45,
+      "height": 65,
+      "depth": 30,
+      "color": "#b79a61",
+      "accent": "#282e2c",
+      "material": "metal"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "brochure-holder",
+      "name": "Brochure holder",
+      "category": "Shop",
+      "subcategory": "shop-signs",
+      "kind": "brochure",
+      "tag": "Signs & promotion",
+      "width": 45,
+      "height": 120,
+      "depth": 40,
+      "color": "#ded6c6",
+      "accent": "#282e2c",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "brochure-holder",
+      "name": "Brochure holder",
+      "category": "Shop",
+      "subcategory": "shop-signs",
+      "kind": "brochure",
+      "tag": "Signs & promotion",
+      "width": 45,
+      "height": 120,
+      "depth": 40,
+      "color": "#ded6c6",
+      "accent": "#282e2c",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "brochure-holder",
+      "name": "Brochure holder",
+      "category": "Shop",
+      "subcategory": "shop-signs",
+      "kind": "brochure",
+      "tag": "Signs & promotion",
+      "width": 45,
+      "height": 120,
+      "depth": 40,
+      "color": "#ded6c6",
+      "accent": "#282e2c",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "promotional-stand",
+      "name": "Promotional display stand",
+      "category": "Shop",
+      "subcategory": "shop-signs",
+      "kind": "promo",
+      "tag": "Signs & promotion",
+      "width": 65,
+      "height": 170,
+      "depth": 45,
+      "color": "#92a18b",
+      "accent": "#ded6c6",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "promotional-stand",
+      "name": "Promotional display stand",
+      "category": "Shop",
+      "subcategory": "shop-signs",
+      "kind": "promo",
+      "tag": "Signs & promotion",
+      "width": 65,
+      "height": 170,
+      "depth": 45,
+      "color": "#92a18b",
+      "accent": "#ded6c6",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "promotional-stand",
+      "name": "Promotional display stand",
+      "category": "Shop",
+      "subcategory": "shop-signs",
+      "kind": "promo",
+      "tag": "Signs & promotion",
+      "width": 65,
+      "height": 170,
+      "depth": 45,
+      "color": "#92a18b",
+      "accent": "#ded6c6",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "freestanding-logo-display",
+      "name": "Freestanding logo display",
+      "category": "Shop",
+      "subcategory": "shop-signs",
+      "kind": "logo",
+      "tag": "Signs & promotion",
+      "width": 60,
+      "height": 110,
+      "depth": 35,
+      "color": "#b76d53",
+      "accent": "#282e2c",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "freestanding-logo-display",
+      "name": "Freestanding logo display",
+      "category": "Shop",
+      "subcategory": "shop-signs",
+      "kind": "logo",
+      "tag": "Signs & promotion",
+      "width": 60,
+      "height": 110,
+      "depth": 35,
+      "color": "#b76d53",
+      "accent": "#282e2c",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "freestanding-logo-display",
+      "name": "Freestanding logo display",
+      "category": "Shop",
+      "subcategory": "shop-signs",
+      "kind": "logo",
+      "tag": "Signs & promotion",
+      "width": 60,
+      "height": 110,
+      "depth": 35,
+      "color": "#b76d53",
+      "accent": "#282e2c",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "floor-lamp",
+      "name": "Halo floor lamp",
+      "category": "Home",
+      "subcategory": "home-lighting",
+      "kind": "lamp",
+      "tag": "Tapered shade · slim stem",
+      "width": 50,
+      "height": 160,
+      "depth": 50,
+      "color": "#ded6c6",
+      "accent": "#282e2c",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "floor-lamp",
+      "name": "Halo floor lamp",
+      "category": "Home",
+      "subcategory": "home-lighting",
+      "kind": "lamp",
+      "tag": "Tapered shade · slim stem",
+      "width": 50,
+      "height": 160,
+      "depth": 50,
+      "color": "#ded6c6",
+      "accent": "#282e2c",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "floor-lamp",
+      "name": "Halo floor lamp",
+      "category": "Home",
+      "subcategory": "home-lighting",
+      "kind": "lamp",
+      "tag": "Tapered shade · slim stem",
+      "width": 50,
+      "height": 160,
+      "depth": 50,
+      "color": "#ded6c6",
+      "accent": "#282e2c",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "table-lamp",
+      "name": "Cone table lamp",
+      "category": "Home",
+      "subcategory": "home-lighting",
+      "kind": "lamp",
+      "tag": "Lighting",
+      "width": 30,
+      "height": 52,
+      "depth": 30,
+      "color": "#ded6c6",
+      "accent": "#b79a61",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "table-lamp",
+      "name": "Cone table lamp",
+      "category": "Home",
+      "subcategory": "home-lighting",
+      "kind": "lamp",
+      "tag": "Lighting",
+      "width": 30,
+      "height": 52,
+      "depth": 30,
+      "color": "#ded6c6",
+      "accent": "#b79a61",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "table-lamp",
+      "name": "Cone table lamp",
+      "category": "Home",
+      "subcategory": "home-lighting",
+      "kind": "lamp",
+      "tag": "Lighting",
+      "width": 30,
+      "height": 52,
+      "depth": 30,
+      "color": "#ded6c6",
+      "accent": "#b79a61",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 1,
+    "units": "cm",
+    "design": {
+      "id": "pendant-light",
+      "name": "Dome pendant light",
+      "category": "Home",
+      "subcategory": "home-lighting",
+      "kind": "pendant",
+      "tag": "Lighting",
+      "width": 45,
+      "height": 90,
+      "depth": 45,
+      "color": "#b76d53",
+      "accent": "#282e2c",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 2,
+    "units": "cm",
+    "design": {
+      "id": "pendant-light",
+      "name": "Dome pendant light",
+      "category": "Home",
+      "subcategory": "home-lighting",
+      "kind": "pendant",
+      "tag": "Lighting",
+      "width": 45,
+      "height": 90,
+      "depth": 45,
+      "color": "#b76d53",
+      "accent": "#282e2c",
+      "material": "matte"
+    }
+  },
+  {
+    "format": "form-studio",
+    "version": 3,
+    "units": "cm",
+    "design": {
+      "id": "pendant-light",
+      "name": "Dome pendant light",
+      "category": "Home",
+      "subcategory": "home-lighting",
+      "kind": "pendant",
+      "tag": "Lighting",
+      "width": 45,
+      "height": 90,
+      "depth": 45,
+      "color": "#b76d53",
+      "accent": "#282e2c",
+      "material": "matte"
+    }
+  }
+]

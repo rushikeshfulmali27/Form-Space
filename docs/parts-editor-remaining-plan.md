@@ -1,6 +1,6 @@
-# Parts Editor: implementation plan for the remaining 33 objects
+# Parts Editor: implementation plan for the remaining 18 objects
 
-Reviewed against v1.9.0 on 2026-10-27. The runtime registry enables **39 of 72 objects**. This plan covers the other **33**. R1–R8, R9a and shared gate T0 are complete; see [next-15 release notes](parts-editor-next-15-release.md).
+Reviewed against v1.10.0 on 2026-10-28. The runtime registry enables **54 of 72 objects**. This plan covers the other **18**. R1–R10, R11a and shared gate T0 are complete; see [retail/lighting release notes](parts-editor-retail-lighting-release.md).
 
 Use the [JSON backlog](parts-editor-remaining-backlog.json) for exact membership and prerequisites, the [catalog map](parts-editor-catalog-map.md) for construction details, and the [architecture roadmap](parts-editor-all-objects-plan.md) for shared contracts. Keep the existing browser modules, renderer, static build and GitHub Pages hosting.
 
@@ -12,18 +12,16 @@ Preserve each model's real construction. Armless chairs have no arm controls; cl
 
 ## 2. Delivery order and full coverage
 
-Every unsupported catalog ID appears exactly once below. Coverage includes the 39 already released. T0 was validated with R4 and the shelf adapter with R6; retail tier placement remains family-specific work.
+Every unsupported catalog ID appears exactly once below. Coverage includes the 54 already released. T0 was validated with R4 and the shelf adapter with R6; R10 validates the tray-count adapter and placement bands.
 
 | Batch                           | Exact object IDs                                                                                                                                              | Count | Parts and controls                                                                        | Coverage after batch |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----: | ----------------------------------------------------------------------------------------- | -------------------: |
-| R9 — counters                   | `reception-desk`, `service-counter`, `bar-counter`, `checkout-counter`                                                                      |     4 | Top, body, plinth and individual front panels                                             |                43/72 |
-| R10 — stands/retail             | `pastry-display-stand`, `plant-stand`, `garment-rail`, `hanging-rack`, `accessory-stand`, `brochure-holder`, `promotional-stand`, `freestanding-logo-display` |     8 | Tiers/platforms, posts/rails, pockets, shelves and current logo mark                      |                51/72 |
-| R11 — lighting                  | `floor-lamp`, `table-lamp`, `pendant-light`, `pendant-lamp`, `chandelier`, `wall-lamp`, `wall-light`                                                          |     7 | Bases/mounts, stems, shades/diffusers and fixed light-head members                        |                58/72 |
+| R11 — lighting                  | `pendant-lamp`, `chandelier`, `wall-lamp`, `wall-light`                                                          |     4 | Bases/mounts, stems, shades/diffusers and fixed light-head members                        |                58/72 |
 | R12 — mirrors/partitions/boards | `mirror`, `mirror-stand`, `workstation-partition`, `decorative-partition`, `fitting-room-partition`, `whiteboard-stand`, `menu-stand`, `signboard`            |     8 | Frames/surfaces, solid/slatted/return panels, posts/feet and A-frame supports             |                66/72 |
 | R13 — planters/sculpture        | `planter`, `hanging-planter`, `decorative-sculpture`                                                                                                          |     3 | Pot, soil, foliage, suspension and connected sculpture forms                              |                69/72 |
 | R14 — single-body forms         | `display-plinth`, `product-pedestal`, `vase`                                                                                                                  |     3 | Selectable body, valid dimensions/shape and finish                                        |                72/72 |
 
-Remaining counts: **4 + 8 + 7 + 8 + 3 + 3 = 33**. Recommended sequence: R9 through R14. Backlog prerequisites are distinct from this recommended order. T0 and the shelf adapter are complete; retail tier families still need their own adapter.
+Remaining counts: **4 + 8 + 3 + 3 = 18**. Recommended sequence: R11 through R14. Backlog prerequisites are distinct from this recommended order. T0, shelf and tray adapters are complete.
 
 ## 3. Completed R2 chairs and stools (v1.5)
 
@@ -44,7 +42,7 @@ R2 delivered all seven objects and raised coverage to **19/72**, preserving the 
 
 ## 4. Completed T0 foundation (v1.7)
 
-T0 now supports profile-owned construction and dynamic definitions, active-slot pruning, atomic count edits and selection/focus reconciliation. The sofa integration proves the rules below; R6 now adapts design.shelves with ordered safe placement. R10 still needs tier adapters.
+T0 now supports profile-owned construction and dynamic definitions, active-slot pruning, atomic count edits and selection/focus reconciliation. The sofa integration proves the rules below; R6 now adapts design.shelves with ordered safe placement. R10 now supports safe variable-count trays.
 
 - **Trusted topology:** derive active definitions from profile-owned normalized construction through the shared facade. Keep fixed profiles working. Imported data cannot select builders.
 - **Count ownership:** keep shelf/tier count in `design.shelves`. V1.7 has an explicitly validated 1–4 sofa cushion count and revisioned schema. Migration captures two cushions at original width ≤190 cm and three above it, before width rounding. After migration, width changes resize the chosen layout without changing count.
@@ -94,7 +92,7 @@ Extract lathe/foliage helpers only as needed and preserve objects still using le
 | Design/history/storage       | Explicit construction normalization/validation, profile migrations and atomic edits                                                   |
 | Build/CI                     | Allowlist added modules, capture family fixtures and browser checks; measure suite duration as coverage grows                         |
 
-Retain the v3 export envelope where compatible; use trusted per-profile revisions. Do not bump the format for each family. Incompatible changes to an enabled profile require migration. Protect all **39 released objects**, IDs and saved meanings.
+Retain the v3 export envelope where compatible; use trusted per-profile revisions. Do not bump the format for each family. Incompatible changes to an enabled profile require migration. Protect all **54 released objects**, IDs and saved meanings.
 
 Newly enabled objects must accept legitimate historical v1/v2/v3 whole-object saves. Missing revision is allowed only on a verified legacy path with no part overrides or new construction data. Reject future revisions, malformed construction and invalid members before replacing the design. Preserve the 100 KB import limit, v3→v2→v1 storage lookup, corrupt newer data, backups and blocked/quota feedback. Document visual changes from replacing old whole-mesh rescaling with final component dimensions.
 
@@ -125,6 +123,6 @@ Every newly enabled object needs browser coverage, with focused cases for distin
 
 ## 9. Next action
 
-Implement **R9: reception desk, service counter, bar counter and checkout counter**, reusing the verified kitchen-island construction, to reach **43/72**. The next-15 release completed R6/R7/R8/R9a and reached **39/72**. Completion means **72/72**, including honest body-only editing for single-piece forms.
+Implement **R11: pendant lamp, chandelier, wall lamp and wall light** to reach **58/72**. R9/R10/R11a are complete at **54/72**. Completion means **72/72**, including honest body-only editing for single-piece forms.
 
 No calendar estimate is committed. Use measured seating/T0 implementation and verification time to size later batches; ship reviewed construction families rather than enabling unfinished entries.

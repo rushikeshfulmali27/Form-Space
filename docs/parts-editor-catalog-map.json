@@ -478,10 +478,10 @@
       "variant": null,
       "family": "counters",
       "wave": 4,
-      "parts": "body, countertop, plinth, front-panels",
-      "controls": "Countertop thickness; plinth height; front-panel thickness/gap",
-      "rule": "Three existing front panels remain aligned to body; increasing top thickness adjusts body height without changing total height.",
-      "status": "planned"
+      "parts": "body, top, plinth, fronts",
+      "controls": "top: thickness; plinth: height; fronts: thickness/gap; individual member dimensions and finish/color",
+      "rule": "Body follows countertop underside and grounded plinth; three fixed front panels follow their forward anchor.",
+      "status": "implemented"
     },
     {
       "id": "service-counter",
@@ -490,10 +490,10 @@
       "variant": null,
       "family": "counters",
       "wave": 4,
-      "parts": "body, countertop, plinth, front-panels",
-      "controls": "Countertop thickness; plinth height; front-panel thickness/gap",
-      "rule": "Three existing front panels remain aligned to body; increasing top thickness adjusts body height without changing total height.",
-      "status": "planned"
+      "parts": "body, top, plinth, fronts",
+      "controls": "top: thickness; plinth: height; fronts: thickness/gap; individual member dimensions and finish/color",
+      "rule": "Body follows countertop underside and grounded plinth; three fixed front panels follow their forward anchor.",
+      "status": "implemented"
     },
     {
       "id": "bar-counter",
@@ -502,10 +502,10 @@
       "variant": null,
       "family": "counters",
       "wave": 4,
-      "parts": "body, countertop, plinth, front-panels",
-      "controls": "Countertop thickness; plinth height; front-panel thickness/gap",
-      "rule": "Three existing front panels remain aligned to body; increasing top thickness adjusts body height without changing total height.",
-      "status": "planned"
+      "parts": "body, top, plinth, fronts",
+      "controls": "top: thickness; plinth: height; fronts: thickness/gap; individual member dimensions and finish/color",
+      "rule": "Body follows countertop underside and grounded plinth; three fixed front panels follow their forward anchor.",
+      "status": "implemented"
     },
     {
       "id": "checkout-counter",
@@ -514,10 +514,10 @@
       "variant": null,
       "family": "counters",
       "wave": 4,
-      "parts": "body, countertop, plinth, front-panels",
-      "controls": "Countertop thickness; plinth height; front-panel thickness/gap",
-      "rule": "Three existing front panels remain aligned to body; increasing top thickness adjusts body height without changing total height.",
-      "status": "planned"
+      "parts": "body, top, plinth, fronts",
+      "controls": "top: thickness; plinth: height; fronts: thickness/gap; individual member dimensions and finish/color",
+      "rule": "Body follows countertop underside and grounded plinth; three fixed front panels follow their forward anchor.",
+      "status": "implemented"
     },
     {
       "id": "pastry-display-stand",
@@ -526,10 +526,10 @@
       "variant": null,
       "family": "tier-stand",
       "wave": 4,
-      "parts": "uprights, trays",
-      "controls": "Tray count/thickness; per-tier size; upright section",
-      "rule": "Trays taper with level; enforce decreasing footprint and attachment to rear posts. Lowest/highest tiers keep envelope anchors.",
-      "status": "planned"
+      "parts": "posts, trays",
+      "controls": "posts: section; trays: thickness; individual member dimensions and finish/color",
+      "rule": "2–6 counted trays include floor/top anchors. Stable numbered slots, reserved safe height bands, upper footprint limits and posts inside minimum tray size.",
+      "status": "implemented"
     },
     {
       "id": "plant-stand",
@@ -539,9 +539,9 @@
       "family": "plant-stand",
       "wave": 4,
       "parts": "platforms, supports",
-      "controls": "Three platform thicknesses/heights; support section",
-      "rule": "Three stepped platforms retain width layout; each support pair derives its height from the corresponding platform.",
-      "status": "planned"
+      "controls": "platforms: thickness; supports: section; individual member dimensions and finish/color",
+      "rule": "Three fixed stepped platforms; outer widths anchor total width and six posts follow platform undersides.",
+      "status": "implemented"
     },
     {
       "id": "garment-rail",
@@ -550,10 +550,10 @@
       "variant": null,
       "family": "garment-rails",
       "wave": 4,
-      "parts": "uprights, feet, hanging-rail, lower-shelf?",
-      "controls": "Rail/upright section; foot depth; optional shelf thickness/height",
-      "rule": "Only hanging-rack has the existing lower shelf. Rail spans supports; feet stay grounded.",
-      "status": "planned"
+      "parts": "feet, uprights, rail",
+      "controls": "feet: width/height; uprights: section; rail: section; individual member dimensions and finish/color",
+      "rule": "Feet anchor width/depth; uprights follow feet and top rail. Only hanging-rack has a lower shelf.",
+      "status": "implemented"
     },
     {
       "id": "hanging-rack",
@@ -562,10 +562,10 @@
       "variant": "shelf",
       "family": "garment-rails",
       "wave": 4,
-      "parts": "uprights, feet, hanging-rail, lower-shelf?",
-      "controls": "Rail/upright section; foot depth; optional shelf thickness/height",
-      "rule": "Only hanging-rack has the existing lower shelf. Rail spans supports; feet stay grounded.",
-      "status": "planned"
+      "parts": "feet, uprights, rail, shelf",
+      "controls": "feet: width/height; uprights: section; rail: section; shelf: height/thickness; individual member dimensions and finish/color",
+      "rule": "Feet anchor width/depth; uprights follow feet and top rail. Only hanging-rack has a lower shelf.",
+      "status": "implemented"
     },
     {
       "id": "accessory-stand",
@@ -574,10 +574,10 @@
       "variant": null,
       "family": "accessory-stand",
       "wave": 4,
-      "parts": "base, upright, crossbars",
-      "controls": "Base thickness/footprint; upright section; linked bar length/section",
-      "rule": "Two crossbars stay centered on upright at constrained levels; no added hooks.",
-      "status": "planned"
+      "parts": "base, mast, crossbars",
+      "controls": "base: thickness; mast: section; crossbars: section/width; individual member dimensions and finish/color",
+      "rule": "Grounded base, central mast and two fixed bars; upper bar anchors total height.",
+      "status": "implemented"
     },
     {
       "id": "brochure-holder",
@@ -586,10 +586,10 @@
       "variant": null,
       "family": "brochure-holder",
       "wave": 4,
-      "parts": "base, upright, pocket-assemblies",
-      "controls": "Base footprint/thickness; upright section; linked pocket depth/lip height",
-      "rule": "Three existing pockets each group back, floor and lip; keep fronts open and anchored to upright.",
-      "status": "planned"
+      "parts": "base, mast, backs, floors, lips",
+      "controls": "base: thickness; mast: section; backs: thickness/width; floors: thickness; lips: thickness/height; individual member dimensions and finish/color",
+      "rule": "Three fixed pocket backs/floors/lips share attachment anchors; support mast connects all pockets to the base.",
+      "status": "implemented"
     },
     {
       "id": "promotional-stand",
@@ -598,10 +598,10 @@
       "variant": null,
       "family": "promotional-stand",
       "wave": 4,
-      "parts": "base, back-panel, lower-shelf, upper-shelf",
-      "controls": "Base height; panel thickness; shelf thickness/heights",
-      "rule": "Shelf edges and back panel stay connected; heights are ordered inside overall envelope.",
-      "status": "planned"
+      "parts": "base, back, shelves",
+      "controls": "base: thickness; back: thickness; shelves: thickness; individual member dimensions and finish/color",
+      "rule": "Base and full-height back anchor two fixed shelves with separate center-height bands.",
+      "status": "implemented"
     },
     {
       "id": "freestanding-logo-display",
@@ -610,10 +610,10 @@
       "variant": null,
       "family": "logo-display",
       "wave": 4,
-      "parts": "base, support, logo-bars",
-      "controls": "Base footprint/height; support section; linked logo depth",
-      "rule": "Existing three bars form a fixed stylized mark, not editable text or uploaded logo. Keep their connecting silhouette.",
-      "status": "planned"
+      "parts": "base, support, mark",
+      "controls": "base: thickness; support: section; mark: section/thickness; individual member dimensions and finish/color",
+      "rule": "Three fixed F-mark bars; connecting support follows vertical stroke. No text or uploads.",
+      "status": "implemented"
     },
     {
       "id": "floor-lamp",
@@ -623,9 +623,9 @@
       "family": "floor-table-lamps",
       "wave": 5,
       "parts": "base, stem, shade, diffuser",
-      "controls": "Base footprint/thickness; stem diameter; shade size/height; diffuser inset",
-      "rule": "Shade follows stem endpoint; stem length derives from total height and shade. Diffuser remains at shade opening.",
-      "status": "planned"
+      "controls": "base: thickness; stem: diameter; shade: height; diffuser: thickness; individual member dimensions and finish/color",
+      "rule": "Grounded base, stem, tapered shade and diffuser remain attached; shade top anchors total height.",
+      "status": "implemented"
     },
     {
       "id": "table-lamp",
@@ -635,9 +635,9 @@
       "family": "floor-table-lamps",
       "wave": 5,
       "parts": "base, stem, shade, diffuser",
-      "controls": "Base footprint/thickness; stem diameter; shade size/height; diffuser inset",
-      "rule": "Shade follows stem endpoint; stem length derives from total height and shade. Diffuser remains at shade opening.",
-      "status": "planned"
+      "controls": "base: thickness; stem: diameter; shade: height; diffuser: thickness; individual member dimensions and finish/color",
+      "rule": "Grounded base, stem, tapered shade and diffuser remain attached; shade top anchors total height.",
+      "status": "implemented"
     },
     {
       "id": "pendant-light",
@@ -646,10 +646,10 @@
       "variant": null,
       "family": "pendants",
       "wave": 5,
-      "parts": "ceiling-canopy, suspension, shade, diffuser",
-      "controls": "Canopy size; suspension section; shade height/footprint",
-      "rule": "Overall height is the hanging drop, anchored at ceiling canopy. Shade/diffuser fit together; suspension bridges remaining distance.",
-      "status": "planned"
+      "parts": "mount, cable, shade, diffuser",
+      "controls": "mount: thickness; cable: diameter; shade: height; diffuser: thickness; individual member dimensions and finish/color",
+      "rule": "Ceiling mount top anchors total drop; cable follows shade and mount; diffuser bottom anchors zero.",
+      "status": "implemented"
     },
     {
       "id": "pendant-lamp",

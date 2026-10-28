@@ -71,9 +71,24 @@ test("registry resolves only explicitly enabled objects and trusted revisions", 
       "bed-frame",
       "dressing-table",
       "kitchen-island",
+      "reception-desk",
+      "service-counter",
+      "bar-counter",
+      "checkout-counter",
+      "pastry-display-stand",
+      "plant-stand",
+      "garment-rail",
+      "hanging-rack",
+      "accessory-stand",
+      "brochure-holder",
+      "promotional-stand",
+      "freestanding-logo-display",
+      "floor-lamp",
+      "table-lamp",
+      "pendant-light",
     ].sort(),
   );
-  for (const id of ["constructor", "__proto__", "reception-desk", "vase"]) {
+  for (const id of ["constructor", "__proto__", "chandelier", "vase"]) {
     assert.equal(getPartsProfile({ id }), null);
     assert.deepEqual(partDefinitions({ id }), {});
   }

@@ -18,6 +18,7 @@ import {
 import { Viewer, thumbnail } from "./viewer.js";
 import { loadWorkspace, saveWorkspace, storageMessage } from "./storage.js";
 import { PartsControls } from "./parts-controls.js";
+import { getPartsProfile } from "./parts.js";
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => [...document.querySelectorAll(s)];
 const icon = (name) => {
@@ -401,7 +402,9 @@ function render() {
   });
   $("#shelf-section").hidden = !design.shelves;
   $("#shelf-count-label").textContent =
-    design.id === "display-cabinet" ? "Open bay count" : "Shelf count";
+    design.id === "display-cabinet"
+      ? "Open bay count"
+      : getPartsProfile(design)?.shelfCountLabel || "Shelf count";
   if (design.shelves) {
     $("#shelf-count").value = design.shelves;
     $("#shelf-output").textContent = design.shelves;

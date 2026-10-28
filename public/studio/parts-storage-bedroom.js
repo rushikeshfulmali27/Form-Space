@@ -17,6 +17,10 @@ const recipes = Object.freeze({
   "bed-frame": ["bed", "", 0],
   "dressing-table": ["vanity", "", 0],
   "kitchen-island": ["counter", "", 3],
+  "reception-desk": ["counter", "", 3],
+  "service-counter": ["counter", "", 3],
+  "bar-counter": ["counter", "", 3],
+  "checkout-counter": ["counter", "", 3],
 });
 function trusted(d) {
   if (!Object.hasOwn(recipes, d.id))
